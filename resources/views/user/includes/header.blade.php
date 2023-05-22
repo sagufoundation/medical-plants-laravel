@@ -11,7 +11,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- FAVICON -->
-    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/188/188333.png">
+    <link rel="icon" type="image/x-icon" href="{{ asset($pengaturan->favicon) }}">
+
 
     <!-- TAILWIND CSS -->
     <script src="https://cdn.tailwindcss.com"></script>

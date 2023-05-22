@@ -4,12 +4,14 @@
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0 lg:w-1/2">
                     <a href="#" class="flex items-center">
-                        <img src="https://cdn-icons-png.flaticon.com/512/188/188333.png" class="mr-3 w-full lg:w-10" alt="Logo" />
-                        <span class="hidden lg:block self-center text-2xl font-semibold whitespace-nowrap text-green-700 dark:text-green-600">Traditional Medicinal Plants in Papua</span>
+                        <img src="{!! $pengaturan->logo  !!}" class="mr-3 w-full lg:w-10" alt="Logo" />
+                        <span class="hidden lg:block self-center text-2xl font-semibold whitespace-nowrap text-green-700 dark:text-green-600">
+                            {!! $pengaturan->site_title  !!}
+                        </span>
                     </a>
 
                     <div class="p-4 lg:pr-10 text-gray-800 dark:text-gray-400">
-                        <p class="mb-6 text-justify">Welcome to the Database of Traditional Medicinal Plants in Papua, a comprehensive and easily accessible resource for researchers, healthcare practitioners, and anyone interested in traditional medicine, aiming to promote the importance of preserving traditional medicinal knowledge and exploring it for global medicinal research.</p>
+                        <p class="mb-6 text-justify">{!! $pengaturan->site_description  !!}</p>
 
                         <a @click.prevent="page='connectwithus'" href="#"
                             class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-green-700 hover:text-gray-200 rounded-lg border border-green-700 hover:bg-green-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 hover:shadow-lg transition">
@@ -92,7 +94,7 @@
             <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
             <div class="sm:flex sm:items-center sm:justify-between">
                 <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-                    © 2023 <a href="#" class="hover:underline">Traditional Medicinal Plants in Papua™</a>. All Rights Reserved.
+                    {!! $pengaturan->copyright  !!}
                 </span>
 
                 <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
