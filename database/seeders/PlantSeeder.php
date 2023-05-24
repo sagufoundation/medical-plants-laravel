@@ -28,7 +28,7 @@ class PlantSeeder extends Seeder
 
         $plant = Plant::create([
             'id_location' => 3,
-            'id_contributor' => 1,
+            'id_contributor' => 3,
             'cover_picture' => '/assets/img/plants/plant-kurudu-inasi-koi.jpg',
             'local_name' => 'Inasi Koi',
             'taxonomists' => 'Scaevola Taccada (Gaertn.) Roxb.',

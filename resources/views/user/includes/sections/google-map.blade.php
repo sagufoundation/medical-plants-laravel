@@ -47,7 +47,7 @@
                     var text = document.createElement('text');
                     var string = `<div class="p-3">
 
-                    <h5> <a href="detail.php?nama-tempat=${item.tribes}" target="_blank"> ${item.tribes} </a>   <h5>
+                    <h5> <a href="/tribe/${item.slug}" target="_blank"> ${item.tribes} </a>   <h5>
                     </div>
                     `;
 

@@ -8,7 +8,7 @@
 <section class="bg-white dark:bg-gray-900">
     <div class="px-4 mx-auto max-w-screen-xl lg:pt-16 lg:px-6 ">
         <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
-            <h2 class="mb-4 text-6xl tracking-tight font-extrabold text-gray-900 dark:text-green-600">The Plants</h2>
+            <h2 class="mb-4 text-6xl tracking-tight font-extrabold text-gray-900 dark:text-green-600">The Plants {{$data->tribes}} </h2>
             <p class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">Discover the traditional medicinal plants recognized by Indigenous Papuans in Papua, Indonesia. Our comprehensive database includes information on their traditional uses, chemical properties, and potential health benefits.</p>
         </div>
     </div>

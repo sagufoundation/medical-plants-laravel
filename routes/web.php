@@ -22,6 +22,8 @@ Route::controller(DashboardController::class)->group(function(){
     Route::get('/sponsor','sponsor')->name('user.sponsor');
     Route::get('/connect-with-us','connent')->name('user.connent');
     Route::get('/json','json')->name('json');
+    Route::post('/filter','filter')->name('filter');
+    Route::get('/tribe/{id}','tribe')->name('tribe');
     // Route::get('/connent','connent')->name('user.connent');
     Route::get('/login','login')->name('login');
 });
