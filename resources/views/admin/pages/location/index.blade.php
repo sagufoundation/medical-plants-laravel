@@ -134,7 +134,7 @@
                     var text = document.createElement('text');
                     var string = `<div class="p-3">
 
-                    <h5> <a href="detail.php?nama-tempat=${item.tribes}" target="_blank"> ${item.tribes} </a>   <h5>
+                    <h5> <a href="#" target="_blank"> ${item.tribes} </a>   <h5>
                     </div>
                     `;
 
@@ -143,7 +143,7 @@
 
 
                     infowincontent.textContent  = string;
-                    var url = `/${item.icon_img}`
+                    var url = `${item.icon_img}`
                 console.info(url);
 
                     //marker option

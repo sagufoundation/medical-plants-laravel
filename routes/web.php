@@ -20,7 +20,9 @@ Route::controller(DashboardController::class)->group(function(){
     Route::get('/contributor','contributor')->name('user.contributor');
     Route::get('/overview','overview')->name('user.overview');
     Route::get('/sponsor','sponsor')->name('user.sponsor');
-    Route::get('/connent','connent')->name('user.connent');
+    Route::get('/connect-with-us','connent')->name('user.connent');
+    Route::get('/json','json')->name('json');
+    // Route::get('/connent','connent')->name('user.connent');
     Route::get('/login','login')->name('login');
 });
 

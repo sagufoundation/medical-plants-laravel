@@ -73,46 +73,30 @@
     </section>
     <!-- SEARCH END -->
 
-<script src="./assets/js/dataPlants.js"> </script>
+{{-- <script src="./assets/js/dataPlants.js"> </script> --}}
 
 <section class="bg-white dark:bg-gray-900 pb-16">
-    <div class="container max-w-screen-xl mx-auto p-4" x-data="data" >
+    <div class="container max-w-screen-xl mx-auto p-4" >
 
         <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6" id="dataPlants">
             <!-- platn's data -->
-            <template x-for="plant in plants">
+            @foreach ($all as $data )
                 <div>
-                    <a
-                        @click.prevent="
-                            page='theplantsdetail'
-                            detail[0].created_at=plant.created_at
-                            detail[0].updated_at=plant.updated_at
-                            detail[0].plant_name_in_indonesia=plant.plant_name_in_indonesia
-                            detail[0].plant_name_in_local=plant.plant_name_in_local
-                            detail[0].plant_name_in_latin=plant.plant_name_in_latin
-                            detail[0].plant_photo=plant.plant_photo
-                            detail[0].taxonomists=plant.taxonomists
-                            detail[0].treatments=plant.treatments
-                            detail[0].traditional_usage=plant.traditional_usage
-                            detail[0].contributor=plant.contributor
-                            detail[0].treatments=plant.treatments
-                            detail[0].tribe=plant.tribe
-                            detail[0].contributor_photo=plant.contributor_photo
-                        "
-                    href="" class="cursor-pointer">
-                        <img x-bind:src="plant.plant_photo" src="plant.plant_photo" class="mb-4 rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-md" alt="plant.plant_photo">
+                    <a href="" class="cursor-pointer">
+                        <img  src="{{url($data->cover_picture)}}"  class="mb-4 rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-md" alt="{{$data->local_name}}">
                     </a>
-                    <a href="" class="dark:text-gray-500 hover:underline"><i class="fa-solid fa-map-marker"></i> <span x-text="plant.tribe"></span></a>
+                    <a href="#" class="dark:text-gray-500 hover:underline"><i class="fa-solid fa-map-marker"></i> <span> {{$data->tribes}}</span></a>
 
-                    <h3 class="text-4xl font-bold text-green-600 my-1" x-text="plant.plant_name_in_local"></h3>
-                    <p class="dark:text-gray-300 mb-2"><span x-html="plant.plant_name_in_latin"></span></p>
+                    <h3 class="text-4xl font-bold text-green-600 my-1"> {{$data->local_name}}</h3>
+                    <p class="dark:text-gray-300 mb-2"><span> {{$data->taxonomists}} </span></p>
 
                     <div class="grid grid-cols-2 text-sm mb-4">
-                        <p class="dark:text-gray-500"><i class="fa-solid fa-user"></i> <span x-text="plant.contributor"></span></p>
-                        <p class="dark:text-gray-500"><i class="fa-solid fa-calendar-check"></i> <span x-text="plant.updated_at"></span></p>
+                        <p class="dark:text-gray-500"><i class="fa-solid fa-user"></i> <span> {{$data->full_name}}</span></p>
+                        <p class="dark:text-gray-500"><i class="fa-solid fa-calendar-check"></i> <span > {{ date('d-m-Y', strtotime($data->updated_at)) }}</span></p>
                     </div>
                 </div>
-            </template>
+            @endforeach
+
         </div>
     </div>
 </section>

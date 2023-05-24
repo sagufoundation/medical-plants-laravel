@@ -23,19 +23,19 @@
                     <div class="p-4 sm:flex sm:items-center sm:justify-between">
 
                         <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-                            <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                            <a href="{{$pengaturan->facebook}}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                                 <i class="fa-brands fa-facebook"></i>
                             </a>
-                            <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                            <a href="{{$pengaturan->instagram}}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
-                            <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                            <a href="{{$pengaturan->twitter}}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                                 <i class="fa-brands fa-twitter"></i>
                             </a>
-                            <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                            <a href="{{$pengaturan->linkedin}}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                                 <i class="fa-brands fa-linkedin"></i>
                             </a>
-                            <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                            <a href="{{$pengaturan->youtube}}" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                                 <i class="fa-brands fa-youtube"></i>
                             </a>
                         </div>

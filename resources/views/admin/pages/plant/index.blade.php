@@ -41,10 +41,10 @@
                         <tr>
                             <td scope="col" class="px-6 py-3">
                                 @if ($data->cover_picture == null)
-                                    <img class="w-8 h-8 rounded-full" src="/assets/img/plant.png"
+                                    <img class="w-8 h-8" src="/assets/img/plant.png"
                                     alt="{{$data->local_name}}">
                                 @else
-                                    <img  alt="{{$data->local_name}}" class="w-8 h-8 rounded-full" src="{{url($data->cover_picture)}}">
+                                    <img  alt="{{$data->local_name}}" class="w-8 h-8" src="{{url($data->cover_picture)}}">
                                 @endif
                             </td>
                             <td scope="col" class="px-6 py-3">
