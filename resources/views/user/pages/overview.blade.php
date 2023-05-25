@@ -3,6 +3,7 @@
     Overview - Traditional Medicinal Plants in Papua
     @endsection
 @section('content')
+
 <!-- heading start -->
 <section class="bg-white dark:bg-gray-900">
     <div class="px-4 mx-auto max-w-screen-xl lg:pt-16 lg:px-6 ">
@@ -31,6 +32,5 @@
         </div>
     </div>
 </section>
-
 
 @stop
