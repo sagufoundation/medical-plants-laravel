@@ -234,8 +234,19 @@ class PlantController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Plant $plant)
+    public function destroy($slug)
     {
-        //
+        $datalama = Plant::where('slug_plant',$slug)->first();
+        if($datalama->cover_picture){
+            File::delete($datalama->cover_picture);
+        }
+        $deleted = DB::table('plants')->where('slug_plant', '=', $slug)->delete();
+        if($deleted)
+        {
+            alert()->success('Done', 'Success !!');
+        }else{
+            alert()->error('Error', 'Failed !!');
+        }
+        return redirect()->back();
     }
 }

@@ -13,6 +13,70 @@ class PlantSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $plant = Plant::create([
+            'id_location' => 1,
+            'id_contributor' => 1,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
+        $plant = Plant::create([
+            'id_location' => 1,
+            'id_contributor' => 1,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
+        $plant = Plant::create([
+            'id_location' => 1,
+            'id_contributor' => 1,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
+
+        $plant = Plant::create([
+            'id_location' => 2,
+            'id_contributor' => 2,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
+        $plant = Plant::create([
+            'id_location' => 2,
+            'id_contributor' => 2,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
+        $plant = Plant::create([
+            'id_location' => 2,
+            'id_contributor' => 2,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
+
+
         $plant = Plant::create([
             'id_location' => 3,
             'id_contributor' => 1,
@@ -47,6 +111,135 @@ class PlantSeeder extends Seeder
             'status' => '1',
             'slug_plant' => 'krataweri',
         ]);
+
+
+
+
+        $plant = Plant::create([
+            'id_location' => 4,
+            'id_contributor' => 1,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
+        $plant = Plant::create([
+            'id_location' => 4,
+            'id_contributor' => 1,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
+        $plant = Plant::create([
+            'id_location' => 4,
+            'id_contributor' => 1,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
+
+
+        $plant = Plant::create([
+            'id_location' => 6,
+            'id_contributor' => 2,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
+        $plant = Plant::create([
+            'id_location' => 6,
+            'id_contributor' => 2,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
+        $plant = Plant::create([
+            'id_location' => 6,
+            'id_contributor' => 2,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
+
+        $plant = Plant::create([
+            'id_location' => 6,
+            'id_contributor' => 3,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
+        $plant = Plant::create([
+            'id_location' => 6,
+            'id_contributor' => 3,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
+        $plant = Plant::create([
+            'id_location' => 6,
+            'id_contributor' => 3,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
+
+
+        $plant = Plant::create([
+            'id_location' => 7,
+            'id_contributor' => 1,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
+        $plant = Plant::create([
+            'id_location' => 7,
+            'id_contributor' => 1,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
+        $plant = Plant::create([
+            'id_location' => 7,
+            'id_contributor' => 1,
+            'cover_picture' => '/assets/img/plants/plant.png',
+            'local_name' => 'Lorem, ipsum.',
+            'taxonomists' => 'Lorem ipsum dolor sit.',
+            'treatments' => '-',
+            'status' => '1',
+        ]);
+
 
 
     }

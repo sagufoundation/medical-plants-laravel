@@ -4,7 +4,7 @@
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0 lg:w-1/2">
                     <a href="#" class="flex items-center">
-                        <img src="{!! $pengaturan->logo  !!}" class="mr-3 w-full lg:w-10" alt="Logo" />
+                        <img src="{{ url($pengaturan->logo)  }}" class="mr-3 w-full lg:w-10" alt="Logo" />
                         <span class="hidden lg:block self-center text-2xl font-semibold whitespace-nowrap text-green-700 dark:text-green-600">
                             {!! $pengaturan->site_title  !!}
                         </span>
@@ -47,16 +47,16 @@
                         </h2>
                         <ul class="text-gray-600 dark:text-gray-400">
                             <li class="mb-3">
-                                <a @click.prevent="page='developerteam'" href="" class="hover:underline">Developer Team</a>
+                                <a  href="#" class="hover:underline">Developer Team</a>
                             </li>
                             <li class="mb-3">
-                                <a @click.prevent="page='taxonomyteam'" href="" class="hover:underline">Taxonomy Team</a>
+                                <a  href="#" class="hover:underline">Taxonomy Team</a>
                             </li>
                             <li class="mb-3">
-                                <a @click.prevent="page='ethnobotanyteam'" href="" class="hover:underline">Ethnobotany Team</a>
+                                <a  href="#" class="hover:underline">Ethnobotany Team</a>
                             </li>
                             <li class="mb-3">
-                                <a @click.prevent="page='phytochemistryteam'" href="" class="hover:underline">Phytochemistry Team</a>
+                                <a  href="#" class="hover:underline">Phytochemistry Team</a>
                             </li>
                         </ul>
                     </div>
@@ -64,10 +64,10 @@
                         <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-green-600">What We Do</h2>
                         <ul class="text-gray-600 dark:text-gray-400">
                             <li class="mb-3">
-                                <a @click.prevent="page='discover'" href="" class="hover:underline ">Discover</a>
+                                <a href="#" class="hover:underline ">Discover</a>
                             </li>
                             <li class="mb-3">
-                                <a @click.prevent="page='research'" href="" class="hover:underline">Research</a>
+                                <a  href="#" class="hover:underline">Research</a>
                             </li>
                         </ul>
                     </div>
@@ -76,10 +76,10 @@
                         </h2>
                         <ul class="text-gray-600 dark:text-gray-400">
                             <li class="mb-3">
-                                <a @click.prevent="page='privacyandpolicy'" href="" class="hover:underline">Privacy Policy</a>
+                                <a  href="#" class="hover:underline">Privacy Policy</a>
                             </li>
                             <li class="mb-3">
-                                <a @click.prevent="page='termsandconditions'" href="" class="hover:underline">Terms &amp; Conditions</a>
+                                <a href="#" class="hover:underline">Terms &amp; Conditions</a>
                             </li>
                         </ul>
 

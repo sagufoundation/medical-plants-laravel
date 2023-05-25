@@ -23,7 +23,9 @@ Route::controller(DashboardController::class)->group(function(){
     Route::get('/connect-with-us','connent')->name('user.connent');
     Route::get('/json','json')->name('json');
     Route::post('/filter','filter')->name('filter');
+    Route::post('/location','location')->name('location');
     Route::get('/tribe/{id}','tribe')->name('tribe');
+    Route::get('/detail-plant/{id}','detail_plant')->name('detail-plant');
     // Route::get('/connent','connent')->name('user.connent');
     Route::get('/login','login')->name('login');
 });

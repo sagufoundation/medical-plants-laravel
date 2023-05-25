@@ -58,7 +58,7 @@
                     </ul>
 
                 </div>
-                <div class="container max-w-screen-xl mx-auto p-4 bg-white dark:bg-gray-900 pb-16" >
+                <div class="container max-w-screen-xl mx-auto p-4 bg-white dark:bg-gray-900 pb-16 pt-16" >
 
                     <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6" id="dataPlants">
                         <!-- platn's data -->
@@ -92,9 +92,9 @@
     $('#keyword').on('keyup', function(){
         keyword();
     });
-    $('input[name="choose"]').change(function() {
-        keyword();
-    });
+    // $('input[name="choose"]').change(function() {
+    //     keyword();
+    // });
     keyword();
     function keyword(){
          var keyword = $('#keyword').val();
@@ -116,7 +116,7 @@
     for(let i = 0; i < res.length; i++){
         htmlView += `
         <div>
-                                <a href="#" class="cursor-pointer">
+                                <a href="/detail-plant/`+res[i].slug_plant+`" class="cursor-pointer">
                                     <img  src=`+res[i].cover_picture+`  class="mb-4 rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-md" alt="`+res[i].local_name+`">
                                 </a>
                                 <a href="#" class="dark:text-gray-500 hover:underline"><i class="fa-solid fa-map-marker"></i> <span> `+res[i].tribes+`</span></a>

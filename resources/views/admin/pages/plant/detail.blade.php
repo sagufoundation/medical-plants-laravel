@@ -98,9 +98,6 @@
                         <input readonly type="" name="Location" id="Location"
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="" required=""  value="{{old('treatments') ? old('treatments') : $data->full_name }}">
-                            @if($errors->has('id_location'))
-                                <p class="text-red-900"> {{ $errors->first('id_location') }} </p>
-                            @endif
                             @if($errors->has('id_contributor'))
                                 <p class="text-red-900"> {{ $errors->first('id_contributor') }} </p>
                             @endif

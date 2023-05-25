@@ -5,7 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\File;
 
 class DashboardController extends Controller
 {
@@ -83,10 +83,47 @@ class DashboardController extends Controller
     public function filter(Request $request)
     {
         $keyword = $request->keyword;
+        $location = $request->location;
         $all = DB::table('plants')
         ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
         ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
         ->where('plants.status','=',1)
+        ->where(function($query) use ($keyword){
+            $query->orWhere('plants.local_name', 'like', '%' . $keyword . '%')
+                ->orWhere('plants.taxonomists', 'like', '%' . $keyword . '%')
+                ->orWhere('locations.tribes', 'like', '%' . $keyword . '%')
+                ->orWhere('contributors.full_name', 'like', '%' . $keyword . '%');
+        });
+        if($request->choose === 'plant' )
+        {
+            $all->orderBy('plants.local_name', 'asc');
+        }elseif($request->choose === 'tribe')
+        {
+            $all->orderBy('locations.tribes', 'asc');
+        }elseif($request->choose === 'contributor')
+        {
+            $all->orderBy('contributors.full_name', 'desc');
+        }else{
+            $all->orderBy('plants.updated_at', 'asc');
+        }
+        if($location != null)
+        {
+            $all->where('locations.slug','=',$location);
+        }
+        $all = $all->get();
+
+        return $all;
+    }
+
+    public function location(Request $request)
+    {
+        $keyword = $request->keyword;
+        $location_slug = $request->location;
+        $all = DB::table('plants')
+        ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+        ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+        ->where('plants.status','=',1)
+        ->where('locations.slug','=',$request->slug)
         ->where(function($query) use ($keyword){
             $query->orWhere('plants.local_name', 'like', '%' . $keyword . '%')
                 ->orWhere('plants.taxonomists', 'like', '%' . $keyword . '%')
@@ -118,5 +155,17 @@ class DashboardController extends Controller
                    ->get()->first();
 
         return view('user.pages.tribe',['data' => $data]);
+    }
+
+    public function detail_plant($slug)
+    {
+        $data = DB::table('plants')
+        ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+        ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+        ->where('plants.status','=',1)
+        ->where('plants.slug_plant','=',$slug)
+        ->get()
+        ->first();
+        return view('user.pages.detail-plant',compact('data'));
     }
 }
