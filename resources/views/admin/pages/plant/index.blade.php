@@ -17,7 +17,7 @@
         </a>
 
         <div class="relative overflow-x-auto sm:rounded-lg border p-7">
-            
+
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -64,7 +64,7 @@
                                 {{$data->treatments}}
                             </td>
                             <td scope="col" class="px-6 py-3">
-                                {{$data->id_contributor}}
+                                {{$data->full_name}}
                             </td>
                             <td scope="col" class="px-6 py-3 flex gap-1">
                                 <a href="{{ route('admin.plant.show',$data->id)}}" class="bg-green-700 hover:bg-green-800 text-gray-200 px-3 py-2 rounded transition"><i class="fa-solid fa-eye"></i> Preview</a>
