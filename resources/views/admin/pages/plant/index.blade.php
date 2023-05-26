@@ -49,7 +49,7 @@
                                 @if ($data->cover_picture == null)
                                     <img class="w-8 h-8" src="/assets/img/plant.png" alt="Plant's image" width="150px" class="">
                                 @else
-                                    <a href="{{ route('admin.plant.show',$data->slug_plant)}}" class="hover:shadow-sm">
+                                    <a href="{{ route('admin.plant.show',$data->id)}}" class="hover:shadow-sm">
                                         <img src="{{ url($data->cover_picture) }}" alt="Plant's image" width="150px" class="">
                                     </a>
                                 @endif
@@ -67,11 +67,11 @@
                                 {{$data->id_contributor}}
                             </td>
                             <td scope="col" class="px-6 py-3 flex gap-1">
-                                <a href="{{ route('admin.plant.show',$data->slug_plant)}}" class="bg-green-700 hover:bg-green-800 text-gray-200 px-3 py-2 rounded transition"><i class="fa-solid fa-eye"></i> Preview</a>
+                                <a href="{{ route('admin.plant.show',$data->id)}}" class="bg-green-700 hover:bg-green-800 text-gray-200 px-3 py-2 rounded transition"><i class="fa-solid fa-eye"></i> Preview</a>
 
-                                <a href="{{ route('admin.plant.edit', $data->slug_plant)}}" class="border border-green-800 text-green-800 hover:bg-green-800 hover:text-white px-3 py-2 rounded transition"><i class="fa-solid fa-pencil"></i></a>
+                                <a href="{{ route('admin.plant.edit', $data->id)}}" class="border border-green-800 text-green-800 hover:bg-green-800 hover:text-white px-3 py-2 rounded transition"><i class="fa-solid fa-pencil"></i></a>
 
-                                <form action="{{ route('admin.plant.destroy', $data->slug_plant) }}" method="POST">
+                                <form action="{{ route('admin.plant.destroy', $data->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="border border-red-500 text-red-500 hover:bg-red-600 hover:text-white px-3 py-2 rounded transition"><i class="fa-solid fa-trash"></i></button>

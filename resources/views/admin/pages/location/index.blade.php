@@ -86,7 +86,7 @@
 
         </div>
 
-        <div class="container shadow mt-8">
+        <div class="relative overflow-x-auto sm:rounded-lg border mt-7">
             <div id="map" class="p-5" style="height: 800px;"></div>
         </div>
     </div>

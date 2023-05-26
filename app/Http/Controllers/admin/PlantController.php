@@ -159,7 +159,7 @@ class PlantController extends Controller
         $data = DB::table('plants')
                ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
                ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-               ->where('plants.id_plant','=',$id)
+               ->where('plants.id','=',$id)
                ->orderBy('plants.id', 'desc')
                ->get()->first();
 
@@ -172,7 +172,7 @@ class PlantController extends Controller
     public function edit($id)
     {
         $data = DB::table('plants')
-            ->where('plants.id_plant','=',$id)
+            ->where('plants.id','=',$id)
             ->get()->first();
 
         $location = DB::table('locations')
@@ -213,7 +213,7 @@ class PlantController extends Controller
         $bulan = date("M");
         if ($request->hasFile('cover_picture'))
         {
-            $datalama = Plant::where('id_plant',$id)->first();
+            $datalama = Plant::where('id',$id)->first();
             if($datalama->cover_picture){
                 File::delete($datalama->cover_picture);
             }
@@ -225,7 +225,7 @@ class PlantController extends Controller
         }
 
         $update = DB::table('plants')
-        ->where('id_plant', $id)
+        ->where('id', $id)
         ->update($data);
 
         alert()->success('Done', 'Success !!');
@@ -239,11 +239,11 @@ class PlantController extends Controller
      */
     public function destroy($id)
     {
-        $datalama = Plant::where('id_plant',$id)->first();
+        $datalama = Plant::where('id',$id)->first();
         if($datalama->cover_picture){
             File::delete($datalama->cover_picture);
         }
-        $deleted = DB::table('plants')->where('id_plant', '=', $id)->delete();
+        $deleted = DB::table('plants')->where('id', '=', $id)->delete();
         if($deleted)
         {
             alert()->success('Done', 'Success !!');

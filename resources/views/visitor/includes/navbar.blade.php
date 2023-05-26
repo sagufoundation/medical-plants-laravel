@@ -42,65 +42,63 @@
             <div class=" justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                 <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                     <li>
-                        <a href="{{route('visitor.home')}}"
+                        <a href="{{ route('visitor.home') }}"
                             @if(Request::segment(1) == 'home')
                             class="block py-2 pr-4 pl-3 text-green-700 font-bold rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
                             @else
                             class="block py-2 pr-4 pl-3 text-gray-700 rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
                             @endif
-                            aria-current="page">
-                            Home
+                            aria-current="page"> Home
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('visitor.thePlants')}}"
+                        <a href="{{ route('visitor.thePlants') }}"
                             @if(Request::segment(1) == 'the-plants')
                             class="block py-2 pr-4 pl-3 text-green-700 font-bold rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
                             @else
                             class="block py-2 pr-4 pl-3 text-gray-700 rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
                             @endif
-                            aria-current="page">
-                            The Plants
+                            aria-current="page"> The Plants
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('visitor.overview')}}"
+                        <a href="{{ route('visitor.overview')}}"
                             @if(Request::segment(1) == 'overview')
                             class="block py-2 pr-4 pl-3 text-green-700 font-bold rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
                             @else
                             class="block py-2 pr-4 pl-3 text-gray-700 rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
                             @endif
-                            aria-current="page">
-                            Overview
+                            aria-current="page"> Overview
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('visitor.howToContribute')}}"
+                        <a href="{{ route('visitor.howToContribute') }}"
                             @if(Request::segment(1) == 'how-to-contribute')
                             class="block py-2 pr-4 pl-3 text-green-700 font-bold rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
                             @else
                             class="block py-2 pr-4 pl-3 text-gray-700 rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
                             @endif
-                            aria-current="page">
-                            How To Contribute
+                            aria-current="page"> How To Contribute
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('visitor.ourSponsors')}}"
+                        <a href="{{ route('visitor.ourSponsors') }}"
                             @if(Request::segment(1) == 'our-sponsors')
                             class="block py-2 pr-4 pl-3 text-green-700 font-bold rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
                             @else
                             class="block py-2 pr-4 pl-3 text-gray-700 rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
                             @endif
-                            aria-current="page">
-                            Our Sponsors
+                            aria-current="page"> Our Sponsors
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('visitor.connectWithUs')}}"
+                        <a href="{{ route('visitor.connectWithUs') }}"
+                            @if(Request::segment(1) == 'connect-with-us')
+                            class="block py-2 pr-4 pl-3 text-green-700 font-bold rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
+                            @else
                             class="block py-2 pr-4 pl-3 text-gray-700 rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
-                            aria-current="page">
-                            Connect With Us
+                            @endif
+                            aria-current="page"> Connect With us
                         </a>
                     </li>
                 </ul>

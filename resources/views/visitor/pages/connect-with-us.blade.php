@@ -19,10 +19,11 @@
 
 <section class="bg-white dark:bg-gray-900 pb-16">
     <div class="grid grid-cols-2 px-4 mx-auto max-w-screen-xl">
-        <div class="pr-10">
+        <div class="pr-10 text-center">
 
+            <img src="{{ asset($pengaturan->logo) }}" alt="Logo">
 
-        <h2 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-300 mb-6">Send us message</h2>
+            {{-- <h2 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-300 mb-6">Send us message</h2>
 
             <form action="">
                 <div class="sm:col-span-2 mb-4">
@@ -52,7 +53,8 @@
                     <button type="submit"
                         class="block w-full rounded-md bg-indigo-600 px-3.5 py-4 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"><i class="fa-solid fa-paper-plane mr-2"></i>Send now</button>
                 </div>
-            </form>
+            </form> --}}
+
         </div>
         <div>
             <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400 text-justify"> To connect with us and contribute to

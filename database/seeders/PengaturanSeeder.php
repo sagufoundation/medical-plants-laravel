@@ -43,7 +43,7 @@ class PengaturanSeeder extends Seeder
             'youtube'           => "https://www.youtube.com/@medicinalplantspapua",
             
             // Copyright
-            'copyright'         => '<p>© 2023 <a href="#" class="hover:underline">Traditional Medicinal Plants in Papua™</a>. All Rights Reserved.</p>',
+            'copyright'         => '<p>© 2023 <a href="https://medicinalplantspapua.org/" class="hover:underline">Traditional Medicinal Plants in Papua™</a>. All Rights Reserved.</p>',
 
         ]);
     }

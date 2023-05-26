@@ -3,7 +3,9 @@
     <footer class="p-4 bg-gray-200 sm:p-6 dark:bg-gray-800">
         <div class="mx-auto max-w-screen-xl">
             <div class="sm:flex sm:items-center sm:justify-between">
-                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="#" class="hover:underline">Medicinal Plants in Papua™</a>. All Rights Reserved. </span>
+                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+                    {!! $pengaturan->copyright !!}
+                </span>
             </div>
         </div>
     </footer>
