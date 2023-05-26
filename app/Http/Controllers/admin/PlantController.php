@@ -116,17 +116,21 @@ class PlantController extends Controller
             'treatments'                     => 'required',
             'status'                         => 'required',
             'cover_picture'                  => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'gallery_picture'                => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $tahun = date("Y");
         $bulan = date("M");
 
-        //upload cover_picture
+        // COVER PICTURE
         $filename  = 'medicalplant'.'-'.date('Y-m-d-H-i-s').$request->file('cover_picture')->getClientOriginalName();
-
-        $request->file('cover_picture')->storeAs('public/resource/plant/'.$tahun.'/'.$bulan,$filename);
-
+        $request->file('cover_picture')->storeAs('public/resource/plant/'.$tahun.'/'.$bulan, $filename);
         $url = ('storage/resource/plant/'.$tahun.'/'.$bulan.'/'.$filename);
+
+        // GALLERY PICTURE
+        $galleryfilename  = 'medicalplant'.'-'.date('Y-m-d-H-i-s').$request->file('cover_picture')->getClientOriginalName();
+        $request->file('gallery_picture')->storeAs('public/resource/plant/'.$tahun.'/'.$bulan, $galleryfilename);
+        $galleryurl = ('storage/resource/plant/gallery/'.$tahun.'/'.$bulan.'/'.$filename);
 
          //create
          $plant = Plant::create([
@@ -138,11 +142,10 @@ class PlantController extends Controller
             'province'=> $request->province,
             'status'=> $request->status,
             'cover_picture'=> $url,
+            'gallery_picture'=> $galleryurl,
         ]);
 
         alert()->success('Done', 'Success !!');
-        // alert()->success('Title','Lorem Lorem Lorem');
-
         return redirect()->route('admin.plant');
 
 
@@ -151,12 +154,12 @@ class PlantController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($slug)
+    public function show($id)
     {
         $data = DB::table('plants')
                ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
                ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-               ->where('plants.slug_plant','=',$slug)
+               ->where('plants.id_plant','=',$id)
                ->orderBy('plants.id', 'desc')
                ->get()->first();
 
@@ -166,19 +169,19 @@ class PlantController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($slug)
+    public function edit($id)
     {
         $data = DB::table('plants')
-        ->where('plants.slug_plant','=',$slug)
-        ->get()->first();
+            ->where('plants.id_plant','=',$id)
+            ->get()->first();
 
         $location = DB::table('locations')
-        ->where('locations.status','=',1)
-        ->orderBy('locations.id', 'desc')->get();
+            ->where('locations.status','=',1)
+            ->orderBy('locations.id', 'desc')->get();
 
         $contributor = DB::table('contributors')
-        ->where('contributors.status_contributor','=',1)
-        ->orderBy('contributors.id', 'desc')->get();
+            ->where('contributors.status_contributor','=',1)
+            ->orderBy('contributors.id', 'desc')->get();
 
         return view('admin.pages.plant.edit',['data' => $data, 'locations' => $location, 'contributors' => $contributor ]);
     }
@@ -186,7 +189,7 @@ class PlantController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $slug)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'id_location'                    => 'required',
@@ -210,7 +213,7 @@ class PlantController extends Controller
         $bulan = date("M");
         if ($request->hasFile('cover_picture'))
         {
-            $datalama = Plant::where('slug_plant',$slug)->first();
+            $datalama = Plant::where('id_plant',$id)->first();
             if($datalama->cover_picture){
                 File::delete($datalama->cover_picture);
             }
@@ -222,7 +225,7 @@ class PlantController extends Controller
         }
 
         $update = DB::table('plants')
-        ->where('slug_plant', $slug)
+        ->where('id_plant', $id)
         ->update($data);
 
         alert()->success('Done', 'Success !!');
@@ -234,13 +237,13 @@ class PlantController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($slug)
+    public function destroy($id)
     {
-        $datalama = Plant::where('slug_plant',$slug)->first();
+        $datalama = Plant::where('id_plant',$id)->first();
         if($datalama->cover_picture){
             File::delete($datalama->cover_picture);
         }
-        $deleted = DB::table('plants')->where('slug_plant', '=', $slug)->delete();
+        $deleted = DB::table('plants')->where('id_plant', '=', $id)->delete();
         if($deleted)
         {
             alert()->success('Done', 'Success !!');

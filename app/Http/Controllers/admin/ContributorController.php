@@ -19,7 +19,7 @@ class ContributorController extends Controller
      */
     public function index()
     {
-        $status = '1';
+        $status = 'Publish';
         $judul = 'Publish';
        $all = Contributor::where('status_contributor', $status)->orderBy('id', 'desc')->get();
        return view('admin.pages.contributor.index', [
@@ -30,7 +30,7 @@ class ContributorController extends Controller
 
     public function publish()
     {
-        $status = '1';
+        $status = 'Publish';
         $judul = 'Publish';
         $all = Contributor::where('status_contributor', $status)->orderBy('id', 'desc')->get();
         return view('admin.pages.contributor.index', [
@@ -42,7 +42,7 @@ class ContributorController extends Controller
 
     public function review()
     {
-        $status = '2';
+        $status = 'Review';
         $judul = 'Review';
         $all = Contributor::where('status_contributor', $status)->orderBy('id', 'desc')->get();
         return view('admin.pages.contributor.index', [
@@ -53,8 +53,8 @@ class ContributorController extends Controller
 
     public function draft()
     {
-        $status = '3';
-        $judul = 'draft';
+        $status = 'Draft';
+        $judul = 'Draft';
         $all = Contributor::where('status_contributor', $status)->orderBy('id', 'desc')->get();
         return view('admin.pages.contributor.index', [
          'all' => $all,
@@ -99,25 +99,24 @@ class ContributorController extends Controller
 
         //create
         $contributor = Contributor::create([
-            'full_name'=> $request->full_name,
-            'email'=> $request->email,
-            'address'=> $request->address,
-            'city'=> $request->city,
-            'descriptions'=> $request->descriptions,
-            'province'=> $request->province,
-            'status_contributor'=> $request->status_contributor,
-            'photo'=> $url,
-            'status_contributor'=> $request->status_contributor,
+            'full_name'                 => $request->full_name,
+            'email'                     => $request->email,
+            'address'                   => $request->address,
+            'city'                      => $request->city,
+            'descriptions'              => $request->descriptions,
+            'province'                  => $request->province,
+            'status_contributor'        => $request->status_contributor,
+            'photo'                     => $url,
+            'status_contributor'        => $request->status_contributor,
         ]);
 
          User::create([
-            'name' => $request->full_name,
-            'email' => $request->email,
-            'password' => Hash::make('1122qqww'),
+            'name'                      => $request->full_name,
+            'email'                     => $request->email,
+            'password'                  => Hash::make('1122qqww'),
         ]);
 
-        alert()->success('Done', 'Success !!');
-        // alert()->success('Title','Lorem Lorem Lorem');
+        alert()->success('Store', 'Success !!');
 
         return redirect()->route('admin.contributor');
     }
@@ -125,26 +124,25 @@ class ContributorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($slug)
+    public function show($id)
     {
-        $data = Contributor::where('slug',$slug)->first();
-        // dd($data);
+        $data = Contributor::where('id',$id)->first();
         return view('admin.pages.contributor.detail', compact('data'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($slug)
+    public function edit($id)
     {
-        $data = Contributor::where('slug',$slug)->first();
+        $data = Contributor::where('id', $id)->first();
         return view('admin.pages.contributor.edit', compact('data'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request,  $slug)
+    public function update(Request $request,  $id)
     {
         $tahun = date("Y");
         $bulan = date("M");
@@ -171,7 +169,7 @@ class ContributorController extends Controller
 
         if ($request->hasFile('photo'))
         {
-            $datalama = Contributor::where('slug',$slug)->first();
+            $datalama = Contributor::where('id',$id)->first();
             if($datalama->photo){
                 File::delete($datalama->photo);
             }
@@ -185,28 +183,28 @@ class ContributorController extends Controller
         }
 
         $update = DB::table('contributors')
-              ->where('slug', $slug)
+              ->where('id', $id)
               ->update($data);
 
-        alert()->success('Done', 'Success !!');
+        alert()->success('Update', 'Success !!');
         return redirect()->route('admin.contributor');
     }
 
 
 
     /**
-     * Remove the specified resource from storage.
+     * DRESTROY
      */
-    public function destroy($slug)
+    public function destroy($id)
     {
-        $datalama = Contributor::where('slug',$slug)->first();
+        $datalama = Contributor::where('id',$id)->first();
             if($datalama->photo){
                 File::delete($datalama->photo);
             }
-        $deleted = DB::table('contributors')->where('slug', '=', $slug)->delete();
+        $deleted = DB::table('contributors')->where('id', '=', $id)->delete();
         if($deleted)
         {
-            alert()->success('Done', 'Success !!');
+            alert()->success('Delete', 'Success !!');
         }else{
             alert()->error('Error', 'Failed !!');
         }

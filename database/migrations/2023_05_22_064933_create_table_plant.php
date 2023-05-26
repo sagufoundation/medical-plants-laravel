@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('id_location')->nullable();
             $table->foreignId('id_contributor')->nullable();
             $table->string('cover_picture')->nullable();
+            $table->string('gallery_picture')->nullable();
             $table->string('local_name');
             $table->string('taxonomists');
             $table->string('treatments');

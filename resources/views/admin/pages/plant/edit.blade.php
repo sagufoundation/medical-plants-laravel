@@ -8,9 +8,9 @@
     <div class="p-10 mt-8 px-4 ml-64 lg:py-16 lg:px-6">
         <div class="text-gray-500 sm:text-lg dark:text-gray-400">
             <h2 class="mb-4 text-4xl tracking-tight font-bold text-gray-700">Edit Plant</h2>
-            <p class="mb-4 font-light">Please input any relevant information into the form bellow.</p>
+            {{-- <p class="mb-4 font-light">Please input any relevant information into the form bellow.</p> --}}
         </div>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div class="relative overflow-x-auto sm:rounded-lg border p-7">
 
             <div class="md:w-2/3">
                 <!-- form start -->
@@ -55,19 +55,9 @@
                     <div>
                         <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
                             <select name="status" id="status"  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                @if($data->status == '1')
-                                <option selected value="1">Published </option>
-                                <option value="2">In Review </option>
-                                <option value="3">Draft </option>
-                            @elseif($data->status == '2')
-                                <option  value="1">Published </option>
-                                <option selected value="2">In Review </option>
-                                <option value="3">Draft </option>
-                            @elseif($data->status == '3')
-                                <option  value="1">Published </option>
-                                <option  value="2">In Review </option>
-                                <option selected value="3">Draft </option>
-                            @endif
+                                <option value="Publish" @if($data->status == 'Publish') Selected @endif>Publish </option>
+                                <option value="Review" @if($data->status == 'Review') Selected @endif>Review </option>
+                                <option value="Draft" @if($data->status == 'Draft') Selected @endif>Draft </option>
                             </select>
                             @if($errors->has('status'))
                                 <p class="text-red-900"> {{ $errors->first('status') }} </p>
@@ -77,12 +67,24 @@
 
                     <div>
                         <label for="cover_picture" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cover Picture</label>
-                        <img src="{{url($data->cover_picture)}}" class="w-52 mb-5" alt="{{$data->local_name}}" srcset="">
+                        <img src="{{url($data->cover_picture)}}" class="w-52 mb-5" alt="Plant's picture" srcset="">
                         <input type="file" name="cover_picture" id="cover_picture"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder=""  >
                         @if($errors->has('cover_picture'))
                             <p class="text-red-900"> {{ $errors->first('cover_picture') }} </p>
+                        @endif
+                    </div>
+                    <!-- input item end -->
+
+                    <div>
+                        <label for="gallery_picture" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gallery Picture</label>
+                        <img src="{{url($data->gallery_picture)}}" class="w-52 mb-5" alt="Plant's picture" srcset="">
+                        <input type="file" name="gallery_picture" id="gallery_picture"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="" required=""  >
+                        @if($errors->has('gallery_picture'))
+                            <p class="text-red-900"> {{ $errors->first('gallery_picture') }} </p>
                         @endif
                     </div>
                     <!-- input item end -->

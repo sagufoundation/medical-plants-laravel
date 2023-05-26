@@ -11,7 +11,8 @@
             <h2 class="mb-4 text-4xl tracking-tight font-bold text-gray-700">Add a new location</h2>
             <p class="mb-4 font-light">Please input any relevant information into the form bellow.</p>
         </div>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        
+        <div class="relative overflow-x-auto sm:rounded-lg border p-7">
 
             <div class="md:w-2/3">
                 <!-- form start -->
@@ -84,9 +85,9 @@
                         <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status </label>
                             <select name="status" id="status"  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     <option value="">Choose </option>
-                                    <option value="1">Published </option>
-                                    <option value="2">In Review </option>
-                                    <option value="3">Draft </option>
+                                    <option value="Publish">Publish </option>
+                                    <option value="Review">Review </option>
+                                    <option value="Draft">Draft </option>
                             </select>
                             @if($errors->has('status'))
                                 <p class="text-red-900"> {{ $errors->first('status') }} </p>

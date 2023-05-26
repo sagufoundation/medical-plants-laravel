@@ -12,9 +12,12 @@
             {{-- <p class="mb-4 font-light">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident pariatur fugit, dolorem possimus vel eius totam ad aut dolores atque!</p> --}}
         </div>
 
-        <a href="{{route('admin.location.create')}}" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 mb-5 hover:shadow-lg transition"> Add Data <div class="fa-solid fa-plus ms-2"></div>  </a>
+        <a href="{{route('admin.location.create')}}" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 mb-5 hover:shadow-lg transition">
+            <div class="fa-solid fa-plus me-2"></div> New
+        </a>
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div class="relative overflow-x-auto sm:rounded-lg border p-7">
+
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -62,15 +65,15 @@
                             <td scope="col" class="px-6 py-3">
                                 {{$data->lat}}
                             </td>
-                            <td scope="col" class="px-6 py-3">
-                                <a href="{{ route('admin.location.show',$data->slug)}}" class="bg-green-700 hover:bg-green-800 text-gray-200 px-3 py-2 rounded transition"><i class="fa-solid fa-eye"></i> Preview</a>
+                            <td scope="col" class="px-6 py-3 flex gap-1">
+                                <a href="{{ route('admin.location.show',$data->id)}}" class="bg-green-700 hover:bg-green-800 text-gray-200 px-3 py-2 rounded transition"><i class="fa-solid fa-eye"></i> Preview</a>
 
-                                <a href="{{ route('admin.location.edit', $data->slug)}}" class="bg-green-700 hover:bg-green-800 text-gray-200 px-3 py-2 rounded transition"><i class="fa-solid fa-pencil"></i></a>
+                                <a href="{{ route('admin.location.edit', $data->id)}}" class="border border-green-800 text-green-800 hover:bg-green-800 hover:text-white px-3 py-2 rounded transition"><i class="fa-solid fa-pencil"></i></a>
 
-                                <form action="{{ route('admin.location.destroy', $data->slug) }}" method="POST">
+                                <form action="{{ route('admin.location.destroy', $data->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="bg-green-700 hover:bg-green-800 text-gray-200 px-3 py-2 rounded transition"><i class="fa-solid fa-trash"></i></button>
+                                    <button type="submit" class="border border-red-500 text-red-500 hover:bg-red-600 hover:text-white px-3 py-2 rounded transition"><i class="fa-solid fa-trash"></i></button>
                                 </form>
                             </td>
                         </tr>

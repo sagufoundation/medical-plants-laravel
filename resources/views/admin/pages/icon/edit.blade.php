@@ -9,9 +9,10 @@
     <div class="p-10 mt-8 px-4 ml-64 lg:py-16 lg:px-6">
         <div class="text-gray-500 sm:text-lg dark:text-gray-400">
             <h2 class="mb-4 text-4xl tracking-tight font-bold text-gray-700">Add a new Icon</h2>
-            <p class="mb-4 font-light">Please input any relevant information into the form bellow.</p>
+            {{-- <p class="mb-4 font-light">Please input any relevant information into the form bellow.</p> --}}
         </div>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+        <div class="relative overflow-x-auto sm:rounded-lg border p-7">
 
             <div class="md:w-2/3">
                 <!-- form start -->

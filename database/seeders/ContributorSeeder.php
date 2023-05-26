@@ -21,7 +21,7 @@ class ContributorSeeder extends Seeder
             'province' => 'Papua',
             'descriptions' => '',
             'photo' => '/assets/img/team/team-tisha-rumbewas.png',
-            'status_contributor' => '1',
+            'status_contributor' => 'Publish',
             'slug' => 'tirsha-rumbewas'
         ]);
 
@@ -34,7 +34,7 @@ class ContributorSeeder extends Seeder
             'province' => 'Papua',
             'descriptions' => '',
             'photo' => '/assets/img/team/team-samuel-bosawer.png',
-            'status_contributor' => '1',
+            'status_contributor' => 'Publish',
             'slug' => 'samuel-bosawer'
         ]);
 
@@ -47,7 +47,7 @@ class ContributorSeeder extends Seeder
             'province' => 'Papua',
             'descriptions' => '',
             'photo' => '/assets/img/team/team-janzen-faidiban.png',
-            'status_contributor' => '1',
+            'status_contributor' => 'Publish',
             'slug' => 'janzen-faidiban'
         ]);
 
@@ -60,7 +60,7 @@ class ContributorSeeder extends Seeder
             'province' => 'Papua',
             'descriptions' => '',
             'photo' => '/assets/img/team/team-jimmy-wanma.png',
-            'status_contributor' => '1',
+            'status_contributor' => 'Publish',
             'slug' => 'jimmy-wanma'
         ]);
     }

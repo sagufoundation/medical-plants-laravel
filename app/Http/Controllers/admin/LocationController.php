@@ -17,7 +17,7 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $status = '1';
+        $status = 'Publish';
         $judul = 'Publish';
         $all = DB::table('locations')
                 ->leftJoin('icons', 'locations.icon_id', '=', 'icons.id')
@@ -37,7 +37,7 @@ class LocationController extends Controller
 
     public function json()
     {
-        $status = '1';
+        $status = 'Publish';
         $all = DB::table('locations')
         ->leftJoin('icons', 'locations.icon_id', '=', 'icons.id')
         ->where('locations.status','=',$status)
@@ -61,7 +61,7 @@ class LocationController extends Controller
 
     public function publish()
     {
-        $status = '1';
+        $status = 'Publish';
         $judul = 'Publish';
          $all = DB::table('locations')
                 ->leftJoin('icons', 'locations.icon_id', '=', 'icons.id')
@@ -153,10 +153,10 @@ class LocationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($slug)
+    public function show($id)
     {
         $all = DB::table('locations')
-        ->where('locations.slug','=',$slug)
+        ->where('locations.id','=',$id)
         ->orderBy('locations.id', 'desc')
         ->get()->first();
 
@@ -168,10 +168,10 @@ class LocationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($slug)
+    public function edit($id)
     {
         $all = DB::table('locations')
-        ->where('locations.slug','=',$slug)
+        ->where('locations.id','=',$id)
         ->orderBy('locations.id', 'desc')
         ->get()->first();
 
@@ -183,7 +183,7 @@ class LocationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request,  $slug)
+    public function update(Request $request,  $id)
     {
         $request->validate([
             'icon_id'                 => 'required',
@@ -208,7 +208,7 @@ class LocationController extends Controller
         );
 
         $update = DB::table('locations')
-        ->where('slug', $slug)
+        ->where('id', $id)
         ->update($data);
 
         alert()->success('Done', 'Success !!');
@@ -218,9 +218,9 @@ class LocationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($slug)
+    public function destroy($id)
     {
-        $deleted = DB::table('locations')->where('slug', '=', $slug)->delete();
+        $deleted = DB::table('locations')->where('id', '=', $id)->delete();
         if($deleted)
         {
             alert()->success('Done', 'Success !!');

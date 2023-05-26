@@ -9,9 +9,10 @@
     <div class="p-10 mt-8 px-4 ml-64 lg:py-16 lg:px-6">
         <div class="text-gray-500 sm:text-lg dark:text-gray-400">
             <h2 class="mb-4 text-4xl tracking-tight font-bold text-gray-700">Add a new Contributor</h2>
-            <p class="mb-4 font-light">Please input any relevant information into the form bellow.</p>
+            {{-- <p class="mb-4 font-light">Please input any relevant information into the form bellow.</p> --}}
         </div>
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+        <div class="relative overflow-x-auto sm:rounded-lg border p-7">
 
             <div class="md:w-2/3">
                 <!-- form start -->
@@ -22,9 +23,9 @@
                         <label for="full_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Full Name</label>
                         <input type="full_name" name="full_name" id="full_name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="" required="" value="{{ old('full_name')}}" >
+                            placeholder="" value="{{ old('full_name')}}" >
                             @if($errors->has('full_name'))
-                                <p class="text-red-900"> {{ $errors->first('full_name') }} </p>
+                                <small class="text-red-500"> {{ $errors->first('full_name') }} </small>
                             @endif
                     </div>
                     <!-- input item end -->
@@ -33,9 +34,9 @@
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                         <input type="email" name="email" id="email"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="" required=""  value="{{ old('email')}}">
+                            placeholder=""  value="{{ old('email')}}">
                             @if($errors->has('email'))
-                                <p class="text-red-900"> {{ $errors->first('email') }} </p>
+                                <small class="text-red-500"> {{ $errors->first('email') }} </small>
                             @endif
                     </div>
                     <!-- input item end -->
@@ -44,10 +45,10 @@
                         <label for="address" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
                         <input type="address" name="address" id="address"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="" required="" value="{{old('address')}}">
+                            placeholder="" value="{{old('address')}}">
 
                             @if($errors->has('address'))
-                                <p class="text-red-900"> {{ $errors->first('address') }} </p>
+                                <small class="text-red-500"> {{ $errors->first('address') }} </small>
                             @endif
                     </div>
                     <!-- input item end -->
@@ -56,10 +57,10 @@
                         <label for="city" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">City</label>
                         <input type="city" name="city" id="city"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="" required="" value="{{old('city')}}">
+                            placeholder="" value="{{old('city')}}">
 
                             @if($errors->has('city'))
-                                <p class="text-red-900"> {{ $errors->first('city') }} </p>
+                                <small class="text-red-500"> {{ $errors->first('city') }} </small>
                             @endif
                     </div>
                     <!-- input item end -->
@@ -68,10 +69,10 @@
                         <label for="province" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Province</label>
                         <input type="province" name="province" id="province"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="" required="" value="{{old('province')}}">
+                            placeholder="" value="{{old('province')}}">
 
                             @if($errors->has('province'))
-                                <p class="text-red-900"> {{ $errors->first('province') }} </p>
+                                <small class="text-red-500"> {{ $errors->first('province') }} </small>
                             @endif
                     </div>
                     <!-- input item end -->
@@ -80,10 +81,10 @@
                         <label for="descriptions" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descriptions</label>
                         <input type="descriptions" name="descriptions" id="descriptions"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="" required="" value="{{old('descriptions')}}">
+                            placeholder="" value="{{old('descriptions')}}">
 
                             @if($errors->has('descriptions'))
-                                <p class="text-red-900"> {{ $errors->first('descriptions') }} </p>
+                                <small class="text-red-500"> {{ $errors->first('descriptions') }} </small>
                             @endif
                     </div>
                     <!-- input item end -->
@@ -92,24 +93,24 @@
                         <label for="status_contributor" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status Contributor</label>
                             <select name="status_contributor" id="status_contributor"  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     <option value="">Choose </option>
-                                    <option value="1">Published </option>
-                                    <option value="2">In Review </option>
-                                    <option value="3">Draft </option>
+                                    <option value="Publish">Publish </option>
+                                    <option value="Review">Review </option>
+                                    <option value="Draft">Draft </option>
                             </select>
                             @if($errors->has('status_contributor'))
-                                <p class="text-red-900"> {{ $errors->first('status_contributor') }} </p>
+                                <small class="text-red-500"> {{ $errors->first('status_contributor') }} </small>
                             @endif
                     </div>
                     <!-- input item end -->
 
                     <div>
-                        <label for="treatments" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Photo</label>
+                        <label for="photo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Photo</label>
                         <input type="file" name="photo" id="treatments"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="" required=""  >
-                        @if($errors->has('photo'))
-                            <p class="text-red-900"> {{ $errors->first('photo') }} </p>
-                        @endif
+                            placeholder="">
+                            @if($errors->has('photo'))
+                                <small class="text-red-500"> {{ $errors->first('photo') }} </small>
+                            @endif
                     </div>
                     <!-- input item end -->
 
