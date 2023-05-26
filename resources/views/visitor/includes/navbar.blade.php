@@ -2,7 +2,7 @@
   <header class="sticky top-0 shadow-lg dark:shadow-green-900/30">
     <nav class="bg-white border-b-4 border-gray-100 dark:border-green-700 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-            <a @click.prevent="page='index'" href="index.html" class="flex items-center">
+            <a href="{{ url('/')}}" class="flex items-center">
                 <img src="https://cdn-icons-png.flaticon.com/512/188/188333.png" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
                 <span class="self-center text-xl font-semibold whitespace-nowrap text-green-800 dark:text-green-600">Traditional Medicinal Plants in Papua</span>
             </a>
@@ -42,49 +42,63 @@
             <div class=" justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
                 <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                     <li>
-                        <a href="{{route('user.dasboard')}}"
-                            x-bind:class="page == 'index' ? 'dark:text-green-600 lg:text-green-700' : 'dark:border-gray-700 lg:text-gray-700'"
-                            class="block py-2 pr-4 pl-3 text-white rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
+                        <a href="{{route('visitor.home')}}"
+                            @if(Request::segment(1) == 'home')
+                            class="block py-2 pr-4 pl-3 text-green-700 font-bold rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
+                            @else
+                            class="block py-2 pr-4 pl-3 text-gray-700 rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
+                            @endif
                             aria-current="page">
                             Home
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('user.plant')}}"
-                            x-bind:class="page == 'theplants' ? 'dark:text-green-600 lg:text-green-700' : 'dark:border-gray-700 lg:text-gray-700'"
-                            class="block py-2 pr-4 pl-3 text-white rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
+                        <a href="{{route('visitor.thePlants')}}"
+                            @if(Request::segment(1) == 'the-plants')
+                            class="block py-2 pr-4 pl-3 text-green-700 font-bold rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
+                            @else
+                            class="block py-2 pr-4 pl-3 text-gray-700 rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
+                            @endif
                             aria-current="page">
                             The Plants
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('user.overview')}}"
-                            x-bind:class="page == 'overview' ? 'dark:text-green-600 lg:text-green-700' : 'dark:border-gray-700 lg:text-gray-700'"
-                            class="block py-2 pr-4 pl-3 text-white rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
+                        <a href="{{route('visitor.overview')}}"
+                            @if(Request::segment(1) == 'overview')
+                            class="block py-2 pr-4 pl-3 text-green-700 font-bold rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
+                            @else
+                            class="block py-2 pr-4 pl-3 text-gray-700 rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
+                            @endif
                             aria-current="page">
                             Overview
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('user.contributor')}}"
-                            x-bind:class="page == 'howtocontribute' ? 'dark:text-green-600 lg:text-green-700' : 'dark:border-gray-700 lg:text-gray-700'"
-                            class="block py-2 pr-4 pl-3 text-white rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
+                        <a href="{{route('visitor.howToContribute')}}"
+                            @if(Request::segment(1) == 'how-to-contribute')
+                            class="block py-2 pr-4 pl-3 text-green-700 font-bold rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
+                            @else
+                            class="block py-2 pr-4 pl-3 text-gray-700 rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
+                            @endif
                             aria-current="page">
                             How To Contribute
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('user.sponsor')}}"
-                            x-bind:class="page == 'oursponsors' ? 'dark:text-green-600 lg:text-green-700' : 'dark:border-gray-700 lg:text-gray-700'"
-                            class="block py-2 pr-4 pl-3 text-white rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
+                        <a href="{{route('visitor.ourSponsors')}}"
+                            @if(Request::segment(1) == 'our-sponsors')
+                            class="block py-2 pr-4 pl-3 text-green-700 font-bold rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
+                            @else
+                            class="block py-2 pr-4 pl-3 text-gray-700 rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
+                            @endif
                             aria-current="page">
                             Our Sponsors
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('user.connent')}}"
-                            x-bind:class="page == 'connectwithus' ? 'dark:text-green-600 lg:text-green-700' : 'dark:border-gray-700 lg:text-gray-700'"
-                            class="block py-2 pr-4 pl-3 text-white rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
+                        <a href="{{route('visitor.connectWithUs')}}"
+                            class="block py-2 pr-4 pl-3 text-gray-700 rounded bg-green-700 lg:bg-transparent hover:text-green-600 lg:p-0 dark:text-gray-400"
                             aria-current="page">
                             Connect With Us
                         </a>

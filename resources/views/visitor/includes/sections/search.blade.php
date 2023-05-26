@@ -1,6 +1,6 @@
 <section class="py-9">
     <div class="container max-w-screen-xl mx-auto p-4">
-        <form class="" method="get" action="{{route('user.plant')}}">
+        <form class="" method="get" action="{{route('visitor.thePlants')}}">
             <div class="mb-4 flex justify-between">
                 <input
                     class="shadow appearance-none border border-gray-300 rounded-lg w-full px-6 py-6 text-gray-600 leading-tight focus:outline-none focus:shadow-outline focus:shadow-lg focus:border-none transition text-xl"

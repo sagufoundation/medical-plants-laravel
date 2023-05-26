@@ -47,16 +47,16 @@
                         </h2>
                         <ul class="text-gray-600 dark:text-gray-400">
                             <li class="mb-3">
-                                <a  href="#" class="hover:underline">Developer Team</a>
+                                <a  href="{{ url('team/developer') }}" class="hover:underline">Developer Team</a>
                             </li>
                             <li class="mb-3">
-                                <a  href="#" class="hover:underline">Taxonomy Team</a>
+                                <a  href="{{ url('team/taxonomy') }}" class="hover:underline">Taxonomy Team</a>
                             </li>
                             <li class="mb-3">
-                                <a  href="#" class="hover:underline">Ethnobotany Team</a>
+                                <a  href="{{ url('team/ethnobotany') }}" class="hover:underline">Ethnobotany Team</a>
                             </li>
                             <li class="mb-3">
-                                <a  href="#" class="hover:underline">Phytochemistry Team</a>
+                                <a  href="{{ url('team/phytochemistry') }}" class="hover:underline">Phytochemistry Team</a>
                             </li>
                         </ul>
                     </div>
@@ -64,10 +64,10 @@
                         <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-green-600">What We Do</h2>
                         <ul class="text-gray-600 dark:text-gray-400">
                             <li class="mb-3">
-                                <a href="#" class="hover:underline ">Discover</a>
+                                <a href="{{ url('what-we-do/discover') }}" class="hover:underline ">Discover</a>
                             </li>
                             <li class="mb-3">
-                                <a  href="#" class="hover:underline">Research</a>
+                                <a  href="{{ url('what-we-do/research') }}" class="hover:underline">Research</a>
                             </li>
                         </ul>
                     </div>
@@ -76,10 +76,10 @@
                         </h2>
                         <ul class="text-gray-600 dark:text-gray-400">
                             <li class="mb-3">
-                                <a  href="#" class="hover:underline">Privacy Policy</a>
+                                <a  href="{{ url('privacy-policy') }}" class="hover:underline">Privacy Policy</a>
                             </li>
                             <li class="mb-3">
-                                <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                                <a href="{{ url('terms-contditions') }}" class="hover:underline">Terms &amp; Conditions</a>
                             </li>
                         </ul>
 

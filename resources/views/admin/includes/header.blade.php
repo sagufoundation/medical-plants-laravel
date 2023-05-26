@@ -77,7 +77,7 @@ class="dark:bg-gray-900">
                             </path>
                         </svg>
                     </button>
-                    <a href="../index.html" class="flex items-center">
+                    <a href="{{ url('/') }}" class="flex items-center">
                         <img src="https://cdn-icons-png.flaticon.com/512/188/188333.png" class="mr-3 h-6 sm:h-9"
                             alt="Flowbite Logo" />
                         <span class="self-center text-xl font-semibold whitespace-nowrap text-green-800 dark:text-green-600">Medicinal

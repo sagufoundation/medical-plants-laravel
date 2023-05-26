@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\user;
+namespace App\Http\Controllers\Visitor;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
-class DashboardController extends Controller
+class VisitorController extends Controller
 {
     public function __construct()
     {
@@ -23,37 +23,37 @@ class DashboardController extends Controller
         ->where('plants.status','=',$status)
         ->orderBy('plants.id', 'desc')
         ->get();
-        return view('user.pages.dashboard',['all' => $all]);
+        return view('visitor.pages.home',['all' => $all]);
     }
 
-    public function plant()
+    public function thePlants()
     {
-        return view('user.pages.plant');
-    }
-
-    public function contributor()
-    {
-        return view('user.pages.contributor');
+        return view('visitor.pages.the-plants');
     }
 
     public function overview()
     {
-        return view('user.pages.overview');
+        return view('visitor.pages.overview');
     }
 
-    public function sponsor()
+    public function howToContribute()
     {
-        return view('user.pages.sponsor');
+        return view('visitor.pages.contributor');
     }
 
-    public function connent()
+    public function ourSponsors()
     {
-        return view('user.pages.connent');
+        return view('visitor.pages.our-sponsors');
+    }
+
+    public function connectWithUs()
+    {
+        return view('visitor.pages.connect-with-us');
     }
 
     public function login()
     {
-        return view('user.pages.login');
+        return view('visitor.pages.login');
     }
 
     public function json()
@@ -154,7 +154,7 @@ class DashboardController extends Controller
                    ->where('locations.slug','=',$slug)
                    ->get()->first();
 
-        return view('user.pages.tribe',['data' => $data]);
+        return view('visitor.pages.tribe',['data' => $data]);
     }
 
     public function detail_plant($slug)
@@ -166,6 +166,6 @@ class DashboardController extends Controller
         ->where('plants.slug_plant','=',$slug)
         ->get()
         ->first();
-        return view('user.pages.detail-plant',compact('data'));
+        return view('visitor.pages.detail-plant',compact('data'));
     }
 }

@@ -47,7 +47,7 @@
                                     <img class="w-8 h-8 rounded-full" src="/assets/img/user-administrator.png"
                                     alt="{{$data->full_name}}">
                                 @else
-                                <img class="w-8 h-8 rounded-full" src="{{url($data->photo)}}">
+                                <img src="{{url($data->photo)}}" class="" width="100px">
                                 @endif
                             </td>
                             <td scope="col" class="px-6 py-3">

@@ -13,55 +13,76 @@ class ContributorSeeder extends Seeder
      */
     public function run(): void
     {
-        $contributor = Contributor::create([
-            'full_name' => ' Tisha Rumbewas',
-            'email' => 'tisha@gmail.com',
-            'address' => '-',
-            'city' => 'Kab Jayapura',
-            'province' => 'Papua',
-            'descriptions' => '',
-            'photo' => '/assets/img/team/team-tisha-rumbewas.png',
-            'status_contributor' => 'Publish',
-            'slug' => 'tirsha-rumbewas'
+        Contributor::create([
+            'full_name'             => 'Tisha Rumbewas',
+            'slug'                  => 'tisha-rumbewas',
+            'email'                 => 't.rumbewas@gmail.com',
+            'address'               => 'Jalan Raya...,',
+            'city'                  => 'Kota Jayapura',
+            'province'              => 'Papua Province',
+            'descriptions'          => '',
+            'photo'                 => '/assets/img/team/team-tisha-rumbewas.png',
+            'status_contributor'    => 'Publish',
         ]);
 
-
-        $contributor = Contributor::create([
-            'full_name' => 'Samuel Bosawer',
-            'email' => 'samuel@gmail.com',
-            'address' => 'Maribu',
-            'city' => 'Kab Jayapura',
-            'province' => 'Papua',
-            'descriptions' => '',
-            'photo' => '/assets/img/team/team-samuel-bosawer.png',
-            'status_contributor' => 'Publish',
-            'slug' => 'samuel-bosawer'
+        Contributor::create([
+            'full_name'             => 'Jimmy Wanma',
+            'slug'                  => 'jimmy-wanma',
+            'email'                 => 'j.wanma@gmail.com',
+            'address'               => 'Jalan Raya...,',
+            'city'                  => 'Manokwari',
+            'province'              => 'West Papua Province',
+            'descriptions'          => '',
+            'photo'                 => '/assets/img/team/team-jimmy-wanma.png',
+            'status_contributor'    => 'Publish',
         ]);
 
-
-        $contributor = Contributor::create([
-            'full_name' => 'Janzen Faidiban',
-            'email' => 'janzen@gmail.com',
-            'address' => 'Maribu',
-            'city' => 'Kab Jayapura',
-            'province' => 'Papua',
-            'descriptions' => '',
-            'photo' => '/assets/img/team/team-janzen-faidiban.png',
-            'status_contributor' => 'Publish',
-            'slug' => 'janzen-faidiban'
+        Contributor::create([
+            'full_name'             => 'Janzen Faidiban',
+            'slug'                  => 'janzen-faidiban',
+            'email'                 => 'janzen.faidiban@gmail.com',
+            'address'               => 'Jalan Raya...,',
+            'city'                  => 'Kota Jayapura',
+            'province'              => 'Papua',
+            'descriptions'          => '',
+            'photo'                 => '/assets/img/team/team-janzen-faidiban.png',
+            'status_contributor'    => 'Publish',
         ]);
 
+        Contributor::create([
+            'full_name'             => 'Samuel Bosawer',
+            'slug'                  => 'samuel-bosawer',
+            'email'                 => 's.bosawer@gmail.com',
+            'address'               => 'Jalan Raya...,',
+            'city'                  => 'Kabupaten Jayapura',
+            'province'              => 'Papua',
+            'descriptions'          => '',
+            'photo'                 => '/assets/img/team/team-samuel-bosawer.png',
+            'status_contributor'    => 'Publish',
+        ]);
 
-        $contributor = Contributor::create([
-            'full_name' => 'Jimmy Wanma',
-            'email' => 'jimmy@gmail.com',
-            'address' => 'Maribu',
-            'city' => 'Kab Jayapura',
-            'province' => 'Papua',
-            'descriptions' => '',
-            'photo' => '/assets/img/team/team-jimmy-wanma.png',
-            'status_contributor' => 'Publish',
-            'slug' => 'jimmy-wanma'
+        Contributor::create([
+            'full_name'             => 'Johan Nasendi',
+            'slug'                  => 'johan-nasendi',
+            'email'                 => 'j.nasendi@gmail.com',
+            'address'               => 'Jalan Raya...,',
+            'city'                  => 'Kabupaten Jayapura',
+            'province'              => 'Papua',
+            'descriptions'          => '',
+            'photo'                 => '/assets/img/team/team-johan-nasendi.png',
+            'status_contributor'    => 'Publish',
+        ]);
+
+        Contributor::create([
+            'full_name'             => 'Obi Pranata',
+            'slug'                  => 'obi-pranata',
+            'email'                 => 'o.pranata@gmail.com',
+            'address'               => 'Jalan Raya...,',
+            'city'                  => 'Kabupaten Jayapura',
+            'province'              => 'Papua',
+            'descriptions'          => '',
+            'photo'                 => '/assets/img/team/team-default.png',
+            'status_contributor'    => 'Publish',
         ]);
     }
 }

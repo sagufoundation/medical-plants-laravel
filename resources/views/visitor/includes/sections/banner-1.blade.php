@@ -7,7 +7,7 @@
             <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400 text-justify">
                 {!! $pengaturan->welcome_text !!}
             </p>
-            <a  href="{{route('user.plant')}}"
+            <a  href="{{route('visitor.thePlants')}}"
                 class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 hover:shadow-lg transition">
                 Explore the plants
                 <i class="fa-solid fa-arrow-right ms-2"></i>

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\user\DashboardController;
+use App\Http\Controllers\Visitor\VisitorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,20 +11,33 @@ use App\Http\Controllers\user\DashboardController;
 |
 */
 
-Route::controller(DashboardController::class)->group(function(){
-    Route::get('/','index')->name('user.dasboard');
-    Route::get('/plant','plant')->name('user.plant');
-    Route::get('/contributor','contributor')->name('user.contributor');
-    Route::get('/overview','overview')->name('user.overview');
-    Route::get('/sponsor','sponsor')->name('user.sponsor');
-    Route::get('/connect-with-us','connent')->name('user.connent');
+// Redirect to '/home'
+Route::get('/', function() {
+    return redirect('/home');
+});
+
+Route::controller(VisitorController::class)->group(function(){
+
+    // MAIN PAGE
+    Route::get('/home','index')->name('visitor.home');
+
+    // STATIC PAGES
+    Route::get('/the-plants','thePlants')->name('visitor.thePlants');
+    Route::get('/overview','overview')->name('visitor.overview');
+    Route::get('/how-to-contribute','howToContribute')->name('visitor.howToContribute');
+    Route::get('/our-sponsors','ourSponsors')->name('visitor.ourSponsors');
+    Route::get('/connect-with-us','connectWithUs')->name('visitor.connectWithUs');
+
+    // DYNAMIC PAGES
     Route::get('/json','json')->name('json');
     Route::post('/filter','filter')->name('filter');
     Route::post('/location','location')->name('location');
     Route::get('/tribe/{id}','tribe')->name('tribe');
     Route::get('/detail-plant/{id}','detail_plant')->name('detail-plant');
-    // Route::get('/connent','connent')->name('user.connent');
+    
+    // AUTH PAGES
     Route::get('/login','login')->name('login');
+
 });
 
 
@@ -41,11 +54,21 @@ require_once 'admin.php';
 
 /*
 |--------------------------------------------------------------------------
-| CONTRIBUTOR ROUTES
+| VISITOR ROUTES
 |--------------------------------------------------------------------------
 |
 */
 
+// Require Visitor Routes
+require_once 'visitor.php';
+
+
+/*
+|--------------------------------------------------------------------------
+| CONTRIBUTOR ROUTES
+|--------------------------------------------------------------------------
+|
+*/
 
 // Require Contributor Routes
 require_once 'contributor.php';
