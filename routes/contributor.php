@@ -1,9 +1,6 @@
 <?php
 use App\Http\Controllers\contributor\PlantController as ContributorPlant;
 
-
-
-
 // Route::prefix('contributor')->middleware('contributor')->group(function () {
     Route::group(['middleware' => ['role:contributor','verified']], function () {
         Route::prefix('contributor')->group(function () {
