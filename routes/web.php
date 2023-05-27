@@ -34,9 +34,10 @@ Route::controller(VisitorController::class)->group(function(){
     Route::post('/location','location')->name('location');
     Route::get('/tribe/{id}','tribe')->name('tribe');
     Route::get('/detail-plant/{id}','detail_plant')->name('detail-plant');
-    
+
     // AUTH PAGES
     Route::get('/login','login')->name('login');
+    Route::get('/logout','index')->name('logout');
 
 });
 

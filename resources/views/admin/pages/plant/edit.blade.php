@@ -15,7 +15,7 @@
             <div class="md:w-2/3">
                 <!-- form start -->
 
-                <form class="space-y-4 md:space-y-6" method="POST" enctype="multipart/form-data" action="{{route('admin.plant.update', $data->slug_plant)}}">
+                <form class="space-y-4 md:space-y-6" method="POST" enctype="multipart/form-data" action="{{route('admin.plant.update', $data->id)}}">
                     @csrf
                     @method('put')
                     <div>

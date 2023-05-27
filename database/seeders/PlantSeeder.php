@@ -22,7 +22,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Lorem, ipsum.',
             'taxonomists' => 'Lorem ipsum dolor sit.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
         ]);
 
         $plant = Plant::create([
@@ -33,7 +33,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Lorem, ipsum.',
             'taxonomists' => 'Lorem ipsum dolor sit.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
         ]);
 
         $plant = Plant::create([
@@ -44,7 +44,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Lorem, ipsum.',
             'taxonomists' => 'Lorem ipsum dolor sit.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
         ]);
 
 
@@ -56,7 +56,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Lorem, ipsum.',
             'taxonomists' => 'Lorem ipsum dolor sit.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
         ]);
 
         $plant = Plant::create([
@@ -67,7 +67,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Lorem, ipsum.',
             'taxonomists' => 'Lorem ipsum dolor sit.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
         ]);
 
         $plant = Plant::create([
@@ -78,7 +78,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Lorem, ipsum.',
             'taxonomists' => 'Lorem ipsum dolor sit.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
         ]);
 
 
@@ -91,7 +91,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Anamyaum',
             'taxonomists' => 'Alstonia scholaris (L.) R.Br.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
             'slug_plant' => 'anamyaum',
         ]);
 
@@ -105,7 +105,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Inasi Koi',
             'taxonomists' => 'Scaevola Taccada (Gaertn.) Roxb.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
             'slug_plant' => 'inasi-koi',
         ]);
 
@@ -117,7 +117,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Krataweri',
             'taxonomists' => 'Artocarpus vriesianus Miq.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
             'slug_plant' => 'krataweri',
         ]);
 
@@ -132,7 +132,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Lorem, ipsum.',
             'taxonomists' => 'Lorem ipsum dolor sit.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
         ]);
 
         $plant = Plant::create([
@@ -143,7 +143,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Lorem, ipsum.',
             'taxonomists' => 'Lorem ipsum dolor sit.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
         ]);
 
         $plant = Plant::create([
@@ -154,7 +154,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Lorem, ipsum.',
             'taxonomists' => 'Lorem ipsum dolor sit.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
         ]);
 
 
@@ -167,7 +167,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Lorem, ipsum.',
             'taxonomists' => 'Lorem ipsum dolor sit.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
         ]);
 
         $plant = Plant::create([
@@ -178,7 +178,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Lorem, ipsum.',
             'taxonomists' => 'Lorem ipsum dolor sit.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
         ]);
 
         $plant = Plant::create([
@@ -189,7 +189,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Lorem, ipsum.',
             'taxonomists' => 'Lorem ipsum dolor sit.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
         ]);
 
 
@@ -201,7 +201,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Lorem, ipsum.',
             'taxonomists' => 'Lorem ipsum dolor sit.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
         ]);
 
         $plant = Plant::create([
@@ -212,7 +212,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Lorem, ipsum.',
             'taxonomists' => 'Lorem ipsum dolor sit.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
         ]);
 
         $plant = Plant::create([
@@ -223,7 +223,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Lorem, ipsum.',
             'taxonomists' => 'Lorem ipsum dolor sit.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
         ]);
 
 
@@ -236,7 +236,7 @@ class PlantSeeder extends Seeder
             'local_name' => 'Lorem, ipsum.',
             'taxonomists' => 'Lorem ipsum dolor sit.',
             'treatments' => '-',
-            'status' => '1',
+            'status' => 'Publish',
         ]);
 
         $plant = Plant::create([

@@ -4,6 +4,8 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Support\Facades\Redirect;
 
 class Handler extends ExceptionHandler
 {
@@ -27,4 +29,29 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request, Throwable $exception)
+    {
+
+        if ($exception->getStatusCode() == 401) {
+            return redirect()->route('login');
+        }
+
+        if ($exception->getStatusCode() == 403) {
+            return redirect()->route('login');
+        }
+
+        return parent::render($request, $exception);
+
+
+
+
+    }
+
+    // public function report(Throwable $exception){
+    //     return 'repot';
+    // }
+
+
+
 }

@@ -13,10 +13,10 @@
             <div class="fa-solid fa-circle-arrow-left me-2"></div> Back
         </a>
 
-        <a href="{{route('admin.plant.edit', $data->slug_plant)}}" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 mb-5 hover:shadow-lg transition">
+        <a href="{{route('admin.plant.edit', $data->id)}}" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 mb-5 hover:shadow-lg transition">
             <i class="fa-solid fa-pencil me-2"></i> Edit
         </a>
-        
+
         <div class="relative overflow-x-auto sm:rounded-lg border p-7">
 
             <div class="md:w-2/3">
@@ -41,13 +41,8 @@
 
                     <div class="mb-5">
                         <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
-                        @if ($data->status == '1')
-                            {{$status = 'Publish'}}
-                        @elseif ($data->status == '2')
-                            {{$status = 'Review'}}
-                        @elseif ($data->status == '3')
-                            {{$status = 'Draft'}}
-                        @endif                       
+                            {{$data->status}}
+
 
                     </div>
                     <!-- input item end -->

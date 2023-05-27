@@ -58,7 +58,7 @@ class VisitorController extends Controller
 
     public function json()
     {
-        $status = '1';
+        $status = 'Publish';
         $all = DB::table('locations')
         ->leftJoin('icons', 'locations.icon_id', '=', 'icons.id')
         ->where('locations.status','=',$status)
@@ -87,7 +87,7 @@ class VisitorController extends Controller
         $all = DB::table('plants')
         ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
         ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-        ->where('plants.status','=',1)
+        ->where('plants.status','=','Publish')
         ->where(function($query) use ($keyword){
             $query->orWhere('plants.local_name', 'like', '%' . $keyword . '%')
                 ->orWhere('plants.taxonomists', 'like', '%' . $keyword . '%')
@@ -122,7 +122,7 @@ class VisitorController extends Controller
         $all = DB::table('plants')
         ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
         ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-        ->where('plants.status','=',1)
+        ->where('plants.status','=','Publish')
         ->where('locations.slug','=',$request->slug)
         ->where(function($query) use ($keyword){
             $query->orWhere('plants.local_name', 'like', '%' . $keyword . '%')
@@ -162,7 +162,7 @@ class VisitorController extends Controller
         $data = DB::table('plants')
         ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
         ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-        ->where('plants.status','=',1)
+        ->where('plants.status','=','Publish')
         ->where('plants.slug_plant','=',$slug)
         ->get()
         ->first();

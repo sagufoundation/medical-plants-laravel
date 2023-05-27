@@ -55,11 +55,5 @@ class LoginController extends Controller
         }else{
             return redirect()->route('/login');
         }
-
-
-
-
-
-
     }
 }
