@@ -63,7 +63,7 @@
 
             </div>
 
-            <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-md hover:shadow-lg cursor-pointer" alt="{{$data->local_name}}" src="{{url($data->cover_picture)}}">
+            <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-md hover:shadow-lg cursor-pointer" alt="{{$data->local_name}}" src="{{url($data->gallery_picture)}}">
         </div>
     </div>
 </section>
