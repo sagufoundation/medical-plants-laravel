@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Pengaturan;
 use Illuminate\Support\ServiceProvider;
+// use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Paginator::defaultView('pagination::default');
+
         view()->share([
             'pengaturan'                        => Pengaturan::first(),
         ]);

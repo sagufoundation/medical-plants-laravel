@@ -80,6 +80,7 @@
                         @endforeach --}}
 
                     </div>
+                    @include('vendor.pagination.default')
                 </div>
             </form>
         </div>
