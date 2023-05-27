@@ -17,7 +17,7 @@ class VisitorController extends Controller
 
     public function index()
     {
-        $status = '1';
+        $status = 'Publish';
         $all = DB::table('plants')
         ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
         ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
@@ -29,7 +29,15 @@ class VisitorController extends Controller
 
     public function thePlants()
     {
-        return view('visitor.pages.the-plants');
+
+         $status = 'Publish';
+        $count = DB::table('plants')
+        ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+        ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+        ->where('plants.status','=',$status)
+        ->orderBy('plants.id', 'desc')
+        ->count();
+        return view('visitor.pages.the-plants',['count' => $count]);
     }
 
     public function overview()
@@ -83,8 +91,28 @@ class VisitorController extends Controller
 
     public function filter(Request $request)
     {
+
+
         $keyword = $request->keyword;
         $location = $request->location;
+
+        $page = $request->noAwal; // Halaman yang ingin ditampilkan
+        $perPage = 10; // Jumlah data per halaman
+
+
+        $count = DB::table('plants')
+        ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+        ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+        ->where('plants.status','=','Publish')
+        ->where(function($query) use ($keyword){
+            $query->orWhere('plants.local_name', 'like', '%' . $keyword . '%')
+                ->orWhere('plants.taxonomists', 'like', '%' . $keyword . '%')
+                ->orWhere('locations.tribes', 'like', '%' . $keyword . '%')
+                ->orWhere('contributors.full_name', 'like', '%' . $keyword . '%');
+        })->count();
+
+
+
         $all = DB::table('plants')
         ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
         ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
@@ -94,7 +122,11 @@ class VisitorController extends Controller
                 ->orWhere('plants.taxonomists', 'like', '%' . $keyword . '%')
                 ->orWhere('locations.tribes', 'like', '%' . $keyword . '%')
                 ->orWhere('contributors.full_name', 'like', '%' . $keyword . '%');
-        });
+        })
+        ->skip(($page - 1) * $perPage)
+        ->take($perPage)
+        ;
+
         if($request->choose === 'plant' )
         {
             $all->orderBy('plants.local_name', 'asc');
@@ -113,7 +145,7 @@ class VisitorController extends Controller
         }
         $all = $all->get();
 
-        return $all;
+        return ['data' => $all, 'count' => $count];
     }
 
     public function location(Request $request)

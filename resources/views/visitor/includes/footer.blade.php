@@ -1,4 +1,5 @@
     <!-- FOOTER -->
+
     <footer class="p-4 bg-gray-200 sm:p-6 dark:bg-gray-800">
         <div class="mx-auto max-w-screen-xl pt-10">
             <div class="md:flex md:justify-between">
