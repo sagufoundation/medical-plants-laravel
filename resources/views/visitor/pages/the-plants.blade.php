@@ -32,7 +32,7 @@
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                             <div class="flex items-center pl-3">
                                 <input id="choose" type="radio" value="plant" name="choose" required class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 cursor-pointer">
-                                <label class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Plant name</label>
+                                <label class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Plant Name</label>
                             </div>
                         </li>
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
@@ -106,23 +106,20 @@
     function post_row(res){
     let htmlView = '';
     for(let i = 0; i < res.length; i++){
-        htmlView += `
-        <div>
-                                <a href="/detail-plant/`+res[i].slug_plant+`" class="cursor-pointer">
-                                    <img  src=`+res[i].cover_picture+`  class="mb-4 rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-md" alt="`+res[i].local_name+`">
-                                </a>
-                                <a href="#" class="dark:text-gray-500 hover:underline"><i class="fa-solid fa-map-marker"></i> <span> `+res[i].tribes+`</span></a>
+        htmlView += ` <div>
+            <a href="/detail-plant/`+res[i].slug_plant+`" class="cursor-pointer">
+                <img  src=`+res[i].cover_picture+`  class="mb-4 rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-md" alt="`+res[i].local_name+`">
+            </a>
+            <a href="#" class="dark:text-gray-500 hover:underline"><i class="fa-solid fa-map-marker"></i> <span> `+res[i].tribes+`</span></a>
 
-                                <h3 class="text-4xl font-bold text-green-600 my-1"> `+res[i].local_name+`</h3>
-                                <p class="dark:text-gray-300 mb-2"><span> `+res[i].taxonomists+` </span></p>
+            <h3 class="text-4xl font-bold text-green-600 my-1"> `+res[i].local_name+`</h3>
+            <p class="dark:text-gray-300 mb-2"><span> `+res[i].taxonomists+` </span></p>
 
-                                <div class="grid grid-cols-2 text-sm mb-4">
-                                    <p class="dark:text-gray-500"><i class="fa-solid fa-user"></i> <span>`+res[i].full_name+`</span></p>
-                                    <p class="dark:text-gray-500"><i class="fa-solid fa-calendar-check"></i> <span > `+res[i].updated_at+`</span></p>
-                                </div>
-                            </div>
-
-            `;
+            <div class="grid grid-cols-2 text-sm mb-4">
+                <p class="dark:text-gray-500"><i class="fa-solid fa-user"></i> <span>`+res[i].full_name+`</span></p>
+                <p class="dark:text-gray-500"><i class="fa-solid fa-calendar-check"></i> <span > `+res[i].updated_at+`</span></p>
+            </div>
+        </div> `;
         }
         $('#dataPlants').html(htmlView);
 

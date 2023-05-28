@@ -19,11 +19,11 @@ class VisitorController extends Controller
     {
         $status = '1';
         $all = DB::table('plants')
-        ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-        ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-        ->where('plants.status','=',$status)
-        ->orderBy('plants.id', 'desc')
-        ->get();
+                ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+                ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+                ->where('plants.status','=',$status)
+                ->orderBy('plants.id', 'desc')
+                ->get();
         return view('visitor.pages.home',['all' => $all]);
     }
 
