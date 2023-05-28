@@ -36,7 +36,7 @@ class IconController extends Controller
     {
         $request->validate([
             'icon_name'                 => 'required',
-            'icon_img'                     => 'required|image|mimes:png',
+            'icon_img'                  => 'required|image|mimes:png',
         ]);
 
         $tahun = date("Y");

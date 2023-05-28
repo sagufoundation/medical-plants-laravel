@@ -18,12 +18,12 @@ class LocationController extends Controller
     public function index()
     {
         $status = 'Publish';
-        $judul = 'Publish';
-        $all = DB::table('locations')
-                ->leftJoin('icons', 'locations.icon_id', '=', 'icons.id')
-                ->where('locations.status','=',$status)
-                ->orderBy('locations.id', 'desc')
-                ->get();
+        $judul  = 'Publish';
+        $all    = DB::table('locations')
+                    ->leftJoin('icons', 'locations.icon_id', '=', 'icons.id')
+                    ->where('locations.status','=',$status)
+                    ->orderBy('locations.id', 'desc')
+                    ->get();
         $data_maps = json_encode($all);
 
 

@@ -20,10 +20,9 @@
         <div class="container max-w-screen-xl mx-auto p-4">
             <form class="" method="" action="">
                 @csrf
+
                 <div class="mb-4 flex justify-between">
-                    <input
-                        class="shadow appearance-none border border-gray-300 rounded-lg w-full px-6 py-6 text-gray-600 leading-tight focus:outline-none focus:shadow-outline focus:shadow-lg focus:border-none transition text-xl"
-                        id="keyword" type="text" name="keyword" required placeholder="Type your keywords here...">
+                    <input class="shadow appearance-none border border-gray-300 rounded-lg w-full px-6 py-6 text-gray-600 leading-tight focus:outline-none focus:shadow-outline focus:shadow-lg focus:border-none transition text-xl" id="keyword" type="text" name="keyword" required placeholder="Type your keywords here...">
                 </div>
 
                 <div class="lg:w-2/3">
@@ -32,34 +31,26 @@
                         class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white shadow-sm">
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                             <div class="flex items-center pl-3">
-                                <input id="choose" type="radio" value="plant" name="choose" required
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 cursor-pointer">
-                                <label for="choose"
-                                    class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer">Plant name</label>
+                                <input id="choose" type="radio" value="plant" name="choose" required class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 cursor-pointer">
+                                <label class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Plant name</label>
                             </div>
                         </li>
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                             <div class="flex items-center pl-3">
-                                <input id="choose" type="radio" value="tribe" name="choose" required
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 cursor-pointer">
-                                <label for="choose"
-                                    class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer">Tribe</label>
+                                <input id="choose" type="radio" value="tribe" name="choose" required class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 cursor-pointer">
+                                <label class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tribe</label>
                             </div>
                         </li>
 
                         <li class="w-full dark:border-gray-600">
-                            <div class="flex items-center pl-3">
-                                <input id="choose" type="radio" value="contributor" name="choose" required
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 cursor-pointer">
-                                <label for="choose"
-                                    class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer">Contributor name</label>
+                            <div class="flex items-center pl-3"> <input id="choose" type="radio" value="contributor" name="choose" required class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 cursor-pointer">
+                                <label class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Contributor Name</label>
                             </div>
                         </li>
                     </ul>
 
                 </div>
                 <div class="container max-w-screen-xl mx-auto p-4 bg-white dark:bg-gray-900 pb-16 pt-16" >
-
                     <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6" id="dataPlants">
                         <!-- platn's data -->
                         {{-- @foreach ($all as $data )

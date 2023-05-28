@@ -2,11 +2,8 @@
     <div class="container max-w-screen-xl mx-auto p-4">
         <form class="" method="get" action="{{route('visitor.thePlants')}}">
             <div class="mb-4 flex justify-between">
-                <input
-                    class="shadow appearance-none border border-gray-300 rounded-lg w-full px-6 py-6 text-gray-600 leading-tight focus:outline-none focus:shadow-outline focus:shadow-lg focus:border-none transition text-xl"
-                    id="" name="keyword" type="text" placeholder="Type your keywords here...">
-                <button  type="submit"
-                    class="inline-flex items-center justify-center px-6 py-3 font-medium text-center text-white rounded-lg bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 cursor-pointer ml-3 text-xl focus:outline-none focus:shadow-outline focus:shadow-lg">
+                <input class="shadow appearance-none border border-gray-300 rounded-lg w-full px-6 py-6 text-gray-600 leading-tight focus:outline-none focus:shadow-outline focus:shadow-lg focus:border-none transition text-xl" id="" name="keyword" type="text" placeholder="Type your keywords here...">
+                <button  type="submit" class="inline-flex items-center justify-center px-6 py-3 font-medium text-center text-white rounded-lg bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 cursor-pointer ml-3 text-xl focus:outline-none focus:shadow-outline focus:shadow-lg">
                     <i class="fa-solid fa-search mr-2"></i> Search
                 </button>
             </div>

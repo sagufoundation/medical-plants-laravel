@@ -15,14 +15,14 @@ class PlantSeeder extends Seeder
     {
 
         $plant = Plant::create([
-            'id_location' => 1,
-            'id_contributor' => 1,
-            'cover_picture' => '/assets/img/plants/00.jpg',
-            'gallery_picture' => '/assets/img/plants/gallery/00.jpg',
-            'local_name' => 'Lorem, ipsum.',
-            'taxonomists' => 'Lorem ipsum dolor sit.',
-            'treatments' => '-',
-            'status' => 'Publish',
+            'id_location'       => 1,
+            'id_contributor'    => 1,
+            'cover_picture'     => '/assets/img/plants/00.jpg',
+            'gallery_picture'   => '/assets/img/plants/gallery/00.jpg',
+            'local_name'        => 'Lorem, ipsum.',
+            'taxonomists'       => 'Lorem ipsum dolor sit.',
+            'treatments'        => '-',
+            'status'            => 'Publish',
         ]);
 
         $plant = Plant::create([

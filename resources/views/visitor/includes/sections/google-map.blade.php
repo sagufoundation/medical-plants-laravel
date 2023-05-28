@@ -11,7 +11,7 @@
             var mapCanvas = document.getElementById('map');
 
             // Center maps
-            var myLatlng = new google.maps.LatLng(-5.4292522, 130.2083882,5);
+            var myLatlng = new google.maps.LatLng(-4.8302525,137.8090696,6);
 
             // Map Options
             var mapOptions = {
@@ -25,7 +25,8 @@
             var infoWindow = new google.maps.InfoWindow;
 
             //request data from data-maps.php
-            $.getJSON("http://127.0.0.1:8000/json", function(data) {
+            // $.getJSON("http://127.0.0.1:8000/json", function(data) {
+            $.getJSON({!! json_encode(url('/json')) !!}, function(data) {
 
                 //parsing data json
                 $.each(data, function(i, item) {
@@ -45,10 +46,8 @@
                     // //create pop up info content
                     var text = document.createElement('text');
                     var string = `<div class="p-3">
-
-                    <h5> <a href="/tribe/${item.slug}" target="_blank"> ${item.tribes} </a>   <h5>
-                    </div>
-                    `;
+                                    <h5> <a href="/tribe/${item.slug}" target="_blank"> ${item.tribes} </a>   <h5>
+                                </div> `;
 
 
                     text.textContent = string;
