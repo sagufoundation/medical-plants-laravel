@@ -19,11 +19,11 @@ class VisitorController extends Controller
     {
         $status = 'Publish';
         $all = DB::table('plants')
-        ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-        ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-        ->where('plants.status','=',$status)
-        ->orderBy('plants.id', 'desc')
-        ->get();
+                ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+                ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+                ->where('plants.status','=',$status)
+                ->orderBy('plants.id', 'desc')
+                ->get();
         return view('visitor.pages.home',['all' => $all]);
     }
 
@@ -82,8 +82,65 @@ class VisitorController extends Controller
         $keyword = $request->keyword;
         $page = $request->noAwal; // Halaman yang ingin ditampilkan
         $perPage = 8; // Jumlah data per halaman
-        $lokasi_slug = $request->location; //Lokasi
 
+        $all = DB::table('plants')
+        ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+        ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+        ->where('plants.status','=','Publish')
+        ->skip(($page - 1) * $perPage)
+        ->take($perPage)
+        ->get();
+
+        $count = $all->count();
+
+        if($request->choose == 'plant')
+        {
+            $all = DB::table('plants')
+            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+            ->where('plants.status','=','Publish')
+            ->Where('plants.local_name', 'like', '%' . $keyword . '%')
+            ->skip(($page - 1) * $perPage)
+            ->take($perPage)
+            ->get();
+            $count = $all->count();
+        }
+
+        if($request->choose == 'tribe')
+        {
+            $all = DB::table('plants')
+            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+            ->where('plants.status','=','Publish')
+            ->Where('locations.tribes', 'like', '%' . $keyword . '%')
+            ->skip(($page - 1) * $perPage)
+            ->take($perPage)
+            ->get();
+            $count = $all->count();
+        }
+
+        if($request->choose == 'contributor')
+        {
+            $all = DB::table('plants')
+            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+            ->where('plants.status','=','Publish')
+            ->Where('contributors.full_name', 'like', '%' . $keyword . '%')
+            ->skip(($page - 1) * $perPage)
+            ->take($perPage)
+            ->get();
+            $count = $all->count();
+        }
+
+        return ['data' => $all, 'count' => $count];
+    }
+
+    public function location(Request $request)
+    {
+        $keyword = $request->keyword;
+        $page = $request->noAwal; // Halaman yang ingin ditampilkan
+        $perPage = 8; // Jumlah data per halaman
+        $lokasi_slug = $request->location;
 
         $all = DB::table('plants')
         ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
@@ -131,65 +188,6 @@ class VisitorController extends Controller
             ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
             ->where('plants.status','=','Publish')
             ->where('locations.slug','=',$lokasi_slug)
-            ->Where('contributors.full_name', 'like', '%' . $keyword . '%')
-            ->skip(($page - 1) * $perPage)
-            ->take($perPage)
-            ->get();
-            $count = $all->count();
-        }
-
-        return ['data' => $all, 'count' => $count];
-    }
-
-    public function location(Request $request)
-    {
-        $keyword = $request->keyword;
-        $page = $request->noAwal; // Halaman yang ingin ditampilkan
-        $perPage = 8; // Jumlah data per halaman
-
-
-        $all = DB::table('plants')
-        ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-        ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-        ->where('plants.status','=','Publish')
-        ->skip(($page - 1) * $perPage)
-        ->take($perPage)
-        ->get();
-
-        $count = $all->count();
-
-        if($request->choose == 'plant')
-        {
-            $all = DB::table('plants')
-            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-            ->where('plants.status','=','Publish')
-            ->Where('plants.local_name', 'like', '%' . $keyword . '%')
-            ->skip(($page - 1) * $perPage)
-            ->take($perPage)
-            ->get();
-            $count = $all->count();
-        }
-
-        if($request->choose == 'tribe')
-        {
-            $all = DB::table('plants')
-            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-            ->where('plants.status','=','Publish')
-            ->Where('locations.tribes', 'like', '%' . $keyword . '%')
-            ->skip(($page - 1) * $perPage)
-            ->take($perPage)
-            ->get();
-            $count = $all->count();
-        }
-
-        if($request->choose == 'contributor')
-        {
-            $all = DB::table('plants')
-            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-            ->where('plants.status','=','Publish')
             ->Where('contributors.full_name', 'like', '%' . $keyword . '%')
             ->skip(($page - 1) * $perPage)
             ->take($perPage)
