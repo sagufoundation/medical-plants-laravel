@@ -1,5 +1,10 @@
 <IfModule mod_rewrite.c>
-    RewriteEngine on
-    RewriteCond %{REQUEST_URI} !^public
-    RewriteRule ^(.*)$ public/$1 [L]
+
+    RewriteEngine On
+    RewriteBase /test/
+
+    RewriteRule ^$ public/index.php [L]
+
+    RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
+
 </IfModule>
