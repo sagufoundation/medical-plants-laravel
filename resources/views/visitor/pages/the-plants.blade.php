@@ -33,26 +33,26 @@
                         class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white shadow-sm">
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                             <div class="flex items-center pl-3">
-                                <input id="choose" type="radio" value="plant" name="choose"
+                                <input id="plant" type="radio" value="plant" name="choose"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 cursor-pointer">
-                                <label for="choose"
+                                <label for="plant"
                                     class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer">Plant name</label>
                             </div>
                         </li>
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                             <div class="flex items-center pl-3">
-                                <input id="choose" type="radio" value="tribe" name="choose"
+                                <input id="tribe" type="radio" value="tribe" name="choose"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 cursor-pointer">
-                                <label for="choose"
+                                <label for="tribe"
                                     class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer">Tribe</label>
                             </div>
                         </li>
 
                         <li class="w-full dark:border-gray-600">
                             <div class="flex items-center pl-3">
-                                <input id="choose" type="radio" value="contributor" name="choose"
+                                <input id="contributor" type="radio" value="contributor" name="choose"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 cursor-pointer">
-                                <label for="choose"
+                                <label for="contributor"
                                     class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer">Contributor name</label>
                             </div>
                         </li>
@@ -100,9 +100,9 @@
         keyword();
     });
 
-    // $('input[name="choose"]').change(function() {
-    //     keyword();
-    // });
+    $('input[name="choose"]').change(function() {
+        keyword();
+    });
 
     keyword();
     function keyword(noAwal = null){
@@ -122,7 +122,6 @@
     }
         //row with ajax
     function post_row(res){
-        console.info(res.count);
     let htmlView = '';
     for(let i = 0; i < res.data.length; i++){
         htmlView += `
@@ -145,7 +144,7 @@
         }
 
         var jumlahData = res.count;
-        var jumlahHalaman = Math.ceil(jumlahData/10);
+        var jumlahHalaman = Math.ceil(jumlahData/8);
         var htmlHalaman = `
         {{-- resources/views/vendor/pagination/default.blade.php --}}
                 <nav role="navigation"

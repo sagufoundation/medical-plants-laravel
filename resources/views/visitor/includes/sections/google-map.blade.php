@@ -15,7 +15,7 @@
 
             // Map Options
             var mapOptions = {
-                zoom: 6,
+                zoom: 7,
                 center: myLatlng
             };
 
