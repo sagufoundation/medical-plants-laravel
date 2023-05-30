@@ -48,14 +48,14 @@ class IconController extends Controller
         $filename  = 'medicalplant'.'-'.date('Y-m-d-H-i-s').'-'.$request->file('icon_img')->getClientOriginalName();
 
 
-        $url = ('storage/resource/icon/'.$tahun.'/'.$bulan.'/'.$filename);
+        $url = ('storage/public/resource/icon/'.$tahun.'/'.$bulan.'/'.$filename);
 
 
 
         $file = $request->file('icon_img');
         $img = Image::make($file);
         $img->resize(30, 20);
-        $path = 'storage/resource/icon/'.$tahun.'/'.$bulan.'/'.$filename;
+        $path = 'storage/public/resource/icon/'.$tahun.'/'.$bulan.'/'.$filename;
         $img->save($path);
 
 
@@ -116,7 +116,7 @@ class IconController extends Controller
             }
             $filename  = 'medicalplant'.'-'.date('Y-m-d-H-i-s').$request->file('icon_img')->getClientOriginalName();
             $request->file('icon_img')->storeAs('public/resource/icon/'.$tahun.'/'.$bulan,$filename);
-            $url = ('storage/resource/icon/'.$tahun.'/'.$bulan.'/'.$filename);
+            $url = ('storage/public/resource/icon/'.$tahun.'/'.$bulan.'/'.$filename);
             $data['icon_img'] = $url;
         }
 

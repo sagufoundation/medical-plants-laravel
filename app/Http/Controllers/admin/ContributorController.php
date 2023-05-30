@@ -95,7 +95,7 @@ class ContributorController extends Controller
 
         $request->file('photo')->storeAs('public/resource/contributor/'.$tahun.'/'.$bulan,$filename);
 
-        $url = ('storage/resource/contributor/'.$tahun.'/'.$bulan.'/'.$filename);
+        $url = ('storage/public/resource/contributor/'.$tahun.'/'.$bulan.'/'.$filename);
 
         //create
         $contributor = Contributor::create([
@@ -178,7 +178,7 @@ class ContributorController extends Controller
 
             $request->file('photo')->storeAs('public/resource/contributor/'.$tahun.'/'.$bulan,$filename);
 
-            $url = ('storage/resource/contributor/'.$tahun.'/'.$bulan.'/'.$filename);
+            $url = ('storage/public/resource/contributor/'.$tahun.'/'.$bulan.'/'.$filename);
             $data['photo'] = $url;
         }
 

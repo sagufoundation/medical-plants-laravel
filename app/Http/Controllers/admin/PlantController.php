@@ -255,7 +255,7 @@ class PlantController extends Controller
             }
             $filename         = 'medicalplant'.'-'.date('Y-m-d-H-i-s').$request->file('cover_picture')->getClientOriginalName();
             $request->file('cover_picture')->storeAs('public/resource/plant/'.$tahun.'/'.$bulan,$filename);
-            $url = ('storage/resource/plant/'.$tahun.'/'.$bulan.'/'.$filename);
+            $url = ('storage/public/resource/plant/'.$tahun.'/'.$bulan.'/'.$filename);
             $data['cover_picture'] = $url;
         }
 
@@ -267,7 +267,7 @@ class PlantController extends Controller
             }
             $filenamegallery  = 'medicalplant'.'-'.date('Y-m-d-H-i-s').$request->file('gallery_picture')->getClientOriginalName();
             $request->file('gallery_picture')->storeAs('public/resource/plant/gallery'.$tahun.'/'.$bulan,$filenamegallery);
-            $urlgallery = ('storage/resource/plant/gallery'.$tahun.'/'.$bulan.'/'.$filenamegallery);
+            $urlgallery = ('storage/public/resource/plant/gallery'.$tahun.'/'.$bulan.'/'.$filenamegallery);
             $data['gallery_picture'] = $urlgallery;
         }
 
