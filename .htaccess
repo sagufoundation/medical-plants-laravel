@@ -1,5 +1,3 @@
-<IfModule mod_rewrite.c>
-<<<<<<< HEAD
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
@@ -19,9 +17,4 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
-=======
-    RewriteEngine On
-    RewriteRule ^$ public/index.php [L]
-    RewriteRule ^((?!public/).*)$ public/$1 [L,NC]
->>>>>>> 41c66758bb92193789b69cd9a54c19a75f1f6ce5
 </IfModule>
