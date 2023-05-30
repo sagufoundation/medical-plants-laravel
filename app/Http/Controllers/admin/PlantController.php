@@ -151,12 +151,12 @@ class PlantController extends Controller
         // COVER PICTURE
         $filename  = 'medicalplant'.'-'.date('Y-m-d-H-i-s').$request->file('cover_picture')->getClientOriginalName();
         $request->file('cover_picture')->storeAs('public/resource/plant/'.$tahun.'/'.$bulan, $filename);
-        $url = ('storage/resource/plant/'.$tahun.'/'.$bulan.'/'.$filename);
+        $url = ('storage/public/resource/plant/'.$tahun.'/'.$bulan.'/'.$filename);
 
         // GALLERY PICTURE
         $galleryfilename  = 'medicalplant'.'-'.date('Y-m-d-H-i-s').$request->file('gallery_picture')->getClientOriginalName();
         $request->file('gallery_picture')->storeAs('public/resource/plant/gallery/'.$tahun.'/'.$bulan, $galleryfilename);
-        $galleryurl = ('storage/resource/plant/gallery/'.$tahun.'/'.$bulan.'/'.$filename);
+        $galleryurl = ('storage/public/resource/plant/gallery/'.$tahun.'/'.$bulan.'/'.$filename);
 
          //create
          $plant = Plant::create([
