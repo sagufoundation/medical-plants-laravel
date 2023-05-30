@@ -120,8 +120,6 @@
 
                 //parsing data json
                 $.each(data, function(i, item) {
-                    console.info(item.lat);
-                    console.info(item.long);
                     //set point marker
                     var point = new google.maps.LatLng(
                         parseFloat(item.lat),
@@ -147,7 +145,6 @@
 
                     infowincontent.textContent  = string;
                     var url = `${item.icon_img}`
-                console.info(url);
 
                     //marker option
                     var marker = new google.maps.Marker({
