@@ -116,7 +116,7 @@
             var infoWindow = new google.maps.InfoWindow;
 
             //request data from data-maps.php
-            $.getJSON("http://127.0.0.1:8000/admin/location/json", function(data) {
+            $.getJSON("http://localhost/medical-plants-laravel/admin/location/json", function(data) {
 
                 //parsing data json
                 $.each(data, function(i, item) {
@@ -144,7 +144,7 @@
 
 
                     infowincontent.textContent  = string;
-                    var url = `${item.icon_img}`
+                    var url = `https://medicinalplantspapua.org/v2/${item.icon_img}`
 
                     //marker option
                     var marker = new google.maps.Marker({

@@ -27,7 +27,6 @@
             //request data from data-maps.php
             // $.getJSON("http://127.0.0.1:8000/json", function(data) {
             $.getJSON({!! json_encode(url('/json')) !!}, function(data) {
-
                 //parsing data json
                 $.each(data, function(i, item) {
                     //set point marker
@@ -52,7 +51,7 @@
 
 
                     infowincontent.textContent  = string;
-                    var url = `${item.icon_img}`
+                    var url = `https://medicinalplantspapua.org/v2/${item.icon_img}`
 
                     //marker option
                     var marker = new google.maps.Marker({
