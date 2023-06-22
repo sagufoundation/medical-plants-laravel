@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Visitor;
 
+use App\Models\Plant;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,32 +14,56 @@ class VisitorController extends Controller
 {
     public function __construct()
     {
-
     }
 
     public function index()
     {
         $status = 'Publish';
         $all = DB::table('plants')
-                ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-                ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-                ->where('plants.status','=',$status)
-                ->orderBy('plants.id', 'desc')
-                ->get();
-        return view('visitor.pages.home',['all' => $all]);
+            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+            ->where('plants.status', '=', $status)
+            ->orderBy('plants.id', 'desc')
+            ->get();
+        return view('visitor.pages.home', ['all' => $all]);
     }
 
     public function thePlants()
     {
 
-         $status = 'Publish';
+        $status = 'Publish';
         $count = DB::table('plants')
-        ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-        ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-        ->where('plants.status','=',$status)
-        ->orderBy('plants.id', 'desc')
-        ->count();
-        return view('visitor.pages.the-plants',['count' => $count]);
+            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+            ->where('plants.status', '=', $status)
+            ->orderBy('plants.id', 'desc')
+            ->count();
+        return view('visitor.pages.the-plants', ['count' => $count]);
+    }
+
+    public function thePlantsSimulation()
+    {
+
+
+        $datas = Plant::where([
+            ['local_name', '!=', Null],
+            [function ($query) {
+                if (($s = request()->s)) {
+                    if (isset(request()->filter) && request()->filter == 'local_name') {
+                        $query->orWhere('local_name', 'LIKE', '%' . $s . '%')
+                            // ->orWhere('subtitle', 'LIKE', '%' . $s . '%')
+                            ->get();
+                    }elseif (isset(request()->filter) && request()->filter == 'taxonomists') {
+                        $query->orWhere('taxonomists', 'LIKE', '%' . $s . '%')
+                            // ->orWhere('subtitle', 'LIKE', '%' . $s . '%')
+                            ->get();
+                    } else {
+                        $query->get();
+                    }
+                }
+            }]
+        ])->where('status', 'Publish')->latest()->paginate(5);
+        return view('visitor.pages.the-plants-simulation', compact('datas'));
     }
 
     public function overview()
@@ -69,10 +95,10 @@ class VisitorController extends Controller
     {
         $status = 'Publish';
         $all = DB::table('locations')
-        ->leftJoin('icons', 'locations.icon_id', '=', 'icons.id')
-        ->where('locations.status','=',$status)
-        ->orderBy('locations.id', 'desc')
-        ->get();
+            ->leftJoin('icons', 'locations.icon_id', '=', 'icons.id')
+            ->where('locations.status', '=', $status)
+            ->orderBy('locations.id', 'desc')
+            ->get();
         $data_maps = json_encode($all);
         echo $data_maps;
     }
@@ -84,51 +110,48 @@ class VisitorController extends Controller
         $perPage = 8; // Jumlah data per halaman
 
         $all = DB::table('plants')
-        ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-        ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-        ->where('plants.status','=','Publish')
-        ->skip(($page - 1) * $perPage)
-        ->take($perPage)
-        ->get();
+            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+            ->where('plants.status', '=', 'Publish')
+            ->skip(($page - 1) * $perPage)
+            ->take($perPage)
+            ->get();
 
         $count = $all->count();
 
-        if($request->choose == 'plant')
-        {
+        if ($request->choose == 'plant') {
             $all = DB::table('plants')
-            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-            ->where('plants.status','=','Publish')
-            ->Where('plants.local_name', 'like', '%' . $keyword . '%')
-            ->skip(($page - 1) * $perPage)
-            ->take($perPage)
-            ->get();
+                ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+                ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+                ->where('plants.status', '=', 'Publish')
+                ->Where('plants.local_name', 'like', '%' . $keyword . '%')
+                ->skip(($page - 1) * $perPage)
+                ->take($perPage)
+                ->get();
             $count = $all->count();
         }
 
-        if($request->choose == 'tribe')
-        {
+        if ($request->choose == 'tribe') {
             $all = DB::table('plants')
-            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-            ->where('plants.status','=','Publish')
-            ->Where('locations.tribes', 'like', '%' . $keyword . '%')
-            ->skip(($page - 1) * $perPage)
-            ->take($perPage)
-            ->get();
+                ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+                ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+                ->where('plants.status', '=', 'Publish')
+                ->Where('locations.tribes', 'like', '%' . $keyword . '%')
+                ->skip(($page - 1) * $perPage)
+                ->take($perPage)
+                ->get();
             $count = $all->count();
         }
 
-        if($request->choose == 'contributor')
-        {
+        if ($request->choose == 'contributor') {
             $all = DB::table('plants')
-            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-            ->where('plants.status','=','Publish')
-            ->Where('contributors.full_name', 'like', '%' . $keyword . '%')
-            ->skip(($page - 1) * $perPage)
-            ->take($perPage)
-            ->get();
+                ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+                ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+                ->where('plants.status', '=', 'Publish')
+                ->Where('contributors.full_name', 'like', '%' . $keyword . '%')
+                ->skip(($page - 1) * $perPage)
+                ->take($perPage)
+                ->get();
             $count = $all->count();
         }
 
@@ -143,55 +166,52 @@ class VisitorController extends Controller
         $lokasi_slug = $request->location;
 
         $all = DB::table('plants')
-        ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-        ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-        ->where('plants.status','=','Publish')
-        ->where('locations.slug','=',$lokasi_slug)
-        ->skip(($page - 1) * $perPage)
-        ->take($perPage)
-        ->get();
+            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+            ->where('plants.status', '=', 'Publish')
+            ->where('locations.slug', '=', $lokasi_slug)
+            ->skip(($page - 1) * $perPage)
+            ->take($perPage)
+            ->get();
 
         $count = $all->count();
 
-        if($request->choose == 'plant')
-        {
+        if ($request->choose == 'plant') {
             $all = DB::table('plants')
-            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-            ->where('plants.status','=','Publish')
-            ->where('locations.slug','=',$lokasi_slug)
-            ->Where('plants.local_name', 'like', '%' . $keyword . '%')
-            ->skip(($page - 1) * $perPage)
-            ->take($perPage)
-            ->get();
+                ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+                ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+                ->where('plants.status', '=', 'Publish')
+                ->where('locations.slug', '=', $lokasi_slug)
+                ->Where('plants.local_name', 'like', '%' . $keyword . '%')
+                ->skip(($page - 1) * $perPage)
+                ->take($perPage)
+                ->get();
             $count = $all->count();
         }
 
-        if($request->choose == 'tribe')
-        {
+        if ($request->choose == 'tribe') {
             $all = DB::table('plants')
-            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-            ->where('plants.status','=','Publish')
-            ->where('locations.slug','=',$lokasi_slug)
-            ->Where('locations.tribes', 'like', '%' . $keyword . '%')
-            ->skip(($page - 1) * $perPage)
-            ->take($perPage)
-            ->get();
+                ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+                ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+                ->where('plants.status', '=', 'Publish')
+                ->where('locations.slug', '=', $lokasi_slug)
+                ->Where('locations.tribes', 'like', '%' . $keyword . '%')
+                ->skip(($page - 1) * $perPage)
+                ->take($perPage)
+                ->get();
             $count = $all->count();
         }
 
-        if($request->choose == 'contributor')
-        {
+        if ($request->choose == 'contributor') {
             $all = DB::table('plants')
-            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-            ->where('plants.status','=','Publish')
-            ->where('locations.slug','=',$lokasi_slug)
-            ->Where('contributors.full_name', 'like', '%' . $keyword . '%')
-            ->skip(($page - 1) * $perPage)
-            ->take($perPage)
-            ->get();
+                ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+                ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+                ->where('plants.status', '=', 'Publish')
+                ->where('locations.slug', '=', $lokasi_slug)
+                ->Where('contributors.full_name', 'like', '%' . $keyword . '%')
+                ->skip(($page - 1) * $perPage)
+                ->take($perPage)
+                ->get();
             $count = $all->count();
         }
 
@@ -202,22 +222,22 @@ class VisitorController extends Controller
     {
         $status = '1';
         $data = DB::table('locations')
-                   ->where('locations.slug','=',$slug)
-                   ->get()->first();
+            ->where('locations.slug', '=', $slug)
+            ->get()->first();
 
-        return view('visitor.pages.tribe',['data' => $data]);
+        return view('visitor.pages.tribe', ['data' => $data]);
     }
 
     public function detail_plant($slug)
     {
         $data = DB::table('plants')
-        ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-        ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-        ->where('plants.status','=','Publish')
-        ->where('plants.slug_plant','=',$slug)
-        ->get()
-        ->first();
-        return view('visitor.pages.detail-plant',compact('data'));
+            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+            ->where('plants.status', '=', 'Publish')
+            ->where('plants.slug_plant', '=', $slug)
+            ->get()
+            ->first();
+        return view('visitor.pages.detail-plant', compact('data'));
     }
 
     public function view()

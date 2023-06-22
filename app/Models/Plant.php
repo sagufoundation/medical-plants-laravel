@@ -23,4 +23,8 @@ class Plant extends Model
         ];
     }
 
+    public function contributor(){
+        return $this->belongsTo(Contributor::class,'id_contributor');
+    }
+
 }
