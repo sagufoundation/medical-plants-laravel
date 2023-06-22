@@ -9,8 +9,12 @@
     <!-- BANNER 1 START -->
     @include('visitor.includes.sections.banner-1')
 
-    <!-- SEARCH START -->
-    @include('visitor.includes.sections.search')
+    <!-- SEARCH START -->    
+    <section class="py-9">
+        <div class="container max-w-screen-xl mx-auto p-4">
+            @include('visitor.includes.sections.search')
+        </div>
+    </section>
         
     <!-- GOOGLE MAP START -->
     @include('visitor.includes.sections.google-map')

@@ -18,10 +18,13 @@
     <!-- SEARCH START -->
     <section class="py-9">
         <div class="container max-w-screen-xl mx-auto p-4">
-            <form class="" method="get" action="{{ route('visitor.the-plants-simulation') }}">
+            <form class="" method="" action="">
+                @csrf
+                <input type="hidden" value="{{$count}}" id="count">
                 <div class="mb-4 flex justify-between">
-                    <input class="shadow appearance-none border border-gray-300 rounded-lg w-full px-6 py-6 text-gray-600 leading-tight focus:outline-none focus:shadow-outline focus:shadow-lg focus:border-none transition text-xl" id="s" name="s" type="text"  placeholder="Type your keywords here...">
-                        <button type="submit" class="bg-gray-700 hover:bg-gray-800 transition text-gray-100 rounded px-9 ml-5">Search</button>
+                    <input
+                        class="shadow appearance-none border border-gray-300 rounded-lg w-full px-6 py-6 text-gray-600 leading-tight focus:outline-none focus:shadow-outline focus:shadow-lg focus:border-none transition text-xl"
+                        id="keyword" type="text" name="keyword"  placeholder="Type your keywords here...">
                 </div>
 
                 <div class="lg:w-2/3">
@@ -30,74 +33,56 @@
                         class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white shadow-sm">
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                             <div class="flex items-center pl-3">
-                                <input @if(isset($_GET['filter'])  && $_GET['filter'] == 'local_name') checked  @endif id="local_name" type="radio" value="local_name" name="filter" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 cursor-pointer">
-                                <label for="local_name" class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer">Local Name</label>
+                                <input id="plant" type="radio" value="plant" name="choose"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 cursor-pointer">
+                                <label for="plant"
+                                    class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer">Plant name</label>
                             </div>
                         </li>
                         <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                             <div class="flex items-center pl-3">
-                                <input @if(isset($_GET['filter'])  && $_GET['filter'] == 'taxonomists') checked  @endif id="taxonomists" type="radio" value="taxonomists" name="filter" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 cursor-pointer">
-                                <label for="taxonomists" class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer">Taxonomists</label>
+                                <input id="tribe" type="radio" value="tribe" name="choose"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 cursor-pointer">
+                                <label for="tribe"
+                                    class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer">Tribe</label>
                             </div>
                         </li>
 
                         <li class="w-full dark:border-gray-600">
                             <div class="flex items-center pl-3">
-                                <input @if(isset($_GET['filter'])  && $_GET['filter'] == 'contributor') checked  @endif  id="contributor" type="radio" value="contributor" name="filter" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 cursor-pointer">
-                                <label for="contributor" class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer">Contributor Name</label>
+                                <input id="contributor" type="radio" value="contributor" name="choose"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500 cursor-pointer">
+                                <label for="contributor"
+                                    class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer">Contributor name</label>
                             </div>
                         </li>
                     </ul>
 
                 </div>
-                @if($datas->isEmpty())
-                <div class="my-9">
-                    <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded " role="alert">
-                        <strong class="font-bold">Oops!</strong>
-                        <span class="block sm:inline">Data not found. Please try again!</span>
-                        </div>
-                </div>
-                @else
-
                 <div class="container max-w-screen-xl mx-auto p-4 bg-white dark:bg-gray-900 pb-16 pt-16" >
-                    
-                    
 
-                    <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6">
+                    <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6" id="dataPlants">
                         <!-- platn's data -->
-                        
-                            
-                        
-                        
-                            @foreach ($datas as $data )
-                                <div>
-                                    <a href="#" class="cursor-pointer">
-                                        <img  src="{{url($data->cover_picture)}}"  class="mb-4 rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-md" alt="{{$data->local_name}}">
-                                    </a>
-                                    <a href="#" class="dark:text-gray-500 hover:underline"><i class="fa-solid fa-map-marker"></i> <span> {{$data->tribes}}</span></a>
+                        {{-- @foreach ($all as $data )
+                            <div>
+                                <a href="#" class="cursor-pointer">
+                                    <img  src="{{url($data->cover_picture)}}"  class="mb-4 rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-md" alt="{{$data->local_name}}">
+                                </a>
+                                <a href="#" class="dark:text-gray-500 hover:underline"><i class="fa-solid fa-map-marker"></i> <span> {{$data->tribes}}</span></a>
 
-                                    <h3 class="text-4xl font-bold text-green-600 my-1"> {{$data->local_name}}</h3>
-                                    <p class="dark:text-gray-300 mb-2"><span> {{$data->taxonomists}} </span></p>
+                                <h3 class="text-4xl font-bold text-green-600 my-1"> {{$data->local_name}}</h3>
+                                <p class="dark:text-gray-300 mb-2"><span> {{$data->taxonomists}} </span></p>
 
-                                    <div class="grid grid-cols-2 text-sm mb-4">
-                                        <p class="dark:text-gray-500"><i class="fa-solid fa-user"></i> <span> {{$data->contributor->full_name}}</span></p>
-                                        <p class="dark:text-gray-500"><i class="fa-solid fa-calendar-check"></i> <span > {{ date('d-m-Y', strtotime($data->updated_at)) }}</span></p>
-                                    </div>
+                                <div class="grid grid-cols-2 text-sm mb-4">
+                                    <p class="dark:text-gray-500"><i class="fa-solid fa-user"></i> <span> {{$data->full_name}}</span></p>
+                                    <p class="dark:text-gray-500"><i class="fa-solid fa-calendar-check"></i> <span > {{ date('d-m-Y', strtotime($data->updated_at)) }}</span></p>
                                 </div>
-                            @endforeach
-
-                       
-
-                        
+                            </div>
+                        @endforeach --}}
 
                     </div>
-                    
-                    
                     <div id="halaman"></div>
                 </div>
-
-                @endif
-
             </form>
         </div>
     </section>

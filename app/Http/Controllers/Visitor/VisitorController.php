@@ -28,20 +28,20 @@ class VisitorController extends Controller
         return view('visitor.pages.home', ['all' => $all]);
     }
 
+    // public function ___thePlants()
+    // {
+
+    //     $status = 'Publish';
+    //     $count = DB::table('plants')
+    //         ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+    //         ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+    //         ->where('plants.status', '=', $status)
+    //         ->orderBy('plants.id', 'desc')
+    //         ->count();
+    //     return view('visitor.pages.the-plants', ['count' => $count]);
+    // }
+
     public function thePlants()
-    {
-
-        $status = 'Publish';
-        $count = DB::table('plants')
-            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-            ->where('plants.status', '=', $status)
-            ->orderBy('plants.id', 'desc')
-            ->count();
-        return view('visitor.pages.the-plants', ['count' => $count]);
-    }
-
-    public function thePlantsSimulation()
     {
 
 
@@ -63,7 +63,7 @@ class VisitorController extends Controller
                 }
             }]
         ])->where('status', 'Publish')->latest()->paginate(5);
-        return view('visitor.pages.the-plants-simulation', compact('datas'));
+        return view('visitor.pages.the-plants', compact('datas'));
     }
 
     public function overview()
