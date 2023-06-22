@@ -54,8 +54,8 @@
                     <!-- input item end -->
 
                     <div class="mb-5">
-                        <label for="gallery_picture" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cover Picture</label>
-                        <img src="{{ url($data->gallery_picture) }}" class="mb-5" alt="{{ $data->gallery_picture }}" width="550px">
+                        <label for="gallery_picture" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gallery Picture</label>
+                        <img src="{{ url($data->gallery_picture) }}" class="mb-5 border shadow" alt="{{ $data->gallery_picture }}" width="550px">
                     </div>
                     <!-- input item end -->
 

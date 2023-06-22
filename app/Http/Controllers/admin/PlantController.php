@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Models\Plant;
 use App\Models\Contributor;
@@ -148,15 +148,17 @@ class PlantController extends Controller
         $tahun = date("Y");
         $bulan = date("M");
 
+        $fileNameRandom = Str::slug($request->local_name).'-'.date('YmdHis');
+
         // COVER PICTURE
-        $filename  = 'medicalplant'.'-'.date('Y-m-d-H-i-s').$request->file('cover_picture')->getClientOriginalName();
-        $request->file('cover_picture')->storeAs('public/resource/plant/'.$tahun.'/'.$bulan, $filename);
-        $url = ('storage/public/resource/plant/'.$tahun.'/'.$bulan.'/'.$filename);
+        $filename  = $fileNameRandom.'.'.$request->file('cover_picture')->getClientOriginalExtension();
+        $request->file('cover_picture')->storeAs('public/resource/plants/'.$tahun.'/'.$bulan, $filename);
+        $url = ('storage/resource/plants/'.$tahun.'/'.$bulan.'/'.$filename);
 
         // GALLERY PICTURE
-        $galleryfilename  = 'medicalplant'.'-'.date('Y-m-d-H-i-s').$request->file('gallery_picture')->getClientOriginalName();
-        $request->file('gallery_picture')->storeAs('public/resource/plant/gallery/'.$tahun.'/'.$bulan, $galleryfilename);
-        $galleryurl = ('storage/public/resource/plant/gallery/'.$tahun.'/'.$bulan.'/'.$filename);
+        $galleryfilename  = $fileNameRandom.'-gallery.'.$request->file('gallery_picture')->getClientOriginalExtension();
+        $request->file('gallery_picture')->storeAs('public/resource/plants/'.$tahun.'/'.$bulan, $galleryfilename);
+        $galleryurl = ('storage/resource/plants/'.$tahun.'/'.$bulan.'/'.$filename);
 
          //create
          $plant = Plant::create([
@@ -233,8 +235,8 @@ class PlantController extends Controller
             'taxonomists'                    => 'required',
             'treatments'                     => 'required',
             'status'                         => 'required',
-            'cover_picture'                  => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'gallery_picture'                => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'cover_picture'                  => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'gallery_picture'                => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $data = array(
@@ -247,15 +249,20 @@ class PlantController extends Controller
         );
         $tahun = date("Y");
         $bulan = date("M");
+
+        $fileNameRandom = Str::slug($request->local_name).'-'.date('YmdHis');
+
         if ($request->hasFile('cover_picture'))
         {
             $datalama = Plant::where('id',$id)->first();
             if($datalama->cover_picture){
                 File::delete($datalama->cover_picture);
             }
-            $filename         = 'medicalplant'.'-'.date('Y-m-d-H-i-s').$request->file('cover_picture')->getClientOriginalName();
-            $request->file('cover_picture')->storeAs('public/resource/plant/'.$tahun.'/'.$bulan,$filename);
-            $url = ('storage/public/resource/plant/'.$tahun.'/'.$bulan.'/'.$filename);
+            
+            // COVER PICTURE
+            $filename  = $fileNameRandom.'.'.$request->file('cover_picture')->getClientOriginalExtension();
+            $request->file('cover_picture')->storeAs('public/resource/plants/'.$tahun.'/'.$bulan, $filename);
+            $url = ('storage/resource/plants/'.$tahun.'/'.$bulan.'/'.$filename);
             $data['cover_picture'] = $url;
         }
 
@@ -265,10 +272,11 @@ class PlantController extends Controller
             if($datalama->gallery_picture){
                 File::delete($datalama->gallery_picture);
             }
-            $filenamegallery  = 'medicalplant'.'-'.date('Y-m-d-H-i-s').$request->file('gallery_picture')->getClientOriginalName();
-            $request->file('gallery_picture')->storeAs('public/resource/plant/gallery'.$tahun.'/'.$bulan,$filenamegallery);
-            $urlgallery = ('storage/public/resource/plant/gallery'.$tahun.'/'.$bulan.'/'.$filenamegallery);
-            $data['gallery_picture'] = $urlgallery;
+
+            $galleryfilename  = $fileNameRandom.'-gallery.'.$request->file('gallery_picture')->getClientOriginalExtension();
+            $request->file('gallery_picture')->storeAs('public/resource/plants/'.$tahun.'/'.$bulan, $galleryfilename);
+            $galleryurl = ('storage/resource/plants/'.$tahun.'/'.$bulan.'/'.$galleryfilename);
+            $data['gallery_picture'] = $galleryurl;
         }
 
 

@@ -219,4 +219,9 @@ class VisitorController extends Controller
         ->first();
         return view('visitor.pages.detail-plant',compact('data'));
     }
+
+    public function view()
+    {
+        return view('b5');
+    }
 }

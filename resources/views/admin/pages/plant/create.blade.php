@@ -22,7 +22,7 @@
                         <label for="local_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Local Name</label>
                         <input type="local_name" name="local_name" id="local_name"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="" required="" value="{{ old('local_name')}}" >
+                            placeholder="" value="{{ old('local_name')}}" >
                             @if($errors->has('local_name'))
                                 <p class="text-red-900"> {{ $errors->first('local_name') }} </p>
                             @endif
@@ -33,7 +33,7 @@
                         <label for="taxonomists" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Taxonomists</label>
                         <input type="taxonomists" name="taxonomists" id="taxonomists"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="" required=""  value="{{ old('taxonomists')}}">
+                            placeholder=""  value="{{ old('taxonomists')}}">
                             @if($errors->has('taxonomists'))
                                 <p class="text-red-900"> {{ $errors->first('taxonomists') }} </p>
                             @endif
@@ -44,7 +44,7 @@
                         <label for="treatments" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Treatments</label>
                         <input type="treatments" name="treatments" id="treatments"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="" required="" value="{{old('treatments')}}">
+                            placeholder="" value="{{old('treatments')}}">
 
                             @if($errors->has('treatments'))
                                 <p class="text-red-900"> {{ $errors->first('treatments') }} </p>
@@ -70,7 +70,7 @@
                         <label for="cover_picture" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cover Picture</label>
                         <input type="file" name="cover_picture" id="cover_picture"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="" required=""  >
+                            placeholder=""  >
                         @if($errors->has('cover_picture'))
                             <p class="text-red-900"> {{ $errors->first('cover_picture') }} </p>
                         @endif
@@ -81,7 +81,7 @@
                         <label for="gallery_picture" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gallery Picture</label>
                         <input type="file" name="gallery_picture" id="gallery_picture"
                             class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="" required=""  >
+                            placeholder=""  >
                         @if($errors->has('gallery_picture'))
                             <p class="text-red-900"> {{ $errors->first('gallery_picture') }} </p>
                         @endif

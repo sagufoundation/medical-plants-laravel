@@ -16,6 +16,7 @@ Route::get('/', function() {
     return redirect('/home');
 });
 
+
 Route::controller(VisitorController::class)->group(function(){
 
     // MAIN PAGE
@@ -27,6 +28,9 @@ Route::controller(VisitorController::class)->group(function(){
     Route::get('/how-to-contribute','howToContribute')->name('visitor.howToContribute');
     Route::get('/our-sponsors','ourSponsors')->name('visitor.ourSponsors');
     Route::get('/connect-with-us','connectWithUs')->name('visitor.connectWithUs');
+
+    // UNTUK DEVELOP HALAMAN BOOSTRAP
+    Route::get('/view','view')->name('view');
 
     // DYNAMIC PAGES
     Route::get('/json','json')->name('json');
