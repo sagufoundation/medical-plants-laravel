@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\admin;
+
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Models\Plant;
@@ -19,71 +20,70 @@ class PlantController extends Controller
     public function index()
     {
         $judul = 'Publish';
-         $all = DB::table('plants')
-                ->selectRaw('plants.id AS id')
-                ->selectRaw('plants.cover_picture')
-                ->selectRaw('plants.local_name')
-                ->selectRaw('plants.taxonomists')
-                ->selectRaw('plants.treatments')
-                ->selectRaw('locations.tribes')
-                ->selectRaw('contributors.full_name')
-                ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-                ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-                ->where('plants.status','=',$judul)
-                ->orderBy('plants.id', 'desc')
-                ->get();
+        $all = DB::table('plants')
+            ->selectRaw('plants.id AS id')
+            ->selectRaw('plants.cover_picture')
+            ->selectRaw('plants.local_name')
+            ->selectRaw('plants.taxonomists')
+            ->selectRaw('plants.treatments')
+            ->selectRaw('locations.tribes')
+            ->selectRaw('contributors.full_name')
+            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+            ->where('plants.status', '=', $judul)
+            ->orderBy('plants.id', 'desc')
+            ->get();
 
-                // dd($all);
+        // dd($all);
         return view('admin.pages.plant.index', [
-         'all' => $all,
-         'judul' => $judul,
+            'all' => $all,
+            'judul' => $judul,
         ]);
     }
 
     public function publish()
     {
         $judul = 'Publish';
-         $all = DB::table('plants')
-                ->selectRaw('plants.id AS id')
-                ->selectRaw('plants.cover_picture')
-                ->selectRaw('plants.local_name')
-                ->selectRaw('plants.taxonomists')
-                ->selectRaw('plants.treatments')
-                ->selectRaw('locations.tribes')
-                ->selectRaw('contributors.full_name')
-                ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-                ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-                ->where('plants.status','=',$judul)
-                ->orderBy('plants.id', 'desc')
-                ->get();
+        $all = DB::table('plants')
+            ->selectRaw('plants.id AS id')
+            ->selectRaw('plants.cover_picture')
+            ->selectRaw('plants.local_name')
+            ->selectRaw('plants.taxonomists')
+            ->selectRaw('plants.treatments')
+            ->selectRaw('locations.tribes')
+            ->selectRaw('contributors.full_name')
+            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+            ->where('plants.status', '=', $judul)
+            ->orderBy('plants.id', 'desc')
+            ->get();
 
         return view('admin.pages.plant.index', [
-         'all' => $all,
-         'judul' => $judul,
+            'all' => $all,
+            'judul' => $judul,
         ]);
-
     }
 
     public function review()
     {
         $judul = 'Review';
         $all = DB::table('plants')
-                ->selectRaw('plants.id AS id')
-                ->selectRaw('plants.cover_picture')
-                ->selectRaw('plants.local_name')
-                ->selectRaw('plants.taxonomists')
-                ->selectRaw('plants.treatments')
-                ->selectRaw('locations.tribes')
-                ->selectRaw('contributors.full_name')
-                ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-                ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-                ->where('plants.status','=',$judul)
-                ->orderBy('plants.id', 'desc')
-                ->get();
+            ->selectRaw('plants.id AS id')
+            ->selectRaw('plants.cover_picture')
+            ->selectRaw('plants.local_name')
+            ->selectRaw('plants.taxonomists')
+            ->selectRaw('plants.treatments')
+            ->selectRaw('locations.tribes')
+            ->selectRaw('contributors.full_name')
+            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+            ->where('plants.status', '=', $judul)
+            ->orderBy('plants.id', 'desc')
+            ->get();
 
         return view('admin.pages.plant.index', [
-        'all' => $all,
-        'judul' => $judul,
+            'all' => $all,
+            'judul' => $judul,
         ]);
     }
 
@@ -101,12 +101,12 @@ class PlantController extends Controller
             ->selectRaw('contributors.full_name')
             ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
             ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-            ->where('plants.status','=',$judul)
+            ->where('plants.status', '=', $judul)
             ->orderBy('plants.id', 'desc')
             ->get();
         return view('admin.pages.plant.index', [
-        'all' => $all,
-        'judul' => $judul,
+            'all' => $all,
+            'judul' => $judul,
         ]);
     }
 
@@ -118,14 +118,16 @@ class PlantController extends Controller
     public function create()
     {
         $location = DB::table('locations')
-        ->where('locations.status','=','Publish')
-        ->orderBy('locations.id', 'desc')->get();
+            ->where('locations.status', '=', 'Publish')
+            ->orderBy('locations.id', 'desc')->get();
 
         $contributor = DB::table('contributors')
-        ->where('contributors.status_contributor','=','Publish')
-        ->orderBy('contributors.id', 'desc')->get();
+            ->where('contributors.status_contributor', '=', 'Publish')
+            ->orderBy('contributors.id', 'desc')->get();
 
-        return view('admin.pages.plant.create', ['locations' => $location, 'contributors' => $contributor]
+        return view(
+            'admin.pages.plant.create',
+            ['locations' => $location, 'contributors' => $contributor]
         );
     }
 
@@ -148,35 +150,33 @@ class PlantController extends Controller
         $tahun = date("Y");
         $bulan = date("M");
 
-        $fileNameRandom = Str::slug($request->local_name).'-'.date('YmdHis');
+        $fileNameRandom = Str::slug($request->local_name) . '-' . date('YmdHis');
 
         // COVER PICTURE
-        $filename  = $fileNameRandom.'.'.$request->file('cover_picture')->getClientOriginalExtension();
-        $request->file('cover_picture')->storeAs('public/resource/plants/'.$tahun.'/'.$bulan, $filename);
-        $url = ('storage/resource/plants/'.$tahun.'/'.$bulan.'/'.$filename);
+        $filename  = $fileNameRandom . '.' . $request->file('cover_picture')->getClientOriginalExtension();
+        $request->file('cover_picture')->storeAs('public/resource/plants/' . $tahun . '/' . $bulan, $filename);
+        $url = ('storage/resource/plants/' . $tahun . '/' . $bulan . '/' . $filename);
 
         // GALLERY PICTURE
-        $galleryfilename  = $fileNameRandom.'-gallery.'.$request->file('gallery_picture')->getClientOriginalExtension();
-        $request->file('gallery_picture')->storeAs('public/resource/plants/'.$tahun.'/'.$bulan, $galleryfilename);
-        $galleryurl = ('storage/resource/plants/'.$tahun.'/'.$bulan.'/'.$filename);
+        $galleryfilename  = $fileNameRandom . '-gallery.' . $request->file('gallery_picture')->getClientOriginalExtension();
+        $request->file('gallery_picture')->storeAs('public/resource/plants/' . $tahun . '/' . $bulan, $galleryfilename);
+        $galleryurl = ('storage/resource/plants/' . $tahun . '/' . $bulan . '/' . $filename);
 
-         //create
-         $plant = Plant::create([
-            'id_location'=> $request->id_location,
-            'id_contributor'=> $request->id_contributor,
-            'local_name'=> $request->local_name,
-            'taxonomists'=> $request->taxonomists,
-            'treatments'=> $request->treatments,
-            'province'=> $request->province,
-            'status'=> $request->status,
-            'cover_picture'=> $url,
-            'gallery_picture'=> $galleryurl,
+        //create
+        $plant = Plant::create([
+            'id_location' => $request->id_location,
+            'id_contributor' => $request->id_contributor,
+            'local_name' => $request->local_name,
+            'taxonomists' => $request->taxonomists,
+            'treatments' => $request->treatments,
+            'province' => $request->province,
+            'status' => $request->status,
+            'cover_picture' => $url,
+            'gallery_picture' => $galleryurl,
         ]);
 
         alert()->success('Done', 'Success !!');
         return redirect()->route('admin.plant');
-
-
     }
 
     /**
@@ -185,22 +185,22 @@ class PlantController extends Controller
     public function show($id)
     {
         $data = DB::table('plants')
-                ->selectRaw('plants.id AS id')
-                ->selectRaw('plants.cover_picture')
-                ->selectRaw('plants.status')
-                ->selectRaw('plants.gallery_picture')
-                ->selectRaw('plants.local_name')
-                ->selectRaw('plants.taxonomists')
-                ->selectRaw('plants.treatments')
-                ->selectRaw('locations.tribes')
-                ->selectRaw('contributors.full_name')
-               ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-               ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-               ->where('plants.id','=',$id)
-               ->orderBy('plants.id', 'desc')
-               ->get()->first();
+            ->selectRaw('plants.id AS id')
+            ->selectRaw('plants.cover_picture')
+            ->selectRaw('plants.status')
+            ->selectRaw('plants.gallery_picture')
+            ->selectRaw('plants.local_name')
+            ->selectRaw('plants.taxonomists')
+            ->selectRaw('plants.treatments')
+            ->selectRaw('locations.tribes')
+            ->selectRaw('contributors.full_name')
+            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+            ->where('plants.id', '=', $id)
+            ->orderBy('plants.id', 'desc')
+            ->get()->first();
 
-        return view('admin.pages.plant.detail',['data' => $data]);
+        return view('admin.pages.plant.detail', ['data' => $data]);
     }
 
     /**
@@ -209,18 +209,18 @@ class PlantController extends Controller
     public function edit($id)
     {
         $data = DB::table('plants')
-            ->where('plants.id','=',$id)
+            ->where('plants.id', '=', $id)
             ->get()->first();
 
         $location = DB::table('locations')
-            ->where('locations.status','=','Publish')
+            ->where('locations.status', '=', 'Publish')
             ->orderBy('locations.id', 'desc')->get();
 
         $contributor = DB::table('contributors')
-            ->where('contributors.status_contributor','=','Publish')
+            ->where('contributors.status_contributor', '=', 'Publish')
             ->orderBy('contributors.id', 'desc')->get();
 
-        return view('admin.pages.plant.edit',['data' => $data, 'locations' => $location, 'contributors' => $contributor ]);
+        return view('admin.pages.plant.edit', ['data' => $data, 'locations' => $location, 'contributors' => $contributor]);
     }
 
     /**
@@ -240,54 +240,50 @@ class PlantController extends Controller
         ]);
 
         $data = array(
-            'id_location'=> $request->id_location,
-            'id_contributor'=> $request->id_contributor,
-            'local_name'=> $request->local_name,
-            'taxonomists'=> $request->taxonomists,
-            'treatments'=> $request->treatments,
-            'status'=> $request->status,
+            'id_location' => $request->id_location,
+            'id_contributor' => $request->id_contributor,
+            'local_name' => $request->local_name,
+            'taxonomists' => $request->taxonomists,
+            'treatments' => $request->treatments,
+            'status' => $request->status,
         );
         $tahun = date("Y");
         $bulan = date("M");
 
-        $fileNameRandom = Str::slug($request->local_name).'-'.date('YmdHis');
+        $fileNameRandom = Str::slug($request->local_name) . '-' . date('YmdHis');
 
-        if ($request->hasFile('cover_picture'))
-        {
-            $datalama = Plant::where('id',$id)->first();
-            if($datalama->cover_picture){
+        if ($request->hasFile('cover_picture')) {
+            $datalama = Plant::where('id', $id)->first();
+            if ($datalama->cover_picture) {
                 File::delete($datalama->cover_picture);
             }
-            
+
             // COVER PICTURE
-            $filename  = $fileNameRandom.'.'.$request->file('cover_picture')->getClientOriginalExtension();
-            $request->file('cover_picture')->storeAs('public/resource/plants/'.$tahun.'/'.$bulan, $filename);
-            $url = ('storage/resource/plants/'.$tahun.'/'.$bulan.'/'.$filename);
+            $filename  = $fileNameRandom . '.' . $request->file('cover_picture')->getClientOriginalExtension();
+            $request->file('cover_picture')->storeAs('public/resource/plants/' . $tahun . '/' . $bulan, $filename);
+            $url = ('storage/resource/plants/' . $tahun . '/' . $bulan . '/' . $filename);
             $data['cover_picture'] = $url;
         }
 
-        if ($request->hasFile('gallery_picture'))
-        {
-            $datalama = Plant::where('id',$id)->first();
-            if($datalama->gallery_picture){
+        if ($request->hasFile('gallery_picture')) {
+            $datalama = Plant::where('id', $id)->first();
+            if ($datalama->gallery_picture) {
                 File::delete($datalama->gallery_picture);
             }
 
-            $galleryfilename  = $fileNameRandom.'-gallery.'.$request->file('gallery_picture')->getClientOriginalExtension();
-            $request->file('gallery_picture')->storeAs('public/resource/plants/'.$tahun.'/'.$bulan, $galleryfilename);
-            $galleryurl = ('storage/resource/plants/'.$tahun.'/'.$bulan.'/'.$galleryfilename);
+            $galleryfilename  = $fileNameRandom . '-gallery.' . $request->file('gallery_picture')->getClientOriginalExtension();
+            $request->file('gallery_picture')->storeAs('public/resource/plants/' . $tahun . '/' . $bulan, $galleryfilename);
+            $galleryurl = ('storage/resource/plants/' . $tahun . '/' . $bulan . '/' . $galleryfilename);
             $data['gallery_picture'] = $galleryurl;
         }
 
 
         $update = DB::table('plants')
-        ->where('id', $id)
-        ->update($data);
+            ->where('id', $id)
+            ->update($data);
 
         alert()->success('Done', 'Success !!');
         return redirect()->route('admin.plant');
-
-
     }
 
     /**
@@ -295,15 +291,14 @@ class PlantController extends Controller
      */
     public function destroy($id)
     {
-        $datalama = Plant::where('id',$id)->first();
-        if($datalama->cover_picture){
+        $datalama = Plant::where('id', $id)->first();
+        if ($datalama->cover_picture) {
             File::delete($datalama->cover_picture);
         }
         $deleted = DB::table('plants')->where('id', '=', $id)->delete();
-        if($deleted)
-        {
+        if ($deleted) {
             alert()->success('Done', 'Success !!');
-        }else{
+        } else {
             alert()->error('Error', 'Failed !!');
         }
         return redirect()->back();

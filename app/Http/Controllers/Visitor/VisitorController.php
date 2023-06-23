@@ -16,6 +16,7 @@ class VisitorController extends Controller
     {
     }
 
+    // INDEX
     public function index()
     {
         $status = 'Publish';
@@ -41,6 +42,7 @@ class VisitorController extends Controller
     //     return view('visitor.pages.the-plants', ['count' => $count]);
     // }
 
+    // THE PLANTS
     public function thePlants()
     {
 
@@ -50,13 +52,9 @@ class VisitorController extends Controller
             [function ($query) {
                 if (($s = request()->s)) {
                     if (isset(request()->filter) && request()->filter == 'local_name') {
-                        $query->orWhere('local_name', 'LIKE', '%' . $s . '%')
-                            // ->orWhere('subtitle', 'LIKE', '%' . $s . '%')
-                            ->get();
+                        $query->orWhere('local_name', 'LIKE', '%' . $s . '%')->get();
                     }elseif (isset(request()->filter) && request()->filter == 'taxonomists') {
-                        $query->orWhere('taxonomists', 'LIKE', '%' . $s . '%')
-                            // ->orWhere('subtitle', 'LIKE', '%' . $s . '%')
-                            ->get();
+                        $query->orWhere('taxonomists', 'LIKE', '%' . $s . '%')->get();
                     } else {
                         $query->get();
                     }
@@ -64,6 +62,13 @@ class VisitorController extends Controller
             }]
         ])->where('status', 'Publish')->latest()->paginate(5);
         return view('visitor.pages.the-plants', compact('datas'));
+    }
+
+    public function thePlantsDetail($id) {
+        $data = Plant::where('id', $id)->first();
+
+        return view('visitor.pages.detail-plant', compact('data'));
+        return view('visitor.pages.detail-plant');
     }
 
     public function overview()

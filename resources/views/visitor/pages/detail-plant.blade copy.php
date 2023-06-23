@@ -14,7 +14,7 @@
 
                 <div class="my-4 text-gray-500">
                     <i class="fa-solid fa-map-marker"></i>
-                    <a href="" class="ml-auto hover:underline"> {{$data->location->tribes ?? ''}}</a>
+                    <a href="" class="ml-auto hover:underline"> {{$data->tribes}}</a>
                 </div>
 
                 <div class="border-b border-gray-400 py-2">
@@ -51,11 +51,11 @@
                     <span class="text-gray-500 block my-2">Contributor</span>
                     <div class="flex">
                         @if($data->photo == null)
-                            <img  src="{{($data->contributor->photo ?? '')}}" class="rounded-full w-16 transition ease-in-out delay-150 bg-blue-500 hover:-translate-5 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-lg cursor-pointer" alt="{{($data->full_name)}}">
-                            <span class="mt-2 ml-2 dark:text-gray-200"> {{($data->contributor->full_name ?? '')}}</span>
+                            <img  src="/assets/img/user-administrator.png" class="rounded-full w-16 transition ease-in-out delay-150 bg-blue-500 hover:-translate-5 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-lg cursor-pointer" alt="{{($data->full_name)}}">
+                            <span class="mt-2 ml-2 dark:text-gray-200"> {{($data->full_name)}}</span>
                         @else
                             <img  src="{{url($data->photo)}}" class="rounded-full w-16 transition ease-in-out delay-150 bg-blue-500 hover:-translate-5 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-lg cursor-pointer" alt="{{($data->full_name)}}">
-                            <span class="mt-2 ml-2 dark:text-gray-200"> {{($data->contributor->full_name ?? '')}}</span>
+                            <span class="mt-2 ml-2 dark:text-gray-200"> {{($data->full_name)}}</span>
                         @endif
 
                     </div>

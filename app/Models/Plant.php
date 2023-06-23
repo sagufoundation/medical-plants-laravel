@@ -27,4 +27,8 @@ class Plant extends Model
         return $this->belongsTo(Contributor::class,'id_contributor');
     }
 
+    public function location(){
+        return $this->belongsTo(Location::class,'id_location');
+    }
+
 }
