@@ -1,8 +1,20 @@
 <form class="" method="get" action="{{ route('visitor.thePlants') }}">
     <div class="mb-4 flex justify-between">
-        <input class="shadow appearance-none border border-gray-300 rounded-lg w-full px-6 py-6 text-gray-600 leading-tight focus:outline-none focus:shadow-outline focus:shadow-lg focus:border-none transition text-xl" id="s" name="s" type="text" value="{{ request()->s ?? '' }}" placeholder="Type your keywords here...">
+        <input class="shadow appearance-none border border-gray-300 rounded-lg w-full px-6 py-6 text-gray-600 leading-tight focus:outline-none focus:shadow-outline focus:shadow-lg focus:border-none transition text-xl" 
+            id="s" 
+            name="s" 
+            type="text" 
+            {{-- value="{{ request()->s ?? '' }}"  --}}
+            placeholder="Type your keywords here...">
+
             <button type="submit" class="bg-green-800 hover:bg-green-700 transition text-gray-100 rounded px-9 ml-5">Search</button>
+            
     </div>
+    @if ($errors->has('s'))
+        <span class="text-red-300" role="alert">
+            <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('s') }}</small>
+        </span>
+    @endif
 
     <div class="lg:w-2/3">
         <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">Filter by</h3>

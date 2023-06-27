@@ -46,7 +46,6 @@ class VisitorController extends Controller
     public function thePlants()
     {
 
-
         $datas = Plant::where([
             ['local_name', '!=', Null],
             [function ($query) {
