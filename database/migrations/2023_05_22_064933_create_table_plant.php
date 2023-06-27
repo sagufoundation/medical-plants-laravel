@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('local_name');
             $table->string('indonesian_name');
             $table->string('latin_name');
-
             $table->string('taxonomists');
+            
             $table->string('treatments');
             $table->string('traditional_usage');
             $table->string('known_phytochemical_consituents');
