@@ -1,12 +1,15 @@
 <?php
 
 namespace App\Http\Controllers\admin;
-
-use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+
+// models
 use App\Models\Plant;
+use App\Models\Provinces;
 use App\Models\Contributor;
 use App\Models\Location;
+
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -20,48 +23,42 @@ class PlantController extends Controller
     public function index()
     {
         $judul = 'Publish';
-        $all = DB::table('plants')
-            ->selectRaw('plants.id AS id')
-            ->selectRaw('plants.cover_picture')
-            ->selectRaw('plants.local_name')
-            ->selectRaw('plants.taxonomists')
-            ->selectRaw('plants.treatments')
-            ->selectRaw('locations.tribes')
-            ->selectRaw('contributors.full_name')
-            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-            ->where('plants.status', '=', $judul)
-            ->orderBy('plants.id', 'desc')
-            ->get();
+        $datas = Plant::where('status', 'publish')->orderBy('id', 'desc')->get();
 
-        // dd($all);
-        return view('admin.pages.plant.index', [
-            'all' => $all,
-            'judul' => $judul,
-        ]);
+        return view('admin.pages.plant.index', compact('datas', 'judul'));
     }
+
+
+    // public function index()
+    // {
+    //     $judul = 'Publish';
+    //     $all = DB::table('plants')
+    //         ->selectRaw('plants.id AS id')
+    //         ->selectRaw('plants.cover_picture')
+    //         ->selectRaw('plants.local_name')
+    //         ->selectRaw('plants.taxonomists')
+    //         ->selectRaw('plants.treatments')
+    //         ->selectRaw('locations.tribes')
+    //         ->selectRaw('contributors.full_name')
+    //         ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+    //         ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+    //         ->where('plants.status', '=', $judul)
+    //         ->orderBy('plants.id', 'desc')
+    //         ->get();
+
+    //     // dd($all);
+    //     return view('admin.pages.plant.index', [
+    //         'all' => $all,
+    //         'judul' => $judul,
+    //     ]);
+    // }
 
     public function publish()
     {
         $judul = 'Publish';
-        $all = DB::table('plants')
-            ->selectRaw('plants.id AS id')
-            ->selectRaw('plants.cover_picture')
-            ->selectRaw('plants.local_name')
-            ->selectRaw('plants.taxonomists')
-            ->selectRaw('plants.treatments')
-            ->selectRaw('locations.tribes')
-            ->selectRaw('contributors.full_name')
-            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-            ->where('plants.status', '=', $judul)
-            ->orderBy('plants.id', 'desc')
-            ->get();
+        $datas = Plant::where('status', 'publish')->orderBy('id', 'desc')->get();
 
-        return view('admin.pages.plant.index', [
-            'all' => $all,
-            'judul' => $judul,
-        ]);
+        return view('admin.pages.plant.index', compact('datas', 'judul'));
     }
 
     public function review()
@@ -125,9 +122,11 @@ class PlantController extends Controller
             ->where('contributors.status_contributor', '=', 'Publish')
             ->orderBy('contributors.id', 'desc')->get();
 
+        $provinces = Provinces::get();
+
         return view(
             'admin.pages.plant.create',
-            ['locations' => $location, 'contributors' => $contributor]
+            ['locations' => $location, 'contributors' => $contributor, 'provinces' => $provinces]
         );
     }
 
@@ -184,24 +183,33 @@ class PlantController extends Controller
      */
     public function show($id)
     {
-        $data = DB::table('plants')
-            ->selectRaw('plants.id AS id')
-            ->selectRaw('plants.cover_picture')
-            ->selectRaw('plants.status')
-            ->selectRaw('plants.gallery_picture')
-            ->selectRaw('plants.local_name')
-            ->selectRaw('plants.taxonomists')
-            ->selectRaw('plants.treatments')
-            ->selectRaw('locations.tribes')
-            ->selectRaw('contributors.full_name')
-            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-            ->where('plants.id', '=', $id)
-            ->orderBy('plants.id', 'desc')
-            ->get()->first();
+        $data = Plant::first();
 
-        return view('admin.pages.plant.detail', ['data' => $data]);
+        return view('admin.pages.plant.detail', compact('data'));
     }
+
+
+
+    // public function show($id)
+    // {
+    //     $data = DB::table('plants')
+    //         ->selectRaw('plants.id AS id')
+    //         ->selectRaw('plants.cover_picture')
+    //         ->selectRaw('plants.status')
+    //         ->selectRaw('plants.gallery_picture')
+    //         ->selectRaw('plants.local_name')
+    //         ->selectRaw('plants.taxonomists')
+    //         ->selectRaw('plants.treatments')
+    //         ->selectRaw('locations.tribes')
+    //         ->selectRaw('contributors.full_name')
+    //         ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+    //         ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+    //         ->where('plants.id', '=', $id)
+    //         ->orderBy('plants.id', 'desc')
+    //         ->get()->first();
+
+    //     return view('admin.pages.plant.detail', ['data' => $data]);
+    // }
 
     /**
      * Show the form for editing the specified resource.

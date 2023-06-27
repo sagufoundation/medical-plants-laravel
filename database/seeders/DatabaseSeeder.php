@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             LocationSeeder::class,
             PlantSeeder::class,
             PengaturanSeeder::class,
+            ProvincesSeeder::class,
         ]);
     }
 }

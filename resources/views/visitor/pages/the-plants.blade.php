@@ -19,7 +19,7 @@
     <section class="py-9">
         <div class="container max-w-screen-xl mx-auto p-4">
 
-            @include('visitor.includes.sections.search')
+            @include('visitor.includes.sections.search')         
 
             @if($datas->isEmpty())
             <div class="my-9">
@@ -39,16 +39,24 @@
                         @foreach ($datas as $data )
                             <div>
                                 <a href="{{ url('the-plants/' . $data->id . '/detail') }}" class="cursor-pointer">
-                                    <img  src="{{url($data->cover_picture)}}"  class="mb-4 rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-md" alt="{{$data->local_name}}">
+                                    <img  src="{{url($data->cover_picture ?? '')}}"  class="mb-4 rounded transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 shadow-md" alt="{{$data->local_name}}">
                                 </a>
-                                <a href="#" class="dark:text-gray-500 hover:underline"><i class="fa-solid fa-map-marker"></i> <span> {{$data->location->tribes ?? ''}}</span></a>
+                                <a href="#" class="dark:text-gray-500 text-gray-500 hover:underline">
+                                    <i class="fa-solid fa-map-marker"></i> <span> {{$data->location->tribes ?? ''}}</span>
+                                </a> |
 
-                                <h3 class="text-4xl font-bold text-green-600 my-1"> {{$data->local_name}}</h3>
-                                <p class="dark:text-gray-300 mb-2"><span> {{$data->taxonomists}} </span></p>
+                                <a href="#" class="dark:text-gray-500 text-gray-500 hover:underline">
+                                    <i class="fa-solid fa-map"></i> <span> {{$data->province->name ?? ''}}</span>
+                                </a>
+
+                                <a href="{{ url('the-plants/' . $data->id . '/detail') }}" class="cursor-pointer">
+                                    <h3 class="text-4xl font-bold text-green-600 my-3"> {!! $data->local_name ?? '' !!}</h3>
+                                </a>
+                                <p class="dark:text-gray-300 text-gray-500 mb-2"><span> {!! $data->latin_name ?? '' !!} </span></p>
 
                                 <div class="grid grid-cols-2 text-sm mb-4">
-                                    <p class="dark:text-gray-500"><i class="fa-solid fa-user"></i> <span> {{$data->contributor->full_name}}</span></p>
-                                    <p class="dark:text-gray-500"><i class="fa-solid fa-calendar-check"></i> <span > {{ date('d-m-Y', strtotime($data->updated_at)) }}</span></p>
+                                    <p class="dark:text-gray-500 text-gray-500"><i class="fa-solid fa-user"></i> <span> {{$data->contributor->full_name}}</span></p>
+                                    <p class="dark:text-gray-500 text-gray-500"><i class="fa-solid fa-calendar-check"></i> <span > {{ date('d-m-Y', strtotime($data->updated_at)) }}</span></p>
                                 </div>
                             </div>
                         @endforeach                    

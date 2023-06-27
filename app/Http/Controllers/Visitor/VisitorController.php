@@ -53,7 +53,11 @@ class VisitorController extends Controller
                 if (($s = request()->s)) {
                     if (isset(request()->filter) && request()->filter == 'local_name') {
                         $query->orWhere('local_name', 'LIKE', '%' . $s . '%')->get();
-                    }elseif (isset(request()->filter) && request()->filter == 'taxonomists') {
+                    } elseif (isset(request()->filter) && request()->filter == 'indonesian_name') {
+                        $query->orWhere('indonesian_name', 'LIKE', '%' . $s . '%')->get();
+                    } elseif (isset(request()->filter) && request()->filter == 'latin_name') {
+                        $query->orWhere('latin_name', 'LIKE', '%' . $s . '%')->get();
+                    } elseif (isset(request()->filter) && request()->filter == 'taxonomists') {
                         $query->orWhere('taxonomists', 'LIKE', '%' . $s . '%')->get();
                     } else {
                         $query->get();

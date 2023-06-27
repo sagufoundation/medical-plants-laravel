@@ -60,14 +60,20 @@
                     <!-- input item end -->
 
                     <div class="mb-5">
+                        <label for="id_location" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Province</label>
+                        {{ $data->province->name }}
+                    </div>
+                    <!-- input item end -->
+
+                    <div class="mb-5">
                         <label for="id_location" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Location</label>
-                        {{ $data->tribes }}
+                        {{ $data->location->tribes }}
                     </div>
                     <!-- input item end -->
 
                     <div class="mb-5">
                         <label for="id_contributor" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contributor</label>
-                        {{ $data->full_name }}
+                        {{ $data->contributor->full_name }}
                     </div>
                     <!-- input item end -->
 

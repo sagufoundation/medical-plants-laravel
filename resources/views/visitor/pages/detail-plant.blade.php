@@ -14,37 +14,39 @@
 
                 <div class="my-4 text-gray-500">
                     <i class="fa-solid fa-map-marker"></i>
-                    <a href="" class="ml-auto hover:underline"> {{$data->location->tribes ?? ''}}</a>
+                    <a href="" class="ml-auto hover:underline"> {!! $data->location->tribes ?? '' !!}</a> | 
+                    <i class="fa-solid fa-map"></i>
+                    <a href="" class="ml-auto hover:underline"> {!! $data->province->name ?? '' !!}</a>
                 </div>
 
                 <div class="border-b border-gray-400 py-2">
                     <span class="text-gray-500 block my-2">Plant name in Bahasa Indonesia</span>
-                    <span class="ml-auto text-gray-800 dark:text-gray-200" >{{$data->local_name}}</span>
+                    <span class="ml-auto text-gray-800 dark:text-gray-200" >{!! $data->indonesian_name ?? '' !!}</span>
                 </div>
 
                 <div class="border-b border-gray-400 py-2">
                     <span class="text-gray-500 block my-2">Plant name in local language</span>
-                    <span class="ml-auto text-gray-800 dark:text-gray-200" >{{$data->local_name}}</span>
+                    <span class="ml-auto text-gray-800 dark:text-gray-200" >{!! $data->local_name ?? '' !!}</span>
                 </div>
 
                 <div class="border-b border-gray-400 py-2">
                     <span class="text-gray-500 block my-2">Plant name in Latin</span>
-                    <span class="ml-auto text-gray-800 dark:text-gray-200">{{$data->taxonomists}}</span>
+                    <span class="ml-auto text-gray-800 dark:text-gray-200">{!! $data->latin_name ?? '' !!}</span>
                 </div>
 
                 <div class="border-b border-gray-400 py-2">
                     <span class="text-gray-500 block my-2">Taxonomists</span>
-                    <span class="ml-auto text-gray-800 dark:text-gray-200" >{{$data->taxonomists}}</span>
+                    <span class="ml-auto text-gray-800 dark:text-gray-200" >{!! $data->taxonomists ?? '' !!}</span>
                 </div>
 
                 <div class="border-b border-gray-400 py-2">
                     <span class="text-gray-500 block my-2">Treatments</span>
-                    <span class="ml-auto text-gray-800 dark:text-gray-200" >{{$data->treatments}}</span>
+                    <span class="ml-auto text-gray-800 dark:text-gray-200" >{!! $data->treatments ?? '' !!}</span>
                 </div>
 
                 <div class="border-b border-gray-400 py-2">
                     <span class="text-gray-500 block my-2">Traditional usage</span>
-                    <span class="ml-auto text-gray-800 dark:text-gray-200">{{$data->local_name}}</span>
+                    <span class="ml-auto text-gray-800 dark:text-gray-200">{!! $data->traditional_usage ?? '' !!}</span>
                 </div>
 
                 <div class="border-b border-gray-400 py-2">

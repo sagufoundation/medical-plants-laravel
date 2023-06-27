@@ -31,4 +31,8 @@ class Plant extends Model
         return $this->belongsTo(Location::class,'id_location');
     }
 
+    public function province(){
+        return $this->belongsTo(Provinces::class,'id_province');
+    }
+
 }

@@ -17,11 +17,18 @@ class PlantSeeder extends Seeder
         $plant = Plant::create([
             'id_location' => 3,
             'id_contributor' => 1,
+            'id_province' => 1,
             'cover_picture' => 'seeds/plants/anamyaum-20230622060731.jpg',
             'gallery_picture' => 'seeds/plants/anamyaum-20230622060731-gallery.jpg',
             'local_name' => 'Anamyaum',
-            'taxonomists' => 'Alstonia scholaris (L.) R.Br.',
+            'indonesian_name' => '-',
+            'latin_name' => '<i>Alstonia scholaris</i> (L.) R.Br.',
+
+            'taxonomists' => 'JW, VS',
             'treatments' => '-',
+            'traditional_usage' => '-',
+            'known_phytochemical_consituents' => '-',
+
             'status' => 'Publish',
             'slug_plant' => 'anamyaum',
         ]);
@@ -30,12 +37,19 @@ class PlantSeeder extends Seeder
 
         $plant = Plant::create([
             'id_location' => 3,
-            'id_contributor' => 3,
+            'id_contributor' => 1,
+            'id_province' => 1,
             'cover_picture' => 'seeds/plants/inasi-koi-20230622060721.jpg',
             'gallery_picture' => 'seeds/plants/inasi-koi-20230622060721-gallery.jpg',
             'local_name' => 'Inasi Koi',
-            'taxonomists' => 'Scaevola Taccada (Gaertn.) Roxb.',
+            'indonesian_name' => '-',
+            'latin_name' => '<i>Scaevola Taccada</i> (Gaertn.) Roxb.',
+
+            'taxonomists' => 'JW, VS',
             'treatments' => '-',
+            'traditional_usage' => '-',
+            'known_phytochemical_consituents' => '-',
+
             'status' => 'Publish',
             'slug_plant' => 'inasi-koi',
         ]);
@@ -43,27 +57,40 @@ class PlantSeeder extends Seeder
         $plant = Plant::create([
             'id_location' => 3,
             'id_contributor' => 1,
+            'id_province' => 1,
             'cover_picture' => 'seeds/plants/krataweri-20230622060508.jpg',
             'gallery_picture' => 'seeds/plants/krataweri-20230622060704-gallery.jpg',
             'local_name' => 'Krataweri',
-            'taxonomists' => 'Artocarpus vriesianus Miq.',
+            'indonesian_name' => '-',
+            'latin_name' => '<i>Artocarpus vriesianus</i> Miq.',
+
+            'taxonomists' => 'JW, VS',
             'treatments' => '-',
+            'traditional_usage' => '-',
+            'known_phytochemical_consituents' => '-',
+
             'status' => 'Publish',
             'slug_plant' => 'krataweri',
         ]);
 
         $plant = Plant::create([
             'id_location' => 7,
-            'id_contributor' => 1,
+            'id_contributor' => 3,
+            'id_province' => 1,
             'cover_picture' => '/assets/img/plants/00.jpg',
             'gallery_picture' => '/assets/img/plants/gallery/00.jpg',
             'local_name' => 'Lorem, ipsum.',
+            'indonesian_name' => '',
+            'latin_name' => '',
+
             'taxonomists' => 'Lorem ipsum dolor sit.',
             'treatments' => '-',
-            'status' => '1',
+            'traditional_usage' => '-',
+            'known_phytochemical_consituents' => '-',
+
+            'status' => 'Draft',
+            'slug_plant' => 'lorem-ipsum',
         ]);
-
-
 
     }
 }
