@@ -1,5 +1,5 @@
  <!-- ======= Footer ======= -->
- <footer id="footer" class="footer fixed-bottom">
+ <footer id="footer" class="footer fixed-bottom bg-light">
     <div class="copyright">
       &copy; Copyright <strong><span> </span></strong>. All Rights Reserved
     </div>
@@ -23,7 +23,11 @@
 
   <!-- Template Main JS File -->
   <script src="{{url('assets-admin/js/main.js')}}"></script>
-
+    <script>
+        let table = new DataTable('#myTable', {
+        responsive: true
+    });
+    </script>
 </body>
 
 </html>

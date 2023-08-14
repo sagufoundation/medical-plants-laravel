@@ -5,7 +5,7 @@
     @endsection
 @section('content')
 
-<main id="main" class="main">
+<main id="main" class="main mb-5">
     <div class="pagetitle">
       <h1>Plants</h1>
       <nav>
@@ -25,18 +25,18 @@
                 <h5 class="card-title mb-0">Plants</h5>
                 {{-- <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas minima repudiandae cumque enim harum aliquid quis provident quam nobis veniam.</p> --}}
                <div class="p-3">
-                <a href="add.html" class="btn btn-success p-2" > <i class="bi bi-plus"></i> Add Data Plant</a>
+                <a href="{{route('admin.plant.create')}}" class="btn btn-success p-2" > <i class="bi bi-plus"></i> Add Data Plant</a>
                </div>
                 <!-- Table with stripped rows -->
                 <!-- <table class="table datatable  table-bordered"> -->
-                <table class="table table-striped table-hover">
+                <table class="table table-hover datatable" >
                   <thead>
-                    <tr class="bg-dark text-white">
+                    <tr class="bg-success text-white">
                       <th class=" text-center" scope="col">#</th>
-                      <th class=" text-center" scope="col">Plant's PICTURE</th>
-                      <th class=" text-center" scope="col">LOCAL NAME</th>
-                      <th class=" text-center" scope="col">CONTRIBUTOR</th>
-                      <th class=" text-center" scope="col">OPTION</th>
+                      <th class=" text-center" scope="col">Plant's Picture</th>
+                      <th class=" text-center" scope="col">Local Name</th>
+                      <th class=" text-center" scope="col">Contributor</th>
+                      <th class=" text-center" scope="col">Option</th>
 
                     </tr>
                   </thead>
@@ -46,7 +46,7 @@
                     @endphp
                     @foreach ($all as $data )
                     <tr>
-                      <th scope="row">{{++$i}}</th>
+                      <th class="text-center" scope="row">{{++$i}}</th>
                       <td class="text-center">
                         @if ($data->cover_picture == null)
                             <img class="w-8 h-8" src="/assets/img/plant.png" alt="Plant's image" width="40px" class="">
@@ -56,13 +56,12 @@
                             </a>
                          @endif
                       </td>
-                      <td> {{$data->local_name}}</td>
-                      <td> {{$data->full_name}} </td>
+                      <td class="text-center"> {{$data->local_name}}</td>
+                      <td class="text-center"> {{$data->full_name}} </td>
                       <td>
                         <a href="{{ route('admin.plant.show',$data->id)}}" class="btn btn-success"> <i class="bi bi-eye-fill"></i> </a>
                         <a href="{{ route('admin.plant.edit', $data->id)}}" class="btn btn-success"> <i class="bi bi-pencil-fill"></i> </a>
-
-                        <form action="{{ route('admin.plant.destroy', $data->id) }}"  class="d-line" method="POST">
+                        <form action="{{ route('admin.plant.destroy', $data->id) }}"  class="d-inline" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-success"><i class="bi bi-trash-fill"></i> </button>

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name=”robots” content=”noindex”>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
 
     <!-- CSRF Token -->
@@ -13,44 +12,30 @@
     <!-- FAVICON -->
     <link rel="icon" type="image/x-icon" href="{{ asset($pengaturan->favicon) }}">
 
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
-    <!-- TAILWIND CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- FLOWBITE -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
 
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- vimesh-ui -->
-    <script src="https://unpkg.com/@vimesh/ui"></script>
-    <script src="https://unpkg.com/alpinejs" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@700&display=swap" rel="stylesheet">
 
-    <script>
-        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark')
+    <style>
+        .nav-item a:hover {
+          color: #198754
         }
-    </script>
+
+        .active{
+          color: #198754 !important
+        }
+
+        .font-satu{
+            font-family: 'Passion One';
+        }
+      </style>
 
 </head>
-
-<body x-data="
-        {
-            page: 'index',
-            detail: [{
-                plant_name_in_local : '',
-                plant_photo : '',
-                plant_name_in_local: '',
-                plant_name_in_latin: '',
-                contributor: '',
-                treatments: '',
-                updated_at: ''
-            }]
-        }
-    "
-    class="dark:bg-gray-900"
-    >
+<body class="">

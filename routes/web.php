@@ -17,6 +17,7 @@ Route::get('/', function() {
 });
 
 
+
 Route::controller(VisitorController::class)->group(function(){
 
     // MAIN PAGE

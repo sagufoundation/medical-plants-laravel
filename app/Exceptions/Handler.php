@@ -32,18 +32,26 @@ class Handler extends ExceptionHandler
 
     // public function render($request, Throwable $exception)
     // {
+        // dd($exception->getStatusCode());
 
-    //     if ($exception->getStatusCode() == 401) {
-    //         return redirect()->route('login');
-    //     }
 
-    //     if ($exception->getStatusCode() == 403) {
-    //         return redirect()->route('login');
-    //     }
+        // if ($exception->getStatusCode() == 401) {
+        //     return redirect()->route('login');
+        // }
+
+        // if ($exception->getStatusCode() == 403) {
+        //     return redirect()->route('login');
+        // }
+
+        // if ($exception->getStatusCode() == 404) {
+        //     return redirect()->route('visitor.home');
+        // }
+
 
     //     return parent::render($request, $exception);
 
     // }
+
 
     // public function report(Throwable $exception){
     //     return 'repot';
