@@ -23,4 +23,6 @@ class Plant extends Model
         ];
     }
 
+
+
 }
