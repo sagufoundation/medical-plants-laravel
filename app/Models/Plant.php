@@ -23,6 +23,20 @@ class Plant extends Model
         ];
     }
 
+<<<<<<< HEAD
 
+=======
+    public function contributor(){
+        return $this->belongsTo(Contributor::class,'id_contributor');
+    }
+
+    public function location(){
+        return $this->belongsTo(Location::class,'id_location');
+    }
+
+    public function province(){
+        return $this->belongsTo(Provinces::class,'id_province');
+    }
+>>>>>>> 1ea0269b68e4fceff77b5efe4a0d08c52fb9994a
 
 }

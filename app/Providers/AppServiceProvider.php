@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
         // Paginator::defaultView('pagination::default');
 
         view()->share([
-            'pengaturan'                        => Pengaturan::first(),
+            'pengaturan' => Pengaturan::first(),
         ]);
     }
 }

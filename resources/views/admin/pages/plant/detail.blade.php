@@ -51,6 +51,61 @@
                     </tr>
                 </table>
 
+<<<<<<< HEAD
+=======
+                    <div class="mb-5">
+                        <label for="local_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Taxonomists</label>
+                        {{ $data->taxonomists }}
+                    </div>
+                    <!-- item end -->
+
+                    <div class="mb-5">
+                        <label for="local_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Treatments</label>
+                        {{ $data->treatments }}
+                    </div>
+                    <!-- item end -->
+
+                    <div class="mb-5">
+                        <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
+                            {{$data->status}}
+
+
+                    </div>
+                    <!-- input item end -->
+
+                    <div class="mb-5">
+                        <label for="cover_picture" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cover Picture</label>
+                        <img src="{{ url($data->cover_picture) }}" class="mb-5" alt="{{ $data->local_name }}" width="250px">
+                    </div>
+                    <!-- input item end -->
+
+                    <div class="mb-5">
+                        <label for="gallery_picture" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gallery Picture</label>
+                        <img src="{{ url($data->gallery_picture) }}" class="mb-5 border shadow" alt="{{ $data->gallery_picture }}" width="550px">
+                    </div>
+                    <!-- input item end -->
+
+                    <div class="mb-5">
+                        <label for="id_location" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Province</label>
+                        {{ $data->province->name }}
+                    </div>
+                    <!-- input item end -->
+
+                    <div class="mb-5">
+                        <label for="id_location" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Location</label>
+                        {{ $data->location->tribes }}
+                    </div>
+                    <!-- input item end -->
+
+                    <div class="mb-5">
+                        <label for="id_contributor" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contributor</label>
+                        {{ $data->contributor->full_name }}
+                    </div>
+                    <!-- input item end -->
+
+
+                <!-- form end -->
+>>>>>>> 1ea0269b68e4fceff77b5efe4a0d08c52fb9994a
             </div>
 
           </div>
