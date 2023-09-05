@@ -34,16 +34,11 @@ class Handler extends ExceptionHandler
     // {
         // dd($exception->getStatusCode());
 
-<<<<<<< HEAD
-
-        // if ($exception->getStatusCode() == 401) {
-=======
         // if ($exception->getStatusCode() == 401) {
         //     return redirect()->route('login');
         // }
 
         // if ($exception->getStatusCode() == 403) {
->>>>>>> 1ea0269b68e4fceff77b5efe4a0d08c52fb9994a
         //     return redirect()->route('login');
         // }
 
