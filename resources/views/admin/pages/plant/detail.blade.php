@@ -4,29 +4,55 @@
     @endsection
 @section('content')
 
-<section>
-    <div class="py-8 px-4 ml-64 lg:py-16 lg:px-6">
-        <div class="text-gray-500 sm:text-lg dark:text-gray-400">
-            <h2 class="mb-6 text-4xl tracking-tight font-bold text-gray-700">Detail Plant</h2>
-        </div>
-        <a href="{{route('admin.plant')}}" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 mb-5 hover:shadow-lg transition">
-            <div class="fa-solid fa-circle-arrow-left me-2"></div> Back
-        </a>
+<main id="main" class="main">
 
-        <a href="{{route('admin.plant.edit', $data->id)}}" class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900 mb-5 hover:shadow-lg transition">
-            <i class="fa-solid fa-pencil me-2"></i> Edit
-        </a>
+    <div class="pagetitle">
+      <h1>Plants</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Plants</a></li>
+          <li class="breadcrumb-item active">Detail</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
 
-        <div class="relative overflow-x-auto sm:rounded-lg border p-7">
+    <section class="section">
+        <div class="row">
+          <div class="col-lg-12">
 
-            <div class="md:w-2/3">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title mb-0">Plants</h5>
 
-                    <div class="mb-5">
-                        <label for="local_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Local Name</label>
-                        {{ $data->local_name }}
-                    </div>
-                    <!-- item end -->
+                <table>
+                    <tr>
+                        <td width="300"> Local Name </td>
+                        <th>   {{ $data->local_name }} </th>
+                    </tr>
+                    <tr>
+                        <td width="300"> Taxonomists </td>
+                        <th>    {{ $data->taxonomists }} </th>
+                    </tr>
+                    <tr>
+                        <td width="300"> Treatments </td>
+                        <th>   {{ $data->treatments }} </th>
+                    </tr>
+                    <tr>
+                        <td width="300"> Status </td>
+                        <th>    {{$data->status}} </th>
+                    </tr>
+                    <tr>
+                        <td width="300">  Picture Cover </td>
+                        <th>   <img  alt=" Picture Cover" src="{{ url($data->cover_picture) }}" width="300"> </th>
+                    </tr>
+                    <tr>
+                        <td width="300"> Gallery Picture </td>
+                        <th>   <img  alt="Gallery Picture" src="{{ url($data->gallery_picture) }}" width="300"> </th>
+                    </tr>
+                </table>
 
+<<<<<<< HEAD
+=======
                     <div class="mb-5">
                         <label for="local_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Taxonomists</label>
                         {{ $data->taxonomists }}
@@ -79,12 +105,15 @@
 
 
                 <!-- form end -->
+>>>>>>> 1ea0269b68e4fceff77b5efe4a0d08c52fb9994a
             </div>
 
+          </div>
         </div>
+      </section>
 
-    </div>
-</section>
+  </main><!-- End #main -->
+
 
 
 @stop

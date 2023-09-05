@@ -260,4 +260,9 @@ class VisitorController extends Controller
     {
         return view('b5');
     }
+
+    public function view()
+    {
+        return view('b5');
+    }
 }

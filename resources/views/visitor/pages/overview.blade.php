@@ -4,32 +4,33 @@
     @endsection
 @section('content')
 
-<!-- heading start -->
-<section class="bg-white dark:bg-gray-900">
-    <div class="px-4 mx-auto max-w-screen-xl lg:pt-16 lg:px-6 ">
-        <div class="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
-            <h2 class="mb-4 text-6xl tracking-tight font-extrabold text-gray-900 dark:text-green-600">Overview</h2>
-            <p class="font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">Welcome to the Database of Traditional Medicinal Plants in Papua, a comprehensive and easily accessible resource for researchers, healthcare practitioners, and anyone interested in traditional medicine, aiming to promote the importance of preserving traditional medicinal knowledge and exploring it for global medicinal research.</p>
-        </div>
-    </div>
-</section>
-<!-- heading end -->
+<section id="">
+    <div class="container mt-5 mb-5">
 
-<section class="bg-white dark:bg-gray-900 pb-16">
-    <div class="container mx-auto lg:max-w-screen-lg xl:lg:max-w-screen-xl text-center">
-        <h2 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-gray-300">A collaborative work of experts in the fields of taxonomy, phytochemistry, and ethnobotany, with the help of an IT team.</h2>
-    </div>
-    <div class="container mx-auto">
-
-        <div class="gap-16 items-center pb-8 pb-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:px-6">
-            <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-                <p class="mb-4 text-justify">The Database of Traditional Medicinal Plants in Papua is a collaborative work of experts in the fields of taxonomy, phytochemistry, and ethnobotany, with the help of an IT team. The database is a comprehensive collection of information on the various medicinal plants recognized by the Indigenous Papuans in Papua, Indonesia, including their traditional uses, chemical properties, and potential health benefits. We welcome anyone with information on traditional medicinal plants from Papua to contribute with details on the plants used in their villages to treat illnesses. In addition, phytochemists, taxonomists, and ethnobotanists are also welcomed to contribute their expertise related to traditional medicinal plants from Papua that have been or have not been published on this database.</p>
-            </div>
-            <div class="mt-8 p-10">
-                <img class="w-full rounded-lg dark:hidden" src="/assets/img/illustrations/1.png" alt="Illustration image">
-                <img class="w-full rounded-lg hidden dark:block" src="/assets/img/illustrations/1-light.png" alt="Illustration image">
-            </div>
+      <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="fw-bolder font-satu">  Overview</h1>
+            <p>Welcome to the Database of Traditional Medicinal Plants in Papua, a comprehensive and easily accessible resource for researchers, healthcare practitioners, and anyone interested in traditional medicine, aiming to promote the importance of preserving traditional medicinal knowledge and exploring it for global medicinal research.
+            </p>
         </div>
+      </div>
+
+      <div class="row d-flex justify-content-center mt-5 mb-5">
+        <div class="col-10 text-center">
+            <h4 class="fw-bolder ">  A collaborative work of experts in the fields of taxonomy, phytochemistry, and ethnobotany, with the help of an IT team.</h4>
+        </div>
+      </div>
+
+
+      <div class="row  align-self-center">
+        <div class="col-xl-6 " style="text-align: justify">
+            <p class=" "> The Database of Traditional Medicinal Plants in Papua is a collaborative work of experts in the fields of taxonomy, phytochemistry, and ethnobotany, with the help of an IT team. The database is a comprehensive collection of information on the various medicinal plants recognized by the Indigenous Papuans in Papua, Indonesia, including their traditional uses, chemical properties, and potential health benefits. We welcome anyone with information on traditional medicinal plants from Papua to contribute with details on the plants used in their villages to treat illnesses. In addition, phytochemists, taxonomists, and ethnobotanists are also welcomed to contribute their expertise related to traditional medicinal plants from Papua that have been or have not been published on this database.</p>
+        </div>
+        <div class="col-xl-6  align-self-center" >
+            <img src="/assets/img/illustrations/1.png" class="img-fluid " alt="">
+        </div>
+      </div>
+
     </div>
 </section>
 

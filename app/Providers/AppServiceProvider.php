@@ -26,9 +26,6 @@ class AppServiceProvider extends ServiceProvider
 
         view()->share([
             'pengaturan' => Pengaturan::first(),
-            'total_plants' => Plant::count(),
-            'total_plants' => Plant::where('id_province', 1)->count(),
-
         ]);
     }
 }

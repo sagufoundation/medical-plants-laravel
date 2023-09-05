@@ -1,21 +1,17 @@
-<form class="" method="get" action="{{ route('visitor.thePlants') }}">
-    <div class="mb-4 flex justify-between">
-        <input class="shadow appearance-none border border-gray-300 rounded-lg w-full px-6 py-6 text-gray-600 leading-tight focus:outline-none focus:shadow-outline focus:shadow-lg focus:border-none transition text-xl"
-            id="s"
-            name="s"
-            type="text"
-            {{-- value="{{ request()->s ?? '' }}"  --}}
-            placeholder="Type your keywords here...">
 
-            <button type="submit" class="bg-green-800 hover:bg-green-700 transition text-gray-100 rounded px-9 ml-5">Search</button>
+    {{-- SEARCH START --}}
+    <section id="serarch mt-5">
+        <div class="container">
+          <div class="row">
 
-    </div>
-    @if ($errors->has('s'))
-        <span class="text-red-300" role="alert">
-            <small class="pt-1 d-block"><i class="fe-alert-triangle mr-1"></i> {{ $errors->first('s') }}</small>
-        </span>
-    @endif
+            <div class="col-10">
+              <div class="mb-3">
+                <input type="text"
+                  class="form-control p-3 rounded" name="" id=""  placeholder="Type your keyword in here ..">
+              </div>
+            </div>
 
+<<<<<<< HEAD
     <div class="">
         <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">Filter by</h3>
         <ul
@@ -61,3 +57,12 @@
 </div>
 
 @endif
+=======
+            <div class="col-2">
+              <button class="btn btn-success  p-3"> Search <i class="fa-solid fa-search mr-2"></i></button>
+            </div>
+          </div>
+        </div>
+      </section>
+      {{-- SEARCH END --}}
+>>>>>>> fe8224086d450dc14c3ebca15ecd9596e8c4cf97

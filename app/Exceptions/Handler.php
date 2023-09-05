@@ -30,10 +30,20 @@ class Handler extends ExceptionHandler
         });
     }
 
-    public function render($request, Throwable $exception)
-    {
+    // public function render($request, Throwable $exception)
+    // {
+        // dd($exception->getStatusCode());
+
+<<<<<<< HEAD
 
         // if ($exception->getStatusCode() == 401) {
+=======
+        // if ($exception->getStatusCode() == 401) {
+        //     return redirect()->route('login');
+        // }
+
+        // if ($exception->getStatusCode() == 403) {
+>>>>>>> 1ea0269b68e4fceff77b5efe4a0d08c52fb9994a
         //     return redirect()->route('login');
         // }
 
@@ -41,9 +51,15 @@ class Handler extends ExceptionHandler
         //     return redirect()->route('login');
         // }
 
-        return parent::render($request, $exception);
+        // if ($exception->getStatusCode() == 404) {
+        //     return redirect()->route('visitor.home');
+        // }
 
-    }
+
+    //     return parent::render($request, $exception);
+
+    // }
+
 
     // public function report(Throwable $exception){
     //     return 'repot';

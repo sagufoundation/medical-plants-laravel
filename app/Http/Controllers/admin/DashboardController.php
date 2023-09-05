@@ -8,14 +8,6 @@ use App\Models\Plant;
 
 class DashboardController extends Controller
 {
-    // public function index()
-    // {
-    //     $datas = Plant::groupBy('id_province')
-    //                 ->get();
-    //     return view('admin.pages.dashboard', compact('datas'));
-    // }
-
-
 
     public function index()
     {

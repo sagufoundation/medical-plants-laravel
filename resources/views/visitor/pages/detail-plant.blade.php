@@ -4,11 +4,8 @@
     @endsection
 @section('content')
 
-<section class="text-gray-600 body-font overflow-hidden">
-    <div class="container max-w-screen-xl mx-auto p-4">
-        <div class="lg:w-4/5 mx-auto flex flex-wrap">
-            <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
 
+<<<<<<< HEAD
                 <h1 class="text-gray-800 dark:text-gray-200 text-6xl title-font font-bold mb-4" >{{$data->local_name}}</h1>
                 <h2 class="text-sm title-font text-gray-500 dark:text-gray-300 tracking-widest">{{$data->taxonomists}}</h2>
 
@@ -69,5 +66,7 @@
         </div>
     </div>
 </section>
+=======
+>>>>>>> fe8224086d450dc14c3ebca15ecd9596e8c4cf97
 
 @stop

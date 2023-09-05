@@ -13,6 +13,7 @@
             // Center maps
             var myLatlng = new google.maps.LatLng(-4.8302525,137.8090696,6);
 
+
             // Map Options
             var mapOptions = {
                 zoom: 7,
