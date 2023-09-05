@@ -15,9 +15,14 @@
             @include('visitor.includes.sections.search')
         </div>
     </section>
+    
+    {{-- <!-- GOOGLE MAP START -->
+        @include('visitor.includes.sections.google-map') --}}
         
-    <!-- GOOGLE MAP START -->
-    @include('visitor.includes.sections.google-map')
-
+    {{-- <section>
+        <div class="container max-w-screen-xl mx-auto p-4">
+            @include('visitor.includes.sections.graphs.total-plant')
+        </div>
+    </section> --}}
 @stop
 

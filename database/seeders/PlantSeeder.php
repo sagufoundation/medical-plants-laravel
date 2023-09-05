@@ -76,7 +76,7 @@ class PlantSeeder extends Seeder
         $plant = Plant::create([
             'id_location' => 7,
             'id_contributor' => 3,
-            'id_province' => 1,
+            'id_province' => 2,
             'cover_picture' => '/assets/img/plants/00.jpg',
             'gallery_picture' => '/assets/img/plants/gallery/00.jpg',
             'local_name' => 'Lorem, ipsum.',
@@ -88,7 +88,7 @@ class PlantSeeder extends Seeder
             'traditional_usage' => '-',
             'known_phytochemical_consituents' => '-',
 
-            'status' => 'Draft',
+            'status' => 'Publish',
             'slug_plant' => 'lorem-ipsum',
         ]);
 

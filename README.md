@@ -1,17 +1,10 @@
 # medical-plants-laravel
 Medical Plants Laravel
 
+## git commands
 
-## Access
-    Admin
-    email & password = admin@gmail.com
+Pull from other brands
 
-## Backend
-
-    ✅ CRUD Contributor
-    ✅ CRUD Location
-    ✅ CRUD Icon Location
-    ✅ CRUD Plant
-    ✅ Google Map Api
-
-    Dibuat dengan ❤ Oleh S.Bos
+```
+git pull origin branch_name
+```

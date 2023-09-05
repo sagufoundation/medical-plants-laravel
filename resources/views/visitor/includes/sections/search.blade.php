@@ -16,7 +16,7 @@
         </span>
     @endif
 
-    <div class="lg:w-2/3">
+    <div class="">
         <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">Filter by</h3>
         <ul
             class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white shadow-sm">
@@ -48,7 +48,6 @@
                     <label for="taxonomists" class="w-full py-3 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300 cursor-pointer">Taxonomists</label>
                 </div>
             </li>
-
 
         </ul>
 

@@ -55,7 +55,7 @@ class VisitorController extends Controller
             ['local_name', '!=', Null],
             [function ($query) {
                 if (($s = request()->s)) {
-                    if (isset(request()->filter) && request()->filter == 'name') {
+                    if (isset(request()->filter) && request()->filter == 'local_name') {
                         $query->orWhere('local_name', 'LIKE', '%' . $s . '%')->get();
                     } elseif (isset(request()->filter) && request()->filter == 'indonesian_name') {
                         $query->orWhere('indonesian_name', 'LIKE', '%' . $s . '%')->get();
@@ -63,8 +63,9 @@ class VisitorController extends Controller
                         $query->orWhere('latin_name', 'LIKE', '%' . $s . '%')->get();
                     } elseif (isset(request()->filter) && request()->filter == 'taxonomists') {
                         $query->orWhere('taxonomists', 'LIKE', '%' . $s . '%')->get();
-                    }
-                    else {
+                    } elseif (isset(request()->filter) && request()->filter == 'province') {
+                        $query->orWhere('id_province', 'LIKE', '%' . $s . '%')->get();
+                    } else {
                         $query->get();
                     }
                 }

@@ -21,11 +21,11 @@ class ContributorController extends Controller
     {
         $status = 'Publish';
         $judul = 'Publish';
-       $all = Contributor::where('status_contributor', $status)->orderBy('id', 'desc')->get();
-       return view('admin.pages.contributor.index', [
-        'all' => $all,
-        'judul' => $judul,
-       ]);
+        $all = Contributor::where('status_contributor', $status)->orderBy('id', 'desc')->get();
+        return view('admin.pages.contributor.index', [
+            'all' => $all,
+            'judul' => $judul,
+        ]);
     }
 
     public function publish()
@@ -34,10 +34,9 @@ class ContributorController extends Controller
         $judul = 'Publish';
         $all = Contributor::where('status_contributor', $status)->orderBy('id', 'desc')->get();
         return view('admin.pages.contributor.index', [
-         'all' => $all,
-         'judul' => $judul,
+            'all' => $all,
+            'judul' => $judul,
         ]);
-
     }
 
     public function review()
@@ -46,8 +45,8 @@ class ContributorController extends Controller
         $judul = 'Review';
         $all = Contributor::where('status_contributor', $status)->orderBy('id', 'desc')->get();
         return view('admin.pages.contributor.index', [
-         'all' => $all,
-         'judul' => $judul,
+            'all' => $all,
+            'judul' => $judul,
         ]);
     }
 
@@ -57,8 +56,8 @@ class ContributorController extends Controller
         $judul = 'Draft';
         $all = Contributor::where('status_contributor', $status)->orderBy('id', 'desc')->get();
         return view('admin.pages.contributor.index', [
-         'all' => $all,
-         'judul' => $judul,
+            'all' => $all,
+            'judul' => $judul,
         ]);
     }
 
@@ -77,7 +76,7 @@ class ContributorController extends Controller
     public function store(Request $request)
     {
 
-         $request->validate([
+        $request->validate([
             'full_name'                 => 'required',
             'email'                     => 'required|email|unique:users,email',
             'address'                   => 'required',
@@ -91,11 +90,11 @@ class ContributorController extends Controller
         $tahun = date("Y");
         $bulan = date("M");
         //upload photo
-        $filename  = 'medicalplant'.'-'.date('Y-m-d-H-i-s').$request->file('photo')->getClientOriginalName();
+        $filename  = 'medicalplant' . '-' . date('Y-m-d-H-i-s') . $request->file('photo')->getClientOriginalName();
 
-        $request->file('photo')->storeAs('public/resource/contributor/'.$tahun.'/'.$bulan,$filename);
+        $request->file('photo')->storeAs('public/resource/contributor/' . $tahun . '/' . $bulan, $filename);
 
-        $url = ('storage/public/resource/contributor/'.$tahun.'/'.$bulan.'/'.$filename);
+        $url = ('storage/public/resource/contributor/' . $tahun . '/' . $bulan . '/' . $filename);
 
         //create
         $contributor = Contributor::create([
@@ -110,7 +109,7 @@ class ContributorController extends Controller
             'status_contributor'        => $request->status_contributor,
         ]);
 
-         User::create([
+        User::create([
             'name'                      => $request->full_name,
             'email'                     => $request->email,
             'password'                  => Hash::make('1122qqww'),
@@ -126,7 +125,7 @@ class ContributorController extends Controller
      */
     public function show($id)
     {
-        $data = Contributor::where('id',$id)->first();
+        $data = Contributor::where('id', $id)->first();
         return view('admin.pages.contributor.detail', compact('data'));
     }
 
@@ -167,24 +166,23 @@ class ContributorController extends Controller
             'status_contributor'  => $request->status_contributor,
         );
 
-        if ($request->hasFile('photo'))
-        {
-            $datalama = Contributor::where('id',$id)->first();
-            if($datalama->photo){
+        if ($request->hasFile('photo')) {
+            $datalama = Contributor::where('id', $id)->first();
+            if ($datalama->photo) {
                 File::delete($datalama->photo);
             }
 
-            $filename  = 'medicalplant'.'-'.date('Y-m-d-H-i-s').$request->file('photo')->getClientOriginalName();
+            $filename  = 'medicalplant' . '-' . date('Y-m-d-H-i-s') . $request->file('photo')->getClientOriginalName();
 
-            $request->file('photo')->storeAs('public/resource/contributor/'.$tahun.'/'.$bulan,$filename);
+            $request->file('photo')->storeAs('public/resource/contributor/' . $tahun . '/' . $bulan, $filename);
 
-            $url = ('storage/public/resource/contributor/'.$tahun.'/'.$bulan.'/'.$filename);
+            $url = ('storage/public/resource/contributor/' . $tahun . '/' . $bulan . '/' . $filename);
             $data['photo'] = $url;
         }
 
         $update = DB::table('contributors')
-              ->where('id', $id)
-              ->update($data);
+            ->where('id', $id)
+            ->update($data);
 
         alert()->success('Update', 'Success !!');
         return redirect()->route('admin.contributor');
@@ -197,19 +195,16 @@ class ContributorController extends Controller
      */
     public function destroy($id)
     {
-        $datalama = Contributor::where('id',$id)->first();
-            if($datalama->photo){
-                File::delete($datalama->photo);
-            }
+        $datalama = Contributor::where('id', $id)->first();
+        if ($datalama->photo) {
+            File::delete($datalama->photo);
+        }
         $deleted = DB::table('contributors')->where('id', '=', $id)->delete();
-        if($deleted)
-        {
+        if ($deleted) {
             alert()->success('Delete', 'Success !!');
-        }else{
+        } else {
             alert()->error('Error', 'Failed !!');
         }
         return redirect()->back();
-
-
     }
 }

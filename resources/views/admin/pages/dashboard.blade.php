@@ -13,6 +13,16 @@
                     <h2 class="mb-4 text-4xl tracking-tight font-bold text-gray-700">Dashboard</h2>
                     <p class="mb-4 font-light">Welcome!</p>
                 </div>
+
+            <div>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <ul>
+                    @foreach ($datas as $data => $value)
+                            {{ $data->local_name }}
+                            {{ $value }}
+                    @endforeach
+                </ul>
+            </div>
             </div>
         </section>
 

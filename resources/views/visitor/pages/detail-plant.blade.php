@@ -14,9 +14,9 @@
 
                 <div class="my-4 text-gray-500">
                     <i class="fa-solid fa-map-marker"></i>
-                    <a href="" class="ml-auto hover:underline"> {!! $data->location->tribes ?? '' !!}</a> | 
+                    <a href="#" class="ml-auto hover:underline"> {!! $data->location->tribes ?? '' !!}</a> | 
                     <i class="fa-solid fa-map"></i>
-                    <a href="" class="ml-auto hover:underline"> {!! $data->province->name ?? '' !!}</a>
+                    <a href="#" class="ml-auto hover:underline"> {!! $data->province->name ?? '' !!}</a>
                 </div>
 
                 <div class="border-b border-gray-400 py-2">
