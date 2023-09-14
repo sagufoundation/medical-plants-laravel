@@ -54,7 +54,7 @@ class AppServiceProvider extends ServiceProvider
         view()->share([
 
             // Settings
-            // 'settings' => Settings::first(),
+            'settings' => Settings::first(),
 
             // // Counts
             // 'packages_total' => TourPackages::count(),
