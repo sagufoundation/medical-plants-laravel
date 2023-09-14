@@ -18,26 +18,29 @@ class UsersSeeder extends Seeder
     {
         $users = collect([
             [
-                'name' => 'Admin GOTRAV',
-                'slug' => 'admin-gotrav',
-                'job_title' => 'Administrator on www.gotravpapua.com',
-                'picture' => 'images/users/00.jpg',
-                'email' => 'admin@gotravpapua.com',
-                'password' => bcrypt('admin@gotravpapua.com'),
-                'status' => 'Publish',
-                'role' => 'administrator',
+                'name' => 'admin',
+                'email' => 'admin@gmail.com',
+                'password' => bcrypt('admin@gmail.com'),
+                'role' => 'admin',
 
             ],
             [
-                'name' => 'Guest GOTRAV',
-                'slug' => 'guset-gotrav',
-                'job_title' => 'Guest User on www.gotravpapua.com',
-                'picture' => 'images/users/00.jpg',
-                'email' => 'guest@gotravpapua.com',
-                'password' => bcrypt('guest@gotravpapua.com'),
-                'status' => 'Publish',
-                'role' => 'guest',
-
+                'name' => 'Contributor',
+                'email' => 'contributor@gmail.com',
+                'password' => bcrypt('contributor@gmail.com'),
+                'role' => 'contributor',
+            ],
+            [
+                'name' => 'johan',
+                'email' => 'johan@gmail.com',
+                'password' => bcrypt('johan@gmail.com'),
+                'role' => 'contributor',
+            ],
+            [
+                'name' => 'maikel',
+                'email' => 'maikel@gmail.com',
+                'password' => bcrypt('maikel@gmail.com'),
+                'role' => 'contributor',
             ]
         ]);
 

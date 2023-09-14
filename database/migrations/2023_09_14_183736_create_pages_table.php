@@ -13,17 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('pages', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('picture')->nullable();
-
+            $table->string('title');
+            $table->string('slug');
+            $table->string('sub_title');
+            $table->longText('content');
             $table->enum('status',['Publish','Draft'])->default('Draft')->nullable();
-            $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -36,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('pages');
     }
 };

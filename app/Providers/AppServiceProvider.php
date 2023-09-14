@@ -54,16 +54,16 @@ class AppServiceProvider extends ServiceProvider
         view()->share([
 
             // Settings
-            'settings' => Settings::first(),
+            // 'settings' => Settings::first(),
 
-            // Counts
-            'packages_total' => TourPackages::count(),
-            'destinations_total' => TourDestinations::count(),
-            'adventures_total' => TourAdventures::count(),
-            'events_total' => TourEvents::count(),
-            'messages_total' => TourMessages::count(),
-            'sliders_total' => TourSliders::count(),
-            'users_total' => User::count(),
+            // // Counts
+            // 'packages_total' => TourPackages::count(),
+            // 'destinations_total' => TourDestinations::count(),
+            // 'adventures_total' => TourAdventures::count(),
+            // 'events_total' => TourEvents::count(),
+            // 'messages_total' => TourMessages::count(),
+            // 'sliders_total' => TourSliders::count(),
+            // 'users_total' => User::count(),
 
         ]);
 

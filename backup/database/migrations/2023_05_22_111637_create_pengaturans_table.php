@@ -23,13 +23,13 @@ return new class extends Migration
             $table->string('logo')->nullable();
             $table->string('logo_loader')->nullable();
             $table->string('favicon')->nullable();
-            
+
             // Contact
             $table->string('email_address')->nullable();
             $table->string('telp')->nullable();
             $table->string('office_address')->nullable();
             $table->text('google_map_address')->nullable();
-            
+
             // Social Media
             $table->string('instagram')->nullable();
             $table->string('facebook')->nullable();

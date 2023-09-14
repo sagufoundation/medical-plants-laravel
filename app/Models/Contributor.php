@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class universitas extends Model
+class Contributor extends Model
 {
     use HasFactory;
+    public $guarded = [];
 }

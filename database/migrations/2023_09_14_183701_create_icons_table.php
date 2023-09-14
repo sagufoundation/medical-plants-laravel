@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tour_messages', function (Blueprint $table) {
-
+        Schema::create('icons', function (Blueprint $table) {
             $table->id();
-
-            $table->string('name')->nullable();
-            $table->string('message')->nullable();
-
+            $table->string('icon_name');
+            $table->string('icon_img')->nullable();
+            $table->enum('status',['Publish','Draft'])->default('Draft')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tour_messages');
+        Schema::dropIfExists('icons');
     }
 };

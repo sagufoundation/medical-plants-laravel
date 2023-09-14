@@ -13,19 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('picture')->nullable();
-
+            $table->unsignedBigInteger('icon_id')->nullable();
+            $table->string('tribes');
+            $table->string('desc');
+            $table->string('long');
+            $table->string('lat');
+            $table->string('link')->nullabel();
+            $table->string('slug');
             $table->enum('status',['Publish','Draft'])->default('Draft')->nullable();
-            $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();
+            $table->foreign('icon_id')->references('id')->on('icons')->onDelete('cascade');
         });
     }
 
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('locations');
     }
 };

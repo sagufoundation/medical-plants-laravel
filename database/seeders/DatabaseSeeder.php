@@ -16,12 +16,12 @@ class DatabaseSeeder extends Seeder
             SettingsSeeder::class,
             RoleSeeder::class,
             UsersSeeder::class,
-            TourAdventuresSeeder::class,
-            TourEventsSeeder::class,
-            TourPackagesSeeder::class,
-            TourDestinationsSeeder::class,
-            TourSlidersSeeder::class,
-            TourMessagesSeeder::class
+
+            ContributorSeeder::class,
+            IconSeeder::class,
+            LocationSeeder::class,
+            PlantSeeder::class,
+            ProvincesSeeder::class,
         ]);
     }
 }
