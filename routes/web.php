@@ -1,85 +1,58 @@
 <?php
 
+// VISITOR CONTROLLERS
+
+use App\Http\Controllers\Dashboard\PesanController;
+use App\Http\Controllers\Visitor\HomeController;
+
+// dashboard CONTROLLERS
+use App\Http\Controllers\DashboardController;
+
+// OTHER CONTROLLERS
+use App\Http\Controllers\UserController;
+
+// OTHER CLASSES
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Visitor\VisitorController;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\App;
+
 
 /*
 |--------------------------------------------------------------------------
-| VISITOR ROUTES
+| VISITOR
 |--------------------------------------------------------------------------
+*/
+
+// Mengalihkan he alamat beranda
+Route::get('/', function () {
+    return redirect('/login');
+});
+
+// // BERANDA
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+Auth::routes([
+    'register' => false
+]);
+
+
+/*
+| CK EDITOR
 |
 */
 
-// Redirect to '/home'
-Route::get('/', function() {
-    return redirect('/home');
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
+Route::group(['prefix' => '/dashboard', 'middleware' => ['web', 'auth','checkUserStatus']], function () {
+
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 });
 
 
-Route::controller(VisitorController::class)->group(function(){
-
-    // MAIN PAGE
-    Route::get('/home','index')->name('visitor.home');
-
-    // STATIC PAGES
-    Route::get('/the-plants','thePlants')->name('visitor.thePlants');
-    Route::get('/the-plants/{id}/detail','thePlantsDetail')->name('visitor.thePlants.detail');
-    // Route::get('/the-plants-simulation','thePlantsSimulation')->name('visitor.the-plants-simulation');
-
-    Route::get('/overview','overview')->name('visitor.overview');
-    Route::get('/how-to-contribute','howToContribute')->name('visitor.howToContribute');
-    Route::get('/our-sponsors','ourSponsors')->name('visitor.ourSponsors');
-    Route::get('/connect-with-us','connectWithUs')->name('visitor.connectWithUs');
-
-    // UNTUK DEVELOP HALAMAN BOOSTRAP
-    Route::get('/view','view')->name('view');
-
-    // DYNAMIC PAGES
-    Route::get('/json','json')->name('json');
-    Route::post('/filter','filter')->name('filter');
-    Route::post('/location','location')->name('location');
-    Route::get('/tribe/{id}','tribe')->name('tribe');
-    Route::get('/detail-plant/{id}','detail_plant')->name('detail-plant');
-
-    // AUTH PAGES
-    Route::get('/login','login')->name('login');
-    Route::get('/logout','index')->name('logout');
-
-});
-
-
-/*
-|--------------------------------------------------------------------------
-| ADMIN ROUTES
-|--------------------------------------------------------------------------
-|
-*/
-
-// Require Admin Routes
-require_once 'admin.php';
-
-
-/*
-|--------------------------------------------------------------------------
-| VISITOR ROUTES
-|--------------------------------------------------------------------------
-|
-*/
-
-// Require Visitor Routes
-require_once 'visitor.php';
-
-
-/*
-|--------------------------------------------------------------------------
-| CONTRIBUTOR ROUTES
-|--------------------------------------------------------------------------
-|
-*/
-
-// Require Contributor Routes
-require_once 'contributor.php';
-
-Auth::routes();
+require_once 'dashboard.php';
+require_once 'profil.php';
 

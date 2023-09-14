@@ -4,13 +4,29 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
-use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Support\Facades\Redirect;
 
 class Handler extends ExceptionHandler
 {
     /**
-     * The list of the inputs that are never flashed to the session on validation exceptions.
+     * A list of exception types with their corresponding custom log levels.
+     *
+     * @var array<class-string<\Throwable>, \Psr\Log\LogLevel::*>
+     */
+    protected $levels = [
+        //
+    ];
+
+    /**
+     * A list of the exception types that are not reported.
+     *
+     * @var array<int, class-string<\Throwable>>
+     */
+    protected $dontReport = [
+        //
+    ];
+
+    /**
+     * A list of the inputs that are never flashed to the session on validation exceptions.
      *
      * @var array<int, string>
      */
@@ -22,44 +38,13 @@ class Handler extends ExceptionHandler
 
     /**
      * Register the exception handling callbacks for the application.
+     *
+     * @return void
      */
-    public function register(): void
+    public function register()
     {
         $this->reportable(function (Throwable $e) {
             //
         });
     }
-
-    // public function render($request, Throwable $exception)
-    // {
-        // dd($exception->getStatusCode());
-
-        // if ($exception->getStatusCode() == 401) {
-        //     return redirect()->route('login');
-        // }
-
-        // if ($exception->getStatusCode() == 403) {
-        //     return redirect()->route('login');
-        // }
-
-        // if ($exception->getStatusCode() == 403) {
-        //     return redirect()->route('login');
-        // }
-
-        // if ($exception->getStatusCode() == 404) {
-        //     return redirect()->route('visitor.home');
-        // }
-
-
-    //     return parent::render($request, $exception);
-
-    // }
-
-
-    // public function report(Throwable $exception){
-    //     return 'repot';
-    // }
-
-
-
 }

@@ -1,135 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ $settings->site_title ?? 'SAGU Foundation' }}</title>
 
-  <title> Login - Medical Plants</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <meta property="og:title" content="{{ $settings->site_title ?? '' }}">
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{{ $settings->logo_meta ?? '' }}">
+    <meta property="og:url" content="{{ $settings->site_address ?? '' }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:image" content="{{ $settings->logo_meta ?? '' }}">
+    <meta property="og:description" content="{{ $settings->meta_description ?? '' }}">
+    <meta property="og:site_name" content="{{ $settings->site_title ?? '' }}">
+    <meta name="twitter:image:alt" content="Cover {{ $settings->site_title ?? 'SAGU Foundation' }}">
 
-  <!-- Favicons -->
-  <link href="assets-admin/img/favicon.png" rel="icon">
-  <link href="assets-admin/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" href="{{ asset('images/settings/' . $settings->logo_favicon) }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/settings/' . $settings->logo_favicon) }}">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets-admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets-admin/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets-admin/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets-admin/vendor/quill/quill.snow.css" rel="stylesheet">
-  <link href="assets-admin/vendor/quill/quill.bubble.css" rel="stylesheet">
-  <link href="assets-admin/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets-admin/vendor/simple-datatables/style.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets-admin/css/style.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
 </head>
+<body class="bg-light" style="background-image: url('{{ asset('images/latar-belakang/1.jpg') }}'); background-size:cover;">
 
-<body>
 
-  <main>
-    <div class="container">
-
-      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+    <section class="py-5">
         <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
 
-              <div class="d-flex justify-content-center py-4">
-                <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="assets-admin/img/logo.png" alt="">
-                  <span class="d-none d-lg-block text-success">Traditional Medicinal Plants in Papua</span>
-                </a>
-              </div><!-- End Logo -->
+                    <div class="card shadow p-5">
+                        <img src="{{ asset('images/logo_meta.jpg') }}" alt="Logo" class="card-img-top">
+                        <div class="card-body">
+                            <p class="text-muted">Login using your email address and password</p>
+                            <!-- FORM START -->
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
 
-              <div class="card mb-3">
+                                <div class="mb-3">
+                                    <label for="alamatEmail" class="form-label">Email Address</label>
+                                    <input type="email" id="alamatEmail"
+                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                        value="{{ old('email') }}" placeholder="Masukan alamat email" required
+                                        autocomplete="email" autofocus>
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                                <!-- group item end -->
 
-                <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="kataSandi" class="form-label">Password</label>
+                                    <div class="input-group input-group-merge">
+                                        <input type="password" id="kataSandi"
+                                            class="form-control @error('password') is-invalid @enderror" name="password"
+                                            placeholder="Masukan kata sandi" required autocomplete="current-password">
+                                        <div class="input-group-text" data-password="false">
+                                            <span class="password-eye"></span>
+                                        </div>
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <!-- group item end -->
 
-                  <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4 text-success">Login to Your Account</h5>
-                    <p class="text-center small text-success">Enter your email & password to login</p>
-                  </div>
+                                {{-- <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{
+                                            old('remember') ? 'checked' : '' }}>
+                                        <label class="form-check-label" for="remember">
+                                            {{ __('Ingat saya') }}
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- group item end --> --}}
 
-                  <form class="row g-3 needs-validation" method="POST" action="{{ route('login') }}"  novalidate>
-                    @csrf
-                    <div class="col-12">
-                      <label for="youremail" class="form-label">Email</label>
-                      <div class="input-group has-validation">
-                        <input type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus class="form-control" id="youremail" required>
-                        @error('email')
-                        <span class="invalid-feedback d-flex" role="alert">
-                            <p class=" ">{{ $message }}</p>
-                        </span>
-                        @enderror
-                        <div class="invalid-feedback">Please enter your email.</div>
+                                <div class="d-block mb-3">
+                                    <button class="btn btn-lg btn-primary w-100" type="submit">
+                                        Login
+                                    </button>
+                                </div>
 
-                      </div>
+                                @if ($message = Session::get('info'))
+                                    <div class="alert alert-danger alert-block">
+                                        <button type="button" class="close" data-dismiss="alert">×</button>
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                @endif
+
+
+
+                            </form>
+                            <!-- FORM END -->
+                        </div>
                     </div>
-
-                    <div class="col-12">
-                      <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
-                      @error('password')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                      @enderror
-                    </div>
-
-                    <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">Remember me</label>
-                      </div>
-                    </div>
-                    <div class="col-12">
-                      <button class="btn btn-success w-100" type="submit">Login</button>
-                    </div>
-                    {{-- <div class="col-12">
-                      <p class="small mb-0">Don't have account? <a class="text-success fw-bold" href="#">Create an account</a></p>
-                    </div> --}}
-                  </form>
 
                 </div>
-              </div>
-
-              <div class="mt-5 mb-5">
-
-              </div>
-
             </div>
-          </div>
+            <!-- .row end -->
+            <div class="row my-5">
+                <div class="col-md-5 mx-auto">
+                    <p class="text-muted">{!! $settings->copyright ?? '' !!}</p>
+                </div>
+            </div>
+            <!-- .row end -->
         </div>
-
-      </section>
-
-    </div>
-  </main><!-- End #main -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets-admin/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets-admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets-admin/vendor/chart.js/chart.umd.js"></script>
-  <script src="assets-admin/vendor/echarts/echarts.min.js"></script>
-  <script src="assets-admin/vendor/quill/quill.min.js"></script>
-  <script src="assets-admin/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="assets-admin/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets-admin/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets-admin/js/main.js"></script>
-
+    </section>
+    @include('sweetalert::alert')
 </body>
-
 </html>

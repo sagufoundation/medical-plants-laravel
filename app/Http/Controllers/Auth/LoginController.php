@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Crypt;
 
 class LoginController extends Controller
 {
@@ -36,24 +36,9 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        // $cek = Crypt::decryptString('$2y$10$WaKfv8Tju4pNPoZwJo80mOH94AcIxzkH0C5RreXYYPPMH7t7hp2ta');
+        // echo $cek;
+        // die;
         $this->middleware('guest')->except('logout');
-    }
-
-    protected function authenticated(Request $request, $user)
-    {
-        if (auth()->user()->hasRole('admin') == true)
-        {
-            return redirect()->route('admin.dashboard');
-        }
-        elseif (auth()->user()->hasRole('contributor') == true)
-        {
-            return redirect()->route('contributor.plant');
-        }
-        elseif (auth()->user()->hasRole('user') == true)
-        {
-            return redirect()->route('user.dasboard');
-        }else{
-            return redirect()->route('/login');
-        }
     }
 }
