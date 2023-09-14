@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
     | users
     |--------------------------------------------------------------------------
     */
-    Route::group(['middleware' => ['role:administrator']], function () {
+    Route::group(['middleware' => ['role:admin']], function () {
 
         Route::controller(UserController::class)->group(function(){
 

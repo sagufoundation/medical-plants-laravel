@@ -19,7 +19,6 @@
                             <tr>
                                 <th>No</th>
                                 <th>Name</th>
-                                <th>Job Postion</th>
                                 <th>Email</th>
                                 <th>Status</th>
                                 <th></th>
@@ -31,7 +30,7 @@
                             <tr>
                                 <td>{{ ++$i }}</td>
                                 <td>{{ $data->name ?? '' }}</td>
-                                <td>{{ $data->job_title  }}</td>
+
                                 <td>{{ $data->email  }}
 
                                 </td>

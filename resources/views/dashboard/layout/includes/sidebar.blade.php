@@ -23,7 +23,7 @@
                     </div>
 
                     <!--- Sidemenu -->
-                    @if (Auth::user()->hasRole('administrator'))
+                    @if (Auth::user()->hasRole('admin'))
 
                         <div id="sidebar-menu">
                             <ul id="side-menu">
@@ -37,13 +37,13 @@
 
                                 <li class="menu-title mt-2">Content Management</li>
 
-                                <li class="@if(Request::segment(2) == 'packages') menuitem-active @endif">
-                                    <a href="{{ url(Request::segment(1).'/packages') }}">
+                                <li class="@if(Request::segment(2) == 'plants') menuitem-active @endif">
+                                    <a href="{{ url(Request::segment(1).'/plants') }}">
                                         <i class="fa-solid fa-tags"></i>
-                                        <span class="badge badge-success badge-pill float-right">
+                                        {{-- <span class="badge badge-success badge-pill float-right">
                                             {{ $packages_total ?? '' }}
-                                        </span>
-                                        <span> Packages</span>
+                                        </span> --}}
+                                        <span> Plants</span>
                                     </a>
                                 </li>
                                 <!-- menu item end -->
@@ -51,56 +51,35 @@
                                 <li class="@if(Request::segment(2) == 'destinations') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/destinations') }}">
                                         <i class="fa-solid fa-tags"></i>
-                                        <span class="badge badge-success badge-pill float-right">
+                                        {{-- <span class="badge badge-success badge-pill float-right">
                                             {{ $destinations_total ?? '' }}
-                                        </span>
-                                        <span> Destinations</span>
+                                        </span> --}}
+                                        <span> Locations</span>
+                                    </a>
+                                </li>
+                                <!-- menu item end -->
+                                <li class="@if(Request::segment(2) == 'destinations') menuitem-active @endif">
+                                    <a href="{{ url(Request::segment(1).'/destinations') }}">
+                                        <i class="fa-solid fa-tags"></i>
+                                        {{-- <span class="badge badge-success badge-pill float-right">
+                                            {{ $destinations_total ?? '' }}
+                                        </span> --}}
+                                        <span> Icons</span>
                                     </a>
                                 </li>
                                 <!-- menu item end -->
 
-                                <li class="@if(Request::segment(2) == 'adventures') menuitem-active @endif">
-                                    <a href="{{ url(Request::segment(1).'/adventures') }}">
-                                        <i class="fa-solid fa-tags"></i>
-                                        <span class="badge badge-success badge-pill float-right">
-                                            {{ $adventures_total ?? '' }}
-                                        </span>
-                                        <span> Adventures</span>
-                                    </a>
-                                </li>
-                                <!-- menu item end -->
 
-                                <li class="@if(Request::segment(2) == 'events') menuitem-active @endif">
-                                    <a href="{{ url(Request::segment(1).'/events') }}">
-                                        <i class="fa-solid fa-tags"></i>
-                                        <span class="badge badge-success badge-pill float-right">
-                                            {{ $events_total ?? '' }}
-                                        </span>
-                                        <span> Events</span>
-                                    </a>
-                                </li>
-                                <!-- menu item end -->
-
-                                <li class="@if(Request::segment(2) == 'sliders') menuitem-active @endif">
-                                    <a href="{{ url(Request::segment(1).'/sliders') }}">
-                                        <i class="fa-solid fa-tags"></i>
-                                        <span class="badge badge-success badge-pill float-right">
-                                            {{ $sliders_total ?? '' }}
-                                        </span>
-                                        <span> Sliders</span>
-                                    </a>
-                                </li>
-                                <!-- menu item end -->
 
                                 <li class="menu-title mt-2">Visitor Information</li>
 
                                 <li class="@if(Request::segment(2) == 'messages') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/messages') }}">
-                                        <i class="fa-solid fa-tags"></i>
-                                        <span class="badge badge-success badge-pill float-right">
+                                        <i class="fa-solid fa-users"></i>
+                                        {{-- <span class="badge badge-success badge-pill float-right">
                                             {{ $messages_total ?? '' }}
-                                        </span>
-                                        <span> Messages</span>
+                                        </span> --}}
+                                        <span> Contributors</span>
                                     </a>
                                 </li>
                                 <!-- menu item end -->
@@ -109,7 +88,7 @@
 
                                 <li class="@if(Request::segment(2) == 'users') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/users') }}">
-                                        <i class="fa-solid fa-users"></i>
+                                        <i class="fa-solid fa-user"></i>
                                         <span class="badge badge-success badge-pill float-right">
                                             {{ $users_total ?? '' }}
                                         </span>
@@ -129,7 +108,7 @@
                             </ul>
                         </div>
 
-                    @elseif (Auth::user()->hasRole('guest'))
+                    @elseif (Auth::user()->hasRole('contributor'))
 
                         <div id="sidebar-menu">
 

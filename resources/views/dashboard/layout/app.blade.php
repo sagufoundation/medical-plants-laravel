@@ -14,12 +14,12 @@
     <meta property="og:title" content="{{ $settings->site_title }}" />
     <meta property="og:description" content="{{ $settings->meta_description }}" />
     <meta property="og:site_name" content="{{ $settings->site_title }}" />
-    <meta property="og:image" content="{{ asset('images/settings' . $settings->logo) }}" />
+    <meta property="og:image" content="{{ asset($settings->logo) }}" />
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
     <!-- FAVICON -->
-    <link rel="apple-touch-icon" href="{{ asset('images/settings/' . $settings->logo_favicon) }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/settings/' . $settings->logo_favicon) }}">
+    <link rel="icon" href="{{ asset($settings->logo) }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset($settings->favicon) }}">
 
     <!-- CSRF TOKEN -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

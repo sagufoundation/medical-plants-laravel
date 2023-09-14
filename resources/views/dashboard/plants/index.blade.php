@@ -17,13 +17,11 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Picture</th>
-                                <th>Title</th>
-                                <th>Body</th>
-                                <th>Description</th>
-                                <th>Status</th>
-                                <th></th>
+                                <th scope="col">#</th>
+                                <th scope="col">Plant's Picture</th>
+                                <th  scope="col">Local Name</th>
+                                <th  scope="col">Contributor</th>
+                                <th scope="col" class="text-center">Option</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,13 +33,13 @@
                                     @if (empty($data))
                                     <img src="{{ asset('images/tour_adventures/00.jpg') }}" alt="Picture" style="width:200px" class="border shadow">
                                     @else
-                                    <img src="{{ asset($data->picture) }}" alt="Picture" style="width:200px" class="border shadow">
+                                    <img src="{{ asset($data->cover_picture) }}" alt="Picture" style="width:100px" class="border shadow">
                                     @endif
                                 </td>
-                                <td>{{ $data->title ?? '' }}</td>
-                                <td>{!! Str::limit($data->body, 20, '...') !!}</td>
-                                <td>{!! Str::limit($data->description, 20, '...') !!}</td>
-                                <td>{{ $data->status}}</td>
+                                <td>{{ $data->local_name ?? '' }}</td>
+                                <td> {{ $data->contributor->full_name ?? '' }} </td>
+
+
                                 @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">
 
@@ -62,7 +60,7 @@
 
                                 </td>
                                 @else
-                                <td class="d-flex">
+                                <td class="text-center d-flex">
                                     <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.show', $data->id) }}" class="btn btn-sm btn-dark rounded-0 mx-1">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>

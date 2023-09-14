@@ -18,9 +18,10 @@ class UsersSeeder extends Seeder
     {
         $users = collect([
             [
-                'name' => 'admin',
+                'name' => 'Admin',
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('admin@gmail.com'),
+                'status' => 'Publish',
                 'role' => 'admin',
 
             ],
@@ -28,16 +29,18 @@ class UsersSeeder extends Seeder
                 'name' => 'Contributor',
                 'email' => 'contributor@gmail.com',
                 'password' => bcrypt('contributor@gmail.com'),
+                'status' => 'Publish',
                 'role' => 'contributor',
             ],
             [
-                'name' => 'johan',
+                'name' => 'Johan',
                 'email' => 'johan@gmail.com',
                 'password' => bcrypt('johan@gmail.com'),
+                'status' => 'Publish',
                 'role' => 'contributor',
             ],
             [
-                'name' => 'maikel',
+                'name' => 'Maikel',
                 'email' => 'maikel@gmail.com',
                 'password' => bcrypt('maikel@gmail.com'),
                 'role' => 'contributor',
