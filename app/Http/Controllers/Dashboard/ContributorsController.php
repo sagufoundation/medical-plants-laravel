@@ -73,13 +73,21 @@ class ContributorsController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'icon_name' => 'required',
-                'icon_img' => 'image|mimes:png,jpeg,jpg|max:4096',
+                'full_name' => 'required',
+                'email' => 'required|email|string|unique:contributors,email',
+                'address' => 'required',
+                'city' => 'required',
+                'province' => 'required',
+                'photo' => 'image|mimes:png,jpeg,jpg|max:4096',
 
             ],
             [
-                'icon_name.required' => 'This is a reaquired field',
-                'icon_img.mimes' => 'Type of this file must be PNG, JPG, JPEG',
+                'full_name.required' => 'This is a reaquired field',
+                'email.required' => 'This is a reaquired field',
+                'address.required' => 'This is a reaquired field',
+                'city.required' => 'This is a reaquired field',
+                'province.required' => 'This is a reaquired field',
+                'photo.mimes' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
 
@@ -88,17 +96,23 @@ class ContributorsController extends Controller
         } else {
             try {
                 $data = new Contributor();
-                $data->icon_name = $request->icon_name;
+                $data->full_name = $request->full_name;
+                $data->slug = Str::slug($data->full_name);
+                $data->email = $request->email;
+                $data->address = $request->address;
+                $data->city = $request->city;
+                $data->province = $request->province;
+                $data->descriptions = $request->descriptions;
                 $data->status = $request->status;
 
-                if ($request->icon_img) {
-                    $pictureName = Str::slug($data->icon_name) .'-'. time() .'.' . $request->icon_img->extension();
-                    $path = public_path('assets/img/icon');
-                    if (!empty($data->icon_img) && file_exists($path . '/' . $data->icon_img)) :
-                        unlink($path . '/' . $data->icon_img);
+                if ($request->photo) {
+                    $pictureName = Str::slug($data->full_name) .'-'. time() .'.' . $request->photo->extension();
+                    $path = public_path('aassets/img/team');
+                    if (!empty($data->photo) && file_exists($path . '/' . $data->photo)) :
+                        unlink($path . '/' . $data->photo);
                     endif;
-                    $data->icon_img = 'assets/img/icon/' . $pictureName;
-                    $request->icon_img->move(public_path('assets/img/icon'), $pictureName);
+                    $data->photo = 'assets/img/team/' . $pictureName;
+                    $request->photo->move(public_path('assets/img/team'), $pictureName);
                 }
                 $data->save();
 
@@ -136,12 +150,20 @@ class ContributorsController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'icon_name' => 'required',
-                'icon_img' => 'image|mimes:png,jpeg,jpg|max:4096',
+                'full_name' => 'required',
+                'email' => 'required|email|string|unique:contributors,email,' .$id,
+                'address' => 'required',
+                'city' => 'required',
+                'province' => 'required',
+                'photo' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
-                'icon_name.required' => 'This is a reaquired field',
-                'icon_img.mimes' => 'Type of this file must be PNG, JPG, JPEG',
+                'full_name.required' => 'This is a reaquired field',
+                'email.required' => 'This is a reaquired field',
+                'address.required' => 'This is a reaquired field',
+                'city.required' => 'This is a reaquired field',
+                'province.required' => 'This is a reaquired field',
+                'photo.mimes' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
 
@@ -151,17 +173,23 @@ class ContributorsController extends Controller
             try {
                 $data = Contributor::find($id);
 
-                $data->icon_name = $request->icon_name;
+                $data->full_name = $request->full_name;
+                $data->slug = Str::slug($data->full_name);
+                $data->email = $request->email;
+                $data->address = $request->address;
+                $data->city = $request->city;
+                $data->province = $request->province;
+                $data->descriptions = $request->descriptions;
                 $data->status = $request->status;
 
-                if ($request->icon_img) {
-                    $pictureName = Str::slug($data->icon_name) .'-'. time() .'.' . $request->icon_img->extension();
-                    $path = public_path('assets/img/icon');
-                    if (!empty($data->icon_img) && file_exists($path . '/' . $data->icon_img)) :
-                        unlink($path . '/' . $data->icon_img);
+                if ($request->photo) {
+                    $pictureName = Str::slug($data->full_name) .'-'. time() .'.' . $request->photo->extension();
+                    $path = public_path('aassets/img/team');
+                    if (!empty($data->photo) && file_exists($path . '/' . $data->photo)) :
+                        unlink($path . '/' . $data->photo);
                     endif;
-                    $data->icon_img = 'assets/img/icon/' . $pictureName;
-                    $request->icon_img->move(public_path('assets/img/icon'), $pictureName);
+                    $data->photo = 'assets/img/team/' . $pictureName;
+                    $request->photo->move(public_path('assets/img/team'), $pictureName);
                 }
                 $data->update();
 
@@ -197,7 +225,7 @@ class ContributorsController extends Controller
     public function delete($id)
     {
         $data = Contributor::onlyTrashed()->findOrFail($id);
-        $path = public_path('assets/img/icon/' . $data->icon_img);
+        $path = public_path('assets/img/team/' . $data->photo);
 
         if (file_exists($path)) {
             File::delete($path);

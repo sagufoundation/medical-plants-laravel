@@ -18,6 +18,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Picture</th>
                                 <th>Full Name</th>
                                 <th>Email</th>
                                 <th>Address</th>
@@ -29,6 +30,13 @@
                             @foreach ($datas as $data)
                             <tr>
                                 <td>{{ ++$i }}</td>
+                                <td>
+                                    @if (!$data->photo)
+                                    <img src="{{ asset('images/00.png') }}" alt="Image" style="width:200px" class="border shadow">
+                                    @else
+                                    <img src="{{ asset($data->photo) }}" alt="Image" style="width:50px" class="border shadow">
+                                    @endif
+                                </td>
                                 <td>{{ $data->full_name }}</td>
                                 <td>{{ Str::limit($data->email,50)  }}</td>
                                 <td>
@@ -61,9 +69,9 @@
                                     <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.show', $data->id) }}" class="btn btn-sm btn-dark rounded-0 mx-1">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
-                                    {{-- <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
+                                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
                                         <i class="fa-solid fa-edit"></i>
-                                    </a> --}}
+                                    </a>
 
                                     <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.destroy', $data->id) }}" method="POST">
                                     @csrf
