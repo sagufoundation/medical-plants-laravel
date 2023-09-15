@@ -24,7 +24,7 @@ class ContributorSeeder extends Seeder
             'province'              => 'Papua Province',
             'descriptions'          => '',
             'photo'                 => '/assets/img/team/team-tisha-rumbewas.png',
-            'status_contributor'    => 'Publish',
+            'status'    => 'Publish',
         ]);
 
         Contributor::create([
@@ -36,7 +36,7 @@ class ContributorSeeder extends Seeder
             'province'              => 'West Papua Province',
             'descriptions'          => '',
             'photo'                 => '/assets/img/team/team-jimmy-wanma.png',
-            'status_contributor'    => 'Publish',
+            'status'    => 'Publish',
         ]);
 
         Contributor::create([
@@ -48,7 +48,7 @@ class ContributorSeeder extends Seeder
             'province'              => 'Papua',
             'descriptions'          => '',
             'photo'                 => '/assets/img/team/team-janzen-faidiban.png',
-            'status_contributor'    => 'Publish',
+            'status'    => 'Publish',
         ]);
 
         Contributor::create([
@@ -60,7 +60,7 @@ class ContributorSeeder extends Seeder
             'province'              => 'Papua',
             'descriptions'          => '',
             'photo'                 => '/assets/img/team/team-samuel-bosawer.png',
-            'status_contributor'    => 'Publish',
+            'status'    => 'Publish',
         ]);
 
         Contributor::create([
@@ -72,7 +72,7 @@ class ContributorSeeder extends Seeder
             'province'              => 'Papua',
             'descriptions'          => '',
             'photo'                 => '/assets/img/team/team-johan-nasendi.png',
-            'status_contributor'    => 'Publish',
+            'status'    => 'Publish',
         ]);
 
         Contributor::create([
@@ -84,7 +84,7 @@ class ContributorSeeder extends Seeder
             'province'              => 'Papua',
             'descriptions'          => '',
             'photo'                 => '/assets/img/team/team-default.png',
-            'status_contributor'    => 'Publish',
+            'status'    => 'Publish',
         ]);
     }
 }

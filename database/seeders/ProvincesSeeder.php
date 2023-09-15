@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Provinces;
+
+use App\Models\Province;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -15,37 +16,37 @@ class ProvincesSeeder extends Seeder
      */
     public function run()
     {
-        Provinces::create([
+        Province::create([
             'name' => 'Papua',
             'slug' => 'papua',
              'status' => 'Publish',
         ]);
 
-        Provinces::create([
+        Province::create([
             'name' => 'Papua Pegunungan',
             'slug' => 'papua-pegunung',
              'status' => 'Publish',
         ]);
 
-        Provinces::create([
+        Province::create([
             'name' => 'Papua Selatan',
             'slug' => 'papua-selatan',
              'status' => 'Publish',
         ]);
 
-        Provinces::create([
+        Province::create([
             'name' => 'Papua Tengah',
             'slug' => 'papua-tengah',
              'status' => 'Publish',
         ]);
 
-        Provinces::create([
+        Province::create([
             'name' => 'Papua Barat',
             'slug' => 'papua-barat',
              'status' => 'Publish',
         ]);
 
-        Provinces::create([
+        Province::create([
             'name' => 'Papua Barat Daya',
             'slug' => 'papua-barat-daya',
              'status' => 'Publish',

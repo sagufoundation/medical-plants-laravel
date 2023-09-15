@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('city');
             $table->string('province');
             $table->string('descriptions')->nullable();
-            $table->string('status_contributor');
             $table->string('photo')->nullable();
             $table->string('slug');
             $table->enum('status',['Publish','Draft'])->default('Draft')->nullable();

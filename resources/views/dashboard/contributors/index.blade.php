@@ -18,10 +18,9 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Name</th>
-                                <th>Message</th>
-                                {{-- <th>Item</th>
-                                <th>Item</th> --}}
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Address</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -30,9 +29,14 @@
                             @foreach ($datas as $data)
                             <tr>
                                 <td>{{ ++$i }}</td>
-                                <td>{{ $data->name ?? '' }}</td>
-                                <td>{{ Str::limit($data->message,50)  }}</td>
-                                {{-- <td>{{ 'item' }}</td> --}}
+                                <td>{{ $data->full_name }}</td>
+                                <td>{{ Str::limit($data->email,50)  }}</td>
+                                <td>
+                                    {{Str::limit($data->address,90)}}
+                                    {{ $data->city }}
+                                    {{ $data->province }}
+                                </td>
+
                                 @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">
 

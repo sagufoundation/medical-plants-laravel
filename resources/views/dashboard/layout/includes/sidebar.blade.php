@@ -73,8 +73,8 @@
 
                                 <li class="menu-title mt-2">Visitor Information</li>
 
-                                <li class="@if(Request::segment(2) == 'messages') menuitem-active @endif">
-                                    <a href="{{ url(Request::segment(1).'/messages') }}">
+                                <li class="@if(Request::segment(2) == 'contributors') menuitem-active @endif">
+                                    <a href="{{ url(Request::segment(1).'/contributors') }}">
                                         <i class="fa-solid fa-users"></i>
                                         <span class="badge badge-success badge-pill float-right">
                                             {{ $contributor_total ?? '' }}
