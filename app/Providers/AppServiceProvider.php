@@ -5,12 +5,9 @@ namespace App\Providers;
 // MODELS
 use App\Models\Settings;
 use App\Models\User;
-use App\Models\TourAdventures;
-use App\Models\TourDestinations;
-use App\Models\TourEvents;
-use App\Models\TourMessages;
-use App\Models\TourPackages;
-use App\Models\TourSliders;
+use App\Models\Contributor;
+use App\Models\Plant;
+
 
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
@@ -61,9 +58,9 @@ class AppServiceProvider extends ServiceProvider
             // 'destinations_total' => TourDestinations::count(),
             // 'adventures_total' => TourAdventures::count(),
             // 'events_total' => TourEvents::count(),
-            // 'messages_total' => TourMessages::count(),
-            // 'sliders_total' => TourSliders::count(),
-            // 'users_total' => User::count(),
+            'plant_total' => Plant::count(),
+            'contributor_total' => Contributor::count(),
+            'users_total' => User::count(),
 
         ]);
 

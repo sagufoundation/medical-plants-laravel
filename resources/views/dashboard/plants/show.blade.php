@@ -13,27 +13,71 @@
 
                 <div class="row">
                     <div class="col-lg-3">
-                        @if (empty($data->picture))
-                        <img src="{{ asset('images/tour_'.Request::segment(2).'/00.png') }}" alt="Image" class="border shadow w-100">
+
+                        @if (empty($data->cover_picture))
+                        <img src="{{ asset('images/00.png') }}" alt="Image" class="border shadow w-100">
                         @else
-                        <img src="{{ asset($data->picture) }}" alt="Image" class="border shadow w-100">
+                        <img src="{{ asset($data->cover_picture) }}" alt="Image" class="border shadow w-100">
                         @endif
+                        <div class="mt-3">
+                            @if (empty($data->gallery_picture))
+                            <img src="{{ asset('images/00.png') }}" alt="Image" class="border shadow w-100">
+                            @else
+                            <img src="{{ asset($data->gallery_picture) }}" alt="Image" class="border shadow w-50">
+                            @endif
+                        </div>
                     </div>
+
                     <div class="col-lg-9">
-
-                        <div class="p-2 px-3 border-bottom">
-                            <b class="d-block mb-2">Title </b>
-                            {!! $data->title ?? '' !!}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="p-2 px-3 border-bottom">
+                                    <b class="d-block mb-2">Local Name </b>
+                                    {!! $data->local_name ?? '' !!}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-2 px-3 border-bottom">
+                                    <b class="d-block mb-2">Indonesian Name </b>
+                                    {!! $data->indonesian_name ?? '' !!}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="p-2 px-3 border-bottom">
+                                    <b class="d-block mb-2">Latin Name </b>
+                                    {!! $data->latin_name ?? '' !!}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-2 px-3 border-bottom">
+                                    <b class="d-block mb-2">Taxonomists </b>
+                                    {!! $data->taxonomists ?? '' !!}
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="p-2 px-3 border-bottom">
-                            <b class="d-block mb-2">Body </b>
-                            {!! $data->body ?? '' !!}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="p-2 px-3 border-bottom">
+                                    <b class="d-block mb-2">Treatments </b>
+                                    {!! $data->treatments ?? '' !!}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-2 px-3 border-bottom">
+                                    <b class="d-block mb-2">Traditional Usage </b>
+                                    {!! $data->traditional_usage ?? '' !!}
+                                </div>
+                            </div>
                         </div>
+
                         <div class="p-2 px-3 border-bottom">
-                            <b class="d-block mb-2">Description </b>
-                            {!! $data->description ?? '' !!}
+                            <b class="d-block mb-2">Known Phytochemical Consituents </b>
+                            {!! $data->known_phytochemical_consituents ?? '' !!}
                         </div>
+
                         <div class="p-2 px-3 border-bottom">
                             <b class="d-block mb-2">Status </b>
                             {!! $data->status ?? '' !!}

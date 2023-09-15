@@ -6,6 +6,9 @@ use App\Models\Plant;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Contributor;
+use App\Models\Location;
+use App\Models\Province;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -67,7 +70,11 @@ class PlantsController extends Controller
     // create
     public function create()
     {
-        return view('dashboard.plants.create');
+        $countributors = Contributor::all();
+        $locations = Location::all();
+        $provinces = Province::all();
+
+        return view('dashboard.plants.create',compact('countributors','locations','provinces'));
     }
 
     // store
@@ -76,12 +83,34 @@ class PlantsController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'title' => 'required',
-                'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                'local_name' => 'required',
+                'indonesian_name' => 'required',
+                'latin_name' => 'required',
+                'taxonomists' => 'required',
+                'treatments' => 'required',
+                'traditional_usage' => 'required',
+                'known_phytochemical_consituents' => 'required',
+                'location' => 'required',
+                'contributor' => 'required',
+                'province' => 'required',
+
+                'gallery_picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                'cover_picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
-                'title.required' => 'This is a reaquired field',
-                'picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
+                'local_name.required' => 'This is a reaquired field',
+                'indonesian_name.required' => 'This is a reaquired field',
+                'latin_name.required' => 'This is a reaquired field',
+                'taxonomists.required' => 'This is a reaquired field',
+                'treatments.required' => 'This is a reaquired field',
+                'traditional_usage.required' => 'This is a reaquired field',
+                'known_phytochemical_consituents.required' => 'This is a reaquired field',
+                'location.required' => 'This is a reaquired field',
+                'contributor.required' => 'This is a reaquired field',
+                'province.required' => 'This is a reaquired field',
+
+                'gallery_picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
+                'cover_picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
 
@@ -90,27 +119,43 @@ class PlantsController extends Controller
         } else {
             try {
                 $data = new Plant();
-                $data->title = $request->title;
-                $data->slug = Str::slug($data->title);
-                $data->user_id = Auth::user()->id;
-                $data->body = $request->body;
-                $data->status = $request->status;
-                $data->description = $request->description;
+                $data->local_name = $request->local_name;
+                $data->slug = Str::slug($data->local_name);
+                $data->indonesian_name = $request->indonesian_name;
+                $data->latin_name = $request->latin_name;
+                $data->taxonomists = $request->taxonomists;
+                $data->treatments = $request->treatments;
+                $data->traditional_usage = $request->traditional_usage;
+                $data->known_phytochemical_consituents = $request->known_phytochemical_consituents;
 
-                if ($request->picture) {
-                    $pictureName = $data->slug .'-'. time() .'.' . $request->picture->extension();
-                    $path = public_path('images/tour_adventures');
-                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                        unlink($path . '/' . $data->picture);
+                $data->id_location = $request->location;
+                $data->id_contributor = $request->contributor;
+                $data->id_province = $request->province;
+                $data->status = $request->status;
+
+                if ($request->cover_picture) {
+                    $pictureName = $data->slug .'-'. time() .'.' . $request->cover_picture->extension();
+                    $path = public_path('seeds/plants');
+                    if (!empty($data->cover_picture) && file_exists($path . '/' . $data->cover_picture)) :
+                        unlink($path . '/' . $data->cover_picture);
                     endif;
-                    $data->picture = 'images/tour_adventures/' . $pictureName;
-                    $request->picture->move(public_path('images/tour_adventures'), $pictureName);
+                    $data->cover_picture = 'seeds/plants/' . $pictureName;
+                    $request->cover_picture->move(public_path('seeds/plants'), $pictureName);
+                }
+                if ($request->gallery_picture) {
+                    $pictureName = $data->slug .'-'. time() .'.' . $request->gallery_picture->extension();
+                    $path = public_path('seeds/plants');
+                    if (!empty($data->gallery_picture) && file_exists($path . '/' . $data->gallery_picture)) :
+                        unlink($path . '/' . $data->gallery_picture);
+                    endif;
+                    $data->gallery_picture = 'seeds/plants/' . $pictureName;
+                    $request->gallery_picture->move(public_path('seeds/plants'), $pictureName);
                 }
 
                 $data->save();
 
                 Alert::toast('Created! This data has been created successfully.', 'success');
-                return redirect('dashboard/adventures/' . $data->id . '/show');
+                return redirect('dashboard/plants/' . $data->id . '/show');
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');
@@ -131,7 +176,10 @@ class PlantsController extends Controller
     public function edit($id)
     {
         $data = Plant::where('id', $id)->first();
-        return view('dashboard.plants.edit', compact('data'));
+        $countributors = Contributor::all();
+        $locations = Location::all();
+        $provinces = Province::all();
+        return view('dashboard.plants.edit', compact('countributors','locations','provinces','data'));
     }
 
     // update
@@ -142,12 +190,34 @@ class PlantsController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'title' => 'required',
-                'picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                'local_name' => 'required',
+                'indonesian_name' => 'required',
+                'latin_name' => 'required',
+                'taxonomists' => 'required',
+                'treatments' => 'required',
+                'traditional_usage' => 'required',
+                'known_phytochemical_consituents' => 'required',
+                'location' => 'required',
+                'contributor' => 'required',
+                'province' => 'required',
+
+                'gallery_picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                'cover_picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
-                'title.required' => 'This is a reaquired field',
-                'picture.required' => 'Type of this file must be PNG, JPG, JPEG',
+                'local_name.required' => 'This is a reaquired field',
+                'indonesian_name.required' => 'This is a reaquired field',
+                'latin_name.required' => 'This is a reaquired field',
+                'taxonomists.required' => 'This is a reaquired field',
+                'treatments.required' => 'This is a reaquired field',
+                'traditional_usage.required' => 'This is a reaquired field',
+                'known_phytochemical_consituents.required' => 'This is a reaquired field',
+                'location.required' => 'This is a reaquired field',
+                'contributor.required' => 'This is a reaquired field',
+                'province.required' => 'This is a reaquired field',
+
+                'gallery_picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
+                'cover_picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
 
@@ -157,27 +227,34 @@ class PlantsController extends Controller
             try {
                 $data = Plant::find($id);
 
-                $data->title = $request->title;
-                $data->slug = Str::slug($data->title);
-                $data->user_id = Auth::user()->id;
-                $data->body = $request->body;
-                $data->status = $request->status;
-                $data->description = $request->description;
+                $data->local_name = $request->local_name;
+                $data->slug = Str::slug($data->local_name);
+                $data->indonesian_name = $request->indonesian_name;
+                $data->latin_name = $request->latin_name;
+                $data->taxonomists = $request->taxonomists;
+                $data->treatments = $request->treatments;
+                $data->traditional_usage = $request->traditional_usage;
+                $data->known_phytochemical_consituents = $request->known_phytochemical_consituents;
 
-                if ($request->picture) {
-                    $pictureName = $data->slug .'-'. time() .'.' . $request->picture->extension();
-                    $path = public_path('images/tour_adventures');
-                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                        unlink($path . '/' . $data->picture);
+                $data->id_location = $request->location;
+                $data->id_contributor = $request->contributor;
+                $data->id_province = $request->province;
+                $data->status = $request->status;
+
+                if ($request->cover_picture) {
+                    $pictureName = $data->slug .'-'. time() .'.' . $request->cover_picture->extension();
+                    $path = public_path('seeds/plants');
+                    if (!empty($data->cover_picture) && file_exists($path . '/' . $data->cover_picture)) :
+                        unlink($path . '/' . $data->cover_picture);
                     endif;
-                    $data->picture = 'images/tour_adventures/' . $pictureName;
-                    $request->picture->move(public_path('images/tour_adventures'), $pictureName);
+                    $data->cover_picture = 'seeds/plants/' . $pictureName;
+                    $request->cover_picture->move(public_path('seeds/plants'), $pictureName);
                 }
 
                 $data->update();
 
                 Alert::toast('Updated! This data has been updated successfully.', 'success');
-                return redirect('dashboard/adventures/' . $data->id . '/show');
+                return redirect('dashboard/plants/' . $data->id . '/show');
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');
@@ -208,10 +285,14 @@ class PlantsController extends Controller
     public function delete($id)
     {
         $data = Plant::onlyTrashed()->findOrFail($id);
-        $path = public_path('images/tour_adventures/' . $data->picture);
+        $cover_picture = public_path('seeds/plants/' . $data->cover_picture);
+        $gallery_picture = public_path('seeds/plants/' . $data->gallery_picture);
 
-        if (file_exists($path)) {
-            File::delete($path);
+        if (file_exists($cover_picture)) {
+            File::delete($cover_picture);
+        }
+        if (file_exists($gallery_picture)) {
+            File::delete($gallery_picture);
         }
         $data->forceDelete();
         alert()->success('Deleted', 'The data has been permanently deleted!!')->autoclose(1500);

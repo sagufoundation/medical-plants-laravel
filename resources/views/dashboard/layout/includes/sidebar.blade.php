@@ -40,9 +40,9 @@
                                 <li class="@if(Request::segment(2) == 'plants') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/plants') }}">
                                         <i class="fa-solid fa-tags"></i>
-                                        {{-- <span class="badge badge-success badge-pill float-right">
-                                            {{ $packages_total ?? '' }}
-                                        </span> --}}
+                                        <span class="badge badge-success badge-pill float-right">
+                                            {{ $plant_total ?? '' }}
+                                        </span>
                                         <span> Plants</span>
                                     </a>
                                 </li>
@@ -76,9 +76,9 @@
                                 <li class="@if(Request::segment(2) == 'messages') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/messages') }}">
                                         <i class="fa-solid fa-users"></i>
-                                        {{-- <span class="badge badge-success badge-pill float-right">
-                                            {{ $messages_total ?? '' }}
-                                        </span> --}}
+                                        <span class="badge badge-success badge-pill float-right">
+                                            {{ $contributor_total ?? '' }}
+                                        </span>
                                         <span> Contributors</span>
                                     </a>
                                 </li>
