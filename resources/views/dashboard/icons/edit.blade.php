@@ -11,58 +11,34 @@
         <div class="card">
             <div class="card-body">
 
-                <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('put')
 
                     <div class="row">
                         <div class="col-lg-6">
 
                             <!-- input item START -->
                             <div class="mb-3">
-                                <label for="title">Title <span class="text-danger">*</span></label>
-                                <input type="text" id="title" name="title" class="form-control rounded-0" placeholder="write adventure title here">
+                                <label for="icon_name">Icon Name <span class="text-danger">*</span></label>
+                                <input type="text" id="icon_name" name="icon_name" class="form-control rounded-0" placeholder="write icon_name here"
+                                    value="{!! $data->icon_name ?? '' !!}">
 
-                                @if ($errors->has('title'))
+                                @if ($errors->has('icon_name'))
                                 <span class="text-danger" role="alert">
-                                        <small>{{ $errors->first('title') }}</small>
+                                        <small>{{ $errors->first('icon_name') }}</small>
                                     </span>
                                 @endif
 
                             </div>
                             <!-- input item END -->
-
-                            <!-- input item START -->
-                            <div class="mb-3">
-                                <label for="description">Body </label>
-                                <textarea id="description" name="body" rows="8" class="ckeditor form-control rounded-0" placeholder="Type..."></textarea>
-
-                                @if ($errors->has('body'))
-                                <span class="text-danger" role="alert">
-                                        <small>{{ $errors->first('body') }}</small>
-                                    </span>
-                                @endif
-
-                            </div>
-                            <!-- input item END -->
-
-                            <div class="mb-3">
-                                <label for="description">Description </label>
-                                <textarea id="description" name="description" rows="2" class="ckeditor form-control rounded-0" placeholder="write some description in one or two sentences"></textarea>
-
-                                @if ($errors->has('description'))
-                                <span class="text-danger" role="alert">
-                                        <small>{{ $errors->first('description') }}</small>
-                                    </span>
-                                @endif
-
-                            </div>
 
                             <div class="mb-3">
                                 <label for="description">Status </label>
                                 <select name="status" class="form-control" id="">
 
-                                    <option value="Publish">Publish</option>
-                                    <option value="Draft" selected>Draft</option>
+                                    <option value="Publish" @if(old('status', $data->status) == 'Publish') Selected @endif>Publish</option>
+                                    <option value="Draft" @if(old('status', $data->status) ==   'Draft' ) Selected @endif>Draft</option>
                                 </select>
 
                                 @if ($errors->has('status'))
@@ -74,24 +50,30 @@
                             </div>
 
                         </div>
+
                         <div class="col-lg-6">
 
                             <!-- input item START -->
                             <div class="mb-3">
-                                <label for="gambar" class="form-label d-block">Image</label>
+                                <label for="gambar" class="form-label d-block">Image </label>
                                 <div class="mb-2">
-                                    <img src="{{ asset('images/tour_events/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
+                                    @if (!$data->icon_img)
+                                    <img src="{{ asset('images/tour_events/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid" style="width:200px">
+                                    @else
+                                    <img src="{{ asset($data->icon_img) }}" id="preview-gambar" class="img-thumbnail img-fluid" style="width:200px">
+                                    @endif
                                 </div>
 
+
                                 <div class="custom-file">
-                                    <input type="file" name="picture" class="custom-file-input" id="gambar" accept="image/*">
+                                    <input type="file" name="icon_img" class="custom-file-input" id="gambar" accept="image/*">
                                     <small class="text-muted mt-2 d-block">Select a new image from your computer</small>
                                     <label class="custom-file-label" for="customFile">Select image</label>
                                 </div>
 
-                                @if ($errors->has('picture'))
+                                @if ($errors->has('icon_img'))
                                 <span class="text-danger" role="alert">
-                                        <small>{{ $errors->first('picture') }}</small>
+                                        <small>{{ $errors->first('icon_img') }}</small>
                                     </span>
                                 @endif
 
@@ -105,7 +87,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary rounded-0">
-                        <i class="fa-solid fa-plus-square"></i> Submit
+                        <i class="fa-solid fa-save"></i> Save
                     </button>
 
                     <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'') }}" class="btn btn-outline-dark rounded-0 border-0">
@@ -146,3 +128,4 @@
 </script>
 
 @endpush
+

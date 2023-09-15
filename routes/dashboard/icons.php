@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Dashboard\EventsController;
+use App\Http\Controllers\Dashboard\IconController;
 use Illuminate\Support\Facades\Route;
 
     /*
@@ -9,45 +9,45 @@ use Illuminate\Support\Facades\Route;
     | index, publish, draft, create, store, show, edit, update, destroy, trash, restore, delete
     |--------------------------------------------------------------------------
     */
-    Route::group(['middleware' => ['role:administrator']], function () {
+    Route::group(['middleware' => ['role:admin']], function () {
 
-        Route::controller(EventsController::class)->group(function(){
+        Route::controller(IconController::class)->group(function(){
 
             // index
-            Route::get('events','index')->name('dashboard.events');
+            Route::get('icons','index')->name('dashboard.icons');
 
             // publish
-            Route::get('events/publish','index')->name('dashboard.events.publish');
+            Route::get('icons/publish','index')->name('dashboard.icons.publish');
 
             // draft
-            Route::get('events/draft','draft')->name('dashboard.events.draft');
+            Route::get('icons/draft','draft')->name('dashboard.icons.draft');
 
             // create
-            Route::get('events/create','create')->name('dashboard.events.create');
+            Route::get('icons/create','create')->name('dashboard.icons.create');
 
             // store
-            Route::post('events','store')->name('dashboard.events.store');
+            Route::post('icons','store')->name('dashboard.icons.store');
 
             // show
-            Route::get('events/{id}/show','show')->name('dashboard.events.show');
+            Route::get('icons/{id}/show','show')->name('dashboard.icons.show');
 
             // edit
-            Route::get('events/{id}/edit','edit')->name('dashboard.events.edit');
+            Route::get('icons/{id}/edit','edit')->name('dashboard.icons.edit');
 
             // update
-            Route::put('events/update/{id}','update')->name('dashboard.events.update');
+            Route::put('icons/update/{id}','update')->name('dashboard.icons.update');
 
             // destroy
-            Route::delete('events/destroy/{id}','destroy')->name('dashboard.events.destroy');
+            Route::delete('icons/destroy/{id}','destroy')->name('dashboard.icons.destroy');
 
             // trash
-            Route::get('events/trash','trash')->name('dashboard.events.trash');
+            Route::get('icons/trash','trash')->name('dashboard.icons.trash');
 
             // restore
-            Route::post('events/restore/{id}','restore')->name('dashboard.events.restore');
+            Route::post('icons/restore/{id}','restore')->name('dashboard.icons.restore');
 
             // delete
-            Route::delete('events/delete/{id}','delete')->name('dashboard.events.delete');
+            Route::delete('icons/delete/{id}','delete')->name('dashboard.icons.delete');
 
         });
     });

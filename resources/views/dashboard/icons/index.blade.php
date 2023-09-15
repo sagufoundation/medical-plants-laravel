@@ -19,10 +19,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Picture</th>
-                                <th>Title</th>
-                                <th>Body</th>
-                                <th>Description</th>
-                                <th>Status</th>
+                                <th>Name</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -32,16 +29,15 @@
                             <tr>
                                 <td>{{ ++$i }}</td>
                                 <td>
-                                    @if (empty($data->picture))
-                                    <img src="{{ asset('images/tour_'.Request::segment(2).'/00.png') }}" alt="Image" style="width:200px" class="border shadow">
+                                    @if (!$data->icon_img)
+                                    <img src="{{ asset('images/00.png') }}" alt="Image" style="width:200px" class="border shadow">
                                     @else
-                                    <img src="{{ asset($data->picture) }}" alt="Image" style="width:200px" class="border shadow">
+                                    <img src="{{ asset($data->icon_img) }}" alt="Image" style="width:50px" class="border shadow">
                                     @endif
                                 </td>
-                                <td>{{ $data->title ?? '' }}</td>
-                                <td>{!! Str::limit($data->body, 20, '...') !!}</td>
-                                <td>{!! Str::limit($data->description, 20, '...') !!}</td>
-                                <td>{{ $data->status}}</td>
+                                <td>{{ $data->icon_name ?? '' }}</td>
+
+
                                 @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">
 

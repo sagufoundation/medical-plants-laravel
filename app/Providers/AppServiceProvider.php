@@ -6,6 +6,7 @@ namespace App\Providers;
 use App\Models\Settings;
 use App\Models\User;
 use App\Models\Contributor;
+use App\Models\Icon;
 use App\Models\Location;
 use App\Models\Plant;
 
@@ -57,7 +58,7 @@ class AppServiceProvider extends ServiceProvider
             // // Counts
             // 'packages_total' => TourPackages::count(),
             // 'destinations_total' => TourDestinations::count(),
-            // 'adventures_total' => TourAdventures::count(),
+            'icons_total' => Icon::count(),
             'locations_total' => Location::count(),
             'plant_total' => Plant::count(),
             'contributor_total' => Contributor::count(),

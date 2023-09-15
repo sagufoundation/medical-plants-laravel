@@ -174,7 +174,7 @@ class LocationController extends Controller
         $data = Location::find($id);
         $data->delete();
         alert()->success('Trashed', 'Data has been moved to trash!!')->autoclose(1500);
-        return to_route('dashboard.plants.trash');
+        return to_route('dashboard.locations.trash');
     }
 
     // restore
