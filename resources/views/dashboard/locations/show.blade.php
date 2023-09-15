@@ -12,28 +12,26 @@
             <div class="card-body">
 
                 <div class="row">
-                    <div class="col-lg-3">
-                        @if (empty($data->picture))
-                        <img src="{{ asset('images/tour_'.Request::segment(2).'/00.png') }}" alt="Image" class="border shadow w-100">
-                        @else
-                        <img src="{{ asset($data->picture) }}" alt="Image" class="border shadow w-100">
-                        @endif
-                    </div>
-                    <div class="col-lg-9">
+
+                    <div class="col-lg-12">
 
 
                         <div class="p-2 px-3 border-bottom">
-                            <b class="d-block mb-2">Title </b>
-                            {!! $data->title ?? '' !!}
+                            <b class="d-block mb-2">Tribes </b>
+                            {!! $data->tribes ?? '' !!}
                         </div>
 
-                        <div class="p-2 px-3 border-bottom">
-                            <b class="d-block mb-2">Body </b>
-                            {!! $data->body ?? '' !!}
-                        </div>
                         <div class="p-2 px-3 border-bottom">
                             <b class="d-block mb-2">Description </b>
-                            {!! $data->description ?? '' !!}
+                            {!! $data->desc ?? '' !!}
+                        </div>
+                        <div class="p-2 px-3 border-bottom">
+                            <b class="d-block mb-2">long Lat </b>
+                            {{ $data->long }} {{ $data->lat }}
+                        </div>
+                        <div class="p-2 px-3 border-bottom">
+                            <b class="d-block mb-2">Link </b>
+                            {{ $data->link }}
                         </div>
                         <div class="p-2 px-3 border-bottom">
                             <b class="d-block mb-2">Status </b>

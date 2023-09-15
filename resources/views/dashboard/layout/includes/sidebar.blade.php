@@ -48,8 +48,8 @@
                                 </li>
                                 <!-- menu item end -->
 
-                                <li class="@if(Request::segment(2) == 'destinations') menuitem-active @endif">
-                                    <a href="{{ url(Request::segment(1).'/destinations') }}">
+                                <li class="@if(Request::segment(2) == 'locations') menuitem-active @endif">
+                                    <a href="{{ url(Request::segment(1).'/locations') }}">
                                         <i class="fa-solid fa-tags"></i>
                                         {{-- <span class="badge badge-success badge-pill float-right">
                                             {{ $destinations_total ?? '' }}

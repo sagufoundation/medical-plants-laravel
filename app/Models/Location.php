@@ -10,4 +10,8 @@ class Location extends Model
 {
     use HasFactory,SoftDeletes;
     public $guarded = [];
+
+    public function icon() {
+        return $this->belongsTo(Icon::class,'icon_id','id');
+    }
 }

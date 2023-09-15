@@ -1,53 +1,54 @@
 <?php
 
 use App\Http\Controllers\Dashboard\DestinationsController;
+use App\Http\Controllers\Dashboard\LocationController;
 use Illuminate\Support\Facades\Route;
 
     /*
     |--------------------------------------------------------------------------
-    | destinations
+    | locations
     | index, publish, draft, create, store, show, edit, update, destroy, trash, restore, delete
     |--------------------------------------------------------------------------
     */
-    Route::group(['middleware' => ['role:administrator']], function () {
+    Route::group(['middleware' => ['role:admin']], function () {
 
-        Route::controller(DestinationsController::class)->group(function(){
+        Route::controller(LocationController::class)->group(function(){
 
             // index
-            Route::get('destinations','index')->name('dashboard.destinations');
+            Route::get('locations','index')->name('dashboard.locations');
 
             // publish
-            Route::get('destinations/publish','index')->name('dashboard.destinations.publish');
+            Route::get('locations/publish','index')->name('dashboard.locations.publish');
 
             // draft
-            Route::get('destinations/draft','draft')->name('dashboard.destinations.draft');
+            Route::get('locations/draft','draft')->name('dashboard.locations.draft');
 
             // create
-            Route::get('destinations/create','create')->name('dashboard.destinations.create');
+            Route::get('locations/create','create')->name('dashboard.locations.create');
 
             // store
-            Route::post('destinations','store')->name('dashboard.destinations.store');
+            Route::post('locations','store')->name('dashboard.locations.store');
 
             // show
-            Route::get('destinations/{id}/show','show')->name('dashboard.destinations.show');
+            Route::get('locations/{id}/show','show')->name('dashboard.locations.show');
 
             // edit
-            Route::get('destinations/{id}/edit','edit')->name('dashboard.destinations.edit');
+            Route::get('locations/{id}/edit','edit')->name('dashboard.locations.edit');
 
             // update
-            Route::put('destinations/update/{id}','update')->name('dashboard.destinations.update');
+            Route::put('locations/update/{id}','update')->name('dashboard.locations.update');
 
             // destroy
-            Route::delete('destinations/destroy/{id}','destroy')->name('dashboard.destinations.destroy');
+            Route::delete('locations/destroy/{id}','destroy')->name('dashboard.locations.destroy');
 
             // trash
-            Route::get('destinations/trash','trash')->name('dashboard.destinations.trash');
+            Route::get('locations/trash','trash')->name('dashboard.locations.trash');
 
             // restore
-            Route::post('destinations/restore/{id}','restore')->name('dashboard.destinations.restore');
+            Route::post('locations/restore/{id}','restore')->name('dashboard.locations.restore');
 
             // delete
-            Route::delete('destinations/delete/{id}','delete')->name('dashboard.destinations.delete');
+            Route::delete('locations/delete/{id}','delete')->name('dashboard.locations.delete');
 
         });
     });
