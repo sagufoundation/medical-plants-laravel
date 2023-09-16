@@ -70,9 +70,9 @@ class PlantsController extends Controller
     // create
     public function create()
     {
-        $countributors = Contributor::all();
-        $locations = Location::all();
-        $provinces = Province::all();
+        $countributors = Contributor::where('status','Publish')->get();
+        $locations = Location::where('status','Publish')->get();
+        $provinces = Province::where('status','Publish')->get();
 
         return view('dashboard.plants.create',compact('countributors','locations','provinces'));
     }
@@ -176,9 +176,9 @@ class PlantsController extends Controller
     public function edit($id)
     {
         $data = Plant::where('id', $id)->first();
-        $countributors = Contributor::all();
-        $locations = Location::all();
-        $provinces = Province::all();
+        $countributors = Contributor::where('status','Publish')->get();
+        $locations = Location::where('status','Publish')->get();
+        $provinces = Province::where('status','Publish')->get();
         return view('dashboard.plants.edit', compact('countributors','locations','provinces','data'));
     }
 

@@ -87,7 +87,7 @@
                         <!-- input item END -->
 
                         <div class="mb-3">
-                            <label for="description">Icons </label>
+                            <label for="description">Icons  {{sizeof($icons)<1?'(Data icons not yet available)':''}} </label>
                             <select name="icon" class="form-control" id="icon">
                                 @foreach ($icons as $icon )
                                     <option value="{{ $icon->id }}"> {{ $icon->icon_name }} </option>

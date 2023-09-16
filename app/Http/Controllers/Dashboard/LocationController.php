@@ -66,7 +66,7 @@ class LocationController extends Controller
     // create
     public function create()
     {
-        $icons = Icon::all();
+        $icons = Icon::where('status','Publish')->get();
         return view('dashboard.locations.create',compact('icons'));
     }
 

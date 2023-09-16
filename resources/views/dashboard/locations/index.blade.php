@@ -32,7 +32,16 @@
                             <tr>
                                 <td>{{ ++$i }}</td>
 
-                                <td>{{ $data->icon->icon_name ?? '' }}</td>
+                                <td>
+                                    @php
+                                        $img = $data->icon->icon_img ?? '';
+                                    @endphp
+                                    @if (!$img)
+                                    <img src="{{ asset('images/tour_adventures/00.jpg') }}" alt="Picture" style="width:50px" class="border shadow">
+                                    @else
+                                    <img src="{{ asset($data->icon->icon_img ?? '' ) }}" alt="Picture" style="width:50px" class="border shadow">
+                                    @endif
+                                </td>
                                 <td>{{ $data->tribes ?? '' }}</td>
                                 <td>{!! Str::limit($data->desc,50, '...') !!}</td>
                                 <td> {{ $data->long }} {{ $data->lat }}  </td>

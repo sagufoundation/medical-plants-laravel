@@ -131,7 +131,7 @@
                         <div class="mb-3">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label for="contributor">Contributor  <span class="text-danger">*</span></label>
+                                    <label for="contributor">Contributor {{sizeof($countributors)<1?'(Data contributor not yet available)':''}} <span class="text-danger">*</span></label>
                                     <select name="contributor" class="form-control" id="contributor">
                                         <option value="" hidden>Select</option>
                                         @foreach ($countributors as $countributor )
@@ -145,7 +145,7 @@
                                     @endif
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="location">Location  <span class="text-danger">*</span></label>
+                                    <label for="location">Location {{sizeof($locations)<1?'(Data location not yet available)':''}}  <span class="text-danger">*</span></label>
                                     <select name="location" class="form-control" id="location">
                                         <option value="" hidden>Select</option>
                                         @foreach ($locations as $location )
@@ -165,7 +165,7 @@
                         <div class="mb-3">
                             <div class="row">
                                 <div class="col-md-6">
-                                        <label for="province">Province  <span class="text-danger">*</span></label>
+                                        <label for="province">Province {{sizeof($provinces)<1?'(Data provinces not yet available)':''}} <span class="text-danger">*</span></label>
                                         <select name="province" class="form-control" id="province">
                                             <option value="" hidden>Select</option>
                                             @foreach ($provinces as $province )
