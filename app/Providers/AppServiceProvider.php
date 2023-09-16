@@ -9,8 +9,7 @@ use App\Models\Contributor;
 use App\Models\Icon;
 use App\Models\Location;
 use App\Models\Plant;
-
-
+use App\Models\Province;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\URL;
@@ -57,7 +56,7 @@ class AppServiceProvider extends ServiceProvider
 
             // // Counts
             // 'packages_total' => TourPackages::count(),
-            // 'destinations_total' => TourDestinations::count(),
+            'provinces_total' => Province::count(),
             'icons_total' => Icon::count(),
             'locations_total' => Location::count(),
             'plant_total' => Plant::count(),

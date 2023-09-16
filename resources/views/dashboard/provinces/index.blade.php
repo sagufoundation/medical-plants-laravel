@@ -18,11 +18,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Picture</th>
-                                <th>Title</th>
-                                <th>Body</th>
-                                <th>Description</th>
-                                <th>Status</th>
+                                <th>Name Province</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -31,17 +27,8 @@
                             @foreach ($datas as $data)
                             <tr>
                                 <td>{{ ++$i }}</td>
-                                <td>
-                                    @if (empty($data))
-                                    <img src="{{ asset('images/tour_'.Request::segment(2).'/00.jpg') }}" alt="Image" style="width:200px" class="border shadow">
-                                    @else
-                                    <img src="{{ asset($data->picture) }}" alt="Image" style="width:200px" class="border shadow">
-                                    @endif
-                                </td>
-                                <td>{{ $data->title ?? '' }}</td>
-                                <td>{!! Str::limit($data->body, 20, '...') !!}</td>
-                                <td>{!! Str::limit($data->description, 20, '...') !!}</td>
-                                <td>{{ $data->status}}</td>
+
+                                <td>{{ $data->name ?? '' }}</td>
                                 @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">
 
@@ -63,9 +50,9 @@
                                 </td>
                                 @else
                                 <td class="d-flex">
-                                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.show', $data->id) }}" class="btn btn-sm btn-dark rounded-0 mx-1">
+                                    {{-- <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.show', $data->id) }}" class="btn btn-sm btn-dark rounded-0 mx-1">
                                         <i class="fa-solid fa-eye"></i>
-                                    </a>
+                                    </a> --}}
                                     <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
                                         <i class="fa-solid fa-edit"></i>
                                     </a>

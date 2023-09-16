@@ -57,6 +57,15 @@
                                         <span> Locations</span>
                                     </a>
                                 </li>
+                                <li class="@if(Request::segment(2) == 'provinces') menuitem-active @endif">
+                                    <a href="{{ url(Request::segment(1).'/provinces') }}">
+                                        <i class="fa-solid fa-tags"></i>
+                                        <span class="badge badge-success badge-pill float-right">
+                                            {{ $provinces_total ?? '' }}
+                                        </span>
+                                        <span> Provinces</span>
+                                    </a>
+                                </li>
                                 <!-- menu item end -->
                                 <li class="@if(Request::segment(2) == 'icons') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/icons') }}">
