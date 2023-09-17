@@ -23,7 +23,7 @@
                                 <th>Description</th>
                                 <th>LatLong</th>
 
-                                <th></th>
+                                <th scope="col" class="text-center">Option</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -20,7 +20,7 @@
                                 <th>No</th>
                                 <th>Picture</th>
                                 <th>Name</th>
-                                <th></th>
+                                <th>Option</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -22,7 +22,7 @@
                                 <th>Full Name</th>
                                 <th>Email</th>
                                 <th>Address</th>
-                                <th></th>
+                                <th>Option</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -34,11 +34,11 @@ use Illuminate\Support\Facades\Route;
                 ->name('dashboard.users.store');
 
             // show
-            Route::get('users/{slug}/detail','show')
+            Route::get('users/{id}/show','show')
                 ->name('dashboard.users.show');
 
             // edit
-            Route::get('users/{slug}/edit','edit')
+            Route::get('users/{id}/edit','edit')
                 ->name('dashboard.users.edit');
 
             // update

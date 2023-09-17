@@ -19,7 +19,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Name Province</th>
-                                <th></th>
+                                <th>Option</th>
                             </tr>
                         </thead>
                         <tbody>

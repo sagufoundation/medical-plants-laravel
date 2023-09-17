@@ -55,7 +55,6 @@ class AppServiceProvider extends ServiceProvider
             'settings' => Settings::first(),
 
             // // Counts
-            // 'packages_total' => TourPackages::count(),
             'provinces_total' => Province::count(),
             'icons_total' => Icon::count(),
             'locations_total' => Location::count(),

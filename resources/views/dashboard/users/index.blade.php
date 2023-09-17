@@ -18,10 +18,12 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <td>Picture</td>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Roles</th>
                                 <th>Status</th>
-                                <th></th>
+                                <th>Option</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -29,9 +31,16 @@
                             @foreach ($datas as $data)
                             <tr>
                                 <td>{{ ++$i }}</td>
+                                <td>
+                                    @if (!$data->picture)
+                                    <img src="{{ asset('images/00.png') }}" alt="Image" style="width:50px" class="border shadow">
+                                    @else
+                                    <img src="{{ asset($data->picture) }}" alt="Image" style="width:50px" class="border shadow">
+                                    @endif
+                                </td>
                                 <td>{{ $data->name ?? '' }}</td>
-
                                 <td>{{ $data->email  }}
+                                    <td> {{ implode("",$data->roles()->pluck('display_name')->toArray()) }}</td>
 
                                 </td>
                                 <td>

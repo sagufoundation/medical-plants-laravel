@@ -83,10 +83,10 @@
                             <label for="roles">Roles <span class="text-danger">*</span></label>
                             <select name="roles" class="form-control" id="">
                                 @foreach ($roles as $role )
-                                    @if ($role->display_name === "Administrator")
-                                        <option value="{{ $role->id }}" selected>{{ $role->display_name }}</option>
-                                    @else
-                                    @endif
+
+                                <option value="{{ $role->id }}" selected>{{ $role->display_name }}</option>
+
+
                                 @endforeach
                             </select>
                         </div>
@@ -98,7 +98,7 @@
                         <div class="mb-3">
                             <label for="gambar" class="form-label d-block">Image</label>
                             <div class="mb-2">
-                                <img src="{{ asset('images/tour_packages/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
+                                <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
                             </div>
 
                             <div class="custom-file">
@@ -144,7 +144,6 @@
 @endsection
 
 @push('script-footer')
-<script src="{{ asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
 <script type="text/javascript">
     $(document).ready(function (e) {
         $('#gambar').change(function(){

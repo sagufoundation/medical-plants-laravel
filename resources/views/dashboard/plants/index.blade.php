@@ -21,6 +21,7 @@
                                 <th scope="col">Plant's Picture</th>
                                 <th  scope="col">Local Name</th>
                                 <th  scope="col">Contributor</th>
+                                <th  scope="col">Province</th>
                                 <th scope="col" class="text-center">Option</th>
                             </tr>
                         </thead>
@@ -38,6 +39,7 @@
                                 </td>
                                 <td>{{ $data->local_name ?? '' }}</td>
                                 <td> {{ $data->contributor->full_name ?? '' }} </td>
+                                <td> {{ $data->province->name ?? '' }} </td>
 
 
                                 @if (Request::segment(3) == 'trash')

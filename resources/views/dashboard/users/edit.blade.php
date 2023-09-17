@@ -80,17 +80,22 @@
                             @endif
                         </div>
 
-                        {{-- <div class="mb-3">
+                        <div class="mb-3">
                             <label for="roles">Roles <span class="text-danger">*</span></label>
                             <select name="roles" class="form-control" id="">
                                 @foreach ($roles as $role )
-                                    @if ($role->display_name === "Administrator")
-                                        <option value="{{ $role->id }}" selected>{{ $role->display_name }}</option>
-                                    @else
-                                    @endif
+
+                                        {{-- <option value="{{ $role->id }}" selected>{{ $role->display_name }}</option> --}}
+                                        <option value="{{ $role->id }}"
+                                            @if($data->id == $role->id)selected="selected"@endif >
+                                            {{ $role->display_name }}
+                                       </option>
                                 @endforeach
+
+
+
                             </select>
-                        </div> --}}
+                        </div>
 
                     </div>
                     <div class="col-lg-6">
@@ -100,7 +105,7 @@
                             <label for="gambar" class="form-label d-block">Image</label>
                             <div class="mb-2">
                                 @if (!$data->picture)
-                                <img src="{{ asset('images/tour_packages/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
+                                <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
                                 @else
                                 <img src="{{ asset($data->picture) }}" id="preview-gambar" class="img-thumbnail img-fluid">
                                 @endif
