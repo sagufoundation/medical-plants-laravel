@@ -12,22 +12,22 @@
               <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link fw-bold active" href="{{route('visitor.home')}}">Home</a>
+                    <a class="nav-link fw-bold @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'home') active @endif" href="{{ route('visitor.home') }}">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link fw-bold" href="{{route('visitor.thePlants')}}">The Plants</a>
+                    <a class="nav-link fw-bold @if(Request::segment(1) == 'the-plants') active @endif" href="{{ url('the-plants') }}">The Plants</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link fw-bold" href="{{route('visitor.overview')}}">Overview</a>
+                    <a class="nav-link fw-bold @if(Request::segment(1) == 'overview') active @endif" href="{{ route('visitor.overview') }}">Overview</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link fw-bold" href="{{route('visitor.howToContribute')}}">How To Contribute</a>
+                    <a class="nav-link fw-bold @if(Request::segment(1) == 'howToContribute') active @endif" href="{{ route('visitor.howToContribute') }}">How To Contribute</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link fw-bold" href="{{route('visitor.ourSponsors')}}">Our Sponsors</a>
+                    <a class="nav-link fw-bold @if(Request::segment(1) == 'ourSponsors') active @endif" href="{{ route('visitor.ourSponsors') }}">Our Sponsors</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link fw-bold" href="{{route('visitor.connectWithUs')}}">Connetc With Us</a>
+                    <a class="nav-link fw-bold @if(Request::segment(1) == 'connectWithUs') active @endif" href="{{ route('visitor.connectWithUs') }}">Connetc With Us</a>
                   </li>
 
                 </div>

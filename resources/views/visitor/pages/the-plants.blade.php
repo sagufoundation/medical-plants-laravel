@@ -1,4 +1,4 @@
-@extends('visitor.layouts.user-app')
+@extends('visitor.layout.user-app')
     @section('title')
     The Plants - Traditional Medicinal Plants in Papua
     @endsection
@@ -16,6 +16,6 @@
     </div>
   </section>
   <!-- SEARCH START -->
-  @include('visitor.includes.sections.search')
+  @include('visitor.include.sections.search')
 
 @stop

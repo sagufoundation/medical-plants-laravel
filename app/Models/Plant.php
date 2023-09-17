@@ -14,4 +14,8 @@ class Plant extends Model
     public function contributor() {
         return $this->belongsTo(Contributor::class,'id_contributor','id');
     }
+
+    public function province() {
+        return $this->belongsTo(Province::class,'id_province','id');
+    }
 }

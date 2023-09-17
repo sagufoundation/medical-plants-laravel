@@ -1,4 +1,4 @@
-@extends('visitor.layouts.user-app')
+@extends('visitor.layout.user-app')
     @section('title')
     Overview - Traditional Medicinal Plants in Papua
     @endsection
