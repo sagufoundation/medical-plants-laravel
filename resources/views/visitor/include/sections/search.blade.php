@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                
-                <form action="{{ url('/the-plants') }}">
+
+                <form action="{{ route('visitor.thePlants') }}" method="GET">
 
                     <div class="input-group mb-3">
                         <input type="text" class="form-control form-control-lg" placeholder="Write the keywords here" aria-label="Write the keywords here" aria-describedby="button-addon2">

@@ -68,12 +68,12 @@ class VisitorController extends Controller
                 }
             }]
         ])
-        ->where('status', 'Publish')->latest()->paginate(5);
+        ->where('status', 'Publish')->latest()->paginate(8);
         return view('visitor.pages.the-plants', compact('datas'));
     }
 
     public function thePlantsDetail($id) {
-        $data = Plant::where('id', $id)->first();
+        $data = Plant::where('slug', $id)->first();
 
         return view('visitor.pages.detail-plant', compact('data'));
         return view('visitor.pages.detail-plant');

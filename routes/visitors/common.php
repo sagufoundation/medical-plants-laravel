@@ -25,7 +25,7 @@ Route::controller(VisitorController::class)->group(function(){
 
     // STATIC PAGES
     Route::get('/the-plants','thePlants')->name('visitor.thePlants');
-    Route::get('/the-plants/{id}/detail','thePlantsDetail')->name('visitor.thePlants.detail');
+    Route::get('/the-plants/{slug}/detail','thePlantsDetail')->name('visitor.thePlants.detail');
     // Route::get('/the-plants-simulation','thePlantsSimulation')->name('visitor.the-plants-simulation');
 
     Route::get('/overview','overview')->name('visitor.overview');

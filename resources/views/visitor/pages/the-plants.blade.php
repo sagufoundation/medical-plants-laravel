@@ -24,25 +24,36 @@
         <div class="row">
 
             <!-- col start -->
+            @foreach ($datas as $data )
             <div class="col-lg-3">
+
+
                 <div class="card">
-                  <img src="https://medicinalplantspapua.org/storage/images/plants/plant-kurudu-inasi-koi.jpg" alt="Image" class="card-img-top">
+                    @if (!$data->cover_picture)
+                    <img src="https://medicinalplantspapua.org/storage/images/plants/plant-kurudu-inasi-koi.jpg" alt="Image" class="card-img-top">
+                    @else
+                    <img src="{{ asset($data->cover_picture) }}" alt="Image" class="card-img-top">
+                    @endif
+
                   <div class="card-body">
                     <h3>
-                      <a href="#" class="fw-bold text-decoration-none link-success">Inasi Koi</a>
+                      <a href="{{ route('visitor.thePlants.detail',$data->slug) }}" class="fw-bold text-decoration-none link-success">
+                            {!! $data->local_name !!}
+                      </a>
                     </h3>
                     <div class="my-3 d-flex gap-3">
                       <a href="{{ url('plants/province/papua') }}" class="text-decoration-none link-secondary">
-                        <i class="fa-solid fa-map-marker"></i> Province
+                        <i class="fa-solid fa-map-marker"></i> {{ $data->province->name ?? '' }}
                       </a>
                       <a href="{{ url('plants/contributor/tisha-rumbewas') }}" class="text-decoration-none link-secondary">
-                        <i class="fa-solid fa-user"></i> Tisha Rumbewas
+                        <i class="fa-solid fa-user"></i> {{ $data->contributor->full_name ?? '' }}
                       </a>
                     </div>
-                    {!! '<i>Scaevola Taccada</i> (Gaertn.) Roxb' !!}
+                    {!! $data->latin_name !!}
                   </div>
                 </div>
             </div>
+            @endforeach
             <!-- col end -->
 
         </div>
