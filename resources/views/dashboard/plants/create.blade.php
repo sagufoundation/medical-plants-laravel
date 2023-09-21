@@ -32,8 +32,8 @@
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="indonesian_name">Indonesia Name <span class="text-danger">*</span></label>
-                            <input type="text" id="indonesian_name" name="indonesian_name" class="form-control rounded-0"
-                            placeholder="write Indonesia Name here">
+
+                            <textarea id="indonesian_name" name="indonesian_name" rows="1" class="ckeditor form-control rounded-0" placeholder="write Indonesia Name here"></textarea>
                             @if ($errors->has('indonesian_name'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('indonesian_name') }}</small>
@@ -44,8 +44,8 @@
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="latin_name">Latin Name <span class="text-danger">*</span></label>
-                            <input type="text" id="latin_name" name="latin_name" class="form-control rounded-0"
-                            placeholder="write Latin Name here">
+
+                            <textarea id="latin_name" name="latin_name" rows="1" class="ckeditor form-control rounded-0" placeholder="write Latin Name here"></textarea>
                             @if ($errors->has('latin_name'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('latin_name') }}</small>
@@ -56,8 +56,8 @@
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="taxonomists">Taxonomists <span class="text-danger">*</span></label>
-                            <input type="text" id="taxonomists" name="taxonomists" class="form-control rounded-0"
-                            placeholder="write Taxonomists  here">
+
+                            <textarea id="taxonomists" name="taxonomists" rows="1" class="ckeditor form-control rounded-0" placeholder="write Taxonomists here"></textarea>
                             @if ($errors->has('taxonomists'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('taxonomists') }}</small>
@@ -68,8 +68,7 @@
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="treatments">Treatments <span class="text-danger">*</span></label>
-                            <input type="text" id="treatments" name="treatments" class="form-control rounded-0"
-                            placeholder="write Treatments  here">
+                            <textarea id="treatments" name="treatments" rows="1" class="ckeditor form-control rounded-0" placeholder="write Treatments here"></textarea>
                             @if ($errors->has('treatments'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('treatments') }}</small>
@@ -79,8 +78,8 @@
                         <!-- input item END -->
                         <div class="mb-3">
                             <label for="traditional_usage">Traditional Usage <span class="text-danger">*</span></label>
-                            <input type="text" id="traditional_usage" name="traditional_usage" class="form-control rounded-0"
-                            placeholder="write Traditional Usage  here">
+
+                            <textarea id="traditional_usage" name="traditional_usage" rows="1" class="ckeditor form-control rounded-0" placeholder="write traditional usage here"></textarea>
                             @if ($errors->has('traditional_usage'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('traditional_usage') }}</small>
@@ -91,8 +90,8 @@
                         <!-- input item END -->
                         <div class="mb-3">
                             <label for="known_phytochemical_consituents">Known Phytochemical Consituents <span class="text-danger">*</span></label>
-                            <input type="text" id="known_phytochemical_consituents" name="known_phytochemical_consituents" class="form-control rounded-0"
-                            placeholder="write Known Phytochemical Consituents here">
+
+                            <textarea id="known_phytochemical_consituents" name="known_phytochemical_consituents" rows="1" class="ckeditor form-control rounded-0" placeholder="write Known Phytochemical Consituents here"></textarea>
                             @if ($errors->has('known_phytochemical_consituents'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('known_phytochemical_consituents') }}</small>
@@ -128,72 +127,9 @@
 
                         </div> --}}
 
-                        <div class="mb-3">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="contributor">Contributor {{sizeof($countributors)<1?'(Data contributor not yet available)':''}} <span class="text-danger">*</span></label>
-                                    <select name="contributor" class="form-control" id="contributor">
-                                        <option value="" hidden>Select</option>
-                                        @foreach ($countributors as $countributor )
-                                            <option value="{{ $countributor->id }}">{{ $countributor->full_name }}</option>
-                                        @endforeach
-                                    </select>
-                                    @if ($errors->has('contributor'))
-                                    <span class="text-danger" role="alert">
-                                            <small>{{ $errors->first('contributor') }}</small>
-                                        </span>
-                                    @endif
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="location">Location {{sizeof($locations)<1?'(Data location not yet available)':''}}  <span class="text-danger">*</span></label>
-                                    <select name="location" class="form-control" id="location">
-                                        <option value="" hidden>Select</option>
-                                        @foreach ($locations as $location )
-                                            <option value="{{ $location->id }}">{{ $location->tribes }}</option>
-                                        @endforeach
-                                    </select>
-                                    @if ($errors->has('location'))
-                                    <span class="text-danger" role="alert">
-                                            <small>{{ $errors->first('location') }}</small>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
 
-                        </div>
 
-                        <div class="mb-3">
-                            <div class="row">
-                                <div class="col-md-6">
-                                        <label for="province">Province {{sizeof($provinces)<1?'(Data provinces not yet available)':''}} <span class="text-danger">*</span></label>
-                                        <select name="province" class="form-control" id="province">
-                                            <option value="" hidden>Select</option>
-                                            @foreach ($provinces as $province )
-                                                <option value="{{ $province->id }}">{{ $province->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        @if ($errors->has('province'))
-                                        <span class="text-danger" role="alert">
-                                                <small>{{ $errors->first('province') }}</small>
-                                            </span>
-                                        @endif
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="description">Status  <span class="text-danger">*</span></label>
-                                    <select name="status" class="form-control" id="">
 
-                                        <option value="Publish">Publish</option>
-                                        <option value="Draft" selected>Draft</option>
-                                    </select>
-                                    @if ($errors->has('status'))
-                                    <span class="text-danger" role="alert">
-                                            <small>{{ $errors->first('status') }}</small>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                        </div>
 
 
                     </div>
@@ -241,6 +177,72 @@
 
                         </div>
                         <!-- input item END -->
+
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="contributor">Contributor {{sizeof($countributors)<1?'(Data contributor not yet available)':''}} <span class="text-danger">*</span></label>
+                                    <select name="contributor" class="form-control" id="contributor">
+                                        <option value="" hidden>Select</option>
+                                        @foreach ($countributors as $countributor )
+                                            <option value="{{ $countributor->id }}">{{ $countributor->full_name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @if ($errors->has('contributor'))
+                                    <span class="text-danger" role="alert">
+                                            <small>{{ $errors->first('contributor') }}</small>
+                                        </span>
+                                    @endif
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="location">Location {{sizeof($locations)<1?'(Data location not yet available)':''}}  <span class="text-danger">*</span></label>
+                                    <select name="location" class="form-control" id="location">
+                                        <option value="" hidden>Select</option>
+                                        @foreach ($locations as $location )
+                                            <option value="{{ $location->id }}">{{ $location->tribes }}</option>
+                                        @endforeach
+                                    </select>
+                                    @if ($errors->has('location'))
+                                    <span class="text-danger" role="alert">
+                                            <small>{{ $errors->first('location') }}</small>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col-md-6">
+                                        <label for="province">Province {{sizeof($provinces)<1?'(Data provinces not yet available)':''}} <span class="text-danger">*</span></label>
+                                        <select name="province" class="form-control" id="province">
+                                            <option value="" hidden>Select</option>
+                                            @foreach ($provinces as $province )
+                                                <option value="{{ $province->id }}">{{ $province->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        @if ($errors->has('province'))
+                                        <span class="text-danger" role="alert">
+                                                <small>{{ $errors->first('province') }}</small>
+                                            </span>
+                                        @endif
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="description">Status  <span class="text-danger">*</span></label>
+                                    <select name="status" class="form-control" id="">
+
+                                        <option value="Publish">Publish</option>
+                                        <option value="Draft" selected>Draft</option>
+                                    </select>
+                                    @if ($errors->has('status'))
+                                    <span class="text-danger" role="alert">
+                                            <small>{{ $errors->first('status') }}</small>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 
@@ -270,7 +272,7 @@
     $(document).ready(function () {
         $('.ckeditor').ckeditor();
     });
-    CKEDITOR.config.height='400px';
+    CKEDITOR.config.height='100px';
     $(document).ready(function (e) {
          ('#gambar').change(function(){
                 let reader = new FileReader();

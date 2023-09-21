@@ -33,8 +33,7 @@
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="indonesian_name">Indonesia Name <span class="text-danger">*</span></label>
-                            <input type="text" id="indonesian_name" name="indonesian_name" class="form-control rounded-0"
-                            placeholder="write Indonesia Name here" value="{{ old('local_name',$data->indonesian_name) }}">
+                            <textarea id="indonesian_name" name="indonesian_name" rows="1" class="ckeditor form-control rounded-0" placeholder="write Indonesia Name here"> {{ $data->indonesian_name}} </textarea>
                             @if ($errors->has('indonesian_name'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('indonesian_name') }}</small>
@@ -45,8 +44,8 @@
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="latin_name">Latin Name <span class="text-danger">*</span></label>
-                            <input type="text" id="latin_name" name="latin_name" class="form-control rounded-0"
-                            placeholder="write Latin Name here" value="{{ old('local_name',$data->indonesian_name) }}">
+
+                            <textarea id="latin_name" name="latin_name" rows="1" class="ckeditor form-control rounded-0" placeholder="write Indonesia Name here"> {{ $data->latin_name}} </textarea>
                             @if ($errors->has('latin_name'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('latin_name') }}</small>
@@ -57,8 +56,8 @@
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="taxonomists">Taxonomists <span class="text-danger">*</span></label>
-                            <input type="text" id="taxonomists" name="taxonomists" class="form-control rounded-0"
-                            placeholder="write Taxonomists  here" value="{{ old('taxonomists',$data->taxonomists) }}">
+
+                            <textarea id="taxonomists" name="taxonomists" rows="1" class="ckeditor form-control rounded-0" placeholder="write Indonesia Name here"> {{ $data->taxonomists}} </textarea>
                             @if ($errors->has('taxonomists'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('taxonomists') }}</small>
@@ -69,8 +68,8 @@
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="treatments">Treatments <span class="text-danger">*</span></label>
-                            <input type="text" id="treatments" name="treatments" class="form-control rounded-0"
-                            placeholder="write Treatments  here" value="{{ old('treatments',$data->treatments) }}">
+
+                            <textarea id="treatments" name="treatments" rows="1" class="ckeditor form-control rounded-0" placeholder="write Indonesia Name here"> {{ $data->treatments}} </textarea>
                             @if ($errors->has('treatments'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('treatments') }}</small>
@@ -80,8 +79,8 @@
                         <!-- input item END -->
                         <div class="mb-3">
                             <label for="traditional_usage">Traditional Usage <span class="text-danger">*</span></label>
-                            <input type="text" id="traditional_usage" name="traditional_usage" class="form-control rounded-0"
-                            placeholder="write Traditional Usage  here" value="{{ old('traditional_usage',$data->traditional_usage) }}">
+
+                            <textarea id="traditional_usage" name="traditional_usage" rows="1" class="ckeditor form-control rounded-0" placeholder="write Indonesia Name here"> {{ $data->traditional_usage}} </textarea>
                             @if ($errors->has('traditional_usage'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('traditional_usage') }}</small>
@@ -92,8 +91,8 @@
                         <!-- input item END -->
                         <div class="mb-3">
                             <label for="known_phytochemical_consituents">Known Phytochemical Consituents <span class="text-danger">*</span></label>
-                            <input type="text" id="known_phytochemical_consituents" name="known_phytochemical_consituents" class="form-control rounded-0"
-                            placeholder="write Known Phytochemical Consituents here" value="{{ old('known_phytochemical_consituents',$data->known_phytochemical_consituents) }}">
+
+                            <textarea id="known_phytochemical_consituents" name="known_phytochemical_consituents" rows="1" class="ckeditor form-control rounded-0" placeholder="write Indonesia Name here"> {{ $data->known_phytochemical_consituents}} </textarea>
                             @if ($errors->has('known_phytochemical_consituents'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('known_phytochemical_consituents') }}</small>
@@ -128,6 +127,64 @@
                             @endif
 
                         </div> --}}
+
+
+
+                    </div>
+                    <div class="col-lg-6">
+
+                        <!-- input item START -->
+                        <div class="mb-3">
+                            <label for="gambar" class="form-label d-block">Thumbnail </label>
+                            <div class="mb-2">
+                                @if (!$data->cover_picture)
+                                    <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
+                                    @else
+                                    <img src="{{ asset($data->cover_picture) }}" id="preview-gambar" class="img-thumbnail img-fluid">
+                                @endif
+                            </div>
+
+                            <div class="custom-file">
+                                <input type="file" name="cover_picture" class="custom-file-input" id="gambar" accept="image/*">
+                                <small class="text-muted mt-2 d-block">Select a new image from your computer</small>
+                                <label class="custom-file-label" for="customFile">Select image</label>
+                            </div>
+
+                            @if ($errors->has('cover_picture'))
+                            <span class="text-danger" role="alert">
+                                    <small>{{ $errors->first('cover_picture') }}</small>
+                                </span>
+                            @endif
+
+                        </div>
+                        <!-- input item END -->
+
+                        <!-- input item START -->
+                        <div class="mb-3">
+                            <label for="gambar" class="form-label d-block">Gallery </label>
+                            <div class="mb-2">
+                                @if (!$data->gallery_picture)
+                                    <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
+                                    @else
+                                    <img src="{{ asset($data->gallery_picture) }}" id="preview-gambar" class="img-thumbnail img-fluid">
+                                @endif
+
+                            </div>
+
+                            <div class="custom-file">
+                                <input type="file" name="gallery_picture" class="custom-file-input" id="gambar" accept="image/*">
+                                <small class="text-muted mt-2 d-block">Select a new image from your computer</small>
+                                <label class="custom-file-label" for="customFile">Select image</label>
+                            </div>
+
+                            @if ($errors->has('gallery_picture'))
+                            <span class="text-danger" role="alert">
+                                    <small>{{ $errors->first('gallery_picture') }}</small>
+                                </span>
+                            @endif
+
+                        </div>
+                        <!-- input item END -->
 
                         <div class="mb-3">
                             <label for="id_contributor">Contributor  <span class="text-danger">*</span></label>
@@ -190,62 +247,6 @@
                                 </span>
                             @endif
                         </div>
-
-                    </div>
-                    <div class="col-lg-6">
-
-                        <!-- input item START -->
-                        <div class="mb-3">
-                            <label for="gambar" class="form-label d-block">Thumbnail </label>
-                            <div class="mb-2">
-                                @if (!$data->cover_picture)
-                                    <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
-                                    @else
-                                    <img src="{{ asset($data->cover_picture) }}" id="preview-gambar" class="img-thumbnail img-fluid">
-                                @endif
-                            </div>
-
-                            <div class="custom-file">
-                                <input type="file" name="cover_picture" class="custom-file-input" id="gambar" accept="image/*">
-                                <small class="text-muted mt-2 d-block">Select a new image from your computer</small>
-                                <label class="custom-file-label" for="customFile">Select image</label>
-                            </div>
-
-                            @if ($errors->has('cover_picture'))
-                            <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('cover_picture') }}</small>
-                                </span>
-                            @endif
-
-                        </div>
-                        <!-- input item END -->
-
-                        <!-- input item START -->
-                        <div class="mb-3">
-                            <label for="gambar" class="form-label d-block">Gallery </label>
-                            <div class="mb-2">
-                                @if (!$data->gallery_picture)
-                                    <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
-                                    @else
-                                    <img src="{{ asset($data->gallery_picture) }}" id="preview-gambar" class="img-thumbnail img-fluid">
-                                @endif
-
-                            </div>
-
-                            <div class="custom-file">
-                                <input type="file" name="gallery_picture" class="custom-file-input" id="gambar" accept="image/*">
-                                <small class="text-muted mt-2 d-block">Select a new image from your computer</small>
-                                <label class="custom-file-label" for="customFile">Select image</label>
-                            </div>
-
-                            @if ($errors->has('gallery_picture'))
-                            <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('gallery_picture') }}</small>
-                                </span>
-                            @endif
-
-                        </div>
-                        <!-- input item END -->
                     </div>
                 </div>
 
@@ -275,7 +276,7 @@
     $(document).ready(function () {
         $('.ckeditor').ckeditor();
     });
-    CKEDITOR.config.height='400px';
+    CKEDITOR.config.height='100px';
     $(document).ready(function (e) {
          ('#gambar').change(function(){
                 let reader = new FileReader();
