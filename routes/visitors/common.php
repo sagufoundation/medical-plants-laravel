@@ -27,6 +27,11 @@ Route::controller(VisitorController::class)->group(function(){
     Route::get('/the-plants','thePlants')->name('visitor.thePlants');
     Route::get('/the-plants/{slug}/detail','thePlantsDetail')->name('visitor.thePlants.detail');
     // Route::get('/the-plants-simulation','thePlantsSimulation')->name('visitor.the-plants-simulation');
+    
+    // SEARCH
+    Route::get('/search/local-name','thePlantsSearchLocalName')->name('visitor.thePlantsSearchLocalName');
+    Route::get('/search/contributor','thePlantsContributor')->name('visitor.thePlantsContributor');
+
 
     Route::get('/overview','overview')->name('visitor.overview');
     Route::get('/how-to-contribute','howToContribute')->name('visitor.howToContribute');

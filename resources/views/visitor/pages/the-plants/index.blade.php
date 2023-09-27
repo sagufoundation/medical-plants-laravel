@@ -19,11 +19,22 @@
   @include('visitor.include.sections.search')
 
   <section>
-    <div class="container py-5">
+    <div class="container">
         <div class="row">
 
+          <div class="mb-5 text-center">
+            @empty(request()->s)
+            @else
+            <div>
+                <i>
+                    <span class="text-muted">Searching for</span> <b>"{{ request()->s ?? '' }}"</b>. Found <b>{{ $datas->count() }}</b>.
+                </i>
+            </div>
+            @endempty
+          </div>
+
             <!-- col start -->
-            @foreach ($datas as $data )
+            @forelse ($datas as $data )
             <div class="col-lg-3 mb-4">
                 <div class="card">
                     <a href="{{ route('visitor.thePlants.detail',$data->slug) }}">
@@ -51,7 +62,14 @@
                   </div>
                 </div>
             </div>
-            @endforeach
+
+            @empty 
+            <div class="text-center">
+              <p>
+                Not found!
+              </p>
+            </div>
+            @endforelse
             <!-- col end -->
 
         </div>

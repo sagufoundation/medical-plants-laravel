@@ -47,35 +47,57 @@ class VisitorController extends Controller
     // }
 
     // THE PLANTS
-    public function thePlants()
-    {
-        $searchString = null;
+    // public function thePlants(Request $request)
+    // {
 
-        $datas = Plant::whereHas('province', function ($query) use ($searchString){
-            $query->where('name', 'LIKE', '%'.$searchString.'%');
-        })
-        ->where([
+    //     $searchString = null;
 
+    //     $datas = Plant::whereHas('province', function ($query) use ($searchString){
+    //         $query->where('name', 'LIKE', '%'.$searchString.'%');
+    //     })
+    //     ->where([
+
+    //         ['local_name', '!=', Null],
+    //         [function ($query) {
+    //             if (($s = request()->s)) {
+    //                 if (isset(request()->filter) && request()->filter == 'local_name') {
+    //                     $query->orWhere('local_name', 'LIKE', '%' . $s . '%')->get();
+    //                 } elseif (isset(request()->filter) && request()->filter == 'indonesian_name') {
+    //                     $query->orWhere('indonesian_name', 'LIKE', '%' . $s . '%')->get();
+    //                 } elseif (isset(request()->filter) && request()->filter == 'latin_name') {
+    //                     $query->orWhere('latin_name', 'LIKE', '%' . $s . '%')->get();
+    //                 } elseif (isset(request()->filter) && request()->filter == 'taxonomists') {
+    //                     $query->orWhere('taxonomists', 'LIKE', '%' . $s . '%')->get();
+    //                 } elseif (isset(request()->filter) && request()->filter == 'province') {
+    //                     $query->orWhere('id_province', 'LIKE', '%' . $s . '%')->get();
+    //                 } else {
+    //                     $query->get();
+    //                 }
+    //             }
+    //         }]
+    //     ])
+    //     ->where('status', 'Publish')->latest()->paginate(8);
+    //     return view('visitor.pages.the-plants.index', compact('datas'));
+    // }
+
+
+
+
+
+
+    public function thePlants(Request $request)
+    {        
+
+        $datas = Plant::where([
             ['local_name', '!=', Null],
-            [function ($query) {
-                if (($s = request()->s)) {
-                    if (isset(request()->filter) && request()->filter == 'local_name') {
-                        $query->orWhere('local_name', 'LIKE', '%' . $s . '%')->get();
-                    } elseif (isset(request()->filter) && request()->filter == 'indonesian_name') {
-                        $query->orWhere('indonesian_name', 'LIKE', '%' . $s . '%')->get();
-                    } elseif (isset(request()->filter) && request()->filter == 'latin_name') {
-                        $query->orWhere('latin_name', 'LIKE', '%' . $s . '%')->get();
-                    } elseif (isset(request()->filter) && request()->filter == 'taxonomists') {
-                        $query->orWhere('taxonomists', 'LIKE', '%' . $s . '%')->get();
-                    } elseif (isset(request()->filter) && request()->filter == 'province') {
-                        $query->orWhere('id_province', 'LIKE', '%' . $s . '%')->get();
-                    } else {
-                        $query->get();
-                    }
+            [function ($query) use ($request) {
+                if (($s = $request->s)) {
+                    $query->orWhere('local_name', 'LIKE', '%' . $s . '%')
+                        // ->orWhere('deskripsi', 'LIKE', '%' . $s . '%')
+                        ->get();
                 }
             }]
-        ])
-        ->where('status', 'Publish')->latest()->paginate(8);
+        ])->latest('id')->paginate(5);
         return view('visitor.pages.the-plants.index', compact('datas'));
     }
 
