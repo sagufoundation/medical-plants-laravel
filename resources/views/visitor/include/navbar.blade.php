@@ -1,39 +1,29 @@
-    {{-- HEADER START --}}
-    <header class="shadow">
-        <nav class="navbar navbar-expand-xl p-2">
-            <div class="container-fluid d-flex justify-content-between">
-                <a class="navbar-brand" href="{{route('visitor.home')}}">
-                    <img src="https://cdn-icons-png.flaticon.com/512/188/188333.png" class="ml-3" width="30" alt="Flowbite Logo" />
-                     <span class="text-success fw-bold ">Traditional Medicinal Plants in Papua</span>
-                </a>
-              <button class="navbar-toggler mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link fw-bold @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'home') active @endif" href="{{ route('visitor.home') }}">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link fw-bold @if(Request::segment(1) == 'the-plants') active @endif" href="{{ url('the-plants') }}">The Plants</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link fw-bold @if(Request::segment(1) == 'overview') active @endif" href="{{ route('visitor.overview') }}">Overview</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link fw-bold @if(Request::segment(1) == 'how-to-contribute') active @endif" href="{{ route('visitor.howToContribute') }}">How To Contribute</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link fw-bold @if(Request::segment(1) == 'our-sponsors') active @endif" href="{{ route('visitor.ourSponsors') }}">Our Sponsors</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link fw-bold @if(Request::segment(1) == 'connect-with-us') active @endif" href="{{ route('visitor.connectWithUs') }}">Connetc With Us</a>
-                  </li>
-
-                </div>
-
-            </div>
-          </nav>
-
-    </header>
-    {{-- HEADER END --}}
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm bg-white" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="{{route('visitor.home')}}">
+          <img src="https://cdn-icons-png.flaticon.com/512/188/188333.png" class="ml-3" width="30" alt="Flowbite Logo" />
+          <span class="text-success fw-bold ">Traditional Medicinal Plants in Papua</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="bi-list"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+                <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'home') active @endif" href="{{ url('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'the-plants') active @endif" href="{{ url('the-plants') }}">The Plants</a></li>
+                <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'overview') active @endif" href="{{ url('overview') }}">Overview</a></li>
+                <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'how-to-contribute') active @endif" href="{{ url('how-to-contribute') }}">How To Contribute</a></li>
+                <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'our-sponsors') active @endif" href="{{ url('our-sponsors') }}">Our Sponsors</a></li>
+            </ul>
+            <a href="{{ url('connect-with-us') }}" class="btn btn-success rounded-pill px-3 mb-2 mb-lg-0">
+                <span class="d-flex align-items-center text-white">
+                    <i class="fa-solid fa-paper-plane me-2"></i>
+                    <span class="small">Connect With Us</span>
+                </span>
+            </a>
+        </div>
+    </div>
+  </nav>
+</header>

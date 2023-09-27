@@ -10,22 +10,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 // team > developer
-Route::get('team/developer', function() {
+Route::get('our-team/developer', function() {
     return view('visitor.pages.team.developer');
 });
 
 // team > ethnobotany
-Route::get('team/ethnobotany', function() {
+Route::get('our-team/ethnobotany', function() {
     return view('visitor.pages.team.ethnobotany');
 });
 
 // team > phytochemistry
-Route::get('team/phytochemistry', function() {
+Route::get('our-team/phytochemistry', function() {
     return view('visitor.pages.team.phytochemistry');
 });
 
 // team > taxonomy
-Route::get('team/taxonomy', function() {
+Route::get('our-team/taxonomy', function() {
     return view('visitor.pages.team.taxonomy');
 });
 

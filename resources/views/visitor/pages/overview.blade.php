@@ -8,7 +8,7 @@
     <div class="container mt-5 mb-5">
 
       <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-lg-6 mx-auto text-center">
             <h1 class="fw-bolder font-satu">  Overview</h1>
             <p>Welcome to the Database of Traditional Medicinal Plants in Papua, a comprehensive and easily accessible resource for researchers, healthcare practitioners, and anyone interested in traditional medicine, aiming to promote the importance of preserving traditional medicinal knowledge and exploring it for global medicinal research.
             </p>

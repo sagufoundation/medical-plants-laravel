@@ -1,6 +1,8 @@
 
 @include('visitor.include.header')
 @include('visitor.include.navbar')
-@yield('content')
+<main class="pt-5">
+    @yield('content')
+</main>
 @include('visitor.include.footer')
 
