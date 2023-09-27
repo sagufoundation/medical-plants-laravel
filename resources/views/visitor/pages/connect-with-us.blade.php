@@ -8,7 +8,7 @@
     <div class="container mt-5 mb-5">
       <div class="row">
         <div class="col-lg-6 mx-auto text-center">
-            <h1 class="fw-bolder font-satu">Connect With Us</h1>
+            <h1 class="fw-bolder font-satu text-success">Connect With Us</h1>
             <p> We welcome contributions from local community members as well as experts in the fields of phytochemistry, ethnobotany, and taxonomy.       </p>
         </div>
       </div>

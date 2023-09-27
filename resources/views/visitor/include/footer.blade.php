@@ -11,50 +11,49 @@
                   <p class="p-3" style="text-align: justify">
                       Discover the traditional medicinal plants recognized by Indigenous Papuans in Papua, Indonesia. Our comprehensive database includes information on their traditional uses, chemical properties, and potential health benefits.
                   </p>
-                  <a href="" class="btn btn-outline-success mt-0 p-3">Connect With us <i class="fa-solid fa-arrow-right ms-2"></i>  </a>
 
                   <div class="row mt-3">
                       <div class="col-1">
-                          <a href="#" class="text-decoration-none text-secondary">
+                          <a href="{{ url('https://facebook.com') }}" target="_blank" class="text-decoration-none text-secondary">
                               <i class="fa-brands fa-facebook"></i>
                           </a>
                       </div>
                       <div class="col-1">
-                          <a href="#" class="text-decoration-none text-secondary">
+                          <a href="{{ url('https://instagram.com') }}" target="_blank" class="text-decoration-none text-secondary">
                               <i class="fa-brands fa-instagram"></i>
                           </a>
                       </div>
                       <div class="col-1">
-                          <a href="#" class="text-decoration-none text-secondary">
+                          <a href="{{ url('https://twitter.com') }}" target="_blank" class="text-decoration-none text-secondary">
                               <i class="fa-brands fa-twitter"></i>
                           </a>
                       </div>
                       <div class="col-1">
-                          <a href="#" class="text-decoration-none text-secondary">
+                          <a href="{{ url('https://linkedin.com') }}" target="_blank" class="text-decoration-none text-secondary">
                               <i class="fa-brands fa-linkedin"></i>
                           </a>
                       </div>
                       <div class="col-1">
-                          <a href="#" class="text-decoration-none text-secondary">
+                          <a href="{{ url('https://youtube.com') }}" target="_blank" class="text-decoration-none text-secondary">
                               <i class="fa-brands fa-youtube"></i>
                           </a>
                       </div>
                   </div>
             </div>
             <div class="col-xl-2 mt-4">
-                  <p class="fw-bolder">OUR TEAM</p>
+                  <p class="fw-bolder text-success">OUR TEAM</p>
                   <p> <a href="{{ url('/our-team/developer') }}" class="text-decoration-none text-secondary">Developer Team</a> </p>
                   <p> <a href="{{ url('/our-team/taxonomy') }}" class="text-decoration-none text-secondary mb-3">Taxonomy Team</a> </p>
                   <p>  <a href="{{ url('/our-team/ethnobotany') }}" class="text-decoration-none text-secondary mb-3">Ethnobotany Team</a> </p>
                   <p> <a href="{{ url('/our-team/phytochemistry') }}" class="text-decoration-none text-secondary mb-3">Phytochemistry Team</a> </p>
             </div>
             <div class="col-xl-2 mt-4">
-              <p class="fw-bolder">WHAT WE DO</p>
+              <p class="fw-bolder text-success">WHAT WE DO</p>
               <p> <a href="{{ url('/what-we-do/discover') }}" class="text-decoration-none text-secondary">Discover</a> </p>
               <p> <a href="{{ url('/what-we-do/research') }}" class="text-decoration-none text-secondary mb-3">Research</a> </p>
             </div>
             <div class="col-xl-2 mt-4">
-                  <p class="fw-bolder">PRIVACY & POLICY</p>
+                  <p class="fw-bolder text-success">PRIVACY & POLICY</p>
                   <p> <a href="{{ url('/privacy') }}" class="text-decoration-none text-secondary">Privacy Policy</a> </p>
                   <p> <a href="{{ url('/terms') }}" class="text-decoration-none text-secondary mb-3">Terms & Conditions</a> </p>
                   <hr class="border border-black opacity-75">

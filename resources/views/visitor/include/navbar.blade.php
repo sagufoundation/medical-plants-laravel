@@ -11,11 +11,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'home') active @endif" href="{{ url('home') }}">Home</a></li>
-                <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'the-plants') active @endif" href="{{ url('the-plants') }}">The Plants</a></li>
-                <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'overview') active @endif" href="{{ url('overview') }}">Overview</a></li>
-                <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'how-to-contribute') active @endif" href="{{ url('how-to-contribute') }}">How To Contribute</a></li>
-                <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'our-sponsors') active @endif" href="{{ url('our-sponsors') }}">Our Sponsors</a></li>
+                <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'home') active fw-bold @endif" href="{{ url('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'the-plants') active fw-bold @endif" href="{{ url('the-plants') }}">The Plants</a></li>
+                <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'overview') active fw-bold @endif" href="{{ url('overview') }}">Overview</a></li>
+                <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'how-to-contribute') active fw-bold @endif" href="{{ url('how-to-contribute') }}">How To Contribute</a></li>
+                <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'our-sponsors') active fw-bold @endif" href="{{ url('our-sponsors') }}">Our Sponsors</a></li>
             </ul>
             <a href="{{ url('connect-with-us') }}" class="btn btn-success rounded-pill px-3 mb-2 mb-lg-0">
                 <span class="d-flex align-items-center text-white">

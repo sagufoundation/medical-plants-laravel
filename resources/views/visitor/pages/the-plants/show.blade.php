@@ -8,7 +8,7 @@
         <div class="container mt-5 mb-5">
         <div class="row">
             <div class="col-lg-6 mx-auto text-center">
-                <h1 class="fw-bolder font-satu"> The Plants</h1>
+                <h1 class="fw-bolder font-satu text-success"> The Plants</h1>
                 <p>Discover the traditional medicinal plants recognized by Indigenous Papuans in Papua, Indonesia. Our comprehensive database includes information on their traditional uses, chemical properties, and potential health benefits.
                 </p>
             </div>
