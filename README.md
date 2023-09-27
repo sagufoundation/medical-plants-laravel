@@ -8,3 +8,13 @@ Pull from other brands
 ```
 git pull origin branch_name
 ```
+
+
+## FEATURES
+
+### VISITOR
+
+    Home
+    
+
+### ADMIN PANEL

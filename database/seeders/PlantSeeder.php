@@ -19,8 +19,8 @@ class PlantSeeder extends Seeder
             'id_location' => 3,
             'id_contributor' => 1,
             'id_province' => 1,
-            'cover_picture' => 'seeds/plants/anamyaum-20230622060731.jpg',
-            'gallery_picture' => 'seeds/plants/anamyaum-20230622060731-gallery.jpg',
+            'cover_picture' => '/plants/anamyaum-single.jpg',
+            'gallery_picture' => '/plants/anamyaum-gallery.jpg',
             'local_name' => 'Anamyaum',
             'indonesian_name' => '-',
             'latin_name' => '<i>Alstonia scholaris</i> (L.) R.Br.',
@@ -40,8 +40,8 @@ class PlantSeeder extends Seeder
             'id_location' => 3,
             'id_contributor' => 1,
             'id_province' => 1,
-            'cover_picture' => 'seeds/plants/inasi-koi-20230622060721.jpg',
-            'gallery_picture' => 'seeds/plants/inasi-koi-20230622060721-gallery.jpg',
+            'cover_picture' => '/plants/inasi-koi-single.jpg',
+            'gallery_picture' => '/plants/inasi-koi-gallery.jpg',
             'local_name' => 'Inasi Koi',
             'indonesian_name' => '-',
             'latin_name' => '<i>Scaevola Taccada</i> (Gaertn.) Roxb.',
@@ -59,8 +59,8 @@ class PlantSeeder extends Seeder
             'id_location' => 3,
             'id_contributor' => 1,
             'id_province' => 1,
-            'cover_picture' => 'seeds/plants/krataweri-20230622060508.jpg',
-            'gallery_picture' => 'seeds/plants/krataweri-20230622060704-gallery.jpg',
+            'cover_picture' => '/plants/krataweri-single.jpg',
+            'gallery_picture' => '/plants/krataweri-gallery.jpg',
             'local_name' => 'Krataweri',
             'indonesian_name' => '-',
             'latin_name' => '<i>Artocarpus vriesianus</i> Miq.',
@@ -76,21 +76,59 @@ class PlantSeeder extends Seeder
 
         $plant = Plant::create([
             'id_location' => 7,
-            'id_contributor' => 3,
+            'id_contributor' => 1,
             'id_province' => 2,
-            'cover_picture' => '/assets/img/plants/00.jpg',
-            'gallery_picture' => '/assets/img/plants/gallery/00.jpg',
-            'local_name' => 'Lorem, ipsum.',
-            'indonesian_name' => '',
-            'latin_name' => '',
+            'cover_picture' => '/plants/sample/image-single.jpg',
+            'gallery_picture' => 'plants/sample/image-gallery.jpg',
+            'local_name' => 'Sample Local Name',
+            'indonesian_name' => 'Sample Indonesian Name',
+            'latin_name' => 'Sample <i>Latin</i> Name',
 
-            'taxonomists' => 'Lorem ipsum dolor sit.',
-            'treatments' => '-',
-            'traditional_usage' => '-',
-            'known_phytochemical_consituents' => '-',
+            'taxonomists' => 'Sample Taxonomists',
+            'treatments' => 'Sample Treatments',
+            'traditional_usage' => 'Sample traditional ussage',
+            'known_phytochemical_consituents' => 'Known phytochemical consituents',
 
             'status' => 'Publish',
-            'slug' => 'lorem-ipsum',
+            'slug' => 'sample-local-name',
+        ]);
+
+        $plant = Plant::create([
+            'id_location' => 7,
+            'id_contributor' => 1,
+            'id_province' => 2,
+            'cover_picture' => '/plants/sample/image-single.jpg',
+            'gallery_picture' => 'plants/sample/image-gallery.jpg',
+            'local_name' => 'Sample Local Name 2',
+            'indonesian_name' => 'Sample Indonesian Name 2',
+            'latin_name' => 'Sample <i>Latin</i> Name 2',
+
+            'taxonomists' => 'Sample Taxonomists 2',
+            'treatments' => 'Sample Treatments 2',
+            'traditional_usage' => 'Sample traditional ussage 2',
+            'known_phytochemical_consituents' => 'Known phytochemical consituents 2',
+
+            'status' => 'Publish',
+            'slug' => 'sample-local-name-2',
+        ]);
+
+        $plant = Plant::create([
+            'id_location' => 7,
+            'id_contributor' => 1,
+            'id_province' => 2,
+            'cover_picture' => '/plants/sample/image-single.jpg',
+            'gallery_picture' => 'plants/sample/image-gallery.jpg',
+            'local_name' => 'Sample Local Name 3',
+            'indonesian_name' => 'Sample Indonesian Name 3',
+            'latin_name' => 'Sample <i>Latin</i> Name 3',
+
+            'taxonomists' => 'Sample Taxonomists 3',
+            'treatments' => 'Sample Treatments 3',
+            'traditional_usage' => 'Sample traditional ussage 3',
+            'known_phytochemical_consituents' => 'Known phytochemical consituents 3',
+
+            'status' => 'Publish',
+            'slug' => 'sample-local-name-3',
         ]);
     }
 }

@@ -43,20 +43,20 @@
             </div>
             <div class="col-xl-2 mt-4">
                   <p class="fw-bolder">OUR TEAM</p>
-                  <p> <a href="" class="text-decoration-none text-secondary">Developer Team</a> </p>
-                  <p> <a href="" class="text-decoration-none text-secondary mb-3">Taxonomy Team</a> </p>
-                  <p>  <a href="" class="text-decoration-none text-secondary mb-3">Ethnobotany Team</a> </p>
-                  <p> <a href="" class="text-decoration-none text-secondary mb-3">Phytochemistry Team</a> </p>
+                  <p> <a href="{{ url('/our-team/developer') }}" class="text-decoration-none text-secondary">Developer Team</a> </p>
+                  <p> <a href="{{ url('/our-team/taxonomy') }}" class="text-decoration-none text-secondary mb-3">Taxonomy Team</a> </p>
+                  <p>  <a href="{{ url('/our-team/ethnobotany') }}" class="text-decoration-none text-secondary mb-3">Ethnobotany Team</a> </p>
+                  <p> <a href="{{ url('/our-team/phytochemistry') }}" class="text-decoration-none text-secondary mb-3">Phytochemistry Team</a> </p>
             </div>
             <div class="col-xl-2 mt-4">
               <p class="fw-bolder">WHAT WE DO</p>
-              <p> <a href="" class="text-decoration-none text-secondary">Discover</a> </p>
-              <p> <a href="" class="text-decoration-none text-secondary mb-3">Research</a> </p>
+              <p> <a href="{{ url('/what-we-do/discover') }}" class="text-decoration-none text-secondary">Discover</a> </p>
+              <p> <a href="{{ url('/what-we-do/research') }}" class="text-decoration-none text-secondary mb-3">Research</a> </p>
             </div>
             <div class="col-xl-2 mt-4">
                   <p class="fw-bolder">PRIVACY & POLICY</p>
-                  <p> <a href="" class="text-decoration-none text-secondary">Privacy Policy</a> </p>
-                  <p> <a href="" class="text-decoration-none text-secondary mb-3">Terms & Conditions</a> </p>
+                  <p> <a href="{{ url('/privacy') }}" class="text-decoration-none text-secondary">Privacy Policy</a> </p>
+                  <p> <a href="{{ url('/terms') }}" class="text-decoration-none text-secondary mb-3">Terms & Conditions</a> </p>
                   <hr class="border border-black opacity-75">
                   <div id="google_translate_element"></div>
             </div>
@@ -66,7 +66,7 @@
                   © 2023 <a class="text-decoration-none text-secondary "  href="">Traditional Medicinal Plants in Papua™. All Rights Reserved.</a>
               </div>
               <div class="col-md-1">
-                  <a class="text-decoration-none text-secondary" href="{{route('login')}}"> <i class="fa-solid fa-sign-in"></i> Login</a>
+                  <a class="text-decoration-none text-secondary" href="{{route('login')}}" target="_blank"> <i class="fa-solid fa-sign-in"></i> Login</a>
               </div>
           </div>
         </div>

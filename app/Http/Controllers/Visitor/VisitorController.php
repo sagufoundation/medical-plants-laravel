@@ -26,6 +26,13 @@ class VisitorController extends Controller
         return view('visitor.pages.home', ['all' => $all]);
     }
 
+    public function search(Request $request) 
+    {
+        $search = $request->s;
+        $datas = DB::table('plants')->where('');
+                
+    }
+
     // public function ___thePlants()
     // {
 
@@ -69,14 +76,13 @@ class VisitorController extends Controller
             }]
         ])
         ->where('status', 'Publish')->latest()->paginate(8);
-        return view('visitor.pages.the-plants', compact('datas'));
+        return view('visitor.pages.the-plants.index', compact('datas'));
     }
 
     public function thePlantsDetail($id) {
         $data = Plant::where('slug', $id)->first();
 
-        return view('visitor.pages.detail-plant', compact('data'));
-        return view('visitor.pages.detail-plant');
+        return view('visitor.pages.the-plants.show', compact('data'));
     }
 
     public function overview()
@@ -86,7 +92,7 @@ class VisitorController extends Controller
 
     public function howToContribute()
     {
-        return view('visitor.pages.contributor');
+        return view('visitor.pages.how-to-contribute');
     }
 
     public function ourSponsors()

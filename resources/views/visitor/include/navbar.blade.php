@@ -21,13 +21,13 @@
                     <a class="nav-link fw-bold @if(Request::segment(1) == 'overview') active @endif" href="{{ route('visitor.overview') }}">Overview</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link fw-bold @if(Request::segment(1) == 'howToContribute') active @endif" href="{{ route('visitor.howToContribute') }}">How To Contribute</a>
+                    <a class="nav-link fw-bold @if(Request::segment(1) == 'how-to-contribute') active @endif" href="{{ route('visitor.howToContribute') }}">How To Contribute</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link fw-bold @if(Request::segment(1) == 'ourSponsors') active @endif" href="{{ route('visitor.ourSponsors') }}">Our Sponsors</a>
+                    <a class="nav-link fw-bold @if(Request::segment(1) == 'our-sponsors') active @endif" href="{{ route('visitor.ourSponsors') }}">Our Sponsors</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link fw-bold @if(Request::segment(1) == 'connectWithUs') active @endif" href="{{ route('visitor.connectWithUs') }}">Connetc With Us</a>
+                    <a class="nav-link fw-bold @if(Request::segment(1) == 'connect-with-us') active @endif" href="{{ route('visitor.connectWithUs') }}">Connetc With Us</a>
                   </li>
 
                 </div>

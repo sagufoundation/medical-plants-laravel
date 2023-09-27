@@ -52,20 +52,12 @@ class VisitorController extends Controller
         })
         ->where([
 
-            ['local_name', '!=', Null],
+            ['s', '!=', Null],
             [function ($query) {
                 if (($s = request()->s)) {
                     if (isset(request()->filter) && request()->filter == 'local_name') {
                         $query->orWhere('local_name', 'LIKE', '%' . $s . '%')->get();
-                    } elseif (isset(request()->filter) && request()->filter == 'indonesian_name') {
-                        $query->orWhere('indonesian_name', 'LIKE', '%' . $s . '%')->get();
-                    } elseif (isset(request()->filter) && request()->filter == 'latin_name') {
-                        $query->orWhere('latin_name', 'LIKE', '%' . $s . '%')->get();
-                    } elseif (isset(request()->filter) && request()->filter == 'taxonomists') {
-                        $query->orWhere('taxonomists', 'LIKE', '%' . $s . '%')->get();
-                    } elseif (isset(request()->filter) && request()->filter == 'province') {
-                        $query->orWhere('id_province', 'LIKE', '%' . $s . '%')->get();
-                    } else {
+                    }else {
                         $query->get();
                     }
                 }
@@ -89,7 +81,7 @@ class VisitorController extends Controller
 
     public function howToContribute()
     {
-        return view('visitor.pages.contributor');
+        return view('visitor.pages.how-to-contribute');
     }
 
     public function ourSponsors()
