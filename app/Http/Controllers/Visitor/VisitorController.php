@@ -97,7 +97,7 @@ class VisitorController extends Controller
                         ->get();
                 }
             }]
-        ])->latest('id')->paginate(5);
+        ])->latest('id')->paginate(10);
         return view('visitor.pages.the-plants.index', compact('datas'));
     }
 

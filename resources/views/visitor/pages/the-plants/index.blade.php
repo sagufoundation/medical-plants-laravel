@@ -70,7 +70,12 @@
               </p>
             </div>
             @endforelse
+
             <!-- col end -->
+
+            <div class="mb-5 text-center">
+              {{ $datas->links() }}
+            </div>
 
         </div>
     </div>

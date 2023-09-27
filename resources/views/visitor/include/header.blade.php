@@ -23,12 +23,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@700&display=swap" rel="stylesheet">
 
     <style>
-        .nav-item a:hover {
-          color: #198754
+        .nav-link:hover, .nav-link.active:hover {
+          color: #198754;
         }
 
-        .active{
-          color: #198754 !important
+        .nav-link .active {
+          color: #198754; 
+        }
+
+        .page-link.active {
+          background-color: #198754;
         }
 
         .font-satu{

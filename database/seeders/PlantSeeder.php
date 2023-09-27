@@ -15,6 +15,65 @@ class PlantSeeder extends Seeder
      */
     public function run()
     {
+        
+
+        $plant = Plant::create([
+            'id_location' => 7,
+            'id_contributor' => 1,
+            'id_province' => 2,
+            'cover_picture' => '/plants/sample/image-single.jpg',
+            'gallery_picture' => 'plants/sample/image-gallery.jpg',
+            'local_name' => 'Sample Local Name',
+            'indonesian_name' => 'Sample Indonesian Name',
+            'latin_name' => 'Sample <i>Latin</i> Name',
+
+            'taxonomists' => 'Sample Taxonomists',
+            'treatments' => 'Sample Treatments',
+            'traditional_usage' => 'Sample traditional ussage',
+            'known_phytochemical_consituents' => 'Known phytochemical consituents',
+
+            'status' => 'Publish',
+            'slug' => 'sample-local-name',
+        ]);
+
+        $plant = Plant::create([
+            'id_location' => 7,
+            'id_contributor' => 1,
+            'id_province' => 2,
+            'cover_picture' => '/plants/sample/image-single.jpg',
+            'gallery_picture' => 'plants/sample/image-gallery.jpg',
+            'local_name' => 'Sample Local Name 2',
+            'indonesian_name' => 'Sample Indonesian Name 2',
+            'latin_name' => 'Sample <i>Latin</i> Name 2',
+
+            'taxonomists' => 'Sample Taxonomists 2',
+            'treatments' => 'Sample Treatments 2',
+            'traditional_usage' => 'Sample traditional ussage 2',
+            'known_phytochemical_consituents' => 'Known phytochemical consituents 2',
+
+            'status' => 'Publish',
+            'slug' => 'sample-local-name-2',
+        ]);
+
+        $plant = Plant::create([
+            'id_location' => 7,
+            'id_contributor' => 1,
+            'id_province' => 2,
+            'cover_picture' => '/plants/sample/image-single.jpg',
+            'gallery_picture' => 'plants/sample/image-gallery.jpg',
+            'local_name' => 'Sample Local Name 3',
+            'indonesian_name' => 'Sample Indonesian Name 3',
+            'latin_name' => 'Sample <i>Latin</i> Name 3',
+
+            'taxonomists' => 'Sample Taxonomists 3',
+            'treatments' => 'Sample Treatments 3',
+            'traditional_usage' => 'Sample traditional ussage 3',
+            'known_phytochemical_consituents' => 'Known phytochemical consituents 3',
+
+            'status' => 'Publish',
+            'slug' => 'sample-local-name-3',
+        ]);
+        
         $plant = Plant::create([
             'id_location' => 3,
             'id_contributor' => 1,
@@ -72,63 +131,6 @@ class PlantSeeder extends Seeder
 
             'status' => 'Publish',
             'slug' => 'krataweri',
-        ]);
-
-        $plant = Plant::create([
-            'id_location' => 7,
-            'id_contributor' => 1,
-            'id_province' => 2,
-            'cover_picture' => '/plants/sample/image-single.jpg',
-            'gallery_picture' => 'plants/sample/image-gallery.jpg',
-            'local_name' => 'Sample Local Name',
-            'indonesian_name' => 'Sample Indonesian Name',
-            'latin_name' => 'Sample <i>Latin</i> Name',
-
-            'taxonomists' => 'Sample Taxonomists',
-            'treatments' => 'Sample Treatments',
-            'traditional_usage' => 'Sample traditional ussage',
-            'known_phytochemical_consituents' => 'Known phytochemical consituents',
-
-            'status' => 'Publish',
-            'slug' => 'sample-local-name',
-        ]);
-
-        $plant = Plant::create([
-            'id_location' => 7,
-            'id_contributor' => 1,
-            'id_province' => 2,
-            'cover_picture' => '/plants/sample/image-single.jpg',
-            'gallery_picture' => 'plants/sample/image-gallery.jpg',
-            'local_name' => 'Sample Local Name 2',
-            'indonesian_name' => 'Sample Indonesian Name 2',
-            'latin_name' => 'Sample <i>Latin</i> Name 2',
-
-            'taxonomists' => 'Sample Taxonomists 2',
-            'treatments' => 'Sample Treatments 2',
-            'traditional_usage' => 'Sample traditional ussage 2',
-            'known_phytochemical_consituents' => 'Known phytochemical consituents 2',
-
-            'status' => 'Publish',
-            'slug' => 'sample-local-name-2',
-        ]);
-
-        $plant = Plant::create([
-            'id_location' => 7,
-            'id_contributor' => 1,
-            'id_province' => 2,
-            'cover_picture' => '/plants/sample/image-single.jpg',
-            'gallery_picture' => 'plants/sample/image-gallery.jpg',
-            'local_name' => 'Sample Local Name 3',
-            'indonesian_name' => 'Sample Indonesian Name 3',
-            'latin_name' => 'Sample <i>Latin</i> Name 3',
-
-            'taxonomists' => 'Sample Taxonomists 3',
-            'treatments' => 'Sample Treatments 3',
-            'traditional_usage' => 'Sample traditional ussage 3',
-            'known_phytochemical_consituents' => 'Known phytochemical consituents 3',
-
-            'status' => 'Publish',
-            'slug' => 'sample-local-name-3',
         ]);
     }
 }

@@ -40,7 +40,8 @@ class AppServiceProvider extends ServiceProvider
         if(config('app.env') === 'production') { URL::forceScheme('https'); }
 
         // Pagination Configs
-        Paginator::useBootstrap();
+        // Paginator::useBootstrap();
+        Paginator::useBootstrap('simple-bootstrap-4');
 
         // Date Configs
         $today = Carbon::today()->toDateString();
