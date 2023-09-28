@@ -56,7 +56,7 @@
                         </div>
                         <div class="col-md-6">
                             @if (!$data->gallery_picture)
-                                <img src="https://medicinalplantspapua.org/storage/images/plants/plant-kurudu-inasi-koi.jpg" alt="Image" class="img-fluid thumbnail">
+                                <img src="{{ asset('plants/sample/image-gallery.jpg') }}" alt="Image" class="w-100">
                                 @else
                                 <img src="{{ asset($data->gallery_picture) }}" alt="Image" class="w-100">
                             @endif
