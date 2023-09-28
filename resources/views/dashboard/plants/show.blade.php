@@ -12,99 +12,99 @@
             <div class="card-body">
 
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-6">
+                        
+                        <div class="p-2 border-bottom">
+                            <b class="d-block mb-2">Plant name in local language</b>
+                            {!! $data->local_name ?? '' !!}
+                        </div>
+                        <!-- item group END -->
+                        
+                        <div class="p-2 border-bottom">
+                            <b class="d-block mb-2">Plant name in Bahasa Indonesia</b>
+                            {!! $data->indonesian_name ?? '' !!}
+                        </div>
+                        <!-- item group END -->
+                        
+                        <div class="p-2 border-bottom">
+                            <b class="d-block mb-2">Plant name in Latin</b>
+                            {!! $data->latin_name ?? '' !!}
+                        </div>
+                        <!-- item group END -->
+                        
+                        <div class="p-2 border-bottom">
+                            <b class="d-block mb-2">Taxonomists</b>
+                            {!! $data->taxonomists ?? '' !!}
+                        </div>
+                        <!-- item group END -->
+                        
+                        <div class="p-2 border-bottom">
+                            <b class="d-block mb-2">Treatments</b>
+                            {!! $data->treatments ?? '' !!}
+                        </div>
+                        <!-- item group END -->
+                        
+                        <div class="p-2 border-bottom">
+                            <b class="d-block mb-2">Traditional Usage</b>
+                            {!! $data->traditional_usage ?? '' !!}
+                        </div>
+                        <!-- item group END -->
+                        
+                        <div class="p-2 border-bottom">
+                            <b class="d-block mb-2">Known Phytochemical Consituents</b>
+                            {!! $data->known_phytochemical_consituents ?? '' !!}
+                        </div>
+                        <!-- item group END -->
 
-                        @if (empty($data->cover_picture))
-                        <img src="{{ asset('images/00.png') }}" alt="Image" class="border shadow w-100">
-                        @else
-                        <img src="{{ asset($data->cover_picture) }}" alt="Image" class="border shadow w-100">
-                        @endif
-                        <div class="mt-3">
+                    </div>
+                    <div class="col-lg-6">
+
+                        <div class="mb-3">
+                            <b class="d-block mb-2">Thumbnail</b>
+                            @if (empty($data->cover_picture))
+                            <img src="{{ asset('images/00.png') }}" alt="Image" class="border shadow w-50">
+                            @else
+                            <img src="{{ asset($data->cover_picture) }}" alt="Image" class="border shadow w-50">
+                            @endif
+                        </div>
+                        <!-- item group END -->
+                        
+                        <div class="mb-3">
+                            <b class="d-block mb-2">Gallery</b>
                             @if (empty($data->gallery_picture))
                             <img src="{{ asset('images/00.png') }}" alt="Image" class="border shadow w-100">
                             @else
-                            <img src="{{ asset($data->gallery_picture) }}" alt="Image" class="border shadow w-50">
+                            <img src="{{ asset($data->gallery_picture) }}" alt="Image" class="border shadow w-100">
                             @endif
                         </div>
+                        <!-- item group END -->
+
                     </div>
+                </div>
 
-                    <div class="col-lg-9">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="p-2 px-3 border-bottom">
-                                    <b class="d-block mb-2">Local Name </b>
-                                    {!! $data->local_name ?? '' !!}
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="p-2 px-3 border-bottom">
-                                    <b class="d-block mb-2">Indonesian Name </b>
-                                    {!! $data->indonesian_name ?? '' !!}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="p-2 px-3 border-bottom">
-                                    <b class="d-block mb-2">Latin Name </b>
-                                    {!! $data->latin_name ?? '' !!}
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="p-2 px-3 border-bottom">
-                                    <b class="d-block mb-2">Taxonomists </b>
-                                    {!! $data->taxonomists ?? '' !!}
-                                </div>
-                            </div>
-                        </div>
+                <div class="row mt-3">
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="p-2 px-3 border-bottom">
-                                    <b class="d-block mb-2">Treatments </b>
-                                    {!! $data->treatments ?? '' !!}
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="p-2 px-3 border-bottom">
-                                    <b class="d-block mb-2">Traditional Usage </b>
-                                    {!! $data->traditional_usage ?? '' !!}
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-12">
 
-                        <div class="p-2 px-3 border-bottom">
-                            <b class="d-block mb-2">Known Phytochemical Consituents </b>
-                            {!! $data->known_phytochemical_consituents ?? '' !!}
-                        </div>
+                        <div class="d-flex">
+                            <a href="{{ route(Request::segment(1).'.'.Request::segment(2)) }}" class="btn btn-sm btn-light rounded-0 mx-1">
+                                <i class="fa-solid fa-reply"></i>
+                            </a>
+                            <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
+                                <i class="fa-solid fa-edit"></i>
+                            </a>
 
-                        <div class="p-2 px-3 border-bottom">
-                            <b class="d-block mb-2">Status </b>
-                            {!! $data->status ?? '' !!}
-                        </div>
+                            <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.destroy', $data->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-light rounded-0 mx-1">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                            </form>
 
-                        <div class="p-2 px-3">
-
-                            <div class="d-flex">
-                                <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.show', $data->id) }}" class="btn btn-sm btn-dark rounded-0 mx-1" target="_blank">
-                                    <i class="fa-solid fa-eye"></i> Preview
-                                </a>
-                                <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
-                                    <i class="fa-solid fa-reply"></i>
-                                </a>
-                                <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
-                                    <i class="fa-solid fa-edit"></i>
-                                </a>
-
-                                <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.destroy', $data->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-light rounded-0 mx-1">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                                </form>
-                            </div>
-
+                            <a href="{{ url('the-plants/' . $data->slug . '/detail') }}" class="btn btn-sm btn-dark rounded-0 mx-1" target="_blank">
+                                <i class="fa-solid fa-eye"></i> Public View
+                            </a>
                         </div>
 
                     </div>

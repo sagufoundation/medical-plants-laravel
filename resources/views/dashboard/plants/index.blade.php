@@ -37,9 +37,9 @@
                                     <img src="{{ asset($data->cover_picture) }}" alt="Picture" style="width:100px" class="border shadow">
                                     @endif
                                 </td>
-                                <td>{{ $data->local_name ?? '' }}</td>
-                                <td> {{ $data->contributor->full_name ?? '' }} </td>
-                                <td> {{ $data->province->name ?? '' }} </td>
+                                <td>{!! $data->local_name ?? '' !!}</td>
+                                <td> {!! $data->contributor->full_name ?? '' !!} </td>
+                                <td> {!! $data->province->name ?? '' !!} </td>
 
 
                                 @if (Request::segment(3) == 'trash')

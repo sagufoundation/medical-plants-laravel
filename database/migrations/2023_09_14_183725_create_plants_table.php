@@ -24,13 +24,13 @@ return new class extends Migration
             $table->string('gallery_picture')->nullable();
 
             $table->string('local_name');
-            $table->string('indonesian_name');
-            $table->string('latin_name');
-            $table->string('taxonomists');
+            $table->string('indonesian_name')->nullable();
+            $table->string('latin_name')->nullable();
+            $table->string('taxonomists')->nullable();
 
-            $table->string('treatments');
-            $table->string('traditional_usage');
-            $table->string('known_phytochemical_consituents');
+            $table->string('treatments')->nullable();
+            $table->string('traditional_usage')->nullable();
+            $table->string('known_phytochemical_consituents')->nullable();
 
             $table->enum('status',['Publish','Draft'])->default('Draft')->nullable();
 

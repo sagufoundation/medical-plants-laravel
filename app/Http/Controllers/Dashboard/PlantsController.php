@@ -84,33 +84,33 @@ class PlantsController extends Controller
             $request->all(),
             [
                 'local_name' => 'required',
-                'indonesian_name' => 'required',
-                'latin_name' => 'required',
-                'taxonomists' => 'required',
-                'treatments' => 'required',
-                'traditional_usage' => 'required',
-                'known_phytochemical_consituents' => 'required',
-                'location' => 'required',
-                'contributor' => 'required',
-                'province' => 'required',
+                // 'indonesian_name' => 'required',
+                // 'latin_name' => 'required',
+                // 'taxonomists' => 'required',
+                // 'treatments' => 'required',
+                // 'traditional_usage' => 'required',
+                // 'known_phytochemical_consituents' => 'required',
+                // 'location' => 'required',
+                // 'contributor' => 'required',
+                // 'province' => 'required',
 
-                'gallery_picture' => 'image|mimes:png,jpeg,jpg|max:4096',
-                'cover_picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                // 'gallery_picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                // 'cover_picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
                 'local_name.required' => 'This is a reaquired field',
-                'indonesian_name.required' => 'This is a reaquired field',
-                'latin_name.required' => 'This is a reaquired field',
-                'taxonomists.required' => 'This is a reaquired field',
-                'treatments.required' => 'This is a reaquired field',
-                'traditional_usage.required' => 'This is a reaquired field',
-                'known_phytochemical_consituents.required' => 'This is a reaquired field',
-                'location.required' => 'This is a reaquired field',
-                'contributor.required' => 'This is a reaquired field',
-                'province.required' => 'This is a reaquired field',
+                // 'indonesian_name.required' => 'This is a reaquired field',
+                // 'latin_name.required' => 'This is a reaquired field',
+                // 'taxonomists.required' => 'This is a reaquired field',
+                // 'treatments.required' => 'This is a reaquired field',
+                // 'traditional_usage.required' => 'This is a reaquired field',
+                // 'known_phytochemical_consituents.required' => 'This is a reaquired field',
+                // 'location.required' => 'This is a reaquired field',
+                // 'contributor.required' => 'This is a reaquired field',
+                // 'province.required' => 'This is a reaquired field',
 
-                'gallery_picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
-                'cover_picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
+                // 'gallery_picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
+                // 'cover_picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
 
@@ -134,22 +134,27 @@ class PlantsController extends Controller
                 $data->status = $request->status;
 
                 if ($request->cover_picture) {
-                    $pictureName = $data->slug .'-'. time() .'.' . $request->cover_picture->extension();
+                    $pictureName = $data->slug .'-single-'. time() .'.' . $request->cover_picture->extension();
                     $path = public_path('seeds/plants');
+                    
                     if (!empty($data->cover_picture) && file_exists($path . '/' . $data->cover_picture)) :
                         unlink($path . '/' . $data->cover_picture);
                     endif;
+
                     $data->cover_picture = 'seeds/plants/' . $pictureName;
                     $request->cover_picture->move(public_path('seeds/plants'), $pictureName);
                 }
+
                 if ($request->gallery_picture) {
-                    $pictureName = $data->slug .'-'. time() .'.' . $request->gallery_picture->extension();
+                    $gallery_picture_name = $data->slug .'-gallery-'. time() .'.' . $request->gallery_picture->extension();
                     $path = public_path('seeds/plants');
+                    
                     if (!empty($data->gallery_picture) && file_exists($path . '/' . $data->gallery_picture)) :
                         unlink($path . '/' . $data->gallery_picture);
                     endif;
-                    $data->gallery_picture = 'seeds/plants/' . $pictureName;
-                    $request->gallery_picture->move(public_path('seeds/plants'), $pictureName);
+
+                    $data->gallery_picture = 'seeds/plants/' . $gallery_picture_name;
+                    $request->gallery_picture->move(public_path('seeds/plants'), $gallery_picture_name);
                 }
 
                 $data->save();
@@ -191,33 +196,33 @@ class PlantsController extends Controller
             $request->all(),
             [
                 'local_name' => 'required',
-                'indonesian_name' => 'required',
-                'latin_name' => 'required',
-                'taxonomists' => 'required',
-                'treatments' => 'required',
-                'traditional_usage' => 'required',
-                'known_phytochemical_consituents' => 'required',
-                'location' => 'required',
-                'contributor' => 'required',
-                'province' => 'required',
+                // 'indonesian_name' => 'required',
+                // 'latin_name' => 'required',
+                // 'taxonomists' => 'required',
+                // 'treatments' => 'required',
+                // 'traditional_usage' => 'required',
+                // 'known_phytochemical_consituents' => 'required',
+                // 'location' => 'required',
+                // 'contributor' => 'required',
+                // 'province' => 'required',
 
-                'gallery_picture' => 'image|mimes:png,jpeg,jpg|max:4096',
-                'cover_picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                // 'gallery_picture' => 'image|mimes:png,jpeg,jpg|max:4096',
+                // 'cover_picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
                 'local_name.required' => 'This is a reaquired field',
-                'indonesian_name.required' => 'This is a reaquired field',
-                'latin_name.required' => 'This is a reaquired field',
-                'taxonomists.required' => 'This is a reaquired field',
-                'treatments.required' => 'This is a reaquired field',
-                'traditional_usage.required' => 'This is a reaquired field',
-                'known_phytochemical_consituents.required' => 'This is a reaquired field',
-                'location.required' => 'This is a reaquired field',
-                'contributor.required' => 'This is a reaquired field',
-                'province.required' => 'This is a reaquired field',
+                // 'indonesian_name.required' => 'This is a reaquired field',
+                // 'latin_name.required' => 'This is a reaquired field',
+                // 'taxonomists.required' => 'This is a reaquired field',
+                // 'treatments.required' => 'This is a reaquired field',
+                // 'traditional_usage.required' => 'This is a reaquired field',
+                // 'known_phytochemical_consituents.required' => 'This is a reaquired field',
+                // 'location.required' => 'This is a reaquired field',
+                // 'contributor.required' => 'This is a reaquired field',
+                // 'province.required' => 'This is a reaquired field',
 
-                'gallery_picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
-                'cover_picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
+                // 'gallery_picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
+                // 'cover_picture.mimes' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
 
@@ -242,15 +247,28 @@ class PlantsController extends Controller
                 $data->status = $request->status;
 
                 if ($request->cover_picture) {
-                    $pictureName = $data->slug .'-'. time() .'.' . $request->cover_picture->extension();
+                    $pictureName = $data->slug .'-single-'. time() .'.' . $request->cover_picture->extension();
                     $path = public_path('seeds/plants');
+                    
                     if (!empty($data->cover_picture) && file_exists($path . '/' . $data->cover_picture)) :
                         unlink($path . '/' . $data->cover_picture);
                     endif;
+
                     $data->cover_picture = 'seeds/plants/' . $pictureName;
                     $request->cover_picture->move(public_path('seeds/plants'), $pictureName);
                 }
 
+                if ($request->gallery_picture) {
+                    $gallery_picture_name = $data->slug .'-gallery-'. time() .'.' . $request->gallery_picture->extension();
+                    $path = public_path('seeds/plants');
+                    
+                    if (!empty($data->gallery_picture) && file_exists($path . '/' . $data->gallery_picture)) :
+                        unlink($path . '/' . $data->gallery_picture);
+                    endif;
+
+                    $data->gallery_picture = 'seeds/plants/' . $gallery_picture_name;
+                    $request->gallery_picture->move(public_path('seeds/plants'), $gallery_picture_name);
+                }
                 $data->update();
 
                 Alert::toast('Updated! This data has been updated successfully.', 'success');
@@ -285,8 +303,8 @@ class PlantsController extends Controller
     public function delete($id)
     {
         $data = Plant::onlyTrashed()->findOrFail($id);
-        $cover_picture = public_path('seeds/plants/' . $data->cover_picture);
-        $gallery_picture = public_path('seeds/plants/' . $data->gallery_picture);
+        $cover_picture = public_path($data->cover_picture);
+        $gallery_picture = public_path($data->gallery_picture);
 
         if (file_exists($cover_picture)) {
             File::delete($cover_picture);
