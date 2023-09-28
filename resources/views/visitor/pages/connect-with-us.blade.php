@@ -18,7 +18,7 @@
     <div class="container mt-5 mb-5">
       <div class="row">
         <div class="col-lg-6">
-            <h2 class="fw-bolder font-satu">Send us message</h2>
+            <h2 class="fw-bolder font-satu text-success">Send us message</h2>
             
             <form action="">
 
