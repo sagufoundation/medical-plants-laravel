@@ -10,4 +10,8 @@ class Contributor extends Model
 {
     use HasFactory,SoftDeletes;
     public $guarded = [];
+
+    public function plant() {
+        return $this->hasMany(Plant::class);
+    }
 }

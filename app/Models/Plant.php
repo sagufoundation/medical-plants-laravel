@@ -12,7 +12,7 @@ class Plant extends Model
     public $guarded = [];
 
     public function contributor() {
-        return $this->belongsTo(Contributor::class,'id_contributor','id');
+        return $this->belongsTo(Contributor::class,'id_contributor');
     }
 
     public function province() {

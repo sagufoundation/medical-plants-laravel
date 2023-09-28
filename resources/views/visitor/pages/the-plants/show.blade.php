@@ -8,50 +8,76 @@
         <div class="container mt-5 mb-5">
         <div class="row">
             <div class="col-lg-6 mx-auto text-center">
-                <h1 class="fw-bolder font-satu text-success"> The Plants</h1>
-                <p>Discover the traditional medicinal plants recognized by Indigenous Papuans in Papua, Indonesia. Our comprehensive database includes information on their traditional uses, chemical properties, and potential health benefits.
-                </p>
+                <h1 class="fw-bolder font-satu text-success"> {!! $data->local_name ?? '' !!}</h1>
+                <p>{!! $data->latin_name !!}</p>
             </div>
         </div>
         </div>
     </section>
 
-    <section id="" class="mb-8">
+    <section id="" class="mb-5">
         <div class="container mt-5">
             <div class="row justify-items-center">
                 <div class="col-12">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="p-2 px-3 border-bottom">
-                                <h2><b>{!! $data->local_name ?? '' !!}</b> </h2>
-                                <p class="text-secondary">
-                                    {!! $data->latin_name !!}
-                                </p>
-                                <p>{{ $data->province->name ?? '' }}</p>
+                                <span class="d-block mb-2 text-secondary">Plant name in Local Language </span>
+                                <div class="fs-5">
+                                    {!! $data->local_name ?? '' !!}
+                                </div>
                             </div>
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Plant name in Bahasa Indonesia </span>
-                                {!! $data->indonesian_name ?? '' !!}
+                                <div class="fs-5">
+                                    {!! $data->indonesian_name ?? '' !!}
+                                </div>
                             </div>
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Plant name in local language </span>
-                                {!! $data->local_name ?? '' !!}
+                                <div class="fs-5">
+                                    {!! $data->local_name ?? '' !!}
+                                </div>
                             </div>
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Plant name in Latin </span>
-                                {!! $data->latin_name ?? '' !!}
+                                <div class="fs-5">
+                                    {!! $data->latin_name ?? '' !!}
+                                </div>
                             </div>
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Taxonomists </span>
-                                {!! $data->taxonomists ?? '' !!}
+                                <div class="fs-5">
+                                    {!! $data->taxonomists ?? '' !!}
+                                </div>
                             </div>
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Treatments </span>
-                                {!! $data->treatments ?? '' !!}
+                                <div class="fs-5">
+                                    {!! $data->treatments ?? '' !!}
+                                </div>
                             </div>
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Traditional usage </span>
-                                {!! $data->traditional_usage ?? '' !!}
+                                <div class="fs-5">
+                                    {!! $data->traditional_usage ?? '' !!}
+                                </div>
+                            </div>
+                            <div class="p-2 px-3 border-bottom">
+                                <span class="d-block mb-2 text-secondary">Contributor </span>
+                                <a href="{{ url('contributor') }}" class="text-decoration-none link-dark">
+                                    @if($data->contributor->photo) 
+                                    <img src="{{ $data->contributor->photo }}" alt="Contributor photo" class="rounded-circle" style="width: 60px;">
+                                    @else 
+                                    <img src="{{ asset('images/team/team-efault.png') }}" alt="Contributor photo" class="rounded-circle" style="width: 60px;">
+                                    @endif
+
+                                    <span class="fs-5">
+                                        
+                                            {!! $data->contributor->full_name ?? '' !!}
+                                        
+                                    </span>
+                                </a>
                             </div>
                         </div>
                         <div class="col-md-6">

@@ -97,13 +97,12 @@ class VisitorController extends Controller
                         ->get();
                 }
             }]
-        ])->latest('id')->paginate(10);
+        ])->where('status', 'Publish')->latest('id')->paginate(10);
         return view('visitor.pages.the-plants.index', compact('datas'));
     }
 
     public function thePlantsDetail($id) {
         $data = Plant::where('slug', $id)->first();
-
         return view('visitor.pages.the-plants.show', compact('data'));
     }
 
@@ -125,6 +124,16 @@ class VisitorController extends Controller
     public function connectWithUs()
     {
         return view('visitor.pages.connect-with-us');
+    }
+
+    public function privacy()
+    {
+        return view('visitor.pages.privacy');
+    }
+
+    public function terms()
+    {
+        return view('visitor.pages.terms');
     }
 
     public function login()

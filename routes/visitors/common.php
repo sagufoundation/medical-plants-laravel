@@ -23,7 +23,7 @@ Route::controller(VisitorController::class)->group(function(){
     // MAIN PAGE
     Route::get('/home','index')->name('visitor.home');
 
-    // STATIC PAGES
+    // PLANTS PAGES
     Route::get('/the-plants','thePlants')->name('visitor.thePlants');
     Route::get('/the-plants/{slug}/detail','thePlantsDetail')->name('visitor.thePlants.detail');
     // Route::get('/the-plants-simulation','thePlantsSimulation')->name('visitor.the-plants-simulation');
@@ -37,6 +37,9 @@ Route::controller(VisitorController::class)->group(function(){
     Route::get('/how-to-contribute','howToContribute')->name('visitor.howToContribute');
     Route::get('/our-sponsors','ourSponsors')->name('visitor.ourSponsors');
     Route::get('/connect-with-us','connectWithUs')->name('visitor.connectWithUs');
+    
+    Route::get('/privacy','privacy')->name('visitor.privacy');
+    Route::get('/terms','terms')->name('visitor.terms');
 
     // UNTUK DEVELOP HALAMAN BOOSTRAP
     Route::get('/view','view')->name('view');

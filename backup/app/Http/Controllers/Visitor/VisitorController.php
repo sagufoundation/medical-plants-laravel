@@ -94,6 +94,16 @@ class VisitorController extends Controller
         return view('visitor.pages.connect-with-us');
     }
 
+    public function privacy()
+    {
+        return view('visitor.pages.privacy');
+    }
+
+    public function terms()
+    {
+        return view('visitor.pages.terms');
+    }
+
     public function login()
     {
         return view('visitor.pages.login');
