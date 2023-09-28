@@ -8,7 +8,7 @@
     <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-lg-6 mx-auto text-center">
-            <h1 class="fw-bolder font-satu">Taxonomy Team</h1>
+            <h1 class="fw-bolder font-satu text-success">Taxonomy Team</h1>
             <p>The taxonomy team is responsible for the classification and naming of the traditional medicinal plants in the database. They use their expertise to identify each plant species and provide accurate scientific names. </p>
         </div>
     </div>

@@ -42,20 +42,20 @@
             </div>
             <div class="col-xl-2 mt-4">
                   <p class="fw-bolder text-success">OUR TEAM</p>
-                  <p> <a href="{{ url('/our-team/developer') }}" class="text-decoration-none text-secondary">Developer Team</a> </p>
-                  <p> <a href="{{ url('/our-team/taxonomy') }}" class="text-decoration-none text-secondary mb-3">Taxonomy Team</a> </p>
-                  <p>  <a href="{{ url('/our-team/ethnobotany') }}" class="text-decoration-none text-secondary mb-3">Ethnobotany Team</a> </p>
-                  <p> <a href="{{ url('/our-team/phytochemistry') }}" class="text-decoration-none text-secondary mb-3">Phytochemistry Team</a> </p>
+                  <p> <a href="{{ url('/our-team/developer') }}" class="text-decoration-none mb-3 @if(Request::segment(2) == 'developer') link-success fw-bold @else text-secondary @endif">Developer Team</a> </p>
+                  <p> <a href="{{ url('/our-team/taxonomy') }}" class="text-decoration-none mb-3 @if(Request::segment(2) == 'taxonomy') link-success fw-bold @else text-secondary @endif">Taxonomy Team</a> </p>
+                  <p>  <a href="{{ url('/our-team/ethnobotany') }}" class="text-decoration-none mb-3 @if(Request::segment(2) == 'ethnobotany') link-success fw-bold @else text-secondary @endif">Ethnobotany Team</a> </p>
+                  <p> <a href="{{ url('/our-team/phytochemistry') }}" class="text-decoration-none mb-3 @if(Request::segment(2) == 'phytochemistry') link-success fw-bold @else text-secondary @endif">Phytochemistry Team</a> </p>
             </div>
             <div class="col-xl-2 mt-4">
               <p class="fw-bolder text-success">WHAT WE DO</p>
-              <p> <a href="{{ url('/what-we-do/discover') }}" class="text-decoration-none text-secondary">Discover</a> </p>
-              <p> <a href="{{ url('/what-we-do/research') }}" class="text-decoration-none text-secondary mb-3">Research</a> </p>
+              <p> <a href="{{ url('/what-we-do/discover') }}" class="text-decoration-none mb-3 @if(Request::segment(2) == 'discover') link-success fw-bold @else text-secondary @endif">Discover</a> </p>
+              <p> <a href="{{ url('/what-we-do/research') }}" class="text-decoration-none mb-3 @if(Request::segment(2) == 'research') link-success fw-bold @else text-secondary @endif">Research</a> </p>
             </div>
             <div class="col-xl-2 mt-4">
                   <p class="fw-bolder text-success">PRIVACY & POLICY</p>
-                  <p> <a href="{{ url('/privacy') }}" class="text-decoration-none text-secondary">Privacy Policy</a> </p>
-                  <p> <a href="{{ url('/terms') }}" class="text-decoration-none text-secondary mb-3">Terms & Conditions</a> </p>
+                  <p> <a href="{{ url('/privacy') }}" class="text-decoration-none text-secondary mb-3 @if(Request::segment(2) == 'privacy') link-success fw-bold @else text-secondary @endif">Privacy Policy</a> </p>
+                  <p> <a href="{{ url('/terms') }}" class="text-decoration-none text-secondary mb-3 @if(Request::segment(2) == 'terms') link-success fw-bold @else text-secondary @endif">Terms & Conditions</a> </p>
                   <hr class="border border-black opacity-75">
                   <div id="google_translate_element"></div>
             </div>

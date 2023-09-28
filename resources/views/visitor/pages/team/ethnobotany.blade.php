@@ -8,7 +8,7 @@
     <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-lg-6 mx-auto text-center">
-            <h1 class="fw-bolder font-satu">Ethobotany Team</h1>
+            <h1 class="fw-bolder font-satu text-success">Ethobotany Team</h1>
             <p>The ethnobotany team is responsible for collecting and analyzing information on the traditional uses of medicinal plants by the Indigenous Papuan communities. They work closely with local community members to document the cultural significance of each plant and its traditional use. </p>
         </div>
     </div>

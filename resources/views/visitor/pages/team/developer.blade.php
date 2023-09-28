@@ -8,7 +8,7 @@
     <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-lg-6 mx-auto text-center">
-            <h1 class="fw-bolder font-satu">Developer Team</h1>
+            <h1 class="fw-bolder font-satu text-success">Developer Team</h1>
             <p>This team is responsible for designing, building, and maintaining the technical infrastructure of the database. They ensure that the website is functional, user-friendly, and secure for both contributors and users. </p>
         </div>
     </div>
