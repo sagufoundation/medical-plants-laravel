@@ -37,13 +37,10 @@
                       <th class=" text-center" scope="col">Local Name</th>
                       <th class=" text-center" scope="col">Contributor</th>
                       <th class=" text-center" scope="col">Option</th>
-
                     </tr>
                   </thead>
                   <tbody>
-                    @php
-                        $i = 0
-                    @endphp
+                    @php $i = 0 @endphp
                     @foreach ($all as $data )
                     <tr>
                       <th class="text-center" scope="row">{{++$i}}</th>

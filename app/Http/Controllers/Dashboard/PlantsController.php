@@ -128,9 +128,10 @@ class PlantsController extends Controller
                 $data->traditional_usage = $request->traditional_usage;
                 $data->known_phytochemical_consituents = $request->known_phytochemical_consituents;
 
-                $data->id_location = $request->location;
-                $data->id_contributor = $request->contributor;
-                $data->id_province = $request->province;
+                $data->id_location = $request->id_contributor;
+                $data->id_contributor = $request->id_contributor;
+                $data->id_province = $request->id_province;
+
                 $data->status = $request->status;
 
                 if ($request->cover_picture) {
@@ -241,9 +242,10 @@ class PlantsController extends Controller
                 $data->traditional_usage = $request->traditional_usage;
                 $data->known_phytochemical_consituents = $request->known_phytochemical_consituents;
 
-                $data->id_location = $request->location;
-                $data->id_contributor = $request->contributor;
-                $data->id_province = $request->province;
+                $data->id_location = $request->id_location;
+                $data->id_contributor = $request->id_contributor;
+                $data->id_province = $request->id_province;
+
                 $data->status = $request->status;
 
                 if ($request->cover_picture) {

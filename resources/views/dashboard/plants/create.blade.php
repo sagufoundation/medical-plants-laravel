@@ -153,8 +153,8 @@
                         <!-- input item END -->
 
                         <div class="mb-3">
-                            <label for="contributor">Contributor {{sizeof($countributors)<1?'(Data contributor not yet available)':''}}</label>
-                            <select name="contributor" class="form-control" id="contributor">
+                            <label for="id_contributor">Contributor {{sizeof($countributors)<1?'(Data contributor not yet available)':''}}</label>
+                            <select name="id_contributor" class="form-control" id="id_contributor">
                                 <option value="" hidden>Select</option>
                                 @foreach ($countributors as $countributor )
                                     <option value="{{ $countributor->id }}">{{ $countributor->full_name }}</option>
@@ -169,8 +169,8 @@
                         <!-- input item END -->
 
                         <div class="mb-3">
-                            <label for="location">Location {{sizeof($locations)<1?'(Data location not yet available)':''}} </label>
-                            <select name="location" class="form-control" id="location">
+                            <label for="id_location">Location {{sizeof($locations)<1?'(Data location not yet available)':''}} </label>
+                            <select name="id_location" class="form-control" id="id_location">
                                 <option value="" hidden>Select</option>
                                 @foreach ($locations as $location )
                                     <option value="{{ $location->id }}">{{ $location->tribes }}</option>
@@ -185,8 +185,8 @@
                         <!-- input item END -->
 
                         <div class="mb-3">
-                            <label for="province">Province {{sizeof($provinces)<1?'(Data provinces not yet available)':''}}</label>
-                            <select name="province" class="form-control" id="province">
+                            <label for="id_province">Province {{sizeof($provinces)<1?'(Data provinces not yet available)':''}}</label>
+                            <select name="id_province" class="form-control" id="id_province">
                                 <option value="" hidden>Select</option>
                                 @foreach ($provinces as $province )
                                     <option value="{{ $province->id }}">{{ $province->name }}</option>

@@ -41,7 +41,7 @@
                                     <a href="{{ url(Request::segment(1).'/plants') }}">
                                         <i class="fa-solid fa-tags"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ $plant_total ?? '' }}
+                                            {{ $plants_total ?? '' }}
                                         </span>
                                         <span> Plants</span>
                                     </a>
@@ -86,7 +86,7 @@
                                     <a href="{{ url(Request::segment(1).'/contributors') }}">
                                         <i class="fa-solid fa-users"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ $contributor_total ?? '' }}
+                                            {{ $contributors_total ?? '' }}
                                         </span>
                                         <span> Contributors</span>
                                     </a>

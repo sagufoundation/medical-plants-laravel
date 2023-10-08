@@ -78,6 +78,12 @@
                             @endif
                         </div>
                         <!-- item group END -->
+                        
+                        <div class="p-2 border-bottom">
+                            <b class="d-block mb-2">Contributor</b>
+                            {!! $data->contributor->full_name ?? '' !!}
+                        </div>
+                        <!-- item group END -->
 
                     </div>
                 </div>

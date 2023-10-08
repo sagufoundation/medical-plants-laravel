@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'GOTRAV Papua Travel'),
+    'name' => env('APP_NAME', 'Database Medicinal Plants in Papua'),
 
     /*
     |--------------------------------------------------------------------------

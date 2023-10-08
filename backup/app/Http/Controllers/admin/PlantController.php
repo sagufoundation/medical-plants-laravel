@@ -17,9 +17,7 @@ use Illuminate\Support\Facades\File;
 
 class PlantController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // INDEX
     public function index()
     {
         $judul = 'Publish';
@@ -28,31 +26,7 @@ class PlantController extends Controller
         return view('admin.pages.plant.index', compact('datas', 'judul'));
     }
 
-
-    // public function index()
-    // {
-    //     $judul = 'Publish';
-    //     $all = DB::table('plants')
-    //         ->selectRaw('plants.id AS id')
-    //         ->selectRaw('plants.cover_picture')
-    //         ->selectRaw('plants.local_name')
-    //         ->selectRaw('plants.taxonomists')
-    //         ->selectRaw('plants.treatments')
-    //         ->selectRaw('locations.tribes')
-    //         ->selectRaw('contributors.full_name')
-    //         ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-    //         ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-    //         ->where('plants.status', '=', $judul)
-    //         ->orderBy('plants.id', 'desc')
-    //         ->get();
-
-    //     // dd($all);
-    //     return view('admin.pages.plant.index', [
-    //         'all' => $all,
-    //         'judul' => $judul,
-    //     ]);
-    // }
-
+    // PUBLISH
     public function publish()
     {
         $judul = 'Publish';
@@ -61,6 +35,7 @@ class PlantController extends Controller
         return view('admin.pages.plant.index', compact('datas', 'judul'));
     }
 
+    // REVIEW
     public function review()
     {
         $judul = 'Review';
@@ -84,6 +59,7 @@ class PlantController extends Controller
         ]);
     }
 
+    // DRAFT
     public function draft()
     {
         $judul = 'Draft';
@@ -107,11 +83,7 @@ class PlantController extends Controller
         ]);
     }
 
-
-
-    /**
-     * Show the form for creating a new resource.
-     */
+    // CREATE
     public function create()
     {
         $location = DB::table('locations')
@@ -130,11 +102,10 @@ class PlantController extends Controller
         );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // STORE
     public function store(Request $request)
     {
+
         $request->validate([
             'id_location'                    => 'required',
             'id_contributor'                 => 'required',
@@ -168,9 +139,7 @@ class PlantController extends Controller
         return redirect()->route('admin.plant');
     }
 
-    /**
-     * Display the specified resource.
-     */
+    // SHOW
     public function show($id)
     {
         $data = Plant::first();
@@ -178,32 +147,7 @@ class PlantController extends Controller
         return view('admin.pages.plant.detail', compact('data'));
     }
 
-
-
-    // public function show($id)
-    // {
-    //     $data = DB::table('plants')
-    //         ->selectRaw('plants.id AS id')
-    //         ->selectRaw('plants.cover_picture')
-    //         ->selectRaw('plants.status')
-    //         ->selectRaw('plants.gallery_picture')
-    //         ->selectRaw('plants.local_name')
-    //         ->selectRaw('plants.taxonomists')
-    //         ->selectRaw('plants.treatments')
-    //         ->selectRaw('locations.tribes')
-    //         ->selectRaw('contributors.full_name')
-    //         ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-    //         ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-    //         ->where('plants.id', '=', $id)
-    //         ->orderBy('plants.id', 'desc')
-    //         ->get()->first();
-
-    //     return view('admin.pages.plant.detail', ['data' => $data]);
-    // }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
+    // EDIT
     public function edit($id)
     {
         $data = DB::table('plants')
@@ -220,10 +164,8 @@ class PlantController extends Controller
 
         return view('admin.pages.plant.edit', ['data' => $data, 'locations' => $location, 'contributors' => $contributor]);
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
+    
+    // UPDATE
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -245,6 +187,7 @@ class PlantController extends Controller
             'treatments' => $request->treatments,
             'status' => $request->status,
         );
+
         $tahun = date("Y");
         $bulan = date("M");
 
@@ -261,10 +204,8 @@ class PlantController extends Controller
         alert()->success('Done', 'Success !!');
         return redirect()->route('admin.plant');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
+    
+    // DESTROY
     public function destroy($id)
     {
         $datalama = Plant::where('id', $id)->first();
@@ -279,4 +220,5 @@ class PlantController extends Controller
         }
         return redirect()->back();
     }
+    
 }

@@ -97,11 +97,11 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="id_contributor" class="form-label">Location</label>
+                        <label for="id_contributor" class="form-label">Contributor</label>
                         <select class="form-select" name="id_contributor" id="id_contributor">
                             <option selected>Select one</option>
-                            @foreach ($contributors as $c)
-                                <option value="{{$c->id}}"> {{$c->full_name}} </option>
+                            @foreach ($contributors as $contributor)
+                                <option value="{{$contributor->id}}"> {{$contributor->full_name}} </option>
                             @endforeach
                         </select>
                         @if($errors->has('id_contributor'))

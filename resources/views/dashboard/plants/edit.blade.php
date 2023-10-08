@@ -165,25 +165,26 @@
 
                         <div class="mb-3">
                             <label for="id_contributor">Contributor </label>
-                            <select name="contributor" class="form-control" id="contributor">
+                            <select name="id_contributor" class="form-control" id="id_contributor">
+                                <option hidden></option>
                                 @foreach ($countributors as $countributor )
-                                    <option value="{{ $data->id_contributor }}"
-                                        @if($data->id_contributor == $countributor->id)selected="selected"@endif >
-                                        {{ $countributor->full_name }}
-                                   </option>
+                                <option value="{{ $countributor->id }}" @if($data->id_contributor == $countributor->id) selected="selected" @endif >
+                                    {{ $countributor->full_name }}
+                                </option>
                                 @endforeach
                             </select>
-                            @if ($errors->has('contributor'))
+                            @if ($errors->has('id_contributor'))
                             <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('contributor') }}</small>
+                                    <small>{{ $errors->first('id_contributor') }}</small>
                                 </span>
                             @endif
                         </div>
                         <!-- input item END -->
 
                         <div class="mb-3">
-                            <label for="location">Location </label>
-                            <select name="location" class="form-control" id="location">
+                            <label for="id_location">Location </label>
+                            <select name="id_location" class="form-control" id="id_location">
+                                <option hidden></option>
                                 @foreach ($locations as $location )
                                     <option value="{{ $data->id_location }}"
                                         @if($data->id_location == $location->id)selected="selected"@endif >
@@ -191,28 +192,28 @@
                                    </option>
                                 @endforeach
                             </select>
-                            @if ($errors->has('location'))
+                            @if ($errors->has('id_location'))
                             <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('location') }}</small>
+                                    <small>{{ $errors->first('id_location') }}</small>
                                 </span>
                             @endif
                         </div>
                         <!-- input item END -->
                         
                         <div class="mb-3">
-                            <label for="province">Province </label>
-                            <select name="province" class="form-control" id="province">
+                            <label for="id_province">Province </label>
+                            <select name="id_province" class="form-control" id="id_province">
+                                <option hidden></option>
                                 @foreach ($provinces as $province )
-
                                     <option value="{{ $data->id_province }}"
                                         @if($data->id_province == $province->id)selected="selected"@endif >
                                         {{ $province->name }}
                                    </option>
                                 @endforeach
                             </select>
-                            @if ($errors->has('province'))
+                            @if ($errors->has('id_province'))
                             <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('province') }}</small>
+                                    <small>{{ $errors->first('id_province') }}</small>
                                 </span>
                             @endif
                         </div>

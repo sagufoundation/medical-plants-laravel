@@ -19,20 +19,20 @@
             @if(Request::segment(3) == '' || Request::segment(3) == 'publish') class="btn btn-sm btn-dark rounded-0"
             @else class="btn btn-sm btn-outline-dark rounded-0"
             @endif>
-            <i class="fa-solid fa-check mr-1"></i> Publish
+            <i class="fa-solid fa-check mr-1"></i> Publish @include('dashboard.layout.includes.counters.publish')
         </a>
         <a href="{{ url(Request::segment(1) . '/' . Request::segment(2) .'/draft') }}"
             @if(Request::segment(3) == 'draft') class="btn btn-sm btn-dark rounded-0"
             @else class="btn btn-sm btn-outline-dark rounded-0"
             @endif>
-            <i class="fa-solid fa-pause mr-1"></i> Draft
+            <i class="fa-solid fa-pause mr-1"></i> Draft @include('dashboard.layout.includes.counters.draft')
         </a>
 
         <a href="{{ url(Request::segment(1) . '/' . Request::segment(2) .'/trash') }}"
             @if(Request::segment(3) == 'trash') class="btn btn-sm btn-dark rounded-0"
             @else class="btn btn-sm btn-outline-dark rounded-0"
             @endif>
-            <i class="fa-solid fa-trash mr-1"></i> Trash
+            <i class="fa-solid fa-trash mr-1"></i> Trash @include('dashboard.layout.includes.counters.trash')
         </a>
 
     </div>
