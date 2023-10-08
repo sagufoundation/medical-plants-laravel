@@ -21,10 +21,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Paginator::defaultView('pagination::default');
+        try {
+            // Your super fun database stuff
+            view()->share([
+                'pengaturan' => Pengaturan::first(),
+            ]);
 
-        view()->share([
-            'pengaturan'                        => Pengaturan::first(),
-        ]);
+        }  catch (\Exception $e) {
+            // do nothing
+        }
     }
 }
