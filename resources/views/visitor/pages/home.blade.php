@@ -13,5 +13,8 @@
     <div class="pb-5">
         @include('visitor.include.sections.search')
     </div>
+
+    @include('visitor.include.sections.google-map')
+
 @stop
 

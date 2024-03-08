@@ -52,7 +52,7 @@
 
 
                     infowincontent.textContent  = string;
-                    var url = `https://medicinalplantspapua.org/v2/${item.icon_img}`
+                    var url = `https://medicinalplantspapua.org/${item.icon_img}`
 
                     //marker option
                     var marker = new google.maps.Marker({
