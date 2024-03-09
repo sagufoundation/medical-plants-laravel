@@ -1,0 +1,89 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use App\Models\Regency;
+
+class RegencySeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {// item
+        Regency::create([
+            'id' => 1,
+            'name' => 'Kabupaten Keerom',
+            'slug' => 'kabupaten-keerom',
+            'coordinates' => '-3.343,140.663',
+            'description' => 'Map marker Kabupaten Keerom',
+            'image' => 'logo-keerom.png',
+        ]);
+
+        // item
+        Regency::create([
+            'id' => 2,
+            'name' => 'Kabupaten Jayapura',
+            'slug' => 'kabupaten-jayapura',
+            'coordinates' => '-3.053,139.960',
+            'description' => 'Map marker Kabupaten Jayapura',
+            'image' => 'logo-kabupaten-jayapura.png',
+        ]);
+
+        // item
+        Regency::create([
+            'id' => 3,
+            'name' => 'Kota Jayapura',
+            'slug' => 'kota-jayapura',
+            'coordinates' => '-2.5535,140.6607',
+            'description' => 'Map marker Kota Jayapura',
+            'image' => 'logo-kota-jayapura.png',
+        ]);
+
+        // item
+        Regency::create([
+            'id' => 4,
+            'name' => 'Kabupaten Sarmi',
+            'slug' => 'kabupaten-sarmi',
+            'coordinates' => '-2.575,139.103',
+            'description' => 'Map marker Kabupaten Sarmi',
+            'image' => 'logo-kabupaten-sarmi.png',
+        ]);
+
+        // item
+        Regency::create([
+            
+            'id' => 5,
+            'name' => 'Kabupaten Mamberamo Raya',
+            'slug' => 'kabupaten-mamberamo-raya',
+            'coordinates' => '-2.433,137.829',
+            'description' => 'Map marker Kabupaten Mamberamo Raya',
+            'image' => 'logo-kabupaten-mamberamo-raya.png',
+        ]);
+
+        // item
+        Regency::create([
+            'id' => 6,
+            'name' => 'Kabupaten Kepulauan Yapen',
+            'slug' => 'kabupaten-kepulauan-yapen',
+            'coordinates' => '-1.779,136.357',
+            'description' => 'Map marker Kabupaten Kepulauan Yapen',
+            'image' => 'logo-kabupaten-kepulauan-yapen.png',
+        ]);
+
+        // item
+        Regency::create([
+            
+            'id' => 7,
+            'name' => 'Kabupaten Biak Numfor',
+            'slug' => 'kabupaten-biak-numfor',
+            'coordinates' => '-1.027,136.044',
+            'description' => 'Map marker Kabupaten Biak Numfor',
+            'image' => 'logo-kabupaten-biak-numfor.png',
+        ]);
+    }
+}

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Visitor;
 
 use App\Models\Plant;
+use App\Models\Regency;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -23,7 +24,14 @@ class VisitorController extends Controller
             ->where('plants.status', '=', $status)
             ->orderBy('plants.id', 'desc')
             ->get();
-        return view('visitor.pages.home', ['all' => $all]);
+        // $regencies = Regency::all();
+        $regencies = Regency::withCount('plant')->get();
+        return view('visitor.pages.home', 
+            [
+                'all' => $all,
+                'regencies' => $regencies,
+            ]
+        );
     }
 
     public function search(Request $request) 
@@ -99,6 +107,29 @@ class VisitorController extends Controller
             }]
         ])->where('status', 'Publish')->latest('id')->paginate(10);
         return view('visitor.pages.the-plants.index', compact('datas'));
+    }
+
+    public function plantsByRegency(Request $request, $regency)
+    {
+        
+        $status = 'Publish';
+        $datas = Plant::rightJoin('locations', 'plants.id_location', '=', 'locations.id')
+            ->rightJoin('regencies', 'plants.id_regency', '=', 'regencies.id')
+            // ->rightJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+            ->where('plants.status', '=', $status)
+            ->where('regencies.slug', '=', $regency)
+            ->orderBy('plants.id', 'desc')
+            ->paginate();
+        // $regencies = Regency::all();
+        // $regencies = Regency::withCount('plant')->get();
+        return view('visitor.pages.the-plants.index', 
+            [
+                'datas' => $datas,
+                // 'regencies' => $regencies,
+            ]
+        );
+
+        // return view('visitor.pages.the-plants.index', compact('datas'));
     }
 
     public function thePlantsDetail($id) {

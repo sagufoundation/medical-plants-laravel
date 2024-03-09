@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             LocationSeeder::class,
             PlantSeeder::class,
             ProvincesSeeder::class,
+            RegencySeeder::class,
         ]);
     }
 }

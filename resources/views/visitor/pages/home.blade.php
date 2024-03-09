@@ -14,7 +14,7 @@
         @include('visitor.include.sections.search')
     </div>
 
-    @include('visitor.include.sections.google-map')
+    @include('visitor.include.sections.leafletjs-map')
 
 @stop
 

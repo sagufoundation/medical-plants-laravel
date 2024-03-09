@@ -19,10 +19,11 @@ class PlantSeeder extends Seeder
 
         $plant = Plant::create([
             'id_location' => 7,
+            'id_regency' => 1,
             'id_contributor' => 1,
             'id_province' => 2,
-            'cover_picture' => '/plants/sample/image-single.jpg',
-            'gallery_picture' => 'plants/sample/image-gallery.jpg',
+            'cover_picture' => 'image-single.jpg',
+            'gallery_picture' => 'image-gallery.jpg',
             'local_name' => 'Sample Local Name',
             'indonesian_name' => 'Sample Indonesian Name',
             'latin_name' => 'Sample <i>Latin</i> Name',
@@ -38,10 +39,11 @@ class PlantSeeder extends Seeder
 
         $plant = Plant::create([
             'id_location' => 7,
+            'id_regency' => 2,
             'id_contributor' => 1,
             'id_province' => 2,
-            'cover_picture' => '/plants/sample/image-single.jpg',
-            'gallery_picture' => 'plants/sample/image-gallery.jpg',
+            'cover_picture' => 'image-single.jpg',
+            'gallery_picture' => 'image-gallery.jpg',
             'local_name' => 'Sample Local Name 2',
             'indonesian_name' => 'Sample Indonesian Name 2',
             'latin_name' => 'Sample <i>Latin</i> Name 2',
@@ -57,10 +59,11 @@ class PlantSeeder extends Seeder
 
         $plant = Plant::create([
             'id_location' => 7,
+            'id_regency' => 3,
             'id_contributor' => 1,
             'id_province' => 2,
-            'cover_picture' => '/plants/sample/image-single.jpg',
-            'gallery_picture' => 'plants/sample/image-gallery.jpg',
+            'cover_picture' => 'image-single.jpg',
+            'gallery_picture' => 'image-gallery.jpg',
             'local_name' => 'Sample Local Name 3',
             'indonesian_name' => 'Sample Indonesian Name 3',
             'latin_name' => 'Sample <i>Latin</i> Name 3',
@@ -76,10 +79,11 @@ class PlantSeeder extends Seeder
         
         $plant = Plant::create([
             'id_location' => 3,
+            'id_regency' => 6,
             'id_contributor' => 1,
             'id_province' => 1,
-            'cover_picture' => '/plants/anamyaum-single.jpg',
-            'gallery_picture' => '/plants/anamyaum-gallery.jpg',
+            'cover_picture' => 'anamyaum-single.jpg',
+            'gallery_picture' => 'anamyaum-gallery.jpg',
             'local_name' => 'Anamyaum',
             'indonesian_name' => '-',
             'latin_name' => '<i>Alstonia scholaris</i> (L.) R.Br.',
@@ -97,10 +101,11 @@ class PlantSeeder extends Seeder
 
         $plant = Plant::create([
             'id_location' => 3,
+            'id_regency' => 6,
             'id_contributor' => 1,
             'id_province' => 1,
-            'cover_picture' => '/plants/inasi-koi-single.jpg',
-            'gallery_picture' => '/plants/inasi-koi-gallery.jpg',
+            'cover_picture' => 'inasi-koi-single.jpg',
+            'gallery_picture' => 'inasi-koi-gallery.jpg',
             'local_name' => 'Inasi Koi',
             'indonesian_name' => '-',
             'latin_name' => '<i>Scaevola Taccada</i> (Gaertn.) Roxb.',
@@ -116,10 +121,11 @@ class PlantSeeder extends Seeder
 
         $plant = Plant::create([
             'id_location' => 3,
+            'id_regency' => 6,
             'id_contributor' => 1,
             'id_province' => 1,
-            'cover_picture' => '/plants/krataweri-single.jpg',
-            'gallery_picture' => '/plants/krataweri-gallery.jpg',
+            'cover_picture' => 'krataweri-single.jpg',
+            'gallery_picture' => 'krataweri-gallery.jpg',
             'local_name' => 'Krataweri',
             'indonesian_name' => '-',
             'latin_name' => '<i>Artocarpus vriesianus</i> Miq.',

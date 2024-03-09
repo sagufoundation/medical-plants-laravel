@@ -18,4 +18,8 @@ class Plant extends Model
     public function province() {
         return $this->belongsTo(Province::class,'id_province','id');
     }
+
+    public function regency() {
+        return $this->belongsTo(Regency::class,'id_regency','id');
+    }
 }

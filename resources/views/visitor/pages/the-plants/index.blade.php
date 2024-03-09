@@ -39,9 +39,9 @@
                 <div class="card">
                     <a href="{{ route('visitor.thePlants.detail',$data->slug) }}">
                       @if (!$data->cover_picture)
-                      <img src="{{ asset('plants/sample/image-single.jpg') }}" alt="Image" class="card-img-top">
+                      <img src="{{ asset('plants/image-single.jpg') }}" alt="Image" class="card-img-top">
                       @else
-                      <img src="{{ asset($data->cover_picture) }}" alt="Image" class="card-img-top">
+                      <img src="{{ asset('plants/'. $data->cover_picture) }}" alt="cover picture" class="card-img-top">
                       @endif
                     </a>
 
@@ -55,8 +55,8 @@
                       {!! $data->latin_name !!}
                     </p>
                     <div class="my-3 d-flex gap-3">
-                      <a href="{{ url('plants/province/papua') }}" class="text-decoration-none link-secondary">
-                        <i class="fa-solid fa-map-marker"></i> {{ $data->province->name ?? '' }}
+                      <a href="{{ url('plants/regency', $data->regency->slug) }}" class="text-decoration-none link-secondary">
+                        <i class="fa-solid fa-map-marker"></i> {{ $data->regency->name ?? '' }}
                       </a>
                     </div>
                   </div>

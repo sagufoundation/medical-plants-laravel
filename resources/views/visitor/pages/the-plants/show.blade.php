@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-lg-6 mx-auto text-center">
                 <h1 class="fw-bolder font-satu text-success"> {!! $data->local_name ?? '' !!}</h1>
-                <p>{!! $data->latin_name !!}</p>
+                <p>{!! $data->latin_name ?? '' !!}</p>
             </div>
         </div>
         </div>
@@ -82,10 +82,10 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            @if (!$data->gallery_picture)
-                                <img src="{{ asset('plants/sample/image-gallery.jpg') }}" alt="Image" class="w-100">
-                                @else
-                                <img src="{{ asset($data->gallery_picture) }}" alt="Image" class="w-100">
+                            @if ($data->gallery_picture)
+                            <img src="{{ asset($data->gallery_picture ?? '') }}" alt="Image" class="w-100">
+                            @else
+                            <img src="{{ asset('plants/sample/image-gallery.jpg') }}" alt="Image" class="w-100">
                             @endif
                         </div>
                     </div>

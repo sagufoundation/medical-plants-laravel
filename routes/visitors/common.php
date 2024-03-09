@@ -28,6 +28,10 @@ Route::controller(VisitorController::class)->group(function(){
     Route::get('/the-plants/{slug}/detail','thePlantsDetail')->name('visitor.thePlants.detail');
     // Route::get('/the-plants-simulation','thePlantsSimulation')->name('visitor.the-plants-simulation');
     
+    // PLANTS BY REGENCY
+    Route::get('/plants/regency/{regency}','plantsByRegency')->name('visitor.plantsByRegency');
+
+    
     // SEARCH
     Route::get('/search/local-name','thePlantsSearchLocalName')->name('visitor.thePlantsSearchLocalName');
     Route::get('/search/contributor','thePlantsContributor')->name('visitor.thePlantsContributor');

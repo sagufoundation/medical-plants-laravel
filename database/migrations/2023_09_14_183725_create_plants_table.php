@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('plants', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_location')->nullable();
+            $table->unsignedBigInteger('id_regency')->nullable();
             $table->unsignedBigInteger('id_contributor')->nullable();
             $table->foreignId('id_province')->nullable();
             $table->string('slug');
@@ -37,6 +38,7 @@ return new class extends Migration
             $table->softDeletes();
             $table->timestamps();
             $table->foreign('id_location')->references('id')->on('locations')->onUpdate('cascade')->onDelete('cascade');
+            // $table->foreign('id_regency')->references('id')->on('regencies')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('id_contributor')->references('id')->on('contributors')->onUpdate('cascade')->onDelete('cascade');
         });
     }
