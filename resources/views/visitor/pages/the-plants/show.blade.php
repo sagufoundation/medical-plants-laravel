@@ -64,6 +64,12 @@
                                 </div>
                             </div>
                             <div class="p-2 px-3 border-bottom">
+                                <span class="d-block mb-2 text-secondary">Known Phytochemical Consituents </span>
+                                <div class="fs-5">
+                                    {!! $data->known_phytochemical_consituents ?? '' !!}
+                                </div>
+                            </div>
+                            <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Contributor </span>
                                 <a href="{{ url('contributor') }}" class="text-decoration-none link-dark">
                                     
@@ -83,9 +89,9 @@
                         </div>
                         <div class="col-md-6">
                             @if ($data->gallery_picture)
-                            <img src="{{ asset($data->gallery_picture ?? '') }}" alt="Image" class="w-100">
+                            <img src="{{ asset('plants/'.$data->gallery_picture ?? '') }}" alt="Image" class="w-100">
                             @else
-                            <img src="{{ asset('plants/sample/image-gallery.jpg') }}" alt="Image" class="w-100">
+                            <img src="{{ asset('plants/image-gallery.jpg') }}" alt="Image" class="w-100">
                             @endif
                         </div>
                     </div>
