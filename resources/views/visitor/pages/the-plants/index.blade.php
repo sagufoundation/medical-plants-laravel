@@ -55,7 +55,7 @@
                       {!! $data->latin_name !!}
                     </p>
                     <div class="my-3 d-flex gap-3">
-                      <a href="{{ url('plants/regency', $data->regency->slug) }}" class="text-decoration-none link-secondary">
+                      <a href="{{ url('plants', $data->regency->slug) }}" class="text-decoration-none link-secondary">
                         <i class="fa-solid fa-map-marker"></i> {{ $data->regency->name ?? '' }}
                       </a>
                     </div>

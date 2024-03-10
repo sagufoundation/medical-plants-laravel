@@ -17,7 +17,7 @@
 <section id="">
     <div class="container mt-5 mb-5">
       <div class="row">
-        <div class="col-lg-6">
+        {{-- <div class="col-lg-6">
             <h2 class="fw-bolder font-satu text-success">Send us message</h2>
             
             <form action="">
@@ -42,8 +42,8 @@
 
             </form>
 
-        </div>
-        <div class="col-lg-6">
+        </div> --}}
+        <div class="col-lg-6 mx-auto">
             <p style="text-align: justify">To connect with us and contribute to the Database of Traditional Medicinal Plants in Papua, please visit our website and fill out the contact form. Our team will review your message and provide guidance on how to submit your information. We welcome contributions from local community members as well as experts in the fields of phytochemistry, ethnobotany, and taxonomy. Thank you for your interest in our project! </p>
 
             <div class="mb-3">

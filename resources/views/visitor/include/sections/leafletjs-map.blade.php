@@ -85,7 +85,7 @@
             @foreach ($regencies as $item)
                 L.marker([{{ $item->coordinates }}])
                     .bindPopup(
-                        "<a href='plants/regency/{{ $item->slug }}' class='text-center'><img src='images/regencies/{{ $item->image }}' width='100px' class='d-block'>{{ $item->name }}</a> <br> Total Plants: {{ $item->plant_count }}"
+                        "<a href='plants/{{ $item->slug }}' class='text-center'><img src='images/regencies/{{ $item->image }}' width='100px' class='d-block'>{{ $item->name }}</a> <br> Total Plants: {{ $item->plant_count }}"
                     )
                     .addTo(map)
             @endforeach

@@ -29,7 +29,7 @@ Route::controller(VisitorController::class)->group(function(){
     // Route::get('/the-plants-simulation','thePlantsSimulation')->name('visitor.the-plants-simulation');
     
     // PLANTS BY REGENCY
-    Route::get('/plants/regency/{regency}','plantsByRegency')->name('visitor.plantsByRegency');
+    Route::get('/plants/{regency}','plantsByRegency')->name('visitor.plantsByRegency');
 
     
     // SEARCH
