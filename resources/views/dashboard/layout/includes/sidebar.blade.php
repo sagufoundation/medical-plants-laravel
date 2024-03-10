@@ -47,6 +47,16 @@
                                     </a>
                                 </li>
                                 <!-- menu item end -->
+                                <li class="@if(Request::segment(2) == 'regencies') menuitem-active @endif">
+                                    <a href="{{ url(Request::segment(1).'/regencies') }}">
+                                        <i class="fa-solid fa-tags"></i>
+                                        <span class="badge badge-success badge-pill float-right">
+                                            {{ $provinces_total ?? '' }}
+                                        </span>
+                                        <span> Regencies</span>
+                                    </a>
+                                </li>
+                                <!-- menu item end -->
 
                                 <li class="@if(Request::segment(2) == 'locations') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/locations') }}">
@@ -64,16 +74,6 @@
                                             {{ $provinces_total ?? '' }}
                                         </span>
                                         <span> Provinces</span>
-                                    </a>
-                                </li>
-                                <!-- menu item end -->
-                                <li class="@if(Request::segment(2) == 'regencies') menuitem-active @endif">
-                                    <a href="{{ url(Request::segment(1).'/regencies') }}">
-                                        <i class="fa-solid fa-tags"></i>
-                                        <span class="badge badge-success badge-pill float-right">
-                                            {{ $provinces_total ?? '' }}
-                                        </span>
-                                        <span> Regencies</span>
                                     </a>
                                 </li>
                                 <!-- menu item end -->
