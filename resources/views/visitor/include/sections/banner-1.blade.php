@@ -10,7 +10,7 @@
                         <p class="text-muted " style="text-align: justify">
                             {!! $settings->welcome_text !!}
                         </p>
-                        <a href="{{route('visitor.thePlants')}}" class="btn btn-success btn-lg">Explore the Plants <i class="fa-solid fa-arrow-right ms-2"></i>          </a>
+                        <a href="{{route('visitor.plants')}}" class="btn btn-success btn-lg">Explore Plants <i class="fa-solid fa-arrow-right ms-2"></i>          </a>
                     </div>
                 </div>
                 <div class="col-md-5 text-center">

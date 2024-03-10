@@ -62,9 +62,9 @@
                         <div class="mb-3">
                             <b class="d-block mb-2">Thumbnail</b>
                             @if (empty($data->cover_picture))
-                            <img src="{{ asset('images/00.png') }}" alt="Image" class="border shadow w-50">
+                            <img src="{{ asset('images/plants/00.png') }}" alt="Image" class="border shadow w-50">
                             @else
-                            <img src="{{ asset($data->cover_picture) }}" alt="Image" class="border shadow w-50">
+                            <img src="{{ asset('images/plants/' . $data->cover_picture) }}" alt="Image" class="border shadow w-50">
                             @endif
                         </div>
                         <!-- item group END -->
@@ -72,9 +72,9 @@
                         <div class="mb-3">
                             <b class="d-block mb-2">Gallery</b>
                             @if (empty($data->gallery_picture))
-                            <img src="{{ asset('images/00.png') }}" alt="Image" class="border shadow w-100">
+                            <img src="{{ asset('images/plants/00.png') }}" alt="Image" class="border shadow w-100">
                             @else
-                            <img src="{{ asset($data->gallery_picture) }}" alt="Image" class="border shadow w-100">
+                            <img src="{{ asset('images/plants/' . $data->gallery_picture) }}" alt="Image" class="border shadow w-100">
                             @endif
                         </div>
                         <!-- item group END -->
@@ -108,7 +108,7 @@
                             </button>
                             </form>
 
-                            <a href="{{ url('the-plants/' . $data->slug . '/detail') }}" class="btn btn-sm btn-dark rounded-0 mx-1" target="_blank">
+                            <a href="{{ url('the-images/plants/' . $data->slug . '/detail') }}" class="btn btn-sm btn-dark rounded-0 mx-1" target="_blank">
                                 <i class="fa-solid fa-eye"></i> Public View
                             </a>
                         </div>

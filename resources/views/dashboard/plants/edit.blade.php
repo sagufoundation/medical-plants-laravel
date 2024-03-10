@@ -115,9 +115,9 @@
                             <label for="gambar1" class="form-label d-block">Thumbnail </label>
                             <div class="mb-2">
                                 @if (!$data->cover_picture)
-                                    <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar1" class="img-thumbnail w-50">
+                                    <img src="{{ asset('images/plants/00.png') }}" alt="Gambar" id="preview-gambar1" class="img-thumbnail w-50">
                                     @else
-                                    <img src="{{ asset($data->cover_picture) }}" id="preview-gambar1" class="img-thumbnail w-50">
+                                    <img src="{{ asset('images/plants/' . $data->cover_picture) }}" id="preview-gambar1" class="img-thumbnail w-50">
                                 @endif
                             </div>
                             <!-- input item END -->
@@ -142,9 +142,9 @@
                             <label for="2" class="form-label d-block">Gallery </label>
                             <div class="mb-2">
                                 @if (!$data->gallery_picture)
-                                    <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar2" class="img-thumbnail img-fluid">
+                                    <img src="{{ asset('images/plants/00.png') }}" alt="Gambar" id="preview-gambar2" class="img-thumbnail img-fluid">
                                     @else
-                                    <img src="{{ asset($data->gallery_picture) }}" id="preview-gambar2" class="img-thumbnail img-fluid">
+                                    <img src="{{ asset('images/plants/' . $data->gallery_picture) }}" id="preview-gambar2" class="img-thumbnail img-fluid">
                                 @endif
 
                             </div>

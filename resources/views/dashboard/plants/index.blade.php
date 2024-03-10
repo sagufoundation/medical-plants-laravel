@@ -32,9 +32,9 @@
                                 <td>{{ ++$i }}</td>
                                 <td>
                                     @if (empty($data))
-                                    <img src="{{ asset('plants/00.png') }}" alt="Picture" style="width:200px" class="border shadow">
+                                    <img src="{{ asset('images/plants/00.png') }}" alt="Picture" style="width:200px" class="border shadow">
                                     @else
-                                    <img src="{{ asset('plants/'. $data->cover_picture) }}" alt="Picture" style="width:100px" class="border shadow">
+                                    <img src="{{ asset('images/plants/'. $data->cover_picture) }}" alt="Picture" style="width:100px" class="border shadow">
                                     @endif
                                 </td>
                                 <td>{!! $data->local_name ?? '' !!}</td>

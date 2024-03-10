@@ -41,59 +41,8 @@ class VisitorController extends Controller
                 
     }
 
-    // public function ___thePlants()
-    // {
 
-    //     $status = 'Publish';
-    //     $count = DB::table('plants')
-    //         ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
-    //         ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
-    //         ->where('plants.status', '=', $status)
-    //         ->orderBy('plants.id', 'desc')
-    //         ->count();
-    //     return view('visitor.pages.the-plants', ['count' => $count]);
-    // }
-
-    // THE PLANTS
-    // public function thePlants(Request $request)
-    // {
-
-    //     $searchString = null;
-
-    //     $datas = Plant::whereHas('province', function ($query) use ($searchString){
-    //         $query->where('name', 'LIKE', '%'.$searchString.'%');
-    //     })
-    //     ->where([
-
-    //         ['local_name', '!=', Null],
-    //         [function ($query) {
-    //             if (($s = request()->s)) {
-    //                 if (isset(request()->filter) && request()->filter == 'local_name') {
-    //                     $query->orWhere('local_name', 'LIKE', '%' . $s . '%')->get();
-    //                 } elseif (isset(request()->filter) && request()->filter == 'indonesian_name') {
-    //                     $query->orWhere('indonesian_name', 'LIKE', '%' . $s . '%')->get();
-    //                 } elseif (isset(request()->filter) && request()->filter == 'latin_name') {
-    //                     $query->orWhere('latin_name', 'LIKE', '%' . $s . '%')->get();
-    //                 } elseif (isset(request()->filter) && request()->filter == 'taxonomists') {
-    //                     $query->orWhere('taxonomists', 'LIKE', '%' . $s . '%')->get();
-    //                 } elseif (isset(request()->filter) && request()->filter == 'province') {
-    //                     $query->orWhere('id_province', 'LIKE', '%' . $s . '%')->get();
-    //                 } else {
-    //                     $query->get();
-    //                 }
-    //             }
-    //         }]
-    //     ])
-    //     ->where('status', 'Publish')->latest()->paginate(8);
-    //     return view('visitor.pages.the-plants.index', compact('datas'));
-    // }
-
-
-
-
-
-
-    public function thePlants(Request $request)
+    public function plants(Request $request)
     {        
 
         $datas = Plant::where([
@@ -132,7 +81,7 @@ class VisitorController extends Controller
         // return view('visitor.pages.the-plants.index', compact('datas'));
     }
 
-    public function thePlantsDetail($id) {
+    public function plantsDetail($id) {
         $data = Plant::where('slug', $id)->first();
         return view('visitor.pages.the-plants.show', compact('data'));
     }

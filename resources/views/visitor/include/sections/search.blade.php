@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-12 py-3">
 
-                <form action="{{ url('the-plants') }}" method="get">
+                <form action="{{ url('plants') }}" method="get">
 
                     <div class="input-group">
                         <input type="search" name="s" class="form-control p-4" placeholder="Search plant name" value="{{ request()->s ?? '' }}">

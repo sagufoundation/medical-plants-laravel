@@ -72,26 +72,18 @@
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Contributor </span>
                                 <a href="{{ url('contributor') }}" class="text-decoration-none link-dark">
-                                    
-                                    {{-- @if($data->contributor->photo) 
-                                    <img src="{{ $data->contributor->photo ?? '' }}" alt="Contributor photo" class="rounded-circle" style="width: 60px;">
-                                    @else 
-                                    <img src="{{ asset('images/team/team-default.png') }}" alt="Contributor photo" class="rounded-circle" style="width: 60px;">
-                                    @endif --}}
 
                                     <span class="fs-5">
-                                        
                                             {!! $data->contributor->full_name ?? '' !!}
-                                        
                                     </span>
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             @if ($data->gallery_picture)
-                            <img src="{{ asset('plants/'.$data->gallery_picture ?? '') }}" alt="Image" class="w-100">
+                            <img src="{{ asset('images/plants/'.$data->gallery_picture ?? '') }}" alt="Image" class="w-100">
                             @else
-                            <img src="{{ asset('plants/image-gallery.jpg') }}" alt="Image" class="w-100">
+                            <img src="{{ asset('images/plants/image-gallery.jpg') }}" alt="Image" class="w-100">
                             @endif
                         </div>
                     </div>
