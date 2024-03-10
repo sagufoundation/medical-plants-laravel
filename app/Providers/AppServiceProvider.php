@@ -64,6 +64,14 @@ class AppServiceProvider extends ServiceProvider
                 | COUNTERS
                 |
                 */
+
+                
+                // ============== REGENCIES ==================
+                'regencies_total' => Province::count(),
+                'regencies_total_publish' => Location::where('status','publish')->count(),
+                'regencies_total_draft' => Location::where('status','draft')->count(),
+                'regencies_total_trash' => Location::onlyTrashed()->count(),
+
                 // ============== PROVINCES ==================
                 'provinces_total' => Province::count(),
                 'provinces_total_publish' => Location::where('status','publish')->count(),

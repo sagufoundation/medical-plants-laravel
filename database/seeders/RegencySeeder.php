@@ -22,6 +22,7 @@ class RegencySeeder extends Seeder
             'coordinates' => '-3.343,140.663',
             'description' => 'Map marker Kabupaten Keerom',
             'image' => 'logo-keerom.png',
+            'status' => 'publish',
         ]);
 
         // item
@@ -32,6 +33,7 @@ class RegencySeeder extends Seeder
             'coordinates' => '-3.053,139.960',
             'description' => 'Map marker Kabupaten Jayapura',
             'image' => 'logo-kabupaten-jayapura.png',
+            'status' => 'publish',
         ]);
 
         // item
@@ -42,6 +44,7 @@ class RegencySeeder extends Seeder
             'coordinates' => '-2.5535,140.6607',
             'description' => 'Map marker Kota Jayapura',
             'image' => 'logo-kota-jayapura.png',
+            'status' => 'publish',
         ]);
 
         // item
@@ -52,6 +55,7 @@ class RegencySeeder extends Seeder
             'coordinates' => '-2.575,139.103',
             'description' => 'Map marker Kabupaten Sarmi',
             'image' => 'logo-kabupaten-sarmi.png',
+            'status' => 'publish',
         ]);
 
         // item
@@ -63,6 +67,7 @@ class RegencySeeder extends Seeder
             'coordinates' => '-2.433,137.829',
             'description' => 'Map marker Kabupaten Mamberamo Raya',
             'image' => 'logo-kabupaten-mamberamo-raya.png',
+            'status' => 'publish',
         ]);
 
         // item
@@ -73,6 +78,7 @@ class RegencySeeder extends Seeder
             'coordinates' => '-1.779,136.357',
             'description' => 'Map marker Kabupaten Kepulauan Yapen',
             'image' => 'logo-kabupaten-kepulauan-yapen.png',
+            'status' => 'publish',
         ]);
 
         // item
@@ -84,6 +90,7 @@ class RegencySeeder extends Seeder
             'coordinates' => '-1.027,136.044',
             'description' => 'Map marker Kabupaten Biak Numfor',
             'image' => 'logo-kabupaten-biak-numfor.png',
+            'status' => 'publish',
         ]);
     }
 }

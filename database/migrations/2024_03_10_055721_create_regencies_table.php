@@ -21,7 +21,9 @@ return new class extends Migration
             $table->string('coordinates');
             $table->mediumText('description');
             $table->string('image');
-
+            
+            $table->enum('status',['Publish','Draft'])->default('Draft')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

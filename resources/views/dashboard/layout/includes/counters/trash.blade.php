@@ -5,6 +5,9 @@
     @elseif(Request::segment(2) == 'locations') 
         {{ $locations_total_trash ?? '' }} 
 
+    @elseif(Request::segment(2) == 'regencies') 
+        {{ $regencies_total_trash ?? '' }} 
+
     @elseif(Request::segment(2) == 'provinces') 
         {{ $provinces_total_trash ?? '' }} 
 

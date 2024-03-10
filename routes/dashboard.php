@@ -12,5 +12,6 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     require_once 'dashboard/users.php';
     require_once 'dashboard/provinces.php';
+    require_once 'dashboard/regencies.php';
 
 });
