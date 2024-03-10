@@ -71,10 +71,19 @@
                             </div>
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Contributor </span>
-                                <a href="{{ url('contributor') }}" class="text-decoration-none link-dark">
+                                <a href="{{ url('contributor', $data->contributor->slug) }}" class="text-decoration-none link-dark">
 
                                     <span class="fs-5">
-                                            {!! $data->contributor->full_name ?? '' !!}
+                                        <i class="fa-solid fa-user"></i>  {!! $data->contributor->full_name ?? '' !!}
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="p-2 px-3 border-bottom">
+                                <span class="d-block mb-2 text-secondary">Regency / Region </span>
+                                <a href="{{ url('plants', $data->regency->slug) }}" class="text-decoration-none link-dark">
+
+                                    <span class="fs-5">
+                                        <i class="fa-solid fa-map-marker"></i>  {!! $data->regency->name ?? '' !!}
                                     </span>
                                 </a>
                             </div>

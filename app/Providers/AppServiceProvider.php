@@ -9,6 +9,7 @@ use App\Models\Contributor;
 use App\Models\Icon;
 use App\Models\Location;
 use App\Models\Plant;
+use App\Models\Regency;
 use App\Models\Province;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
@@ -67,16 +68,16 @@ class AppServiceProvider extends ServiceProvider
 
                 
                 // ============== REGENCIES ==================
-                'regencies_total' => Province::count(),
-                'regencies_total_publish' => Location::where('status','publish')->count(),
-                'regencies_total_draft' => Location::where('status','draft')->count(),
-                'regencies_total_trash' => Location::onlyTrashed()->count(),
+                'regencies_total' => Regency::count(),
+                'regencies_total_publish' => Regency::where('status','publish')->count(),
+                'regencies_total_draft' => Regency::where('status','draft')->count(),
+                'regencies_total_trash' => Regency::onlyTrashed()->count(),
 
                 // ============== PROVINCES ==================
                 'provinces_total' => Province::count(),
-                'provinces_total_publish' => Location::where('status','publish')->count(),
-                'provinces_total_draft' => Location::where('status','draft')->count(),
-                'provinces_total_trash' => Location::onlyTrashed()->count(),
+                'provinces_total_publish' => Province::where('status','publish')->count(),
+                'provinces_total_draft' => Province::where('status','draft')->count(),
+                'provinces_total_trash' => Province::onlyTrashed()->count(),
 
                 // ============== ICONST ==================
                 'icons_total' => Icon::count(),

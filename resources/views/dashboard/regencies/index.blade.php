@@ -18,7 +18,9 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Image/Icon</th>
                                 <th>Name</th>
+                                <th>Coordinates</th>
                                 <th>Option</th>
                             </tr>
                         </thead>
@@ -26,9 +28,17 @@
 
                             @foreach ($datas as $data)
                             <tr>
-                                <td>{{ ++$i }}</td>
+                                <td width="1">{{ ++$i }}</td>
 
+                                <td width="100px">
+                                    @if ($data->image)
+                                        <img src="{{ asset('images/regencies/' . $data->image) }}" alt="image" width="100%" />
+                                    @else 
+                                        <img src="{{ asset('images/regencies/00.png') }}" alt="image" width="100%" />
+                                    @endif
+                                </td>
                                 <td>{{ $data->name ?? '' }}</td>
+                                <td>{{ $data->coordinates ?? '' }}</td>
                                 @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">
 

@@ -70,13 +70,16 @@ class RegencyController extends Controller
     // store
     public function store(Request $request)
     {
+
         $validator = Validator::make(
             $request->all(),
             [
                 'name' => 'required',
+                'coordinates' => 'required',
             ],
             [
                 'name.required' => 'This is a reaquired field',
+                'coordinates.required' => 'This is a reaquired field',
             ]
         );
 
@@ -84,14 +87,29 @@ class RegencyController extends Controller
             return redirect()->back()->withInput($request->all())->withErrors($validator);
         } else {
             try {
-                $data = new Province();
+                $data = new Regency();
                 $data->name = $request->name;
+                $data->slug = Str::slug($data->name);
+                $data->coordinates = $request->coordinates;
+                $data->description = $request->description;
                 $data->status = $request->status;
+
+                if ($request->image) {
+                    $imageName = $data->slug .'.' . $request->image->extension();
+                    $path = public_path('images/regencies');
+                    
+                    if (!empty($data->image) && file_exists($path . '/' . $data->image)) :
+                        unlink($path . '/' . $data->image);
+                    endif;
+
+                    $data->image = $imageName;
+                    $request->image->move(public_path('images/regencies'), $imageName);
+                }
 
                 $data->save();
 
                 Alert::toast('Created! This data has been created successfully.', 'success');
-                return redirect('dashboard/provinces');
+                return redirect('dashboard/regencies');
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');
@@ -142,7 +160,7 @@ class RegencyController extends Controller
                 $data->update();
 
                 Alert::toast('Updated! This data has been updated successfully.', 'success');
-                return redirect('dashboard/provinces');
+                return redirect('dashboard/regencies');
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');
