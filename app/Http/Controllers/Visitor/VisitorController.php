@@ -63,9 +63,11 @@ class VisitorController extends Controller
     {
         
         $status = 'Publish';
-        $datas = Plant::rightJoin('locations', 'plants.id_location', '=', 'locations.id')
-            ->rightJoin('regencies', 'plants.id_regency', '=', 'regencies.id')
-            // ->rightJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+        $datas = DB::table('plants')
+            ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
+            ->leftJoin('contributors', 'plants.id_contributor', '=', 'contributors.id')
+            ->join('regencies', 'plants.id_regency', '=', 'regencies.id')
+            ->select('plants.*', 'regencies.name')
             ->where('plants.status', '=', $status)
             ->where('regencies.slug', '=', $regency)
             ->orderBy('plants.id', 'desc')

@@ -64,9 +64,15 @@
                       {!! $data->latin_name !!}
                     </p>
                     <div class="my-3 d-flex gap-3">
+                      @if (Request::segment(2) == 'regency')
+                      <div class="text-decoration-none link-secondary">
+                        <i class="fa-solid fa-map-marker"></i> {{ $regencyDetail->name ?? '' }}
+                      </div>
+                      @else     
                       <a href="{{ url('plants/regency', $data->regency->slug) }}" class="text-decoration-none link-secondary">
                         <i class="fa-solid fa-map-marker"></i> {{ $data->regency->name ?? '' }}
                       </a>
+                      @endif
                     </div>
                   </div>
                 </div>
