@@ -17,10 +17,10 @@ class RegencySeeder extends Seeder
     {// item
         Regency::create([
             'id' => 1,
-            'name' => 'Kabupaten Keerom',
-            'slug' => 'kabupaten-keerom',
+            'name' => 'Keerom',
+            'slug' => 'keerom',
             'coordinates' => '-3.343,140.663',
-            'description' => 'Map marker Kabupaten Keerom',
+            'description' => 'Map marker Keerom',
             'image' => 'logo-keerom.png',
             'status' => 'publish',
         ]);
@@ -28,10 +28,10 @@ class RegencySeeder extends Seeder
         // item
         Regency::create([
             'id' => 2,
-            'name' => 'Kabupaten Jayapura',
-            'slug' => 'kabupaten-jayapura',
+            'name' => 'Jayapura',
+            'slug' => 'jayapura',
             'coordinates' => '-3.053,139.960',
-            'description' => 'Map marker Kabupaten Jayapura',
+            'description' => 'Map marker Jayapura',
             'image' => 'logo-kabupaten-jayapura.png',
             'status' => 'publish',
         ]);
@@ -50,10 +50,10 @@ class RegencySeeder extends Seeder
         // item
         Regency::create([
             'id' => 4,
-            'name' => 'Kabupaten Sarmi',
-            'slug' => 'kabupaten-sarmi',
+            'name' => 'Sarmi',
+            'slug' => 'sarmi',
             'coordinates' => '-2.575,139.103',
-            'description' => 'Map marker Kabupaten Sarmi',
+            'description' => 'Map marker Sarmi',
             'image' => 'logo-kabupaten-sarmi.png',
             'status' => 'publish',
         ]);
@@ -62,10 +62,10 @@ class RegencySeeder extends Seeder
         Regency::create([
             
             'id' => 5,
-            'name' => 'Kabupaten Mamberamo Raya',
-            'slug' => 'kabupaten-mamberamo-raya',
+            'name' => 'Mamberamo Raya',
+            'slug' => 'mamberamo-raya',
             'coordinates' => '-2.433,137.829',
-            'description' => 'Map marker Kabupaten Mamberamo Raya',
+            'description' => 'Map marker Mamberamo Raya',
             'image' => 'logo-kabupaten-mamberamo-raya.png',
             'status' => 'publish',
         ]);
@@ -73,10 +73,10 @@ class RegencySeeder extends Seeder
         // item
         Regency::create([
             'id' => 6,
-            'name' => 'Kabupaten Kepulauan Yapen',
-            'slug' => 'kabupaten-kepulauan-yapen',
+            'name' => 'Kepulauan Yapen',
+            'slug' => 'kepulauan-yapen',
             'coordinates' => '-1.779,136.357',
-            'description' => 'Map marker Kabupaten Kepulauan Yapen',
+            'description' => 'Map marker Kepulauan Yapen',
             'image' => 'logo-kabupaten-kepulauan-yapen.png',
             'status' => 'publish',
         ]);
@@ -85,10 +85,10 @@ class RegencySeeder extends Seeder
         Regency::create([
             
             'id' => 7,
-            'name' => 'Kabupaten Biak Numfor',
-            'slug' => 'kabupaten-biak-numfor',
+            'name' => 'Biak Numfor',
+            'slug' => 'biak-numfor',
             'coordinates' => '-1.027,136.044',
-            'description' => 'Map marker Kabupaten Biak Numfor',
+            'description' => 'Map marker Biak Numfor',
             'image' => 'logo-kabupaten-biak-numfor.png',
             'status' => 'publish',
         ]);

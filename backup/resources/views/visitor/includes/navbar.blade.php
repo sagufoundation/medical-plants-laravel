@@ -15,7 +15,7 @@
                     <a class="nav-link fw-bold active" href="{{route('visitor.home')}}">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link fw-bold" href="{{route('visitor.thePlants')}}">The Plants</a>
+                    <a class="nav-link fw-bold" href="{{route('visitor.plants')}}">Plants</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link fw-bold" href="{{route('visitor.overview')}}">Overview</a>

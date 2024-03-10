@@ -26,6 +26,7 @@ class VisitorController extends Controller
             ->get();
         // $regencies = Regency::all();
         $regencies = Regency::withCount('plant')->get();
+
         return view('visitor.pages.home', 
             [
                 'all' => $all,
@@ -69,12 +70,14 @@ class VisitorController extends Controller
             ->where('regencies.slug', '=', $regency)
             ->orderBy('plants.id', 'desc')
             ->paginate();
-        // $regencies = Regency::all();
-        // $regencies = Regency::withCount('plant')->get();
+
+        $regencyDetail = Regency::where('slug', $regency)->first();
+
         return view('visitor.pages.the-plants.index', 
             [
                 'datas' => $datas,
                 // 'regencies' => $regencies,
+                'regencyDetail' => $regencyDetail
             ]
         );
 

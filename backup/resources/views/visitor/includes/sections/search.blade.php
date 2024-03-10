@@ -11,7 +11,6 @@
               </div>
             </div>
 
-<<<<<<< HEAD
     <div class="">
         <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">Filter by</h3>
         <ul
@@ -57,12 +56,3 @@
 </div>
 
 @endif
-=======
-            <div class="col-2">
-              <button class="btn btn-success  p-3"> Search <i class="fa-solid fa-search mr-2"></i></button>
-            </div>
-          </div>
-        </div>
-      </section>
-      {{-- SEARCH END --}}
->>>>>>> fe8224086d450dc14c3ebca15ecd9596e8c4cf97

@@ -80,7 +80,7 @@
                             </div>
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Regency / Region </span>
-                                <a href="{{ url('plants', $data->regency->slug) }}" class="text-decoration-none link-dark">
+                                <a href="{{ url('plants/regency', $data->regency->slug) }}" class="text-decoration-none link-dark">
 
                                     <span class="fs-5">
                                         <i class="fa-solid fa-map-marker"></i>  {!! $data->regency->name ?? '' !!}
