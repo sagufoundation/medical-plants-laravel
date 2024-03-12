@@ -35,7 +35,7 @@
                                 </li>
                                 <!-- menu item end -->
 
-                                <li class="menu-title mt-2">Content Management</li>
+                                <li class="menu-title mt-2">Plants Mangements</li>
 
                                 <li class="@if(Request::segment(2) == 'plants') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/plants') }}">
@@ -47,6 +47,9 @@
                                     </a>
                                 </li>
                                 <!-- menu item end -->
+
+                                <li class="menu-title mt-2">Master Data</li>
+
                                 <li class="@if(Request::segment(2) == 'regencies') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/regencies') }}">
                                         <i class="fa-solid fa-tags"></i>
@@ -58,39 +61,16 @@
                                 </li>
                                 <!-- menu item end -->
 
-                                <li class="@if(Request::segment(2) == 'locations') menuitem-active @endif">
-                                    <a href="{{ url(Request::segment(1).'/locations') }}">
-                                        <i class="fa-solid fa-tags"></i>
-                                        <span class="badge badge-success badge-pill float-right">
-                                            {{ $locations_total ?? '' }}
-                                        </span>
-                                        <span> Locations</span>
-                                    </a>
-                                </li>
-                                <li class="@if(Request::segment(2) == 'provinces') menuitem-active @endif">
-                                    <a href="{{ url(Request::segment(1).'/provinces') }}">
+                                <li class="@if(Request::segment(2) == 'tribes') menuitem-active @endif">
+                                    <a href="{{ url(Request::segment(1).'/tribes') }}">
                                         <i class="fa-solid fa-tags"></i>
                                         <span class="badge badge-success badge-pill float-right">
                                             {{ $provinces_total ?? '' }}
                                         </span>
-                                        <span> Provinces</span>
+                                        <span> Tribes</span>
                                     </a>
                                 </li>
                                 <!-- menu item end -->
-                                <li class="@if(Request::segment(2) == 'icons') menuitem-active @endif">
-                                    <a href="{{ url(Request::segment(1).'/icons') }}">
-                                        <i class="fa-solid fa-tags"></i>
-                                        <span class="badge badge-success badge-pill float-right">
-                                            {{ $icons_total ?? '' }}
-                                        </span>
-                                        <span> Icons</span>
-                                    </a>
-                                </li>
-                                <!-- menu item end -->
-
-
-
-                                <li class="menu-title mt-2">Visitor Information</li>
 
                                 <li class="@if(Request::segment(2) == 'contributors') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/contributors') }}">
@@ -101,6 +81,39 @@
                                         <span> Contributors</span>
                                     </a>
                                 </li>
+                                <!-- menu item end -->
+
+                                {{-- <li class="@if(Request::segment(2) == 'locations') menuitem-active @endif">
+                                    <a href="{{ url(Request::segment(1).'/locations') }}">
+                                        <i class="fa-solid fa-tags"></i>
+                                        <span class="badge badge-success badge-pill float-right">
+                                            {{ $locations_total ?? '' }}
+                                        </span>
+                                        <span> Locations</span>
+                                    </a>
+                                </li> --}}
+                                <!-- menu item end -->
+
+                                {{-- <li class="@if(Request::segment(2) == 'provinces') menuitem-active @endif">
+                                    <a href="{{ url(Request::segment(1).'/provinces') }}">
+                                        <i class="fa-solid fa-tags"></i>
+                                        <span class="badge badge-success badge-pill float-right">
+                                            {{ $provinces_total ?? '' }}
+                                        </span>
+                                        <span> Provinces</span>
+                                    </a>
+                                </li> --}}
+                                <!-- menu item end -->
+
+                                {{-- <li class="@if(Request::segment(2) == 'icons') menuitem-active @endif">
+                                    <a href="{{ url(Request::segment(1).'/icons') }}">
+                                        <i class="fa-solid fa-tags"></i>
+                                        <span class="badge badge-success badge-pill float-right">
+                                            {{ $icons_total ?? '' }}
+                                        </span>
+                                        <span> Icons</span>
+                                    </a>
+                                </li> --}}
                                 <!-- menu item end -->
 
                                 <li class="menu-title mt-2">Administrator</li>

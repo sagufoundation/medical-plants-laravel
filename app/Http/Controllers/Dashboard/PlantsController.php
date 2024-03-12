@@ -10,6 +10,7 @@ use App\Models\Contributor;
 use App\Models\Location;
 use App\Models\Regency;
 use App\Models\Province;
+use App\Models\Tribes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -74,8 +75,10 @@ class PlantsController extends Controller
         $countributors = Contributor::where('status','Publish')->get();
         $locations = Location::where('status','Publish')->get();
         $provinces = Province::where('status','Publish')->get();
+        $regencies = Regency::where('status','Publish')->get();
+        $tribes = Tribes::where('status','Publish')->get();
 
-        return view('dashboard.plants.create',compact('countributors','locations','provinces'));
+        return view('dashboard.plants.create',compact('countributors','locations','provinces','regencies','tribes'));
     }
 
     // store
@@ -132,6 +135,8 @@ class PlantsController extends Controller
                 $data->id_location = $request->id_contributor;
                 $data->id_contributor = $request->id_contributor;
                 $data->id_province = $request->id_province;
+                $data->id_regency = $request->id_regency;
+                $data->id_tribe = $request->id_tribe;
 
                 $data->status = $request->status;
 
@@ -186,7 +191,10 @@ class PlantsController extends Controller
         $countributors = Contributor::where('status','Publish')->get();
         $locations = Location::where('status','Publish')->get();
         $provinces = Province::where('status','Publish')->get();
-        return view('dashboard.plants.edit', compact('countributors','locations','provinces','data'));
+        $regencies = Regency::where('status','Publish')->get();
+        $tribes = Tribes::where('status','Publish')->get();
+
+        return view('dashboard.plants.edit', compact('countributors','locations','provinces','data','regencies','tribes'));
     }
 
     // update
@@ -243,9 +251,12 @@ class PlantsController extends Controller
                 $data->traditional_usage = $request->traditional_usage;
                 $data->known_phytochemical_consituents = $request->known_phytochemical_consituents;
 
-                $data->id_location = $request->id_location;
+                // $data->id_location = $request->id_location;
+                // $data->id_province = $request->id_province;
+                
+                $data->id_regency = $request->id_regency;
+                $data->id_tribe = $request->id_tribe;
                 $data->id_contributor = $request->id_contributor;
-                $data->id_province = $request->id_province;
 
                 $data->status = $request->status;
 

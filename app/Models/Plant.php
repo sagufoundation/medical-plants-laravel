@@ -22,4 +22,8 @@ class Plant extends Model
     public function regency() {
         return $this->belongsTo(Regency::class,'id_regency','id');
     }
+
+    public function tribe() {
+        return $this->belongsTo(Tribes::class,'id_tribe', 'id');
+    }
 }

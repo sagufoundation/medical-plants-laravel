@@ -20,6 +20,7 @@ class PlantSeeder extends Seeder
         $plant = Plant::create([
             'id_location' => 7,
             'id_regency' => 1,
+            'id_tribe' => 1,
             'id_contributor' => 1,
             'id_province' => 2,
             'cover_picture' => 'sample/6.png',
@@ -40,6 +41,7 @@ class PlantSeeder extends Seeder
         $plant = Plant::create([
             'id_location' => 7,
             'id_regency' => 2,
+            'id_tribe' => 1,
             'id_contributor' => 1,
             'id_province' => 2,
             'cover_picture' => 'sample/5.png',
@@ -60,10 +62,11 @@ class PlantSeeder extends Seeder
         $plant = Plant::create([
             'id_location' => 7,
             'id_regency' => 3,
+            'id_tribe' => 3,
             'id_contributor' => 1,
             'id_province' => 2,
-            'cover_picture' => 'sample/4.png',
-            'gallery_picture' => 'sample/4-gallery.png',
+            'cover_picture' => 'sample/6.png',
+            'gallery_picture' => 'sample/6-gallery.png',
             'local_name' => 'Sample Local Name 3',
             'indonesian_name' => 'Sample Indonesian Name 3',
             'latin_name' => 'Sample <i>Latin</i> Name 3',
@@ -80,6 +83,7 @@ class PlantSeeder extends Seeder
         $plant = Plant::create([
             'id_location' => 3,
             'id_regency' => 6,
+            'id_tribe' => 2,
             'id_contributor' => 1,
             'id_province' => 1,
             'cover_picture' => 'sample/anamyaum-cover.png',
@@ -102,6 +106,7 @@ class PlantSeeder extends Seeder
         $plant = Plant::create([
             'id_location' => 3,
             'id_regency' => 6,
+            'id_tribe' => 2,
             'id_contributor' => 1,
             'id_province' => 1,
             'cover_picture' => 'sample/inasi-koi-cover.png',
@@ -122,6 +127,7 @@ class PlantSeeder extends Seeder
         $plant = Plant::create([
             'id_location' => 3,
             'id_regency' => 6,
+            'id_tribe' => 2,
             'id_contributor' => 1,
             'id_province' => 1,
             'cover_picture' => 'sample/krataweri-cover.png',

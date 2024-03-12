@@ -46,17 +46,17 @@
             @forelse ($datas as $data )
             <div class="col-lg-3 mb-4">
                 <div class="card">
-                    <a href="{{ route('visitor.plants.detail',$data->slug) }}">
+                    <a href="{{ route('visitor.plants.detail',$data->slug ?? '') }}">
                       @if (!$data->cover_picture)
                       <img src="{{ asset('images/plants/image-single.jpg') }}" alt="Image" class="card-img-top">
                       @else
-                      <img src="{{ asset('images/plants/'. $data->cover_picture) }}" alt="cover picture" class="card-img-top">
+                      <img src="{{ asset('images/plants/'. $data->cover_picture ?? '') }}" alt="cover picture" class="card-img-top">
                       @endif
                     </a>
 
                   <div class="card-body">
                     <h3>
-                      <a href="{{ route('visitor.plants.detail',$data->slug) }}" class="fw-bold text-decoration-none link-success">
+                      <a href="{{ route('visitor.plants.detail',$data->slug ?? '') }}" class="fw-bold text-decoration-none link-success">
                             {!! $data->local_name !!}
                       </a>
                     </h3>
@@ -69,7 +69,7 @@
                         <i class="fa-solid fa-map-marker"></i> {{ $regencyDetail->name ?? '' }}
                       </div>
                       @else     
-                      <a href="{{ url('plants/regency', $data->regency->slug) }}" class="text-decoration-none link-secondary">
+                      <a href="{{ url('plants/regency', $data->regency->slug ?? '') }}" class="text-decoration-none link-secondary">
                         <i class="fa-solid fa-map-marker"></i> {{ $data->regency->name ?? '' }}
                       </a>
                       @endif

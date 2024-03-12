@@ -21,7 +21,8 @@
                                 <th scope="col">Plant's Picture</th>
                                 <th  scope="col">Local Name</th>
                                 <th  scope="col">Contributor</th>
-                                <th  scope="col">Province</th>
+                                <th  scope="col">Regency</th>
+                                <th  scope="col">Tribe</th>
                                 <th scope="col" class="text-center">Option</th>
                             </tr>
                         </thead>
@@ -32,14 +33,15 @@
                                 <td>{{ ++$i }}</td>
                                 <td>
                                     @if (empty($data))
-                                    <img src="{{ asset('images/plants/00.png') }}" alt="Picture" style="width:200px" class="border shadow">
+                                    <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Picture" style="width:200px" class="border shadow">
                                     @else
                                     <img src="{{ asset('images/plants/'. $data->cover_picture) }}" alt="Picture" style="width:100px" class="border shadow">
                                     @endif
                                 </td>
                                 <td>{!! $data->local_name ?? '' !!}</td>
                                 <td> {!! $data->contributor->full_name ?? '' !!} </td>
-                                <td> {!! $data->province->name ?? '' !!} </td>
+                                <td> {!! $data->regency->name ?? '' !!} </td>
+                                <td> {!! $data->tribe->tribe_name ?? '' !!} </td>
 
 
                                 @if (Request::segment(3) == 'trash')

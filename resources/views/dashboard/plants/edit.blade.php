@@ -115,7 +115,7 @@
                             <label for="gambar1" class="form-label d-block">Thumbnail </label>
                             <div class="mb-2">
                                 @if (!$data->cover_picture)
-                                    <img src="{{ asset('images/plants/00.png') }}" alt="Gambar" id="preview-gambar1" class="img-thumbnail w-50">
+                                    <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Gambar" id="preview-gambar1" class="img-thumbnail w-50">
                                     @else
                                     <img src="{{ asset('images/plants/' . $data->cover_picture) }}" id="preview-gambar1" class="img-thumbnail w-50">
                                 @endif
@@ -142,7 +142,7 @@
                             <label for="2" class="form-label d-block">Gallery </label>
                             <div class="mb-2">
                                 @if (!$data->gallery_picture)
-                                    <img src="{{ asset('images/plants/00.png') }}" alt="Gambar" id="preview-gambar2" class="img-thumbnail img-fluid">
+                                    <img src="{{ asset('images/plants/00-gallery.jpg') }}" alt="Gambar" id="preview-gambar2" class="img-thumbnail img-fluid">
                                     @else
                                     <img src="{{ asset('images/plants/' . $data->gallery_picture) }}" id="preview-gambar2" class="img-thumbnail img-fluid">
                                 @endif
@@ -164,6 +164,38 @@
                         <!-- input item END -->
 
                         <div class="mb-3">
+                            <label for="id_regency">Regency {{sizeof($regencies)<1?'(Data regencies not yet available)':''}}</label>
+                            <select name="id_regency" class="form-control" id="id_regency">
+                                <option value="" hidden>Select</option>
+                                @foreach ($regencies as $regency )
+                                    <option value="{{ $regency->id }}" @if($data->id_regency == $regency->id) selected="selected" @endif> {{ $regency->name }} </option>
+                                @endforeach
+                            </select>
+                            @if ($errors->has('regency'))
+                            <span class="text-danger" role="alert">
+                                    <small>{{ $errors->first('regency') }}</small>
+                                </span>
+                            @endif
+                        </div>
+                        <!-- input item END -->
+
+                        <div class="mb-3">
+                            <label for="id_tribe">Tribe {{sizeof($tribes)<1?'(Data tribes not yet available)':''}}</label>
+                            <select name="id_tribe" class="form-control" id="id_tribe">
+                                <option value="" hidden>Select</option>
+                                @foreach ($tribes as $tribe )
+                                    <option value="{{ $tribe->id }}" @if($data->id_tribe == $tribe->id) selected="selected" @endif > {{ $tribe->tribe_name }} </option>
+                                @endforeach
+                            </select>
+                            @if ($errors->has('tribe'))
+                            <span class="text-danger" role="alert">
+                                    <small>{{ $errors->first('tribe') }}</small>
+                                </span>
+                            @endif
+                        </div>
+                        <!-- input item END -->
+
+                        <div class="mb-3">
                             <label for="id_contributor">Contributor </label>
                             <select name="id_contributor" class="form-control" id="id_contributor">
                                 <option hidden></option>
@@ -176,44 +208,6 @@
                             @if ($errors->has('id_contributor'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('id_contributor') }}</small>
-                                </span>
-                            @endif
-                        </div>
-                        <!-- input item END -->
-
-                        <div class="mb-3">
-                            <label for="id_location">Location </label>
-                            <select name="id_location" class="form-control" id="id_location">
-                                <option hidden></option>
-                                @foreach ($locations as $location )
-                                    <option value="{{ $data->id_location }}"
-                                        @if($data->id_location == $location->id)selected="selected"@endif >
-                                        {{ $location->tribes }}
-                                   </option>
-                                @endforeach
-                            </select>
-                            @if ($errors->has('id_location'))
-                            <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('id_location') }}</small>
-                                </span>
-                            @endif
-                        </div>
-                        <!-- input item END -->
-                        
-                        <div class="mb-3">
-                            <label for="id_province">Province </label>
-                            <select name="id_province" class="form-control" id="id_province">
-                                <option hidden></option>
-                                @foreach ($provinces as $province )
-                                    <option value="{{ $data->id_province }}"
-                                        @if($data->id_province == $province->id)selected="selected"@endif >
-                                        {{ $province->name }}
-                                   </option>
-                                @endforeach
-                            </select>
-                            @if ($errors->has('id_province'))
-                            <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('id_province') }}</small>
                                 </span>
                             @endif
                         </div>

@@ -35,6 +35,7 @@ class VisitorController extends Controller
         );
     }
 
+    // SEARCH
     public function search(Request $request) 
     {
         $search = $request->s;
@@ -42,7 +43,7 @@ class VisitorController extends Controller
                 
     }
 
-
+    // PLANTS
     public function plants(Request $request)
     {        
 
@@ -59,6 +60,7 @@ class VisitorController extends Controller
         return view('visitor.pages.the-plants.index', compact('datas'));
     }
 
+    // PLANTS BY REGENCIES
     public function plantsByRegency(Request $request, $regency)
     {
         
@@ -75,52 +77,70 @@ class VisitorController extends Controller
 
         $regencyDetail = Regency::where('slug', $regency)->first();
 
-        return view('visitor.pages.the-plants.index', 
-            [
-                'datas' => $datas,
-                // 'regencies' => $regencies,
-                'regencyDetail' => $regencyDetail
-            ]
-        );
+        
+
+        if($datas) {
+                return view('visitor.pages.the-plants.index', 
+                [
+                    'datas' => $datas,
+                    // 'regencies' => $regencies,
+                    'regencyDetail' => $regencyDetail
+                ]
+            );
+        } else {
+            return redirect('plants');
+        }
 
         // return view('visitor.pages.the-plants.index', compact('datas'));
     }
-
+    
+    // PLANT DETAIL
     public function plantsDetail($id) {
         $data = Plant::where('slug', $id)->first();
-        return view('visitor.pages.the-plants.show', compact('data'));
+        if($data) {
+            return view('visitor.pages.the-plants.show', compact('data'));
+        } else {
+            return redirect('plants');
+        }
     }
 
+    // PAGE > OVERVIEW
     public function overview()
     {
         return view('visitor.pages.overview');
     }
 
+    // PAGE > HOT TO CONTRIBUTE
     public function howToContribute()
     {
         return view('visitor.pages.how-to-contribute');
     }
 
+    // PAGE > OUR SPONSORS
     public function ourSponsors()
     {
         return view('visitor.pages.our-sponsors');
     }
 
+    // PAGE > CONNECT WITH US
     public function connectWithUs()
     {
         return view('visitor.pages.connect-with-us');
     }
 
+    // PAGE > PRIVACY
     public function privacy()
     {
         return view('visitor.pages.privacy');
     }
 
+    // PAGE > TERMS
     public function terms()
     {
         return view('visitor.pages.terms');
     }
 
+    // PAGE > LOGIN
     public function login()
     {
         return view('auth.login');

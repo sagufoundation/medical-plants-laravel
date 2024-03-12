@@ -169,32 +169,32 @@
                         <!-- input item END -->
 
                         <div class="mb-3">
-                            <label for="id_location">Location {{sizeof($locations)<1?'(Data location not yet available)':''}} </label>
-                            <select name="id_location" class="form-control" id="id_location">
+                            <label for="id_regency">Regency {{sizeof($regencies)<1?'(Data regencies not yet available)':''}}</label>
+                            <select name="id_regency" class="form-control" id="id_regency">
                                 <option value="" hidden>Select</option>
-                                @foreach ($locations as $location )
-                                    <option value="{{ $location->id }}">{{ $location->tribes }}</option>
+                                @foreach ($regencies as $regency )
+                                    <option value="{{ $regency->id }}">{{ $regency->name }}</option>
                                 @endforeach
                             </select>
-                            @if ($errors->has('location'))
+                            @if ($errors->has('regency'))
                             <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('location') }}</small>
+                                    <small>{{ $errors->first('regency') }}</small>
                                 </span>
                             @endif
                         </div>
                         <!-- input item END -->
 
                         <div class="mb-3">
-                            <label for="id_province">Province {{sizeof($provinces)<1?'(Data provinces not yet available)':''}}</label>
-                            <select name="id_province" class="form-control" id="id_province">
+                            <label for="id_tribe">Tribe {{sizeof($tribes)<1?'(Data tribes not yet available)':''}}</label>
+                            <select name="id_tribe" class="form-control" id="id_tribe">
                                 <option value="" hidden>Select</option>
-                                @foreach ($provinces as $province )
-                                    <option value="{{ $province->id }}">{{ $province->name }}</option>
+                                @foreach ($tribes as $tribe )
+                                    <option value="{{ $tribe->id }}">{{ $tribe->tribe_name }}</option>
                                 @endforeach
                             </select>
-                            @if ($errors->has('province'))
+                            @if ($errors->has('tribe'))
                             <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('province') }}</small>
+                                    <small>{{ $errors->first('tribe') }}</small>
                                 </span>
                             @endif
                         </div>

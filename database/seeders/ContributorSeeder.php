@@ -23,8 +23,8 @@ class ContributorSeeder extends Seeder
             'city'                  => 'Kota Jayapura',
             'province'              => 'Papua Province',
             'descriptions'          => '',
-            'photo'                 => '/assets/img/team/team-tisha-rumbewas.png',
-            'status'    => 'Publish',
+            'photo'                 => 'team-tisha-rumbewas.png',
+            'status'                => 'Publish',
         ]);
 
         Contributor::create([
@@ -35,8 +35,8 @@ class ContributorSeeder extends Seeder
             'city'                  => 'Manokwari',
             'province'              => 'West Papua Province',
             'descriptions'          => '',
-            'photo'                 => '/assets/img/team/team-jimmy-wanma.png',
-            'status'    => 'Publish',
+            'photo'                 => 'team-jimmy-wanma.png',
+            'status'                => 'Publish',
         ]);
 
         Contributor::create([
@@ -47,8 +47,8 @@ class ContributorSeeder extends Seeder
             'city'                  => 'Kota Jayapura',
             'province'              => 'Papua',
             'descriptions'          => '',
-            'photo'                 => '/assets/img/team/team-janzen-faidiban.png',
-            'status'    => 'Publish',
+            'photo'                 => 'team-janzen-faidiban.png',
+            'status'                => 'Publish',
         ]);
 
         Contributor::create([
@@ -59,32 +59,9 @@ class ContributorSeeder extends Seeder
             'city'                  => 'Kabupaten Jayapura',
             'province'              => 'Papua',
             'descriptions'          => '',
-            'photo'                 => '/assets/img/team/team-samuel-bosawer.png',
-            'status'    => 'Publish',
+            'photo'                 => 'team-samuel-bosawer.png',
+            'status'                => 'Publish',
         ]);
 
-        Contributor::create([
-            'full_name'             => 'Johan Nasendi',
-            'slug'                  => 'johan-nasendi',
-            'email'                 => 'j.nasendi@gmail.com',
-            'address'               => 'Jalan Raya...,',
-            'city'                  => 'Kabupaten Jayapura',
-            'province'              => 'Papua',
-            'descriptions'          => '',
-            'photo'                 => '/assets/img/team/team-johan-nasendi.png',
-            'status'    => 'Publish',
-        ]);
-
-        Contributor::create([
-            'full_name'             => 'Obi Pranata',
-            'slug'                  => 'obi-pranata',
-            'email'                 => 'o.pranata@gmail.com',
-            'address'               => 'Jalan Raya...,',
-            'city'                  => 'Kabupaten Jayapura',
-            'province'              => 'Papua',
-            'descriptions'          => '',
-            'photo'                 => '/assets/img/team/team-default.png',
-            'status'    => 'Publish',
-        ]);
     }
 }
