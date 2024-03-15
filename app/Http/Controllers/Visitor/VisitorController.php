@@ -44,7 +44,7 @@ class VisitorController extends Controller
     }
 
     // PLANTS
-    public function plants(Request $request, $filterBy)
+    public function plants(Request $request)
     {        
         
         

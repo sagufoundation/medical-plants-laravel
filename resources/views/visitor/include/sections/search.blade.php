@@ -12,14 +12,25 @@
                         </button>
                     </div>
 
-                    <div class="input-group">
-
-                        <select name="filterBy" class="form-control choices-single">
-                            <option value="local_name">Local Name</option>
-                            <option value="latin_name">Latin Name</option>
-                            <option value="treatments">Treatment</option>
-                            {{-- <option value="regency">Regency</option> --}}
-                        </select>
+                    <div class="d-flex gap-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="latinName">
+                            <label class="form-check-label" for="latinName">
+                              Latin Name
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="localName" checked>
+                            <label class="form-check-label" for="localName">
+                              Local Name
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="treatment" checked>
+                            <label class="form-check-label" for="treatment">
+                              Treatment
+                            </label>
+                          </div>
                     </div>
 
                 </form>
