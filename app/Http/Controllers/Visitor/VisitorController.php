@@ -27,7 +27,7 @@ class VisitorController extends Controller
         // $regencies = Regency::all();
         $regencies = Regency::withCount('plant')->get();
 
-        return view('visitor.pages.home', 
+        return view('visitor.pages.home',
             [
                 'all' => $all,
                 'regencies' => $regencies,
@@ -36,36 +36,35 @@ class VisitorController extends Controller
     }
 
     // SEARCH
-    public function search(Request $request) 
+    public function search(Request $request)
     {
         $search = $request->s;
         $datas = DB::table('plants')->where('');
-                
+
     }
 
     // PLANTS
     public function plants(Request $request)
-    {        
-        
-        
+    {
+
+        $parameter = $request->parameter ?? 'local_name';
         $datas = Plant::where([
             ['local_name', '!=', Null],
-            [function ($query) use ($request) {
+            [function ($query) use ($request, $parameter) {
                 if (($s = $request->s)) {
-                    $query->orWhere('local_name', 'LIKE', '%' . $s . '%')
-                        // ->orWhere('deskripsi', 'LIKE', '%' . $s . '%')
+                    $query->orWhere($parameter, 'LIKE', '%' . $s . '%')
                         ->get();
                 }
             }]
         ])->where('status', 'Publish')->latest('id')->paginate(10);
 
-        return view('visitor.pages.the-plants.index', compact('datas'));
+        return view('visitor.pages.the-plants.index', compact('datas','request'));
     }
 
     // PLANTS BY REGENCIES
     public function plantsByRegency(Request $request, $regency)
     {
-        
+
         $status = 'Publish';
         $datas = DB::table('plants')
             ->leftJoin('locations', 'plants.id_location', '=', 'locations.id')
@@ -79,10 +78,10 @@ class VisitorController extends Controller
 
         $regencyDetail = Regency::where('slug', $regency)->first();
 
-        
+
 
         if($datas) {
-                return view('visitor.pages.the-plants.index', 
+                return view('visitor.pages.the-plants.index',
                 [
                     'datas' => $datas,
                     // 'regencies' => $regencies,
@@ -95,7 +94,7 @@ class VisitorController extends Controller
 
         // return view('visitor.pages.the-plants.index', compact('datas'));
     }
-    
+
     // PLANT DETAIL
     public function plantsDetail($id) {
         $data = Plant::where('slug', $id)->first();

@@ -12,22 +12,22 @@
                         </button>
                     </div>
 
-                    <div class="d-flex gap-2">
+                    <div class="d-flex gap-2 mt-3">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="latinName">
-                            <label class="form-check-label" for="latinName">
+                            <input class="form-check-input" type="radio" name="parameter" value="latin_name" id="latin_name" @if(request()->parameter != null AND request()->parameter === 'latin_name') checked @endif>
+                            <label class="form-check-label" for="latin_name">
                               Latin Name
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="localName" checked>
-                            <label class="form-check-label" for="localName">
+                            <input class="form-check-input" type="radio" name="parameter"  value="local_name" id="local_name" @if(request()->parameter != null AND request()->parameter === 'local_name') checked @endif>
+                            <label class="form-check-label" for="local_name">
                               Local Name
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="treatment" checked>
-                            <label class="form-check-label" for="treatment">
+                            <input class="form-check-input" type="radio" name="parameter"  value="treatments" id="treatments" @if(request()->parameter != null AND request()->parameter === 'treatments') checked @endif>
+                            <label class="form-check-label" for="treatments">
                               Treatment
                             </label>
                           </div>
