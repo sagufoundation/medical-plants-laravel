@@ -44,9 +44,10 @@ class VisitorController extends Controller
     }
 
     // PLANTS
-    public function plants(Request $request)
+    public function plants(Request $request, $filterBy)
     {        
-
+        
+        
         $datas = Plant::where([
             ['local_name', '!=', Null],
             [function ($query) use ($request) {
@@ -57,6 +58,7 @@ class VisitorController extends Controller
                 }
             }]
         ])->where('status', 'Publish')->latest('id')->paginate(10);
+
         return view('visitor.pages.the-plants.index', compact('datas'));
     }
 

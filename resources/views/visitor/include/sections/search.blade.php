@@ -12,6 +12,16 @@
                         </button>
                     </div>
 
+                    <div class="input-group">
+
+                        <select name="filterBy" class="form-control choices-single">
+                            <option value="local_name">Local Name</option>
+                            <option value="latin_name">Latin Name</option>
+                            <option value="treatments">Treatment</option>
+                            {{-- <option value="regency">Regency</option> --}}
+                        </select>
+                    </div>
+
                 </form>
 
             </div>
