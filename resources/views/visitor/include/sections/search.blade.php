@@ -14,20 +14,20 @@
 
                     <div class="d-flex gap-2 mt-3">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="parameter" value="latin_name" id="latin_name" checked>
-                            <label class="form-check-label" for="latin_name">
+                            <input class="form-check-input" type="radio" name="parameter" value="latin_name" id="latin_name" checked role="button">
+                            <label class="form-check-label" for="latin_name" role="button">
                               Latin Name
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="parameter"  value="local_name" id="local_name" @if(request()->parameter != null AND request()->parameter === 'local_name') checked @endif>
-                            <label class="form-check-label" for="local_name">
+                            <input class="form-check-input" type="radio" name="parameter"  value="local_name" id="local_name" @if(request()->parameter != null AND request()->parameter === 'local_name') checked @endif role="button">
+                            <label class="form-check-label" for="local_name" role="button">
                               Local Name
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="parameter"  value="treatments" id="treatments" @if(request()->parameter != null AND request()->parameter === 'treatments') checked @endif>
-                            <label class="form-check-label" for="treatments">
+                            <input class="form-check-input" type="radio" name="parameter"  value="treatments" id="treatments" @if(request()->parameter != null AND request()->parameter === 'treatments') checked @endif role="button">
+                            <label class="form-check-label" for="treatments" role="button">
                               Treatment
                             </label>
                           </div>
