@@ -23,8 +23,19 @@ class PlantSeeder extends Seeder
             'id_tribe' => 1,
             'id_contributor' => 1,
             'id_province' => 2,
+
+            // pictures
             'cover_picture' => 'sample/6.png',
             'gallery_picture' => 'sample/6-gallery.png',
+
+            // 'image_cover' => '',
+            // 'image_daun' => '',
+            // 'image_buah' => '',
+            // 'image_pohon' => '',
+            // 'image_bunga' => '',
+            // 'image_batang' => '',
+            // 'image_keseluruhan' => '',
+            
             'local_name' => 'Sample Local Name',
             'indonesian_name' => 'Sample Indonesian Name',
             'latin_name' => 'Sample <i>Latin</i> Name',
@@ -44,8 +55,19 @@ class PlantSeeder extends Seeder
             'id_tribe' => 1,
             'id_contributor' => 1,
             'id_province' => 2,
+            
+            // pictures
             'cover_picture' => 'sample/5.png',
             'gallery_picture' => 'sample/5-gallery.png',
+
+            // 'image_cover' => '',
+            // 'image_daun' => '',
+            // 'image_buah' => '',
+            // 'image_pohon' => '',
+            // 'image_bunga' => '',
+            // 'image_batang' => '',
+            // 'image_keseluruhan' => '',
+
             'local_name' => 'Sample Local Name 2',
             'indonesian_name' => 'Sample Indonesian Name 2',
             'latin_name' => 'Sample <i>Latin</i> Name 2',
@@ -65,8 +87,19 @@ class PlantSeeder extends Seeder
             'id_tribe' => 3,
             'id_contributor' => 1,
             'id_province' => 2,
+            
+            // pictures
             'cover_picture' => 'sample/6.png',
             'gallery_picture' => 'sample/6-gallery.png',
+
+            // 'image_cover' => '',
+            // 'image_daun' => '',
+            // 'image_buah' => '',
+            // 'image_pohon' => '',
+            // 'image_bunga' => '',
+            // 'image_batang' => '',
+            // 'image_keseluruhan' => '',
+            
             'local_name' => 'Sample Local Name 3',
             'indonesian_name' => 'Sample Indonesian Name 3',
             'latin_name' => 'Sample <i>Latin</i> Name 3',
@@ -86,8 +119,19 @@ class PlantSeeder extends Seeder
             'id_tribe' => 2,
             'id_contributor' => 1,
             'id_province' => 1,
+            
+            // pictures
             'cover_picture' => 'sample/anamyaum-cover.png',
             'gallery_picture' => 'sample/anamyaum-gallery.png',
+
+            // 'image_cover' => '',
+            // 'image_daun' => '',
+            // 'image_buah' => '',
+            // 'image_pohon' => '',
+            // 'image_bunga' => '',
+            // 'image_batang' => '',
+            // 'image_keseluruhan' => '',
+            
             'local_name' => 'Anamyaum',
             'indonesian_name' => '-',
             'latin_name' => '<i>Alstonia scholaris</i> (L.) R.Br.',
@@ -109,8 +153,19 @@ class PlantSeeder extends Seeder
             'id_tribe' => 2,
             'id_contributor' => 1,
             'id_province' => 1,
+            
+            // pictures
             'cover_picture' => 'sample/inasi-koi-cover.png',
             'gallery_picture' => 'sample/inasi-koi-gallery.png',
+
+            // 'image_cover' => '',
+            // 'image_daun' => '',
+            // 'image_buah' => '',
+            // 'image_pohon' => '',
+            // 'image_bunga' => '',
+            // 'image_batang' => '',
+            // 'image_keseluruhan' => '',
+            
             'local_name' => 'Inasi Koi',
             'indonesian_name' => '-',
             'latin_name' => '<i>Scaevola Taccada</i> (Gaertn.) Roxb.',
@@ -130,8 +185,19 @@ class PlantSeeder extends Seeder
             'id_tribe' => 2,
             'id_contributor' => 1,
             'id_province' => 1,
+            
+            // pictures
             'cover_picture' => 'sample/krataweri-cover.png',
             'gallery_picture' => 'sample/krataweri-gallery.png',
+
+            // 'image_cover' => '',
+            // 'image_daun' => '',
+            // 'image_buah' => '',
+            // 'image_pohon' => '',
+            // 'image_bunga' => '',
+            // 'image_batang' => '',
+            // 'image_keseluruhan' => '',
+            
             'local_name' => 'Krataweri',
             'indonesian_name' => '-',
             'latin_name' => '<i>Artocarpus vriesianus</i> Miq.',

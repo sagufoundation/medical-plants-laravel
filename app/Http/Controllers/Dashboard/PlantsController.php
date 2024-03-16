@@ -295,6 +295,94 @@ class PlantsController extends Controller
         }
     }
 
+    // edit "image_cover"
+    public function edit_image($id)
+    {        
+        $data = Plant::where('id', $id)->first();
+        return view('dashboard.plants.images.edit', compact('data'));
+    }
+
+    // update "image_cover"
+    public function update_image_cover(Request $request, $id) 
+    {
+
+        $validator = Validator::make(
+            $request->all(),
+            [
+                // 'local_name' => 'required',
+            ],
+            [
+                // 'local_name.required' => 'This is a reaquired field',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput($request->all())->withErrors($validator);
+        } else {
+            try {
+                $data = Plant::find($id);
+
+                if ($request->image) {
+                    $imageName =  Str::slug($request->segment3).'-'.Str::slug($data->local_name).'.' . $request->image->extension();
+                    $path = public_path('images/plants/' . $data->id);
+                    
+                    if (!empty($data->image) && file_exists($path . '/' . $data->image)) :
+                        unlink($path . '/' . $data->image);
+                    endif;
+
+                    if($request->segment3 == 'cover') { $data->image_cover = $imageName; }
+                    if($request->segment3 == 'daun') { $data->image_daun = $imageName; }
+                    if($request->segment3 == 'buah') { $data->image_buah = $imageName; }
+                    if($request->segment3 == 'pohon') { $data->image_pohon = $imageName; }
+                    if($request->segment3 == 'bunga') { $data->image_bunga = $imageName; }
+                    if($request->segment3 == 'batang') { $data->image_batang = $imageName; }
+                    if($request->segment3 == 'keseluruhan') { $data->image_keseluruhan = $imageName; }
+
+                    $request->image->move(public_path('images/plants/' . $data->id), $imageName);
+                }
+
+                $data->update();
+
+                Alert::toast('Updated! This data has been updated successfully.', 'success');
+                return redirect('dashboard/plants/'.$request->segment3.'/' . $data->id . '/edit');
+
+            } catch (\Throwable $th) {
+                Alert::toast('Failed! Something is wrong', 'error');
+                return redirect()->back();
+            }
+        }
+    }
+    // update "image_daun"
+    public function update_image_daun() 
+    {
+        // 
+    }
+    // update "image_buah"
+    public function update_image_buah() 
+    {
+        // 
+    }
+    // update "image_pohon"
+    public function update_image_pohon() 
+    {
+        // 
+    }
+    // update "image_bunga"
+    public function update_image_bunga() 
+    {
+        // 
+    }
+    // update "image_batang"
+    public function update_image_batang() 
+    {
+        // 
+    }
+    // update "image_keseluruhan"
+    public function update_image_keseluruhan() 
+    {
+        // 
+    }
+
     // destroy
     public function destroy($id)
     {

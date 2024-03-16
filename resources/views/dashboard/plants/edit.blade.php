@@ -107,62 +107,6 @@
                         </div>
                         <!-- input item END -->
 
-                    </div>
-                    <div class="col-lg-6">
-
-                        <!-- input item START -->
-                        <div class="mb-3">
-                            <label for="gambar1" class="form-label d-block">Thumbnail </label>
-                            <div class="mb-2">
-                                @if (!$data->cover_picture)
-                                    <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Gambar" id="preview-gambar1" class="img-thumbnail w-50">
-                                    @else
-                                    <img src="{{ asset('images/plants/' . $data->cover_picture) }}" id="preview-gambar1" class="img-thumbnail w-50">
-                                @endif
-                            </div>
-                            <!-- input item END -->
-                            
-                            <!-- input item START -->
-                            <div class="custom-file">
-                                <input type="file" name="cover_picture" class="custom-file-input" id="gambar1" accept="image/*">
-                                <label class="custom-file-label" for="customFile">Select image</label>
-                            </div>
-
-                            @if ($errors->has('cover_picture'))
-                            <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('cover_picture') }}</small>
-                                </span>
-                            @endif
-
-                        </div>
-                        <!-- input item END -->
-
-                        <!-- input item START -->
-                        <div class="mb-3">
-                            <label for="2" class="form-label d-block">Gallery </label>
-                            <div class="mb-2">
-                                @if (!$data->gallery_picture)
-                                    <img src="{{ asset('images/plants/00-gallery.jpg') }}" alt="Gambar" id="preview-gambar2" class="img-thumbnail img-fluid">
-                                    @else
-                                    <img src="{{ asset('images/plants/' . $data->gallery_picture) }}" id="preview-gambar2" class="img-thumbnail img-fluid">
-                                @endif
-
-                            </div>
-
-                            <div class="custom-file">
-                                <input type="file" name="gallery_picture" class="custom-file-input" id="gambar2" accept="image/*">
-                                <label class="custom-file-label" for="customFile">Select image</label>
-                            </div>
-
-                            @if ($errors->has('gallery_picture'))
-                            <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('gallery_picture') }}</small>
-                                </span>
-                            @endif
-
-                        </div>
-                        <!-- input item END -->
-
                         <div class="mb-3">
                             <label for="id_regency">Regency {{sizeof($regencies)<1?'(Data regencies not yet available)':''}}</label>
                             <select name="id_regency" class="form-control" id="id_regency">
@@ -226,7 +170,106 @@
                             @endif
                         </div>
                         <!-- input item END -->
-                        
+
+                    </div>
+
+                    <div class="col-lg-6">
+
+                        <div class="row">
+
+                            <div class="col-xl-4 col-lg-4 col-lg-6 col-sm-12 mb-3">
+                                <div class="font-weight-bold">Cover</div>
+                                @if (empty($data->image_cover))
+                                <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                @else
+                                <img src="{{ asset('images/plants/' . $data->id . '/' . $data->image_cover) }}" alt="{!! $data->image_cover !!}" class="border shadow w-100">
+                                <div class="position-absolute top-0 start-0">
+                                    <a href="{{ url('dashboard/plants/cover/'.$data->id.'/edit') }}" class="btn btn-sm btn-dark px-1 py-0 rounded-0"><i class="fa-solid fa-edit"></i></a>
+                                    <a href="{{ url('dashboard/plants/cover/'.$data->id.'/trash') }}" class="btn btn-sm btn-outline-dark px-1 py-0 rounded-0"><i class="fa-solid fa-trash"></i></a>
+                                </div>
+                                @endif
+                            </div> <!-- col end -->
+                            
+                            <div class="col-xl-4 col-lg-4 col-lg-6 col-sm-12 mb-3">
+                                <div class="font-weight-bold">Daun</div>
+                                @if (empty($data->image_daun))
+                                <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                @else
+                                <img src="{{ asset('images/plants/' . $data->id . '/' . $data->image_daun) }}" alt="{!! $data->image_daun !!}" class="border shadow w-100">
+                                <div>
+                                    <a href="" class="btn btn-sm btn-dark px-1 py-0 rounded-0"><i class="fa-solid fa-edit"></i></a>
+                                    <a href="" class="btn btn-sm btn-outline-dark px-1 py-0 rounded-0"><i class="fa-solid fa-trash"></i></a>
+                                </div>
+                                @endif
+                            </div> <!-- col end -->
+                            
+                            <div class="col-xl-4 col-lg-4 col-lg-6 col-sm-12 mb-3">
+                                <div class="font-weight-bold">Buah</div>
+                                @if (empty($data->image_buah))
+                                <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                @else
+                                <img src="{{ asset('images/plants/' . $data->id . '/' . $data->image_buah) }}" alt="{!! $data->image_buah !!}" class="border shadow w-100">
+                                <div>
+                                    <a href="" class="btn btn-sm btn-dark px-1 py-0 rounded-0"><i class="fa-solid fa-edit"></i></a>
+                                    <a href="" class="btn btn-sm btn-outline-dark px-1 py-0 rounded-0"><i class="fa-solid fa-trash"></i></a>
+                                </div>
+                                @endif
+                            </div> <!-- col end -->
+                            
+                            <div class="col-xl-4 col-lg-4 col-lg-6 col-sm-12 mb-3">
+                                <div class="font-weight-bold">Pohon</div>
+                                @if (empty($data->image_pohon))
+                                <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                @else
+                                <img src="{{ asset('images/plants/' . $data->id . '/' . $data->image_pohon) }}" alt="{!! $data->image_pohon !!}" class="border shadow w-100">
+                                <div>
+                                    <a href="" class="btn btn-sm btn-dark px-1 py-0 rounded-0"><i class="fa-solid fa-edit"></i></a>
+                                    <a href="" class="btn btn-sm btn-outline-dark px-1 py-0 rounded-0"><i class="fa-solid fa-trash"></i></a>
+                                </div>
+                                @endif
+                            </div> <!-- col end -->
+                            
+                            <div class="col-xl-4 col-lg-4 col-lg-6 col-sm-12 mb-3">
+                                <div class="font-weight-bold">Bunga</div>
+                                @if (empty($data->image_bunga))
+                                <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                @else
+                                <img src="{{ asset('images/plants/' . $data->id . '/' . $data->image_bunga) }}" alt="{!! $data->image_bunga !!}" class="border shadow w-100">
+                                <div>
+                                    <a href="" class="btn btn-sm btn-dark px-1 py-0 rounded-0"><i class="fa-solid fa-edit"></i></a>
+                                    <a href="" class="btn btn-sm btn-outline-dark px-1 py-0 rounded-0"><i class="fa-solid fa-trash"></i></a>
+                                </div>
+                                @endif
+                            </div> <!-- col end -->
+                            
+                            <div class="col-xl-4 col-lg-4 col-lg-6 col-sm-12 mb-3">
+                                <div class="font-weight-bold">Batang</div>
+                                @if (empty($data->image_batang))
+                                <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                @else
+                                <img src="{{ asset('images/plants/' . $data->id . '/' . $data->image_batang) }}" alt="{!! $data->image_batang !!}" class="border shadow w-100">
+                                <div>
+                                    <a href="" class="btn btn-sm btn-dark px-1 py-0 rounded-0"><i class="fa-solid fa-edit"></i></a>
+                                    <a href="" class="btn btn-sm btn-outline-dark px-1 py-0 rounded-0"><i class="fa-solid fa-trash"></i></a>
+                                </div>
+                                @endif
+                            </div> <!-- col end -->
+                            
+                            <div class="col-xl-4 col-lg-4 col-lg-6 col-sm-12 mb-3">
+                                <div class="font-weight-bold">Keseluruhan</div>
+                                @if (empty($data->image_keseluruhan))
+                                <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                @else
+                                <img src="{{ asset('images/plants/' . $data->id . '/' . $data->image_keseluruhan) }}" alt="{!! $data->image_keseluruhan !!}" class="border shadow w-100">
+                                <div>
+                                    <a href="" class="btn btn-sm btn-dark px-1 py-0 rounded-0"><i class="fa-solid fa-edit"></i></a>
+                                    <a href="" class="btn btn-sm btn-outline-dark px-1 py-0 rounded-0"><i class="fa-solid fa-trash"></i></a>
+                                </div>
+                                @endif
+                            </div> <!-- col end -->
+
+                        </div>
+
                     </div>
                 </div>
 

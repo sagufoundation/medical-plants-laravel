@@ -38,6 +38,45 @@ use Illuminate\Support\Facades\Route;
             // update
             Route::put('plants/update/{id}','update')->name('dashboard.plants.update');
 
+
+
+
+
+
+
+
+            // edit "image_cover" 
+            Route::get('plants/cover/{id}/edit','edit_image')->name('dashboard.plants.edit_image_cover');
+            // edit "image_daun" 
+            Route::get('plants/daun/{id}/edit','edit_image')->name('dashboard.plants.edit_image_daun');
+            // edit "image_buah" 
+            Route::get('plants/buah/{id}/edit','edit_image')->name('dashboard.plants.edit_image_buah');
+            // edit "image_pohon" 
+            Route::get('plants/pohon/{id}/edit','edit_image')->name('dashboard.plants.edit_image_pohon');
+            // edit "image_bunga" 
+            Route::get('plants/bunga/{id}/edit','edit_image')->name('dashboard.plants.edit_image_bunga');
+            // edit "image_batang" 
+            Route::get('plants/batang/{id}/edit','edit_image')->name('dashboard.plants.edit_image_batang');
+            // edit "image_keseluruhan" 
+            Route::get('plants/keseluruhan/{id}/edit','edit_image')->name('dashboard.plants.edit_image_keseluruhan');
+
+            // // update "image_cover" 
+            Route::put('plants/update/cover/{id}','update_image_cover')->name('dashboard.plants.update_image_cover');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             // destroy
             Route::delete('plants/destroy/{id}','destroy')->name('dashboard.plants.destroy');
 
