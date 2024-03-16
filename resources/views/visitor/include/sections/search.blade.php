@@ -14,7 +14,7 @@
 
                     <div class="d-flex gap-2 mt-3">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="parameter" value="latin_name" id="latin_name" @if(request()->parameter != null AND request()->parameter === 'latin_name') checked @endif>
+                            <input class="form-check-input" type="radio" name="parameter" value="latin_name" id="latin_name" checked>
                             <label class="form-check-label" for="latin_name">
                               Latin Name
                             </label>
