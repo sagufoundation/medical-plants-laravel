@@ -31,12 +31,13 @@
                             @foreach ($datas as $data)
                             <tr>
                                 <td>{{ ++$i }}</td>
-                                <td>
-                                    @if (empty($data))
-                                    <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Picture" style="width:200px" class="border shadow">
-                                    @else
-                                    <img src="{{ asset('images/plants/'. $data->cover_picture) }}" alt="Picture" style="width:100px" class="border shadow">
-                                    @endif
+                                <td width="100">
+                                    <img 
+                                        src="@if(empty($data->image_cover)) {{ asset('images/plants/00-single.jpg') }} @else {{ asset('images/plants/' . $data->id.'/'.$data->image_cover) }} @endif " 
+                                        id="preview_image_cover" 
+                                        alt="image cover" 
+                                        class="w-100"
+                                    > 
                                 </td>
                                 <td>{!! $data->local_name ?? '' !!}</td>
                                 <td> {!! $data->contributor->full_name ?? '' !!} </td>

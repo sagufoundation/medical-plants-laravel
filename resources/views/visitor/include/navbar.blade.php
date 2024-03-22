@@ -13,6 +13,7 @@
                 <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'home') active fw-bold link-success @endif" href="{{ url('home') }}">Home</a></li>
                 <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'plants') active fw-bold link-success @endif" href="{{ url('plants') }}">Plants</a></li>
                 <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'overview') active fw-bold link-success @endif" href="{{ url('overview') }}">Overview</a></li>
+                <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'our-team') active fw-bold link-success @endif" href="{{ url('our-team') }}">Our Team</a></li>
                 <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'how-to-contribute') active fw-bold link-success @endif" href="{{ url('how-to-contribute') }}">How To Contribute</a></li>
                 <li class="nav-item"><a class="nav-link me-lg-3 @if(Request::segment(1) == '') active @elseif(Request::segment(1) == 'our-sponsors') active fw-bold link-success @endif" href="{{ url('our-sponsors') }}">Our Sponsors</a></li>
             </ul>

@@ -124,13 +124,14 @@ class PlantsController extends Controller
             try {
                 $data = new Plant();
                 $data->local_name = $request->local_name;
-                $data->slug = Str::slug($data->local_name);
+                $data->slug = Str::slug($request->local_name);
                 $data->indonesian_name = $request->indonesian_name;
                 $data->latin_name = $request->latin_name;
                 $data->taxonomists = $request->taxonomists;
                 $data->treatments = $request->treatments;
                 $data->traditional_usage = $request->traditional_usage;
                 $data->known_phytochemical_consituents = $request->known_phytochemical_consituents;
+                $data->village = $request->village;
 
                 $data->id_location = $request->id_contributor;
                 $data->id_contributor = $request->id_contributor;
@@ -140,31 +141,98 @@ class PlantsController extends Controller
 
                 $data->status = $request->status;
 
-                if ($request->cover_picture) {
-                    $pictureName = $data->slug .'-single-'. time() .'.' . $request->cover_picture->extension();
-                    $path = public_path('images/plants');
-                    
-                    if (!empty($data->cover_picture) && file_exists($path . '/' . $data->cover_picture)) :
-                        unlink($path . '/' . $data->cover_picture);
-                    endif;
-
-                    $data->cover_picture = $pictureName;
-                    $request->cover_picture->move(public_path('images/plants'), $pictureName);
-                }
-
-                if ($request->gallery_picture) {
-                    $gallery_picture_name = $data->slug .'-gallery-'. time() .'.' . $request->gallery_picture->extension();
-                    $path = public_path('images/plants');
-                    
-                    if (!empty($data->gallery_picture) && file_exists($path . '/' . $data->gallery_picture)) :
-                        unlink($path . '/' . $data->gallery_picture);
-                    endif;
-
-                    $data->gallery_picture = $gallery_picture_name;
-                    $request->gallery_picture->move(public_path('images/plants'), $gallery_picture_name);
-                }
-
                 $data->save();
+
+                $data = Plant::find($data->id);
+
+                $path = public_path('images/plants/'. $data->id);
+
+                // image_cover
+                if ($request->image_cover) {
+                    $imageName_cover = 'cover-'. time() .'.' . $request->image_cover->extension();
+                    
+                    if (!empty($data->image_cover) && file_exists($path . '/' . $data->image_cover)) :
+                        unlink($path . '/' . $data->image_cover);
+                    endif;
+
+                    $data->image_cover = $imageName_cover;
+                    $request->image_cover->move($path, $imageName_cover);
+                }
+
+                // image_daun
+                if ($request->image_daun) {
+                    $imageName_daun = 'daun-'. time() .'.' . $request->image_daun->extension();
+                    
+                    if (!empty($data->image_daun) && file_exists($path . '/' . $data->image_daun)) :
+                        unlink($path . '/' . $data->image_daun);
+                    endif;
+
+                    $data->image_daun = $imageName_daun;
+                    $request->image_daun->move($path, $imageName_daun);
+                }
+
+                // image_buah
+                if ($request->image_buah) {
+                    $imageName_buah = 'buah-'. time() .'.' . $request->image_buah->extension();
+                    
+                    if (!empty($data->image_buah) && file_exists($path . '/' . $data->image_buah)) :
+                        unlink($path . '/' . $data->image_buah);
+                    endif;
+
+                    $data->image_buah = $imageName_buah;
+                    $request->image_buah->move($path, $imageName_buah);
+                }
+
+                // image_pohon
+                if ($request->image_pohon) {
+                    $imageName_pohon = 'pohon-'. time() .'.' . $request->image_pohon->extension();
+                    
+                    if (!empty($data->image_pohon) && file_exists($path . '/' . $data->image_pohon)) :
+                        unlink($path . '/' . $data->image_pohon);
+                    endif;
+
+                    $data->image_pohon = $imageName_pohon;
+                    $request->image_pohon->move($path, $imageName_pohon);
+                }
+
+                // image_bunga
+                if ($request->image_bunga) {
+                    $imageName_bunga = 'bunga-'. time() .'.' . $request->image_bunga->extension();
+                    
+                    if (!empty($data->image_bunga) && file_exists($path . '/' . $data->image_bunga)) :
+                        unlink($path . '/' . $data->image_bunga);
+                    endif;
+
+                    $data->image_bunga = $imageName_bunga;
+                    $request->image_bunga->move($path, $imageName_bunga);
+                }
+
+                // image_batang
+                if ($request->image_batang) {
+                    $imageName_batang = 'batang-'. time() .'.' . $request->image_batang->extension();
+                    
+                    if (!empty($data->image_batang) && file_exists($path . '/' . $data->image_batang)) :
+                        unlink($path . '/' . $data->image_batang);
+                    endif;
+
+                    $data->image_batang = $imageName_batang;
+                    $request->image_batang->move($path, $imageName_batang);
+                }
+
+                // image_keseluruhan
+                if ($request->image_keseluruhan) {
+                    $imageName_keseluruhan = 'keseluruhan-'. time() .'.' . $request->image_keseluruhan->extension();
+                    
+                    if (!empty($data->image_keseluruhan) && file_exists($path . '/' . $data->image_keseluruhan)) :
+                        unlink($path . '/' . $data->image_keseluruhan);
+                    endif;
+
+                    $data->image_keseluruhan = $imageName_keseluruhan;
+                    $request->image_keseluruhan->move($path, $imageName_keseluruhan);
+                }
+                
+
+                $data->update();
 
                 Alert::toast('Created! This data has been created successfully.', 'success');
                 return redirect('dashboard/plants/' . $data->id . '/show');

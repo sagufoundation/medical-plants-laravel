@@ -21,7 +21,7 @@
 
                         <div class="row">
 
-                            <div class="col-xl-4 col-lg-4 col-lg-6 col-sm-12 mb-3">
+                            <div class="col-xl-6 col-lg-6 col-lg-6 col-sm-12 mb-3">
                                 @php
                                     if(Request::segment(3) == 'cover') { $imageSegment = $data->image_cover; }    
                                     if(Request::segment(3) == 'daun') { $imageSegment = $data->image_daun; }    
@@ -35,7 +35,7 @@
                                     @if (empty($imageSegment))
                                     <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
                                     @else
-                                    <img src="{!! asset('images/plants/' . $data->id .'/'.$imageSegment) !!}" alt="{!! asset('images/plants/' . $data->id .'/'.$imageSegment) !!}" class="border shadow w-100" id="preview-gambar">
+                                    <img src="{!! asset('images/plants/' . $imageSegment) !!}" alt="{!! asset('images/plants/' . $data->id .'/'.$imageSegment) !!}" class="border shadow w-100" id="preview-gambar">
                                     <div class="position-absolute top-0 start-0">
                                         <a href="{{ url('dashboard/plants/'.Request::segment(3).'/'.$data->id.'/trash') }}" class="btn btn-sm btn-outline-dark px-1 py-0 rounded-0"><i class="fa-solid fa-trash"></i></a>
                                     </div>

@@ -15,7 +15,20 @@
                 @csrf
 
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-8">
+
+                        <!-- input item START -->
+                        <div class="mb-3">
+                            <label for="latin_name">Plant name in Latin</label>
+
+                            <textarea id="latin_name" name="latin_name" rows="1" class="ckeditor form-control rounded-0">{{ old('latin_name') ?? '' }}</textarea>
+                            @if ($errors->has('latin_name'))
+                            <span class="text-danger" role="alert">
+                                    <small>{{ $errors->first('latin_name') }}</small>
+                                </span>
+                            @endif
+                        </div>
+                        <!-- input item END -->
 
                         <!-- input item START -->
                         <div class="mb-3">
@@ -38,19 +51,6 @@
                             @if ($errors->has('indonesian_name'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('indonesian_name') }}</small>
-                                </span>
-                            @endif
-                        </div>
-                        <!-- input item END -->
-
-                        <!-- input item START -->
-                        <div class="mb-3">
-                            <label for="latin_name">Plant name in Latin</label>
-
-                            <textarea id="latin_name" name="latin_name" rows="1" class="ckeditor form-control rounded-0">{{ old('latin_name') ?? '' }}</textarea>
-                            @if ($errors->has('latin_name'))
-                            <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('latin_name') }}</small>
                                 </span>
                             @endif
                         </div>
@@ -106,105 +106,25 @@
                             @endif
                         </div>
                         <!-- input item END -->
-
-                    </div>
-
-                    <div class="col-lg-6">
-
+                        
                         <!-- input item START -->
                         <div class="mb-3">
-                            <label for="gambar" class="form-label d-block">Thumbnail </label>
-                            <div class="mb-2">
-                                <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar1" class="img-thumbnail w-50">
-                            </div>
+                            <label for="village">Village</label>
 
-                            <div class="custom-file">
-                                <input type="file" name="cover_picture" class="custom-file-input" id="gambar1" accept="image/*">
-                                <label class="custom-file-label" for="customFile">Select image</label>
-                            </div>
-
-                            @if ($errors->has('cover_picture'))
+                            <textarea id="village" name="village" rows="1" class="ckeditor form-control rounded-0">{{ old('village') ?? '' }}</textarea>
+                            @if ($errors->has('village'))
                             <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('cover_picture') }}</small>
-                                </span>
-                            @endif
-
-                        </div>
-                        <!-- input item END -->
-
-                        <!-- input item START -->
-                        <div class="mb-3">
-                            <label for="gambar" class="form-label d-block">Gallery </label>
-                            <div class="mb-2">
-                                <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar2" class="img-thumbnail img-fluid">
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" name="gallery_picture" class="custom-file-input" id="gambar2" accept="image/*">
-                                <label class="custom-file-label" for="customFile">Select image</label>
-                            </div>
-
-                            @if ($errors->has('gallery_picture'))
-                            <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('gallery_picture') }}</small>
-                                </span>
-                            @endif
-
-                        </div>
-                        <!-- input item END -->
-
-                        <div class="mb-3">
-                            <label for="id_contributor">Contributor {{sizeof($countributors)<1?'(Data contributor not yet available)':''}}</label>
-                            <select name="id_contributor" class="form-control" id="id_contributor">
-                                <option value="" hidden>Select</option>
-                                @foreach ($countributors as $countributor )
-                                    <option value="{{ $countributor->id }}">{{ $countributor->full_name }}</option>
-                                @endforeach
-                            </select>
-                            @if ($errors->has('contributor'))
-                            <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('contributor') }}</small>
+                                    <small>{{ $errors->first('village') }}</small>
                                 </span>
                             @endif
                         </div>
                         <!-- input item END -->
-
-                        <div class="mb-3">
-                            <label for="id_regency">Regency {{sizeof($regencies)<1?'(Data regencies not yet available)':''}}</label>
-                            <select name="id_regency" class="form-control" id="id_regency">
-                                <option value="" hidden>Select</option>
-                                @foreach ($regencies as $regency )
-                                    <option value="{{ $regency->id }}">{{ $regency->name }}</option>
-                                @endforeach
-                            </select>
-                            @if ($errors->has('regency'))
-                            <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('regency') }}</small>
-                                </span>
-                            @endif
-                        </div>
-                        <!-- input item END -->
-
-                        <div class="mb-3">
-                            <label for="id_tribe">Tribe {{sizeof($tribes)<1?'(Data tribes not yet available)':''}}</label>
-                            <select name="id_tribe" class="form-control" id="id_tribe">
-                                <option value="" hidden>Select</option>
-                                @foreach ($tribes as $tribe )
-                                    <option value="{{ $tribe->id }}">{{ $tribe->tribe_name }}</option>
-                                @endforeach
-                            </select>
-                            @if ($errors->has('tribe'))
-                            <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('tribe') }}</small>
-                                </span>
-                            @endif
-                        </div>
-                        <!-- input item END -->
-
+                        
                         <div class="mb-3">
                             <label for="description">Status </label>
                             <select name="status" class="form-control" id="">
-                                <option value="Publish">Publish</option>
-                                <option value="Draft" selected>Draft</option>
+                                <option value="Draft" @if(old('status') == 'Draft' ) Selected @endif>Draft</option>
+                                <option value="Publish" @if(old('status') == 'Publish') Selected @endif>Publish</option>
                             </select>
                             @if ($errors->has('status'))
                             <span class="text-danger" role="alert">
@@ -215,6 +135,150 @@
                         <!-- input item END -->
 
                     </div>
+                    <!-- col end -->
+
+                    <div class="col-lg-4">
+
+                        <div class="row">
+
+                            <div class="col-12 mb-3">
+                                <label for="image_cover">Cover</label>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td class="text-center">
+                                            <img src="{{ asset('images/plants/00-single.jpg') }}" id="preview_image_cover" alt="Image empty" class="w-25">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="custom-file">
+                                                <input type="file" name="image_cover" class="custom-file-input" id="image_cover" accept="image/*">
+                                                <label class="custom-file-label" for="customFile">Select image</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div> <!-- col end -->
+
+                            <div class="col-12 mb-3">
+                                <label for="image_daun">Daun</label>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td class="text-center">
+                                            <img src="{{ asset('images/plants/00-single.jpg') }}" id="preview_image_daun" alt="Image empty" class="w-25">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="custom-file">
+                                                <input type="file" name="image_daun" class="custom-file-input" id="image_daun" accept="image/*">
+                                                <label class="custom-file-label" for="customFile">Select image</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div> <!-- col end -->
+
+                            <div class="col-12 mb-3">
+                                <label for="image_buah">Buah</label>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td class="text-center">
+                                            <img src="{{ asset('images/plants/00-single.jpg') }}" id="preview_image_buah" alt="Image empty" class="w-25">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="custom-file">
+                                                <input type="file" name="image_buah" class="custom-file-input" id="image_buah" accept="image/*">
+                                                <label class="custom-file-label" for="customFile">Select image</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div> <!-- col end -->
+
+                            <div class="col-12 mb-3">
+                                <label for="image_pohon">Pohon</label>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td class="text-center">
+                                            <img src="{{ asset('images/plants/00-single.jpg') }}" id="preview_image_pohon" alt="Image empty" class="w-25">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="custom-file">
+                                                <input type="file" name="image_pohon" class="custom-file-input" id="image_pohon" accept="image/*">
+                                                <label class="custom-file-label" for="customFile">Select image</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div> <!-- col end -->
+
+                            <div class="col-12 mb-3">
+                                <label for="image_bunga">Bunga</label>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td class="text-center">
+                                            <img src="{{ asset('images/plants/00-single.jpg') }}" id="preview_image_bunga" alt="Image empty" class="w-25">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="custom-file">
+                                                <input type="file" name="image_bunga" class="custom-file-input" id="image_bunga" accept="image/*">
+                                                <label class="custom-file-label" for="customFile">Select image</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div> <!-- col end -->
+
+                            <div class="col-12 mb-3">
+                                <label for="image_batang">Batang</label>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td class="text-center">
+                                            <img src="{{ asset('images/plants/00-single.jpg') }}" id="preview_image_batang" alt="Image empty" class="w-25">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="custom-file">
+                                                <input type="file" name="image_batang" class="custom-file-input" id="image_batang" accept="image/*">
+                                                <label class="custom-file-label" for="customFile">Select image</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div> <!-- col end -->
+
+                            <div class="col-12 mb-3">
+                                <label for="image_keseluruhan">Keseluruhan</label>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td class="text-center">
+                                            <img src="{{ asset('images/plants/00-single.jpg') }}" id="preview_image_keseluruhan" alt="Image empty" class="w-25">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="custom-file">
+                                                <input type="file" name="image_keseluruhan" class="custom-file-input" id="image_keseluruhan" accept="image/*">
+                                                <label class="custom-file-label" for="customFile">Select image</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div> <!-- col end -->
+
+                        </div>
+
+                    </div>
+                    <!-- col end -->
+                    
                 </div>
 
                     <button type="submit" class="btn btn-primary rounded-0">
@@ -245,28 +309,90 @@
     });
     CKEDITOR.config.height='100px';
 
-
+    // cover
     $(document).ready(function (e) {
-        $('#gambar1').change(function(){
+        $('#image_cover').change(function(){
                 let reader = new FileReader();
                 reader.onload = (e) => {
-                  $('#preview-gambar1').attr('src', e.target.result);
+                  $('#preview_image_cover').attr('src', e.target.result);
                 }
                 reader.readAsDataURL(this.files[0]);
         });
 
     });
 
+    // daun
     $(document).ready(function (e) {
-        $('#gambar2').change(function(){
+        $('#image_daun').change(function(){
                 let reader = new FileReader();
                 reader.onload = (e) => {
-                  $('#preview-gambar2').attr('src', e.target.result);
+                  $('#preview_image_daun').attr('src', e.target.result);
                 }
                 reader.readAsDataURL(this.files[0]);
         });
 
     });
+
+    // buah
+    $(document).ready(function (e) {
+        $('#image_buah').change(function(){
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                  $('#preview_image_buah').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+        });
+
+    });
+
+    // pohon
+    $(document).ready(function (e) {
+        $('#image_pohon').change(function(){
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                  $('#preview_image_pohon').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+        });
+
+    });
+
+    // bunga
+    $(document).ready(function (e) {
+        $('#image_bunga').change(function(){
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                  $('#preview_image_bunga').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+        });
+
+    });
+
+    // batang
+    $(document).ready(function (e) {
+        $('#image_batang').change(function(){
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                  $('#preview_image_batang').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+        });
+
+    });
+
+    // keseluruhan
+    $(document).ready(function (e) {
+        $('#image_keseluruhan').change(function(){
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                  $('#preview_image_keseluruhan').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+        });
+
+    });
+
 </script>
 
 @endpush

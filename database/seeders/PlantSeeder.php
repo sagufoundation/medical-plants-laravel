@@ -45,6 +45,8 @@ class PlantSeeder extends Seeder
             'traditional_usage' => 'Sample traditional ussage',
             'known_phytochemical_consituents' => 'Known phytochemical consituents',
 
+            'village' => '-',
+
             'status' => 'Publish',
             'slug' => 'sample-local-name',
         ]);
@@ -76,6 +78,8 @@ class PlantSeeder extends Seeder
             'treatments' => 'Sample Treatments 2',
             'traditional_usage' => 'Sample traditional ussage 2',
             'known_phytochemical_consituents' => 'Known phytochemical consituents 2',
+
+            'village' => '-',
 
             'status' => 'Publish',
             'slug' => 'sample-local-name-2',
@@ -109,6 +113,8 @@ class PlantSeeder extends Seeder
             'traditional_usage' => 'Sample traditional ussage 3',
             'known_phytochemical_consituents' => 'Known phytochemical consituents 3',
 
+            'village' => '-',
+
             'status' => 'Publish',
             'slug' => 'sample-local-name-3',
         ]);
@@ -140,6 +146,8 @@ class PlantSeeder extends Seeder
             'treatments' => '-',
             'traditional_usage' => '-',
             'known_phytochemical_consituents' => '-',
+
+            'village' => '-',
 
             'status' => 'Publish',
             'slug' => 'anamyaum',
@@ -175,6 +183,8 @@ class PlantSeeder extends Seeder
             'traditional_usage' => '-',
             'known_phytochemical_consituents' => '-',
 
+            'village' => '-',
+
             'status' => 'Publish',
             'slug' => 'inasi-koi',
         ]);
@@ -206,6 +216,8 @@ class PlantSeeder extends Seeder
             'treatments' => '-',
             'traditional_usage' => '-',
             'known_phytochemical_consituents' => '-',
+
+            'village' => '-',
 
             'status' => 'Publish',
             'slug' => 'krataweri',

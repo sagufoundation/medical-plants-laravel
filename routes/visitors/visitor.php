@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// team > all
+Route::get('our-team', function() {
+    return view('visitor.pages.team.all');
+});
+
 // team > developer
 Route::get('our-team/developer', function() {
     return view('visitor.pages.team.developer');
