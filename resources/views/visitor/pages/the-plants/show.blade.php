@@ -72,7 +72,6 @@
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Contributor </span>
                                 <a href="{{ url('contributor', $data->contributor->slug ?? '') }}" class="text-decoration-none link-dark">
-
                                     <span class="fs-5">
                                         <i class="fa-solid fa-user"></i>  {!! $data->contributor->full_name ?? '' !!}
                                     </span>
@@ -82,18 +81,69 @@
                                 <span class="d-block mb-2 text-secondary">Regency / Region </span>
                                 <a href="{{ url('plants/regency', $data->regency->slug ?? '') }}" class="text-decoration-none link-dark">
 
-                                    <span class="fs-5">
+                                    <span class="fs-6">
                                         <i class="fa-solid fa-map-marker"></i>  {!! $data->regency->name ?? '' !!}
                                     </span>
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            @if ($data->gallery_picture)
-                            <img src="{{ asset('images/plants/'.$data->gallery_picture ?? '') }}" alt="Image" class="w-100">
-                            @else
-                            <img src="{{ asset('images/plants/image-gallery.jpg') }}" alt="Image" class="w-100">
+
+                            @if ($data->image_cover)
+                            <div class="row">
+                                <div class="col-lg-12 mx-auto mb-3">
+                                    <img src="{{ asset('images/plants/'. $data->id .'/'. $data->image_cover ?? '') }}" alt="Image" class="w-100">
+                                </div>
+                            </div>
                             @endif
+
+                            <div class="row">
+
+                                @if ($data->image_daun)
+                                <div class="col-lg-4 mb-3 text-center">
+                                    <img src="{{ asset('images/plants/'. $data->id .'/'. $data->image_daun ?? '') }}" alt="Image" class="w-100">
+                                    <span class="d-block mb-2 text-secondary">Leaf (Daun)</span>
+                                </div>
+                                @endif
+
+                                @if ($data->image_buah)
+                                <div class="col-lg-4 mb-3 text-center">
+                                    <img src="{{ asset('images/plants/'. $data->id .'/'. $data->image_buah ?? '') }}" alt="Image" class="w-100">
+                                    <span class="d-block mb-2 text-secondary">Fruit (Buah)</span>
+                                </div>
+                                @endif
+
+                                @if ($data->image_pohon)
+                                <div class="col-lg-4 mb-3 text-center">
+                                    <img src="{{ asset('images/plants/'. $data->id .'/'. $data->image_pohon ?? '') }}" alt="Image" class="w-100">
+                                    <span class="d-block mb-2 text-secondary">Tree (Pohon)</span>
+                                </div>
+                                @endif
+
+                                @if ($data->image_bunga)
+                                <div class="col-lg-4 mb-3 text-center">
+                                    <img src="{{ asset('images/plants/'. $data->id .'/'. $data->image_bunga ?? '') }}" alt="Image" class="w-100">
+                                    <span class="d-block mb-2 text-secondary">Flower (Bunga)</span>
+                                </div>
+                                @endif
+
+                                @if ($data->image_batang)
+                                <div class="col-lg-4 mb-3 text-center">
+                                    <img src="{{ asset('images/plants/'. $data->id .'/'. $data->image_batang ?? '') }}" alt="Image" class="w-100">
+                                    <span class="d-block mb-2 text-secondary">Stem (Batang)</span>
+                                </div>
+                                @endif
+
+                                @if ($data->image_keseluruhan)
+                                <div class="col-lg-4 mb-3 text-center">
+                                    <img src="{{ asset('images/plants/'. $data->id .'/'. $data->image_keseluruhan ?? '') }}" alt="Image" class="w-100">
+                                    <span class="d-block mb-2 text-secondary">Shole (Keseluruhan)</span>
+                                </div>
+                                @endif
+
+                            </div>
+
+                            
                         </div>
                     </div>
                 </div>

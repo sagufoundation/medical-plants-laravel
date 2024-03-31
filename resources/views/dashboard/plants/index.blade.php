@@ -22,8 +22,7 @@
                                 <th  scope="col">Local Name</th>
                                 <th  scope="col">Contributor</th>
                                 <th  scope="col">Regency</th>
-                                <th  scope="col">Tribe</th>
-                                <th scope="col" class="text-center">Option</th>
+                                <th scope="col" class="text-center"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,17 +31,15 @@
                             <tr>
                                 <td>{{ ++$i }}</td>
                                 <td>
-                                    @if (empty($data))
-                                    <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Picture" style="width:200px" class="border shadow">
+                                    @if ($data->image_cover)
+                                    <img src="{{ asset('images/plants/'.$data->id.'/'. $data->image_cover) }}" alt="image cover" style="width:200px" class="border shadow">
                                     @else
-                                    <img src="{{ asset('images/plants/'. $data->cover_picture) }}" alt="Picture" style="width:100px" class="border shadow">
+                                    <img src="{{ asset('images/plants/00-single.jpg') }}" alt="image cover" style="width:200px" class="border shadow">
                                     @endif
                                 </td>
                                 <td>{!! $data->local_name ?? '' !!}</td>
-                                <td> {!! $data->contributor->full_name ?? '' !!} </td>
-                                <td> {!! $data->regency->name ?? '' !!} </td>
-                                <td> {!! $data->tribe->tribe_name ?? '' !!} </td>
-
+                                <td>{!! $data->contributor->full_name ?? '' !!} </td>
+                                <td>{!! $data->regency->name ?? '' !!} </td>
 
                                 @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">

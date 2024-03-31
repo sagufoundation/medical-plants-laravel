@@ -7,9 +7,6 @@
             <i class="fa-solid fa-plus"></i> Create
         </a>
     </div>
-    <div class="col-12">
-        <p>On this page, Admin can explore data by searching title, create new one, show detail information, move data into trash page, permanently delete data from the page of trashed data, and restore deleted data from trash page.</p>
-    </div>
 </div>
 
 <div class="row">

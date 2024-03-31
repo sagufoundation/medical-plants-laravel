@@ -461,7 +461,7 @@ class PlantsController extends Controller
         $data = Plant::find($id);
         $data->delete();
         alert()->success('Trashed', 'Data has been moved to trash!!')->autoclose(1500);
-        return to_route('dashboard.plants.trash');
+        return redirect()->back();
     }
 
     // restore
@@ -477,15 +477,23 @@ class PlantsController extends Controller
     public function delete($id)
     {
         $data = Plant::onlyTrashed()->findOrFail($id);
-        $cover_picture = public_path($data->cover_picture);
-        $gallery_picture = public_path($data->gallery_picture);
 
-        if (file_exists($cover_picture)) {
-            File::delete($cover_picture);
-        }
-        if (file_exists($gallery_picture)) {
-            File::delete($gallery_picture);
-        }
+        $image_cover = public_path('images/plants/' . $data->id . '/' . $data->image_cover);
+        $image_daun = public_path('images/plants/' . $data->id . '/' . $data->image_daun);
+        $image_buah = public_path('images/plants/' . $data->id . '/' . $data->image_buah);
+        $image_pohon = public_path('images/plants/' . $data->id . '/' . $data->image_pohon);
+        $image_bunga = public_path('images/plants/' . $data->id . '/' . $data->image_bunga);
+        $image_batang = public_path('images/plants/' . $data->id . '/' . $data->image_batang);
+        $image_keseluruhan = public_path('images/plants/' . $data->id . '/' . $data->image_keseluruhan);
+
+        if (file_exists($image_cover)) { File::delete($image_cover); }
+        if (file_exists($image_daun)) { File::delete($image_daun); }
+        if (file_exists($image_buah)) { File::delete($image_buah); }
+        if (file_exists($image_pohon)) { File::delete($image_pohon); }
+        if (file_exists($image_bunga)) { File::delete($image_bunga); }
+        if (file_exists($image_batang)) { File::delete($image_batang); }
+        if (file_exists($image_keseluruhan)) { File::delete($image_keseluruhan); }
+
         $data->forceDelete();
         alert()->success('Deleted', 'The data has been permanently deleted!!')->autoclose(1500);
         return redirect()->back();

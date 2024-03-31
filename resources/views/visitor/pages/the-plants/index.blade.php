@@ -47,10 +47,10 @@
             <div class="col-lg-3 mb-4">
                 <div class="card">
                     <a href="{{ route('visitor.plants.detail',$data->slug ?? '') }}">
-                      @if (!$data->cover_picture)
+                      @if (!$data->image_cover)
                       <img src="{{ asset('images/plants/image-single.jpg') }}" alt="Image" class="card-img-top">
                       @else
-                      <img src="{{ asset('images/plants/'. $data->cover_picture ?? '') }}" alt="cover picture" class="card-img-top">
+                      <img src="{{ asset('images/plants/'. $data->id.'/'.$data->image_cover ?? '') }}" alt="cover picture" class="card-img-top">
                       @endif
                     </a>
 
