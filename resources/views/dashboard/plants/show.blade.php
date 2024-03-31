@@ -88,91 +88,91 @@
                             <div class="col-xl-4 col-lg-4 col-lg-6 col-sm-12 mb-3">
                                 <div class="font-weight-bold">Cover</div>
                                 @if (empty($data->image_cover))
-                                <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                    <a data-toggle="modal" data-target="#modalCover" role="button">
+                                        <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                    </a>
                                 @else
-                                <img src="{{ asset('images/plants/' . $data->image_cover) }}" alt="{!! $data->image_cover !!}" class="border shadow w-100">
-                                <div class="position-absolute top-0 start-0">
-                                    <a href="{{ url('dashboard/plants/cover/'.$data->id.'/edit') }}" class="btn btn-sm btn-dark px-1 py-0 rounded-0"><i class="fa-solid fa-edit"></i></a>
-                                    <a href="{{ url('dashboard/plants/cover/'.$data->id.'/trash') }}" class="btn btn-sm btn-outline-dark px-1 py-0 rounded-0"><i class="fa-solid fa-trash"></i></a>
-                                </div>
+                                <a data-toggle="modal" data-target="#modalCover" role="button">
+                                    <img src="{{ asset('images/plants/' . $data->id . '/' . $data->image_cover) }}" alt="{!! $data->image_cover !!}" class="border shadow w-100">
+                                </a>
                                 @endif
                             </div> <!-- col end -->
-                            
+
                             <div class="col-xl-4 col-lg-4 col-lg-6 col-sm-12 mb-3">
                                 <div class="font-weight-bold">Daun</div>
                                 @if (empty($data->image_daun))
-                                <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                    <a data-toggle="modal" data-target="#modalDaun" role="button">
+                                        <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                    </a>
                                 @else
-                                <img src="{{ asset('images/plants/' . $data->image_daun) }}" alt="{!! $data->image_daun !!}" class="border shadow w-100">
-                                <div>
-                                    <a href="{{ url('dashboard/plants/daun/'.$data->id.'/edit') }}" class="btn btn-sm btn-dark px-1 py-0 rounded-0"><i class="fa-solid fa-edit"></i></a>
-                                    <a href="{{ url('dashboard/plants/daun/'.$data->id.'/trash') }}" class="btn btn-sm btn-outline-dark px-1 py-0 rounded-0"><i class="fa-solid fa-trash"></i></a>
-                                </div>
+                                <a data-toggle="modal" data-target="#modalDaun" role="button">
+                                    <img src="{{ asset('images/plants/' . $data->id . '/' . $data->image_daun) }}" alt="{!! $data->image_daun !!}" class="border shadow w-100">
+                                </a>
                                 @endif
                             </div> <!-- col end -->
-                            
+
                             <div class="col-xl-4 col-lg-4 col-lg-6 col-sm-12 mb-3">
                                 <div class="font-weight-bold">Buah</div>
                                 @if (empty($data->image_buah))
-                                <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                    <a data-toggle="modal" data-target="#modalBuah" role="button">
+                                        <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                    </a>
                                 @else
-                                <img src="{{ asset('images/plants/' . $data->image_buah) }}" alt="{!! $data->image_buah !!}" class="border shadow w-100">
-                                <div>
-                                    <a href="{{ url('dashboard/plants/buah/'.$data->id.'/edit') }}" class="btn btn-sm btn-dark px-1 py-0 rounded-0"><i class="fa-solid fa-edit"></i></a>
-                                    <a href="{{ url('dashboard/plants/buah/'.$data->id.'/trash') }}" class="btn btn-sm btn-outline-dark px-1 py-0 rounded-0"><i class="fa-solid fa-trash"></i></a>
-                                </div>
+                                <a data-toggle="modal" data-target="#modalBuah" role="button">
+                                    <img src="{{ asset('images/plants/' . $data->id . '/' . $data->image_buah) }}" alt="{!! $data->image_buah !!}" class="border shadow w-100">
+                                </a>
                                 @endif
                             </div> <!-- col end -->
-                            
+
                             <div class="col-xl-4 col-lg-4 col-lg-6 col-sm-12 mb-3">
                                 <div class="font-weight-bold">Pohon</div>
                                 @if (empty($data->image_pohon))
-                                <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                    <a data-toggle="modal" data-target="#modalPohon" role="button">
+                                        <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                    </a>
                                 @else
-                                <img src="{{ asset('images/plants/' . $data->image_pohon) }}" alt="{!! $data->image_pohon !!}" class="border shadow w-100">
-                                <div>
-                                    <a href="{{ url('dashboard/plants/pohon/'.$data->id.'/edit') }}" class="btn btn-sm btn-dark px-1 py-0 rounded-0"><i class="fa-solid fa-edit"></i></a>
-                                    <a href="{{ url('dashboard/plants/pohon/'.$data->id.'/trash') }}" class="btn btn-sm btn-outline-dark px-1 py-0 rounded-0"><i class="fa-solid fa-trash"></i></a>
-                                </div>
+                                <a data-toggle="modal" data-target="#modalPohon" role="button">
+                                    <img src="{{ asset('images/plants/' . $data->id . '/' . $data->image_pohon) }}" alt="{!! $data->image_pohon !!}" class="border shadow w-100">
+                                </a>
                                 @endif
                             </div> <!-- col end -->
-                            
+
                             <div class="col-xl-4 col-lg-4 col-lg-6 col-sm-12 mb-3">
                                 <div class="font-weight-bold">Bunga</div>
                                 @if (empty($data->image_bunga))
-                                <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                    <a data-toggle="modal" data-target="#modalBunga" role="button">
+                                        <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                    </a>
                                 @else
-                                <img src="{{ asset('images/plants/' . $data->image_bunga) }}" alt="{!! $data->image_bunga !!}" class="border shadow w-100">
-                                <div>
-                                    <a href="{{ url('dashboard/plants/bunga/'.$data->id.'/edit') }}" class="btn btn-sm btn-dark px-1 py-0 rounded-0"><i class="fa-solid fa-edit"></i></a>
-                                    <a href="{{ url('dashboard/plants/bunga/'.$data->id.'/trash') }}" class="btn btn-sm btn-outline-dark px-1 py-0 rounded-0"><i class="fa-solid fa-trash"></i></a>
-                                </div>
+                                <a data-toggle="modal" data-target="#modalBunga" role="button">
+                                    <img src="{{ asset('images/plants/' . $data->id . '/' . $data->image_bunga) }}" alt="{!! $data->image_bunga !!}" class="border shadow w-100">
+                                </a>
                                 @endif
                             </div> <!-- col end -->
-                            
+
                             <div class="col-xl-4 col-lg-4 col-lg-6 col-sm-12 mb-3">
                                 <div class="font-weight-bold">Batang</div>
                                 @if (empty($data->image_batang))
-                                <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                    <a data-toggle="modal" data-target="#modalBatang" role="button">
+                                        <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                    </a>
                                 @else
-                                <img src="{{ asset('images/plants/' . $data->image_batang) }}" alt="{!! $data->image_batang !!}" class="border shadow w-100">
-                                <div>
-                                    <a href="{{ url('dashboard/plants/batang/'.$data->id.'/edit') }}" class="btn btn-sm btn-dark px-1 py-0 rounded-0"><i class="fa-solid fa-edit"></i></a>
-                                    <a href="{{ url('dashboard/plants/batang/'.$data->id.'/trash') }}" class="btn btn-sm btn-outline-dark px-1 py-0 rounded-0"><i class="fa-solid fa-trash"></i></a>
-                                </div>
+                                <a data-toggle="modal" data-target="#modalBatang" role="button">
+                                    <img src="{{ asset('images/plants/' . $data->id . '/' . $data->image_batang) }}" alt="{!! $data->image_batang !!}" class="border shadow w-100">
+                                </a>
                                 @endif
                             </div> <!-- col end -->
-                            
+
                             <div class="col-xl-4 col-lg-4 col-lg-6 col-sm-12 mb-3">
                                 <div class="font-weight-bold">Keseluruhan</div>
                                 @if (empty($data->image_keseluruhan))
-                                <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                    <a data-toggle="modal" data-target="#modalKeseluruhan" role="button">
+                                        <img src="{{ asset('images/plants/00-single.jpg') }}" alt="Image empty" class="border shadow w-100">
+                                    </a>
                                 @else
-                                <img src="{{ asset('images/plants/' . $data->image_keseluruhan) }}" alt="{!! $data->image_keseluruhan !!}" class="border shadow w-100">
-                                <div>
-                                    <a href="{{ url('dashboard/plants/keseluruhan/'.$data->id.'/edit') }}" class="btn btn-sm btn-dark px-1 py-0 rounded-0"><i class="fa-solid fa-edit"></i></a>
-                                    <a href="{{ url('dashboard/plants/keseluruhan/'.$data->id.'/trash') }}" class="btn btn-sm btn-outline-dark px-1 py-0 rounded-0"><i class="fa-solid fa-trash"></i></a>
-                                </div>
+                                <a data-toggle="modal" data-target="#modalKeseluruhan" role="button">
+                                    <img src="{{ asset('images/plants/' . $data->id . '/' . $data->image_keseluruhan) }}" alt="{!! $data->image_keseluruhan !!}" class="border shadow w-100">
+                                </a>
                                 @endif
                             </div> <!-- col end -->
 
@@ -201,9 +201,11 @@
                             </button>
                             </form>
 
+                            @if($data->status == 'Publish')
                             <a href="{{ url('plants/' . $data->slug . '/detail') }}" class="btn btn-sm btn-dark rounded-0 mx-1" target="_blank">
                                 <i class="fa-solid fa-eye"></i> Public View
                             </a>
+                            @endif
                         </div>
 
                     </div>
@@ -217,5 +219,14 @@
     <!-- .col END -->
 </div>
 <!-- .row END -->
+
+
+@include('dashboard.plants.modals.modal-image_cover')
+@include('dashboard.plants.modals.modal-image_daun')
+@include('dashboard.plants.modals.modal-image_buah')
+@include('dashboard.plants.modals.modal-image_pohon')
+@include('dashboard.plants.modals.modal-image_bunga')
+@include('dashboard.plants.modals.modal-image_batang')
+@include('dashboard.plants.modals.modal-image_keseluruhan')
 
 @endsection
