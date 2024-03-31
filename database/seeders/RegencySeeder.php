@@ -14,7 +14,8 @@ class RegencySeeder extends Seeder
      * @return void
      */
     public function run()
-    {// item
+    {
+        // item
         Regency::create([
             'id' => 1,
             'name' => 'Keerom',

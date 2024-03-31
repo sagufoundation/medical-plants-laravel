@@ -61,7 +61,9 @@ use Illuminate\Support\Facades\Route;
             Route::get('plants/keseluruhan/{id}/edit','edit_image')->name('dashboard.plants.edit_image_keseluruhan');
 
             // // update "image_cover" 
-            Route::put('plants/update/cover/{id}','update_image_cover')->name('dashboard.plants.update_image_cover');
+            Route::put('plants/update/image/{id}','update_images')->name('dashboard.plants.update_images');
+
+            Route::delete('plants/delete/image/{id}','delete_images')->name('dashboard.plants.delete_images');
 
 
 

@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Validator;
 
 class PlantsController extends Controller
 {
+    // use File;
 
     /*
     |--------------------------------------------------------------------------
@@ -302,8 +303,106 @@ class PlantsController extends Controller
         return view('dashboard.plants.images.edit', compact('data'));
     }
 
-    // update "image_cover"
-    public function update_image_cover(Request $request, $id) 
+    public function update_images(Request $request, $id) 
+    {
+
+        $validator = Validator::make(
+            $request->all(),
+            [
+                // 'local_name' => 'required',
+            ],
+            [
+                // 'local_name.required' => 'This is a reaquired field',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput($request->all())->withErrors($validator);
+        } else {
+            try {
+                $data = Plant::find($id);
+
+                
+                if($request->submit)
+                {
+                    // dd($request->image);
+                    $imageName =  Str::slug($request->submit).'-'.Str::slug($data->local_name).'.' . $request->image->extension();
+                    $path = public_path('images/plants/' . $data->id);
+                    
+                    if (!empty($request->image) && file_exists($path . '/' . $request->image)) :
+                        unlink($path . '/' . $request->image);
+                    endif;
+
+                    if($request->submit == 'cover') { $data->image_cover = $imageName; }
+                    if($request->submit == 'daun') { $data->image_daun = $imageName; }
+                    if($request->submit == 'buah') { $data->image_buah = $imageName; }
+                    if($request->submit == 'pohon') { $data->image_pohon = $imageName; }
+                    if($request->submit == 'bunga') { $data->image_bunga = $imageName; }
+                    if($request->submit == 'batang') { $data->image_batang = $imageName; }
+                    if($request->submit == 'keseluruhan') { $data->image_keseluruhan = $imageName; }
+
+                    $request->image->move(public_path('images/plants/' . $data->id), $imageName);
+                }
+
+                if($request->remove == 'image_cover') { 
+                    $imagePath = public_path('images/plants/' . $data->id . '/' . $data->image_cover);
+                    File::delete($imagePath);
+                    $data->image_cover = null; 
+                }
+
+                if($request->remove == 'image_daun') { 
+                    $imagePath = public_path('images/plants/' . $data->id . '/' . $data->image_daun);
+                    File::delete($imagePath);
+                    $data->image_daun = null; 
+                }
+
+                if($request->remove == 'image_buah') { 
+                    $imagePath = public_path('images/plants/' . $data->id . '/' . $data->image_buah);
+                    File::delete($imagePath);
+                    $data->image_buah = null; 
+                }
+
+                if($request->remove == 'image_pohon') { 
+                    $imagePath = public_path('images/plants/' . $data->id . '/' . $data->image_pohon);
+                    File::delete($imagePath);
+                    $data->image_pohon = null; 
+                }
+
+                if($request->remove == 'image_bunga') { 
+                    $imagePath = public_path('images/plants/' . $data->id . '/' . $data->image_bunga);
+                    File::delete($imagePath);
+                    $data->image_bunga = null; 
+                }
+
+                if($request->remove == 'image_batang') { 
+                    $imagePath = public_path('images/plants/' . $data->id . '/' . $data->image_batang);
+                    File::delete($imagePath);
+                    $data->image_batang = null; 
+                }
+
+                if($request->remove == 'image_keseluruhan') { 
+                    $imagePath = public_path('images/plants/' . $data->id . '/' . $data->image_keseluruhan);
+                    File::delete($imagePath);
+                    $data->image_keseluruhan = null; 
+                }
+
+                
+
+                $data->update();
+
+                Alert::toast('Updated! This data has been updated successfully.', 'success');
+                // return redirect('dashboard/plants/'.$request->submit.'/' . $data->id . '/edit');
+                return redirect()->route('dashboard.plants.edit', $data->id);
+
+            } catch (\Throwable $th) {
+                Alert::toast('Failed! Something is wrong', 'error');
+                return redirect()->back();
+            }
+        }
+    }
+    
+    // remove image
+    public function delete_images(Request $request, $id) 
     {
 
         $validator = Validator::make(
@@ -323,20 +422,20 @@ class PlantsController extends Controller
                 $data = Plant::find($id);
 
                 if ($request->image) {
-                    $imageName =  Str::slug($request->segment3).'-'.Str::slug($data->local_name).'.' . $request->image->extension();
+                    $imageName =  Str::slug($request->submit).'-'.Str::slug($data->local_name).'.' . $request->image->extension();
                     $path = public_path('images/plants/' . $data->id);
                     
                     if (!empty($data->image) && file_exists($path . '/' . $data->image)) :
                         unlink($path . '/' . $data->image);
                     endif;
 
-                    if($request->segment3 == 'cover') { $data->image_cover = $imageName; }
-                    if($request->segment3 == 'daun') { $data->image_daun = $imageName; }
-                    if($request->segment3 == 'buah') { $data->image_buah = $imageName; }
-                    if($request->segment3 == 'pohon') { $data->image_pohon = $imageName; }
-                    if($request->segment3 == 'bunga') { $data->image_bunga = $imageName; }
-                    if($request->segment3 == 'batang') { $data->image_batang = $imageName; }
-                    if($request->segment3 == 'keseluruhan') { $data->image_keseluruhan = $imageName; }
+                    if($request->submit == 'cover') { $data->image_cover = ''; }
+                    if($request->submit == 'daun') { $data->image_daun = ''; }
+                    if($request->submit == 'buah') { $data->image_buah = ''; }
+                    if($request->submit == 'pohon') { $data->image_pohon = ''; }
+                    if($request->submit == 'bunga') { $data->image_bunga = ''; }
+                    if($request->submit == 'batang') { $data->image_batang = ''; }
+                    if($request->submit == 'keseluruhan') { $data->image_keseluruhan = ''; }
 
                     $request->image->move(public_path('images/plants/' . $data->id), $imageName);
                 }
@@ -344,44 +443,17 @@ class PlantsController extends Controller
                 $data->update();
 
                 Alert::toast('Updated! This data has been updated successfully.', 'success');
-                return redirect('dashboard/plants/'.$request->segment3.'/' . $data->id . '/edit');
+                // return redirect('dashboard/plants/'.$request->submit.'/' . $data->id . '/edit');
+                return redirect()->route('dashboard.plants.edit', $data->id);
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');
                 return redirect()->back();
             }
         }
+
     }
-    // update "image_daun"
-    public function update_image_daun() 
-    {
-        // 
-    }
-    // update "image_buah"
-    public function update_image_buah() 
-    {
-        // 
-    }
-    // update "image_pohon"
-    public function update_image_pohon() 
-    {
-        // 
-    }
-    // update "image_bunga"
-    public function update_image_bunga() 
-    {
-        // 
-    }
-    // update "image_batang"
-    public function update_image_batang() 
-    {
-        // 
-    }
-    // update "image_keseluruhan"
-    public function update_image_keseluruhan() 
-    {
-        // 
-    }
+
 
     // destroy
     public function destroy($id)
