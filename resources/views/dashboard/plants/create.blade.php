@@ -106,63 +106,15 @@
                             @endif
                         </div>
                         <!-- input item END -->
-
-                    </div>
-
-                    <div class="col-lg-6">
-
+                        
                         <!-- input item START -->
                         <div class="mb-3">
-                            <label for="gambar" class="form-label d-block">Thumbnail </label>
-                            <div class="mb-2">
-                                <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar1" class="img-thumbnail w-50">
-                            </div>
+                            <label for="villages">Villages</label>
 
-                            <div class="custom-file">
-                                <input type="file" name="cover_picture" class="custom-file-input" id="gambar1" accept="image/*">
-                                <label class="custom-file-label" for="customFile">Select image</label>
-                            </div>
-
-                            @if ($errors->has('cover_picture'))
+                            <textarea id="villages" name="villages" rows="1" class="ckeditor form-control rounded-0">{{ old('villages') ?? '' }}</textarea>
+                            @if ($errors->has('villages'))
                             <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('cover_picture') }}</small>
-                                </span>
-                            @endif
-
-                        </div>
-                        <!-- input item END -->
-
-                        <!-- input item START -->
-                        <div class="mb-3">
-                            <label for="gambar" class="form-label d-block">Gallery </label>
-                            <div class="mb-2">
-                                <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar2" class="img-thumbnail img-fluid">
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" name="gallery_picture" class="custom-file-input" id="gambar2" accept="image/*">
-                                <label class="custom-file-label" for="customFile">Select image</label>
-                            </div>
-
-                            @if ($errors->has('gallery_picture'))
-                            <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('gallery_picture') }}</small>
-                                </span>
-                            @endif
-
-                        </div>
-                        <!-- input item END -->
-
-                        <div class="mb-3">
-                            <label for="id_contributor">Contributor {{sizeof($countributors)<1?'(Data contributor not yet available)':''}}</label>
-                            <select name="id_contributor" class="form-control" id="id_contributor">
-                                <option value="" hidden>Select</option>
-                                @foreach ($countributors as $countributor )
-                                    <option value="{{ $countributor->id }}">{{ $countributor->full_name }}</option>
-                                @endforeach
-                            </select>
-                            @if ($errors->has('contributor'))
-                            <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('contributor') }}</small>
+                                    <small>{{ $errors->first('villages') }}</small>
                                 </span>
                             @endif
                         </div>
@@ -184,17 +136,19 @@
                         </div>
                         <!-- input item END -->
 
+                        
+
                         <div class="mb-3">
-                            <label for="id_tribe">Tribe {{sizeof($tribes)<1?'(Data tribes not yet available)':''}}</label>
-                            <select name="id_tribe" class="form-control" id="id_tribe">
+                            <label for="id_contributor">Contributor {{sizeof($countributors)<1?'(Data contributor not yet available)':''}}</label>
+                            <select name="id_contributor" class="form-control" id="id_contributor">
                                 <option value="" hidden>Select</option>
-                                @foreach ($tribes as $tribe )
-                                    <option value="{{ $tribe->id }}">{{ $tribe->tribe_name }}</option>
+                                @foreach ($countributors as $countributor )
+                                    <option value="{{ $countributor->id }}">{{ $countributor->full_name }}</option>
                                 @endforeach
                             </select>
-                            @if ($errors->has('tribe'))
+                            @if ($errors->has('contributor'))
                             <span class="text-danger" role="alert">
-                                    <small>{{ $errors->first('tribe') }}</small>
+                                    <small>{{ $errors->first('contributor') }}</small>
                                 </span>
                             @endif
                         </div>
@@ -214,16 +168,23 @@
                         </div>
                         <!-- input item END -->
 
+
+
+
                     </div>
                 </div>
 
-                    <button type="submit" class="btn btn-primary rounded-0">
-                        <i class="fa-solid fa-plus-square"></i> Submit
-                    </button>
-
-                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'') }}" class="btn btn-outline-dark rounded-0 border-0">
-                        <i class="fa-solid fa-times-square"></i> Cancle
-                    </a>
+                <div class="row">
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary rounded-0">
+                            <i class="fa-solid fa-plus-square"></i> Submit
+                        </button>
+    
+                        <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'') }}" class="btn btn-outline-dark rounded-0 border-0">
+                            <i class="fa-solid fa-times-square"></i> Cancle
+                        </a>
+                    </div>
+                </div>
 
                 </form>
 

@@ -61,7 +61,7 @@
                                 </li>
                                 <!-- menu item end -->
 
-                                <li class="@if(Request::segment(2) == 'tribes') menuitem-active @endif">
+                                {{-- <li class="@if(Request::segment(2) == 'tribes') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/tribes') }}">
                                         <i class="fa-solid fa-tags"></i>
                                         <span class="badge badge-success badge-pill float-right">
@@ -70,7 +70,7 @@
                                         <span> Tribes</span>
                                     </a>
                                 </li>
-                                <!-- menu item end -->
+                                <!-- menu item end --> --}}
 
                                 <li class="@if(Request::segment(2) == 'contributors') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/contributors') }}">

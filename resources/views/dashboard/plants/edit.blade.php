@@ -18,8 +18,8 @@
 
                             <!-- input item START -->
                             <div class="mb-3">
-                                <label for="local_name">Indonesia Name <span class="text-danger">*</span></label>
-                                <textarea id="local_name" name="local_name" rows="1" class="ckeditor form-control rounded-0" placeholder="write Indonesia Name here"> {{ $data->local_name}} </textarea>
+                                <label for="local_name">Plant name in local language <span class="text-danger">*</span></label>
+                                <textarea id="local_name" name="local_name" rows="1" class="ckeditor form-control rounded-0" placeholder="">{{ $data->local_name ?? old('local_name') }}</textarea>
                                 @if ($errors->has('local_name'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('local_name') }}</small>
@@ -30,8 +30,8 @@
 
                             <!-- input item START -->
                             <div class="mb-3">
-                                <label for="indonesian_name">Indonesia Name</label>
-                                <textarea id="indonesian_name" name="indonesian_name" rows="1" class="ckeditor form-control rounded-0" placeholder="write Indonesia Name here"> {{ $data->indonesian_name}} </textarea>
+                                <label for="indonesian_name">Plant name in Bahasa Indonesia</label>
+                                <textarea id="indonesian_name" name="indonesian_name" rows="1" class="ckeditor form-control rounded-0" placeholder=""> {{ $data->indonesian_name ?? old('indonesian_name')}} </textarea>
                                 @if ($errors->has('indonesian_name'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('indonesian_name') }}</small>
@@ -42,9 +42,9 @@
 
                             <!-- input item START -->
                             <div class="mb-3">
-                                <label for="latin_name">Latin Name</label>
+                                <label for="latin_name">Plant name in Latin</label>
 
-                                <textarea id="latin_name" name="latin_name" rows="1" class="ckeditor form-control rounded-0" placeholder="write Indonesia Name here"> {{ $data->latin_name}} </textarea>
+                                <textarea id="latin_name" name="latin_name" rows="1" class="ckeditor form-control rounded-0" placeholder=""> {{ $data->latin_name ?? old('latin_name') }} </textarea>
                                 @if ($errors->has('latin_name'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('latin_name') }}</small>
@@ -57,7 +57,7 @@
                             <div class="mb-3">
                                 <label for="taxonomists">Taxonomists</label>
 
-                                <textarea id="taxonomists" name="taxonomists" rows="1" class="ckeditor form-control rounded-0" placeholder="write Indonesia Name here"> {{ $data->taxonomists}} </textarea>
+                                <textarea id="taxonomists" name="taxonomists" rows="1" class="ckeditor form-control rounded-0" placeholder=""> {{ $data->taxonomists ?? old('taxonomists')}} </textarea>
                                 @if ($errors->has('taxonomists'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('taxonomists') }}</small>
@@ -70,7 +70,7 @@
                             <div class="mb-3">
                                 <label for="treatments">Treatments</label>
 
-                                <textarea id="treatments" name="treatments" rows="1" class="ckeditor form-control rounded-0" placeholder="write Indonesia Name here"> {{ $data->treatments}} </textarea>
+                                <textarea id="treatments" name="treatments" rows="1" class="ckeditor form-control rounded-0" placeholder=""> {{ $data->treatments ?? old('treatments')}} </textarea>
                                 @if ($errors->has('treatments'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('treatments') }}</small>
@@ -83,7 +83,7 @@
                             <div class="mb-3">
                                 <label for="traditional_usage">Traditional Usage</label>
 
-                                <textarea id="traditional_usage" name="traditional_usage" rows="1" class="ckeditor form-control rounded-0" placeholder="write Indonesia Name here"> {{ $data->traditional_usage}} </textarea>
+                                <textarea id="traditional_usage" name="traditional_usage" rows="1" class="ckeditor form-control rounded-0" placeholder=""> {{ $data->traditional_usage ?? old('traditional_usage')}} </textarea>
                                 @if ($errors->has('traditional_usage'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('traditional_usage') }}</small>
@@ -96,10 +96,23 @@
                             <div class="mb-3">
                                 <label for="known_phytochemical_consituents">Known Phytochemical Consituents</label>
 
-                                <textarea id="known_phytochemical_consituents" name="known_phytochemical_consituents" rows="1" class="ckeditor form-control rounded-0" placeholder="write Indonesia Name here"> {{ $data->known_phytochemical_consituents}} </textarea>
+                                <textarea id="known_phytochemical_consituents" name="known_phytochemical_consituents" rows="1" class="ckeditor form-control rounded-0" placeholder=""> {{ $data->known_phytochemical_consituents ?? old('known_phytochemical_consituents')}} </textarea>
                                 @if ($errors->has('known_phytochemical_consituents'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('known_phytochemical_consituents') }}</small>
+                                    </span>
+                                @endif
+                            </div>
+                            <!-- input item END -->
+                            
+                            <!-- input item START -->
+                            <div class="mb-3">
+                                <label for="villages">Villages</label>
+
+                                <textarea id="villages" name="villages" rows="1" class="ckeditor form-control rounded-0" placeholder="you can write more than one village"> {{ $data->village ?? old('villages') }} </textarea>
+                                @if ($errors->has('villages'))
+                                <span class="text-danger" role="alert">
+                                        <small>{{ $errors->first('villages') }}</small>
                                     </span>
                                 @endif
                             </div>
@@ -122,25 +135,9 @@
                             <!-- input item END -->
 
                             <div class="mb-3">
-                                <label for="id_tribe">Tribe {{sizeof($tribes)<1?'(Data tribes not yet available)':''}}</label>
-                                <select name="id_tribe" class="form-control" id="id_tribe">
-                                    <option value="" hidden>Select</option>
-                                    @foreach ($tribes as $tribe )
-                                        <option value="{{ $tribe->id }}" @if($data->id_tribe == $tribe->id) selected="selected" @endif > {{ $tribe->tribe_name }} </option>
-                                    @endforeach
-                                </select>
-                                @if ($errors->has('tribe'))
-                                <span class="text-danger" role="alert">
-                                        <small>{{ $errors->first('tribe') }}</small>
-                                    </span>
-                                @endif
-                            </div>
-                            <!-- input item END -->
-
-                            <div class="mb-3">
                                 <label for="id_contributor">Contributor </label>
                                 <select name="id_contributor" class="form-control" id="id_contributor">
-                                    <option hidden></option>
+                                    <option value="" hidden>Select</option>
                                     @foreach ($countributors as $countributor )
                                     <option value="{{ $countributor->id }}" @if($data->id_contributor == $countributor->id) selected="selected" @endif >
                                         {{ $countributor->full_name }}

@@ -45,7 +45,7 @@ class PlantSeeder extends Seeder
             'traditional_usage' => 'Sample traditional ussage',
             'known_phytochemical_consituents' => 'Known phytochemical consituents',
 
-            'status' => 'Publish',
+            'status' => 'Draft',
             'slug' => 'sample-local-name',
         ]);
 
@@ -77,7 +77,7 @@ class PlantSeeder extends Seeder
             'traditional_usage' => 'Sample traditional ussage 2',
             'known_phytochemical_consituents' => 'Known phytochemical consituents 2',
 
-            'status' => 'Publish',
+            'status' => 'Draft',
             'slug' => 'sample-local-name-2',
         ]);
 
@@ -109,7 +109,7 @@ class PlantSeeder extends Seeder
             'traditional_usage' => 'Sample traditional ussage 3',
             'known_phytochemical_consituents' => 'Known phytochemical consituents 3',
 
-            'status' => 'Publish',
+            'status' => 'Draft',
             'slug' => 'sample-local-name-3',
         ]);
         
@@ -124,7 +124,7 @@ class PlantSeeder extends Seeder
             'cover_picture' => 'sample/anamyaum-cover.png',
             'gallery_picture' => 'sample/anamyaum-gallery.png',
 
-            // 'image_cover' => '',
+            'image_cover' => 'cover-anamyaum.png',
             // 'image_daun' => '',
             // 'image_buah' => '',
             // 'image_pohon' => '',
@@ -158,7 +158,7 @@ class PlantSeeder extends Seeder
             'cover_picture' => 'sample/inasi-koi-cover.png',
             'gallery_picture' => 'sample/inasi-koi-gallery.png',
 
-            // 'image_cover' => '',
+            'image_cover' => 'cover-inasi-koi.png',
             // 'image_daun' => '',
             // 'image_buah' => '',
             // 'image_pohon' => '',
@@ -190,7 +190,7 @@ class PlantSeeder extends Seeder
             'cover_picture' => 'sample/krataweri-cover.png',
             'gallery_picture' => 'sample/krataweri-gallery.png',
 
-            // 'image_cover' => '',
+            'image_cover' => 'cover-krataweri.png',
             // 'image_daun' => '',
             // 'image_buah' => '',
             // 'image_pohon' => '',

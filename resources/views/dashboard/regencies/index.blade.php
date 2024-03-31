@@ -84,6 +84,10 @@
                 </div>
                 <!-- .table-responsive END -->
 
+                <div class="d-flex justify-content-center">
+                    {{ $datas->links() }}
+                </div>
+
             </div>
             <!-- .card-body END -->
         </div>

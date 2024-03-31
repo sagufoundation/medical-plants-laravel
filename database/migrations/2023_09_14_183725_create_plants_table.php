@@ -43,6 +43,8 @@ return new class extends Migration
             $table->string('traditional_usage')->nullable();
             $table->string('known_phytochemical_consituents')->nullable();
 
+            $table->string('villages')->nullable();
+
             $table->enum('status',['Publish','Draft'])->default('Draft')->nullable();
 
             $table->softDeletes();

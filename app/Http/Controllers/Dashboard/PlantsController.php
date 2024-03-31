@@ -132,38 +132,12 @@ class PlantsController extends Controller
                 $data->treatments = $request->treatments;
                 $data->traditional_usage = $request->traditional_usage;
                 $data->known_phytochemical_consituents = $request->known_phytochemical_consituents;
+                $data->villages = $request->villages;
 
-                $data->id_location = $request->id_contributor;
                 $data->id_contributor = $request->id_contributor;
-                $data->id_province = $request->id_province;
                 $data->id_regency = $request->id_regency;
-                $data->id_tribe = $request->id_tribe;
 
                 $data->status = $request->status;
-
-                if ($request->cover_picture) {
-                    $pictureName = $data->slug .'-single-'. time() .'.' . $request->cover_picture->extension();
-                    $path = public_path('images/plants');
-                    
-                    if (!empty($data->cover_picture) && file_exists($path . '/' . $data->cover_picture)) :
-                        unlink($path . '/' . $data->cover_picture);
-                    endif;
-
-                    $data->cover_picture = $pictureName;
-                    $request->cover_picture->move(public_path('images/plants'), $pictureName);
-                }
-
-                if ($request->gallery_picture) {
-                    $gallery_picture_name = $data->slug .'-gallery-'. time() .'.' . $request->gallery_picture->extension();
-                    $path = public_path('images/plants');
-                    
-                    if (!empty($data->gallery_picture) && file_exists($path . '/' . $data->gallery_picture)) :
-                        unlink($path . '/' . $data->gallery_picture);
-                    endif;
-
-                    $data->gallery_picture = $gallery_picture_name;
-                    $request->gallery_picture->move(public_path('images/plants'), $gallery_picture_name);
-                }
 
                 $data->save();
 
@@ -251,13 +225,14 @@ class PlantsController extends Controller
                 $data->treatments = $request->treatments;
                 $data->traditional_usage = $request->traditional_usage;
                 $data->known_phytochemical_consituents = $request->known_phytochemical_consituents;
+                $data->villages = $request->villages;
 
                 // $data->id_location = $request->id_location;
                 // $data->id_province = $request->id_province;
                 
-                $data->id_regency = $request->id_regency;
-                $data->id_tribe = $request->id_tribe;
                 $data->id_contributor = $request->id_contributor;
+                $data->id_regency = $request->id_regency;
+                // $data->id_tribe = $request->id_tribe;
 
                 $data->status = $request->status;
 
