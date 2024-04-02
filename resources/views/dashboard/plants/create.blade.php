@@ -155,10 +155,11 @@
                         <!-- input item END -->
 
                         <div class="mb-3">
-                            <label for="description">Status </label>
+                            <label for="description">Status</label>
                             <select name="status" class="form-control" id="">
-                                <option value="Publish">Publish</option>
-                                <option value="Draft" selected>Draft</option>
+                                <option value="Draft" value="" hidden>Select</option>
+                                <option value="Publish" @if(old('status') == 'Publish') selected @endif>Publish</option>
+                                <option value="Draft" @if(old('status') == 'Draft') selected @endif>Draft</option>
                             </select>
                             @if ($errors->has('status'))
                             <span class="text-danger" role="alert">
@@ -167,9 +168,6 @@
                             @endif
                         </div>
                         <!-- input item END -->
-
-
-
 
                     </div>
                 </div>

@@ -31,7 +31,7 @@
                                 <td width="1">{{ ++$i }}</td>
 
                                 <td width="100px">
-                                    @if ($data->image)
+                                    @if($data->image)
                                         <img src="{{ asset('images/regencies/' . $data->image) }}" alt="image" width="100%" />
                                     @else 
                                         <img src="{{ asset('images/regencies/00.png') }}" alt="image" width="100%" />

@@ -20,8 +20,14 @@
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="name">Name <span class="text-danger">*</span></label>
-                                <input type="text" id="name" name="name" class="form-control rounded-0"
-                                placeholder="write name of regency here">
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    class="form-control rounded-0" 
+                                    placeholder="write name of regency here"
+                                    value="{{ old('name') ?? '' }}"
+                                >
                                 @if ($errors->has('name'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('name') }}</small>
@@ -34,8 +40,14 @@
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="coordinates">Coordinates <span class="text-danger">*</span></label>
-                                <input type="text" id="coordinates" name="coordinates" class="form-control rounded-0"
-                                placeholder="example: -1.779,136.357 ">
+                                <input 
+                                    type="text" 
+                                    id="coordinates" 
+                                    name="coordinates" 
+                                    class="form-control rounded-0"
+                                    placeholder="example: -1.779,136.357 "
+                                    value="{{ old('coordinates') ?? '' }}"
+                                >
                                 @if ($errors->has('coordinates'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('coordinates') }}</small>
@@ -49,29 +61,33 @@
                             <div class="mb-3">
                                 <label for="description">Description</label>
 
-                                <textarea id="description" name="description" rows="1" class="ckeditor form-control rounded-0">{{ old('description') ?? '' }}</textarea>
+                                <textarea 
+                                    id="description" 
+                                    name="description" 
+                                    rows="1" 
+                                    class="ckeditor form-control rounded-0">{{ old('description') ?? '' }}</textarea>
                                 @if ($errors->has('description'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('description') }}</small>
                                     </span>
                                 @endif
                             </div>
-                            <!-- input item END -->
-
-                        </div>
-                        <div class="col-md-6">
-
-                            
+                            <!-- input item END -->                            
 
                             <!-- input item START -->
                             <div class="mb-3">
-                                <label for="image" class="form-label d-block">Image </label>
+                                <label for="image" class="form-label d-block">Image / Logo</label>
                                 <div class="mb-2">
                                     <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail w-50">
                                 </div>
 
                                 <div class="custom-file">
-                                    <input type="file" name="image" class="custom-file-input" id="gambar" accept="image/*">
+                                    <input 
+                                        type="file" 
+                                        name="image" 
+                                        class="custom-file-input" 
+                                        id="gambar" 
+                                        accept="image/*">
                                     <label class="custom-file-label" for="customFile">Select image</label>
                                 </div>
 
@@ -89,8 +105,8 @@
                                 <label for="description">Status </label>
                                 <select name="status" class="form-control" id="">
                                     <option value="Draft" value="" hidden>Select</option>
-                                    <option value="Publish">Publish</option>
-                                    <option value="Draft">Draft</option>
+                                    <option value="Publish" @if(old('status') == 'Publish') selected @endif>Publish</option>
+                                    <option value="Draft" @if(old('status') == 'Draft') selected @endif>Draft</option>
                                 </select>
 
                                 @if ($errors->has('status'))
