@@ -32,9 +32,9 @@
 
                                 <td width="100px">
                                     @if($data->image)
-                                        <img src="{{ asset('images/regencies/' . $data->image) }}" alt="image" width="100%" />
+                                        <img src="{{ asset('images/regencies/' . $data->image) }}" alt="regency image" width="100%" class="border shadow" />
                                     @else 
-                                        <img src="{{ asset('images/regencies/00.png') }}" alt="image" width="100%" />
+                                        <img src="{{ asset('images/regencies/00.png') }}" alt="regency image" width="100%" class="border shadow" />
                                     @endif
                                 </td>
                                 <td>{{ $data->name ?? '' }}</td>

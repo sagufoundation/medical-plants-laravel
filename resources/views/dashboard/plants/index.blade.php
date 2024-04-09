@@ -30,11 +30,11 @@
                             @foreach ($datas as $data)
                             <tr>
                                 <td>{{ ++$i }}</td>
-                                <td>
+                                <td width="150px">
                                     @if ($data->image_cover)
-                                    <img src="{{ asset('images/plants/'.$data->id.'/'. $data->image_cover) }}" alt="image cover" style="width:200px" class="border shadow">
+                                    <img src="{{ asset('images/plants/'.$data->id.'/'. $data->image_cover) }}" width="100%" class="border shadow">
                                     @else
-                                    <img src="{{ asset('images/plants/00-single.jpg') }}" alt="image cover" style="width:200px" class="border shadow">
+                                    <img src="{{ asset('images/plants/00-single.jpg') }}" alt="image cover" width="100%" class="border shadow">
                                     @endif
                                 </td>
                                 <td>{!! $data->local_name ?? '' !!}</td>

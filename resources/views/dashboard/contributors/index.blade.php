@@ -30,11 +30,11 @@
                             @foreach ($datas as $data)
                             <tr>
                                 <td>{{ ++$i }}</td>
-                                <td>
+                                <td width="100px">
                                     @if (!$data->photo)
-                                    <img src="{{ asset('images/00.png') }}" alt="contributor image" style="width:100px" class="border shadow">
+                                    <img src="{{ asset('images/00.png') }}" alt="contributor image" width="100%" class="border shadow">
                                     @else
-                                    <img src="{{ asset('images/team/' . $data->photo) }}" alt="contributor image" style="width:100px" class="border shadow">
+                                    <img src="{{ asset('images/team/' . $data->photo) }}" alt="contributor image" width="100%" class="border shadow">
                                     @endif
                                 </td>
                                 <td>{{ $data->full_name }}</td>
