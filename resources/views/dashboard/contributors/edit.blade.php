@@ -114,9 +114,9 @@
                             <label for="photo" class="form-label d-block">Photo</label>
                             <div class="mb-2">
                                 @if (!$data->photo)
-                                <img src="{{ asset('images/tour_events/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid" >
+                                <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid" >
                                 @else
-                                <img src="{{ asset($data->photo) }}" id="preview-gambar" class="img-thumbnail img-fluid" >
+                                <img src="{{ asset('images/team/'.$data->photo) }}" id="preview-gambar" class="img-thumbnail img-fluid" >
                                 @endif
                             </div>
 
