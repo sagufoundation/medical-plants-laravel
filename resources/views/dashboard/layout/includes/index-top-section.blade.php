@@ -36,7 +36,7 @@
     <!-- .col END -->
 
     <div class="col-lg-6">
-        <form action="{{ url(Request::segment(1) . '/' . Request::segment(2)) }}" method="get">
+        <form action="{{ url(Request::segment(1) . '/' . Request::segment(2) . '/' . Request::segment(3)) }}" method="get">
             <div class="input-group mb-3">
                 <input type="search" name="s" class="form-control form-control-sm rounded-0" placeholder="Search {{ ucfirst(Request::segment(2)) }}" value="{{ request()->s ?? '' }}">
                 <button type="submit" class="btn btn-sm btn-primary rounded-0">
