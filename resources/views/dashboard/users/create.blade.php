@@ -20,8 +20,7 @@
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="name">Name <span class="text-danger">*</span></label>
-                            <input type="text" id="name" name="name" class="form-control rounded-0" placeholder="write username here">
-                            <input type="hidden" id="job_title" name="job_title" class="form-control rounded-0" value="Administrator on www.gotravpapua.com">
+                            <input type="text" id="name" name="name" class="form-control rounded-0" placeholder="user full name" value="{{ old('name') }}">
                             @if ($errors->has('name'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('name') }}</small>
@@ -34,8 +33,8 @@
 
 
                         <div class="mb-3">
-                            <label for="description">Email <span class="text-danger">*</span></label>
-                            <input type="email" id="title" name="email" class="form-control rounded-0" placeholder="write email here">
+                            <label for="email">Email <span class="text-danger">*</span></label>
+                            <input type="email" id="email" name="email" class="form-control rounded-0" placeholder="write email here" value="{{ old('email') }}">
                             @if ($errors->has('email'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('email') }}</small>
@@ -44,7 +43,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="description">Password <span class="text-danger">*</span></label>
+                            <label for="password">Password <span class="text-danger">*</span></label>
                             <input type="password" id="password" name="password" class="form-control rounded-0" placeholder="write password here">
                             @if ($errors->has('password'))
                             <span class="text-danger" role="alert">
@@ -67,7 +66,7 @@
                         <div class="mb-3">
                             <label for="description">Status <span class="text-danger">*</span></label>
                             <select name="status" class="form-control" id="">
-                                <option value="" hidden>Select</option>
+                                <option value="Draft" hidden>Select</option>
                                 <option value="Publish">Publish</option>
                                 <option value="Draft">Draft</option>
                             </select>
@@ -83,10 +82,7 @@
                             <label for="roles">Roles <span class="text-danger">*</span></label>
                             <select name="roles" class="form-control" id="">
                                 @foreach ($roles as $role )
-
                                 <option value="{{ $role->id }}" selected>{{ $role->display_name }}</option>
-
-
                                 @endforeach
                             </select>
                         </div>

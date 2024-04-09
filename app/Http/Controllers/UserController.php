@@ -91,7 +91,7 @@ class UserController extends Controller
                 'password'       => 'required|confirmed|min:8',
                 'peran'          => 'required',
                 'slug'           => 'unique:users,slug',
-                'picture'        => 'required|image|mimes:jpeg,png,jpg|max:4096',
+                'picture'        => 'image|mimes:jpeg,png,jpg|max:4096',
 
             ],[
                 'slug.unique'                  => 'Data sudah ada!',
@@ -101,7 +101,7 @@ class UserController extends Controller
                 'email.required'               => 'Email  tidak boleh kosong!',
                 'email.unique'                 => 'Email  sudah digunakan,Silakan gunakan email yang lain!',
                 'picture.mimes'                => 'Gambar harus dengan jenis PNG,JPG,JPEG!',
-                'picture.required'             => 'Gambar tidak  boleh kosong!',
+                // 'picture.required'             => 'Gambar tidak  boleh kosong!',
 
                 'password.required'                => 'Kata sandi  tidak boleh kosong!',
                 'password.confirmed'               => 'Konfirmasi kata sandi tidak cocok!',
@@ -174,7 +174,7 @@ class UserController extends Controller
                 'password' => 'confirmed',
                 'peran'     => 'required',
                 'slug'      => 'unique:users,slug,'.$id,
-                'picture' => 'image|mimes:jpeg,png,jpg|max:4096',
+                // 'picture' => 'image|mimes:jpeg,png,jpg|max:4096',
             ],[
 
                 'name.required'             => 'Nama  tidak boleh kosong!',

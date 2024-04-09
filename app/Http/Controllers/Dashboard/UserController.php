@@ -113,15 +113,40 @@ class UserController extends Controller
                 $data->password = bcrypt($request->password);
                 $data->status = $request->status;
 
-                if ($request->picture) {
-                    $pictureName = Str::slug($data->name) .'-'. time() .'.' . $request->picture->extension();
-                    $path = public_path('assets-admin/img/users');
-                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                        unlink($path . '/' . $data->picture);
-                    endif;
-                    $data->picture = 'assets-admin/img/users/' . $pictureName;
-                    $request->picture->move(public_path('assets-admin/img/users'), $pictureName);
+                // if ($request->picture) {
+                //     $pictureName = Str::slug($data->name) .'-'. time() .'.' . $request->picture->extension();
+                //     $path = public_path('assets-admin/img/users');
+                //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                //         unlink($path . '/' . $data->picture);
+                //     endif;
+                //     $data->picture = 'assets-admin/img/users/' . $pictureName;
+                //     $request->picture->move(public_path('assets-admin/img/users'), $pictureName);
+                // }
+
+
+                // picture creation
+                if (isset($request->picture)) {
+
+                    // create file name
+                    $fileName = Str::slug($data->full_name) .'-'. time() .'.' . $request->picture->extension();
+
+                    // crate file path
+                    $path = public_path('images/users/' . $data->picture);
+
+                    // delete file if exist
+                    if (file_exists($path)) {
+                        File::delete($path);
+                    }
+
+                    // adding file name into database variable
+                    $data->photo = $fileName;
+
+                    // move file into folder path with the file name
+                    $request->photo->move(public_path('images/users'), $fileName);
                 }
+
+
+
                 $data->save();
 
                 Alert::toast('Created! This data has been created successfully.', 'success');
@@ -184,15 +209,45 @@ class UserController extends Controller
                 if ($data->password) {
                     $data->password = Hash::make($request->password);
                 }
-                if ($request->picture) {
-                    $pictureName = Str::slug($data->name) .'-'. time() .'.' . $request->picture->extension();
-                    $path = public_path('assets-admin/img/users');
-                    if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                        unlink($path . '/' . $data->picture);
-                    endif;
-                    $data->picture = 'assets-admin/img/users/' . $pictureName;
-                    $request->picture->move(public_path('assets-admin/img/users'), $pictureName);
+
+
+                // if ($request->picture) {
+                //     $pictureName = Str::slug($data->name) .'-'. time() .'.' . $request->picture->extension();
+                //     $path = public_path('assets-admin/img/users');
+                //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
+                //         unlink($path . '/' . $data->picture);
+                //     endif;
+                //     $data->picture = 'assets-admin/img/users/' . $pictureName;
+                //     $request->picture->move(public_path('assets-admin/img/users'), $pictureName);
+                // }
+
+
+
+
+                // picture creation
+                if (isset($request->picture)) {
+
+                    // create file name
+                    $fileName = Str::slug($data->full_name) .'-'. time() .'.' . $request->picture->extension();
+
+                    // crate file path
+                    $path = public_path('images/users/' . $data->picture);
+
+                    // delete file if exist
+                    if (file_exists($path)) {
+                        File::delete($path);
+                    }
+
+                    // adding file name into database variable
+                    $data->photo = $fileName;
+
+                    // move file into folder path with the file name
+                    $request->photo->move(public_path('images/users'), $fileName);
                 }
+
+
+
+
                 $data->update();
                 Alert::toast('Update! This data has been update successfully.', 'success');
                 return redirect('dashboard/users/' . $data->id . '/show');

@@ -34,8 +34,8 @@
 
 
                         <div class="mb-3">
-                            <label for="description">Email <span class="text-danger">*</span></label>
-                            <input type="email" id="title" name="email" value="{{ old('email',$data->email) }}" class="form-control rounded-0" placeholder="write email here">
+                            <label for="email">Email <span class="text-danger">*</span></label>
+                            <input type="email" id="email" name="email" value="{{ old('email', $data->email) }}" class="form-control rounded-0" placeholder="write email here">
                             @if ($errors->has('email'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('email') }}</small>
@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="description">Password </label>
+                            <label for="passwird">Password </label>
                             <input type="password" id="password" name="password" class="form-control rounded-0" placeholder="write password here">
                             @if ($errors->has('password'))
                             <span class="text-danger" role="alert">
@@ -105,9 +105,9 @@
                             <label for="gambar" class="form-label d-block">Image</label>
                             <div class="mb-2">
                                 @if (!$data->picture)
-                                <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
+                                <img src="{{ asset('images/00.png') }}" alt="image user" id="preview-gambar" class="img-thumbnail img-fluid">
                                 @else
-                                <img src="{{ asset($data->picture) }}" id="preview-gambar" class="img-thumbnail img-fluid">
+                                <img src="{{ asset('images/users/' . $data->picture) }}" alt="image user" id="preview-gambar" class="img-thumbnail img-fluid">
                                 @endif
                             </div>
 
@@ -136,7 +136,7 @@
                         <i class="fa-solid fa-plus-square"></i> Submit
                     </button>
 
-                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'') }}" class="btn btn-outline-dark rounded-0 border-0">
+                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2)) }}" class="btn btn-outline-dark rounded-0 border-0">
                         <i class="fa-solid fa-times-square"></i> Cancle
                     </a>
 

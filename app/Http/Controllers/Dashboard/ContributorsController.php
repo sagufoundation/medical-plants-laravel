@@ -124,8 +124,6 @@ class ContributorsController extends Controller
                     // crate file path
                     $path = public_path('images/team/' . $data->photo);
 
-                    // dd($path);
-
                     // delete file if exist
                     if (file_exists($path)) {
                         File::delete($path);

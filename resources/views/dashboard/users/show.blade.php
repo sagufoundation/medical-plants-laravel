@@ -15,9 +15,9 @@
                     <div class="col-lg-3">
 
                         @if (empty($data->picture))
-                        <img src="{{ asset('images/00.png') }}" alt="Image" class="border shadow w-100">
+                        <img src="{{ asset('images/00.png') }}" alt="image user" class="border shadow w-100">
                         @else
-                        <img src="{{ asset($data->picture) }}" alt="Image" class="border shadow w-100">
+                        <img src="{{ asset('images/users/' . $data->picture) }}" alt="image user" class="border shadow w-100">
                         @endif
 
                     </div>
@@ -52,34 +52,27 @@
                             </div>
                         </div>
 
+                    </div>
+                </div> <!-- .row -->
 
+                <div class="row">
+                    <div class="col">
+                        <div class="d-flex">
+                            <a href="{{ route(Request::segment(1).'.'.Request::segment(2)) }}" class="btn btn-sm btn-light rounded-0 mx-1">
+                                <i class="fa-solid fa-reply"></i>
+                            </a>
+                            <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
+                                <i class="fa-solid fa-edit"></i>
+                            </a>
 
-
-
-                        <div class="p-2 px-3">
-
-                            <div class="d-flex">
-                                <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.show', $data->id) }}" class="btn btn-sm btn-dark rounded-0 mx-1" target="_blank">
-                                    <i class="fa-solid fa-eye"></i> Preview
-                                </a>
-                                <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
-                                    <i class="fa-solid fa-reply"></i>
-                                </a>
-                                <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
-                                    <i class="fa-solid fa-edit"></i>
-                                </a>
-
-                                <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.destroy', $data->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-light rounded-0 mx-1">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                                </form>
-                            </div>
-
+                            <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.destroy', $data->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-sm btn-light rounded-0 mx-1">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                            </form>
                         </div>
-
                     </div>
                 </div>
 

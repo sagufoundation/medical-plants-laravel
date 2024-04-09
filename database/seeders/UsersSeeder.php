@@ -21,6 +21,7 @@ class UsersSeeder extends Seeder
                 'name' => 'Admin',
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('admin@gmail.com'),
+                'picture' => '00.png',
                 'status' => 'Publish',
                 'role' => 'admin',
 
@@ -29,20 +30,15 @@ class UsersSeeder extends Seeder
                 'name' => 'Contributor',
                 'email' => 'contributor@gmail.com',
                 'password' => bcrypt('contributor@gmail.com'),
+                'picture' => '00.png',
                 'status' => 'Publish',
                 'role' => 'contributor',
             ],
             [
-                'name' => 'Johan',
-                'email' => 'johan@gmail.com',
-                'password' => bcrypt('johan@gmail.com'),
-                'status' => 'Publish',
-                'role' => 'contributor',
-            ],
-            [
-                'name' => 'Maikel',
-                'email' => 'maikel@gmail.com',
-                'password' => bcrypt('maikel@gmail.com'),
+                'name' => 'Samuel',
+                'email' => 'samuel@gmail.com',
+                'password' => bcrypt('samuel@gmail.com'),
+                'picture' => '00.png',
                 'role' => 'contributor',
             ]
         ]);
