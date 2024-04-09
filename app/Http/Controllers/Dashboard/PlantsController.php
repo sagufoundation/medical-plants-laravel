@@ -142,7 +142,7 @@ class PlantsController extends Controller
                 $data->save();
 
                 Alert::toast('Created! This data has been created successfully.', 'success');
-                return redirect('dashboard/plants/' . $data->id . '/show');
+                return to_route('dashboard.plants.show', $data->id);
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');
@@ -262,7 +262,7 @@ class PlantsController extends Controller
                 $data->update();
 
                 Alert::toast('Updated! This data has been updated successfully.', 'success');
-                return redirect('dashboard/plants/' . $data->id . '/show');
+                return redirect()->back();
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');
@@ -418,8 +418,7 @@ class PlantsController extends Controller
                 $data->update();
 
                 Alert::toast('Updated! This data has been updated successfully.', 'success');
-                // return redirect('dashboard/plants/'.$request->submit.'/' . $data->id . '/edit');
-                return redirect()->route('dashboard.plants.edit', $data->id);
+                return redirect()->back();
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');

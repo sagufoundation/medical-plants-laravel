@@ -109,7 +109,7 @@ class RegencyController extends Controller
                 $data->save();
 
                 Alert::toast('Created! This data has been created successfully.', 'success');
-                return redirect('dashboard/regencies');
+                return to_route('dashboard.regencies');
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');

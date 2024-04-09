@@ -105,19 +105,43 @@ class ContributorsController extends Controller
                 $data->descriptions = $request->descriptions;
                 $data->status = $request->status;
 
-                if ($request->photo) {
-                    $pictureName = Str::slug($data->full_name) .'-'. time() .'.' . $request->photo->extension();
-                    $path = public_path('images/team');
-                    if (!empty($data->photo) && file_exists($path . '/' . $data->photo)) :
-                        unlink($path . '/' . $data->photo);
-                    endif;
-                    $data->photo = $pictureName;
-                    $request->photo->move(public_path('images/team'), $pictureName);
+                // if ($request->photo) {
+                //     $pictureName = Str::slug($data->full_name) .'-'. time() .'.' . $request->photo->extension();
+                //     $path = public_path('images/team');
+                //     if (!empty($data->photo) && file_exists($path . '/' . $data->photo)) :
+                //         unlink($path . '/' . $data->photo);
+                //     endif;
+                //     $data->photo = $pictureName;
+                //     $request->photo->move(public_path('images/team'), $pictureName);
+                // }
+
+                // picture creation
+                if (isset($request->photo)) {
+
+                    // create file name
+                    $fileName = Str::slug($data->full_name) .'-'. time() .'.' . $request->photo->extension();
+
+                    // crate file path
+                    $path = public_path('images/team/' . $data->photo);
+
+                    // dd($path);
+
+                    // delete file if exist
+                    if (file_exists($path)) {
+                        File::delete($path);
+                    }
+
+                    // adding file name into database variable
+                    $data->photo = $fileName;
+
+                    // move file into folder path with the file name
+                    $request->photo->move(public_path('images/team'), $fileName);
                 }
+
                 $data->save();
 
                 Alert::toast('Created! This data has been created successfully.', 'success');
-                return redirect('dashboard/contributors/' . $data->id . '/show');
+                return to_route('dashboard.contributors.show', $data->id);
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');
@@ -182,19 +206,43 @@ class ContributorsController extends Controller
                 $data->descriptions = $request->descriptions;
                 $data->status = $request->status;
 
-                if ($request->photo) {
-                    $pictureName = Str::slug($data->full_name) .'-'. time() .'.' . $request->photo->extension();
-                    $path = public_path('images/team/');
-                    if (!empty($data->photo) && file_exists($path . '/' . $data->photo)) :
-                        unlink($path . '/' . $data->photo);
-                    endif;
-                    $data->photo = $pictureName;
-                    $request->photo->move(public_path('images/team'), $pictureName);
+                // if ($request->photo) {
+                //     $pictureName = Str::slug($data->full_name) .'-'. time() .'.' . $request->photo->extension();
+                //     $path = public_path('images/team/');
+                //     if (!empty($data->photo) && file_exists($path . '/' . $data->photo)) :
+                //         unlink($path . '/' . $data->photo);
+                //     endif;
+                //     $data->photo = $pictureName;
+                //     $request->photo->move(public_path('images/team'), $pictureName);
+                // }
+
+                // picture creation
+                if (isset($request->photo)) {
+
+                    // create file name
+                    $fileName = Str::slug($data->full_name) .'-'. time() .'.' . $request->photo->extension();
+
+                    // crate file path
+                    $path = public_path('images/team/' . $data->photo);
+
+                    // dd($path);
+
+                    // delete file if exist
+                    if (file_exists($path)) {
+                        File::delete($path);
+                    }
+
+                    // adding file name into database variable
+                    $data->photo = $fileName;
+
+                    // move file into folder path with the file name
+                    $request->photo->move(public_path('images/team'), $fileName);
                 }
+
                 $data->update();
 
                 Alert::toast('Updated! This data has been updated successfully.', 'success');
-                return redirect('dashboard/contributors/' . $data->id . '/show');
+                return redirect()->back();
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');
@@ -225,7 +273,7 @@ class ContributorsController extends Controller
     public function delete($id)
     {
         $data = Contributor::onlyTrashed()->findOrFail($id);
-        $path = public_path('assets/img/team/' . $data->photo);
+        $path = public_path('images/team/' . $data->photo);
 
         if (file_exists($path)) {
             File::delete($path);

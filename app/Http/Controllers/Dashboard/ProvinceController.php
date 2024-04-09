@@ -91,7 +91,7 @@ class ProvinceController extends Controller
                 $data->save();
 
                 Alert::toast('Created! This data has been created successfully.', 'success');
-                return redirect('dashboard/provinces');
+                return to_route('dashboard.provinces');
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');
