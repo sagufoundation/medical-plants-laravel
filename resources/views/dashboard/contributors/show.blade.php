@@ -16,7 +16,7 @@
                         @if (empty($data->photo))
                         <img src="{{ asset('images/00.png') }}" alt="Image" class="border shadow w-100">
                         @else
-                        <img src="{{ asset($data->photo) }}" alt="Image" class="border shadow w-100">
+                        <img src="{{ asset('images/team/'.$data->photo) }}" alt="Image" class="border shadow w-100">
                         @endif
                     </div>
                     <div class="col-lg-9">
@@ -35,15 +35,22 @@
                         </div>
                         <div class="p-2 px-3 border-bottom">
                             <b class="d-block mb-2">Address </b>
-                            {{$data->address}},{{$data->city}} - {{$data->province}}
+                            {{$data->address ?? ''}}
                         </div>
                         <div class="p-2 px-3 border-bottom">
                             <b class="d-block mb-2">Status </b>
-                            {{$data->status}}
+                            {{$data->status ?? ''}}
                         </div>
 
 
 
+                        
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
                         <div class="p-2 px-3">
 
                             <div class="d-flex">
@@ -67,7 +74,6 @@
                             </div>
 
                         </div>
-
                     </div>
                 </div>
 

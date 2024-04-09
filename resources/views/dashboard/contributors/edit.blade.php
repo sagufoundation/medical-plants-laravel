@@ -22,7 +22,7 @@
                         <div class="mb-3">
                             <label for="full_name">Full Name <span class="text-danger">*</span></label>
                             <input type="text" id="full_name" name="full_name" class="form-control rounded-0"
-                            value="{{$data->full_name}}" placeholder="write full name here">
+                            value="{{$data->full_name}}" placeholder="">
                             @if ($errors->has('full_name'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('full_name') }}</small>
@@ -33,7 +33,7 @@
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="email">Email <span class="text-danger">*</span></label>
-                            <input type="email" id="email" name="email" class="form-control rounded-0" placeholder="write email here"
+                            <input type="email" id="email" name="email" class="form-control rounded-0" placeholder=""
                             value="{{$data->email}}">
                             @if ($errors->has('email'))
                             <span class="text-danger" role="alert">
@@ -42,7 +42,7 @@
                             @endif
                         </div>
                         <!-- input item END -->
-                        <!-- input item START -->
+                        {{-- <!-- input item START -->
                         <div class="mb-3">
                             <label for="city">City <span class="text-danger">*</span></label>
                             <input type="text" id="city" name="city" class="form-control rounded-0"
@@ -65,11 +65,11 @@
                                 </span>
                             @endif
                         </div>
-                        <!-- input item END -->
+                        <!-- input item END --> --}}
                         <!-- input item START -->
                         <div class="mb-3">
-                            <label for="address">Address <span class="text-danger">*</span></label>
-                            <textarea id="address" name="address" rows="2" class="form-control rounded-0" placeholder="write some address">{{$data->address}}</textarea>
+                            <label for="address">Address</label>
+                            <textarea id="address" name="address" rows="2" class="form-control rounded-0" placeholder="">{{$data->address}}</textarea>
                             @if ($errors->has('address'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('address') }}</small>
@@ -81,7 +81,7 @@
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="description">Description</label>
-                            <textarea id="descriptions" name="descriptions" rows="3" class="form-control rounded-0" placeholder="write some description in one or two sentences">{{ $data->descriptions }}</textarea>
+                            <textarea id="descriptions" name="descriptions" rows="3" class="form-control rounded-0" placeholder="">{{ $data->descriptions }}</textarea>
 
                             @if ($errors->has('descriptions'))
                             <span class="text-danger" role="alert">

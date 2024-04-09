@@ -79,12 +79,12 @@ class ContributorController extends Controller
         $request->validate([
             'full_name'                 => 'required',
             'email'                     => 'required|email|unique:users,email',
-            'address'                   => 'required',
-            'city'                      => 'required',
-            'descriptions'              => 'required',
-            'province'                  => 'required',
-            'status_contributor'        => 'required',
-            'photo'                     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'address'                   => 'required',
+            // 'city'                      => 'required',
+            // 'province'                  => 'required',
+            // 'descriptions'              => 'required',
+            // 'status_contributor'        => 'required',
+            'photo'                     => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $tahun = date("Y");
@@ -101,9 +101,9 @@ class ContributorController extends Controller
             'full_name'                 => $request->full_name,
             'email'                     => $request->email,
             'address'                   => $request->address,
-            'city'                      => $request->city,
+            // 'city'                      => $request->city,
+            // 'province'                  => $request->province,
             'descriptions'              => $request->descriptions,
-            'province'                  => $request->province,
             'status_contributor'        => $request->status_contributor,
             'photo'                     => $url,
             'status_contributor'        => $request->status_contributor,
@@ -149,10 +149,10 @@ class ContributorController extends Controller
         $request->validate([
             'full_name'                 => 'required',
             'address'                   => 'required',
-            'city'                      => 'required',
-            'descriptions'              => 'required',
-            'province'                  => 'required',
-            'status_contributor'        => 'required',
+            // 'city'                      => 'required',
+            // 'province'                  => 'required',
+            // 'descriptions'              => 'required',
+            // 'status_contributor'        => 'required',
             'photo'                     => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
@@ -160,8 +160,8 @@ class ContributorController extends Controller
         $data = array(
             'full_name'  => $request->full_name,
             'address'  => $request->address,
-            'city'  => $request->city,
-            'province'  => $request->province,
+            // 'city'  => $request->city,
+            // 'province'  => $request->province,
             'descriptions'  => $request->descriptions,
             'status_contributor'  => $request->status_contributor,
         );

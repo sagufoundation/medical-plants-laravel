@@ -75,18 +75,18 @@ class ContributorsController extends Controller
             [
                 'full_name' => 'required',
                 'email' => 'required|email|string|unique:contributors,email',
-                'address' => 'required',
-                'city' => 'required',
-                'province' => 'required',
+                // 'address' => 'required',
+                // 'city' => 'required',
+                // 'province' => 'required',
                 'photo' => 'image|mimes:png,jpeg,jpg|max:4096',
 
             ],
             [
                 'full_name.required' => 'This is a reaquired field',
                 'email.required' => 'This is a reaquired field',
-                'address.required' => 'This is a reaquired field',
-                'city.required' => 'This is a reaquired field',
-                'province.required' => 'This is a reaquired field',
+                // 'address.required' => 'This is a reaquired field',
+                // 'city.required' => 'This is a reaquired field',
+                // 'province.required' => 'This is a reaquired field',
                 'photo.mimes' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
@@ -100,19 +100,19 @@ class ContributorsController extends Controller
                 $data->slug = Str::slug($data->full_name);
                 $data->email = $request->email;
                 $data->address = $request->address;
-                $data->city = $request->city;
-                $data->province = $request->province;
+                // $data->city = $request->city;
+                // $data->province = $request->province;
                 $data->descriptions = $request->descriptions;
                 $data->status = $request->status;
 
                 if ($request->photo) {
                     $pictureName = Str::slug($data->full_name) .'-'. time() .'.' . $request->photo->extension();
-                    $path = public_path('aassets/img/team');
+                    $path = public_path('images/team');
                     if (!empty($data->photo) && file_exists($path . '/' . $data->photo)) :
                         unlink($path . '/' . $data->photo);
                     endif;
-                    $data->photo = 'assets/img/team/' . $pictureName;
-                    $request->photo->move(public_path('assets/img/team'), $pictureName);
+                    $data->photo = $pictureName;
+                    $request->photo->move(public_path('images/team'), $pictureName);
                 }
                 $data->save();
 
@@ -152,17 +152,17 @@ class ContributorsController extends Controller
             [
                 'full_name' => 'required',
                 'email' => 'required|email|string|unique:contributors,email,' .$id,
-                'address' => 'required',
-                'city' => 'required',
-                'province' => 'required',
+                // 'address' => 'required',
+                // 'city' => 'required',
+                // 'province' => 'required',
                 'photo' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
                 'full_name.required' => 'This is a reaquired field',
                 'email.required' => 'This is a reaquired field',
-                'address.required' => 'This is a reaquired field',
-                'city.required' => 'This is a reaquired field',
-                'province.required' => 'This is a reaquired field',
+                // 'address.required' => 'This is a reaquired field',
+                // 'city.required' => 'This is a reaquired field',
+                // 'province.required' => 'This is a reaquired field',
                 'photo.mimes' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
@@ -177,19 +177,19 @@ class ContributorsController extends Controller
                 $data->slug = Str::slug($data->full_name);
                 $data->email = $request->email;
                 $data->address = $request->address;
-                $data->city = $request->city;
-                $data->province = $request->province;
+                // $data->city = $request->city;
+                // $data->province = $request->province;
                 $data->descriptions = $request->descriptions;
                 $data->status = $request->status;
 
                 if ($request->photo) {
                     $pictureName = Str::slug($data->full_name) .'-'. time() .'.' . $request->photo->extension();
-                    $path = public_path('aassets/img/team');
+                    $path = public_path('images/team/');
                     if (!empty($data->photo) && file_exists($path . '/' . $data->photo)) :
                         unlink($path . '/' . $data->photo);
                     endif;
-                    $data->photo = 'assets/img/team/' . $pictureName;
-                    $request->photo->move(public_path('assets/img/team'), $pictureName);
+                    $data->photo = $pictureName;
+                    $request->photo->move(public_path('images/team'), $pictureName);
                 }
                 $data->update();
 
