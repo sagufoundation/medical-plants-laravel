@@ -19,11 +19,14 @@
                     @else
                         <img src="{{ asset('images/plants/' . $data->id . '/' . $data->image_batang) }}" alt="{!! $data->image_batang !!}" class="border shadow w-100 mb-3" id="preview-image_batang">
                     @endif
+                    @if(Request::segment(4) != 'show')
                     <div class="custom-file">
                         <input type="file" name="image" class="custom-file-input" id="image_batang" accept="image/*">
                         <label class="custom-file-label" for="customFile">Select image</label>
                     </div>
+                    @endif
                 </div>
+                @if(Request::segment(4) != 'show')
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary rounded-0" name="submit" value="batang">
                         <i class="fa-solid fa-save"></i> Save
@@ -33,6 +36,7 @@
                     <button type="submit" class="btn btn-outline-secondary" name="remove" value="image_batang">Remove</button>
                     @endif
                 </div>
+                @endif
             </form> <!-- form end -->
         </div>
     </div>

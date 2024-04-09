@@ -19,20 +19,24 @@
                     @else
                         <img src="{{ asset('images/plants/' . $data->id . '/' . $data->image_cover) }}" alt="{!! $data->image_cover !!}" class="border shadow w-100 mb-3" id="preview-image_cover">
                     @endif
+                    @if(Request::segment(4) != 'show')
                     <div class="custom-file">
                         <input type="file" name="image" class="custom-file-input" id="image_cover" accept="image/*">
                         <label class="custom-file-label" for="customFile">Select image</label>
                     </div>
+                    @endif
                 </div>
+                @if(Request::segment(4) != 'show')
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary rounded-0" name="submit" value="cover">
                         <i class="fa-solid fa-save"></i> Save
-                    </button>                
+                    </button>                         
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     @if(!empty($data->image_cover))
                     <button type="submit" class="btn btn-outline-secondary" name="remove" value="image_cover">Remove</button>
                     @endif
                 </div>
+                @endif               
             </form> <!-- form end -->
         </div>
     </div>
