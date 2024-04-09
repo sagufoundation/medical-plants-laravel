@@ -32,9 +32,9 @@
                                 <td>{{ ++$i }}</td>
                                 <td>
                                     @if (!$data->photo)
-                                    <img src="{{ asset('images/00.png') }}" alt="Image" style="width:200px" class="border shadow">
+                                    <img src="{{ asset('images/00.png') }}" alt="contributor image" style="width:100px" class="border shadow">
                                     @else
-                                    <img src="{{ asset('images/team/' . $data->photo) }}" alt="Image" style="width:50px" class="border shadow">
+                                    <img src="{{ asset('images/team/' . $data->photo) }}" alt="contributor image" style="width:100px" class="border shadow">
                                     @endif
                                 </td>
                                 <td>{{ $data->full_name }}</td>
