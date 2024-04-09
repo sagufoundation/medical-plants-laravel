@@ -110,8 +110,8 @@
                                 <label for="description">Status</label>
                                 <select name="status" class="form-control" id="">
                                     {{-- <option value="Draft" value="" hidden>Select</option> --}}
-                                    <option value="Publish" @if(old('status') && old('status') == 'Publish') selected @elseif($data->status = 'Publish') @endif>Publish</option>
-                                    <option value="Draft" @if(old('status') && old('status') == 'Draft') selected @elseif($data->status = 'Draft') @endif>Draft</option>
+                                    <option value="Publish" @if($data->status == 'Publish') selected @endif>Publish</option>
+                                    <option value="Draft" @if($data->status == 'Draft') selected @endif>Draft</option>
                                 </select>
 
                                 @if ($errors->has('status'))

@@ -436,8 +436,7 @@ class PlantsController extends Controller
         $data = Plant::find($id);
         $data->delete();
         alert()->success('Trashed', 'Data has been moved to trash!!')->autoclose(1500);
-        // return redirect()->back();
-        return redirect('dashboard/plants/trash');
+        return to_route('dashboard.plants.trash');
     }
 
     // restore

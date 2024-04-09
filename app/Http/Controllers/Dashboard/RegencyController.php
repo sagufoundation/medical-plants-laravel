@@ -178,7 +178,7 @@ class RegencyController extends Controller
                 $data->update();
 
                 Alert::toast('Updated! This data has been updated successfully.', 'success');
-                return redirect('dashboard/regencies');
+                return redirect()->back();
 
             } catch (\Throwable $th) {
                 Alert::toast('Failed! Something is wrong', 'error');
