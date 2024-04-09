@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('full_name');
             $table->string('email');
             $table->string('address');
-            $table->string('city');
-            $table->string('province');
+            // $table->string('city');
+            // $table->string('province');
             $table->string('descriptions')->nullable();
             $table->string('photo')->nullable();
             $table->string('slug');
