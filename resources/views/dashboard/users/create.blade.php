@@ -1,8 +1,6 @@
 
 @extends('dashboard.layout.app')
-
 @section('content')
-
 @include('dashboard.layout.includes.breadcrumb2')
 
 <!-- .row START -->
@@ -128,17 +126,12 @@
                     
                     <!-- row start -->
                     <div class="row">
-
-                        <button type="submit" class="btn btn-primary rounded-0">
-                            <i class="fa-solid fa-plus-square"></i> Submit
-                        </button>
-
-                        <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'') }}" class="btn btn-outline-dark rounded-0 border-0">
-                            <i class="fa-solid fa-times-square"></i> Cancle
-                        </a>
-                        
-                    </div>
-                    <!-- row end -->
+                        <div class="col">
+                            <x-submit-button />
+                            <x-cancle-button />
+                        </div>
+                    </div> 
+                    <!-- row end --> 
 
                 </form>
 
@@ -152,7 +145,6 @@
 <!-- .row END -->
 
 @endsection
-
 @push('script-footer')
 <script type="text/javascript">
     $(document).ready(function (e) {
@@ -166,5 +158,4 @@
 
     });
 </script>
-
 @endpush
