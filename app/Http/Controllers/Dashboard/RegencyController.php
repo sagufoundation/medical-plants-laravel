@@ -82,10 +82,6 @@ class RegencyController extends Controller
             [
                 'name' => 'required',
                 'coordinates' => 'required',
-            ],
-            [
-                'name.required' => 'This is a reaquired field',
-                'coordinates.required' => 'This is a reaquired field',
             ]
         );
 
@@ -100,25 +96,34 @@ class RegencyController extends Controller
                 $data->description = $request->description;
                 $data->status = $request->status;
 
-                if ($request->image) {
-                    $imageName = $data->slug .'.' . $request->image->extension();
-                    $path = public_path('images/regencies');
-                    
-                    if (!empty($data->image) && file_exists($path . '/' . $data->image)) :
-                        unlink($path . '/' . $data->image);
-                    endif;
+                // picture creation
+                if (isset($request->image)) {
 
-                    $data->image = $imageName;
-                    $request->image->move(public_path('images/regencies'), $imageName);
+                    // create file name
+                    $fileName = Str::slug($data->name) .'-'. time() .'.' . $request->image->extension();
+
+                    // create file path
+                    $path = public_path('images/regencies/' . $data->image);
+
+                    // delete file if exist
+                    if (file_exists($path)) {
+                        File::delete($path);
+                    }
+
+                    // adding file name into database variable
+                    $data->image = $fileName;
+
+                    // move file into folder path with the file name
+                    $request->image->move(public_path('images/regencies'), $fileName);
                 }
 
                 $data->save();
 
-                Alert::toast('Created! This data has been created successfully.', 'success');
+                alert()->success('Success!', 'Your new entry has been created and added to the system.')->autoclose(3000);
                 return to_route('dashboard.regencies');
 
             } catch (\Throwable $th) {
-                Alert::toast('Failed! Something is wrong', 'error');
+                alert()->error('Action Failed', 'An error occurred while performing the action. Please try again later or contact support for assistance.')->autoclose(3000);
                 return redirect()->back();
             }
         }
@@ -130,7 +135,7 @@ class RegencyController extends Controller
     */ 
     public function show($id)
     {
-        $data = Regency::where('id', $id)->first();
+        $data = Regency::find($id);
         return view('dashboard.regencies.show', compact('data'));
     }
 
@@ -140,8 +145,7 @@ class RegencyController extends Controller
     */ 
     public function edit($id)
     {
-        $data = Regency::where('id', $id)->first();
-
+        $data = Regency::find($id);
         return view('dashboard.regencies.edit', compact('data'));
     }
 
@@ -157,10 +161,6 @@ class RegencyController extends Controller
             [
                 'name' => 'required',
                 'coordinates' => 'required',
-            ],
-            [
-                'name.required' => 'This is a reaquired field',
-                'coordinates.required' => 'This is a reaquired field',
             ]
         );
 
@@ -176,25 +176,34 @@ class RegencyController extends Controller
                 $data->description = $request->description;
                 $data->status = $request->status;
 
-                if ($request->image) {
-                    $imageName = $data->slug .'.' . $request->image->extension();
-                    $path = public_path('images/regencies');
-                    
-                    if (!empty($data->image) && file_exists($path . '/' . $data->image)) :
-                        unlink($path . '/' . $data->image);
-                    endif;
+                // picture creation
+                if (isset($request->image)) {
 
-                    $data->image = $imageName;
-                    $request->image->move(public_path('images/regencies'), $imageName);
+                    // create file name
+                    $fileName = Str::slug($data->name) .'-'. time() .'.' . $request->image->extension();
+
+                    // create file path
+                    $path = public_path('images/regencies/' . $data->image);
+
+                    // delete file if exist
+                    if (file_exists($path)) {
+                        File::delete($path);
+                    }
+
+                    // adding file name into database variable
+                    $data->image = $fileName;
+
+                    // move file into folder path with the file name
+                    $request->image->move(public_path('images/regencies'), $fileName);
                 }
 
                 $data->update();
 
-                Alert::toast('Updated! This data has been updated successfully.', 'success');
+                alert()->success('Data Updated', 'Your data has been successfully updated and saved.')->autoclose(3000);
                 return redirect()->back();
 
             } catch (\Throwable $th) {
-                Alert::toast('Failed! Something is wrong', 'error');
+                alert()->error('Action Failed', 'An error occurred while performing the action. Please try again later or contact support for assistance.')->autoclose(3000);
                 return redirect()->back();
             }
         }
@@ -206,9 +215,10 @@ class RegencyController extends Controller
     */ 
     public function destroy($id)
     {
-        $data = Regency::find($id);
+        $data = Regency::findOrFail($id);
         $data->delete();
-        alert()->success('Trashed', 'Data has been moved to trash!!')->autoclose(1500);
+
+        alert()->success('Moved to Trash', 'Your data has been moved to the trash. It can be recovered if needed')->autoclose(3000);
         return to_route('dashboard.regencies.trash');
     }
 
@@ -217,10 +227,10 @@ class RegencyController extends Controller
     | restoring data from soft delete
     */ 
     public function restore($id)
-    {
-        $data = Regency::onlyTrashed()->where('id', $id);
-        $data->restore();
-        alert()->success('Restored', 'Data has been restored!!')->autoclose(1500);
+    {        
+        Regency::withTrashed()->where('id',$id)->restore();
+
+        alert()->success('Data Restored', 'Your data has been successfully restored from the trash. It is now available for use again')->autoclose(3000);
         return redirect()->back();
     }
 
