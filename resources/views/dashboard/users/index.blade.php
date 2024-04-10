@@ -18,7 +18,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <td>Picture</td>
+                                <th>Picture</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Roles</th>
@@ -27,7 +27,6 @@
                             </tr>
                         </thead>
                         <tbody>
-
                             @forelse ($datas as $data)
                             <tr>
                                 <td>{{ ++$i }}</td>
