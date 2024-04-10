@@ -1,8 +1,5 @@
-
 @extends('dashboard.layout.app')
-
 @section('content')
-
 @include('dashboard.layout.includes.breadcrumb2')
 
 <!-- .row START -->
@@ -22,7 +19,6 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Roles</th>
-                                <th>Status</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -38,9 +34,8 @@
                                     @endif
                                 </td>
                                 <td>{{ $data->name ?? '' }} </td>
-                                <td>{{ $data->email  }} </td>
+                                <td>{{ $data->email ?? '' }} </td>
                                 <td>{{ implode("",$data->roles()->pluck('display_name')->toArray()) }}</td>
-                                <td>@if ($data->status === "Publish") Active @else @endif </td>
                                 @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">
                                     <x-restore-button :id="$data->id" />
@@ -50,7 +45,9 @@
                                 <td class="d-flex justify-content-end gap-2">
                                     <x-show-button :id="$data->id" />
                                     <x-edit-button :id="$data->id" />
+                                    @if(implode('', Auth::user()->roles()->pluck('id')->toArray()) != $data->id)
                                     <x-delete-button :id="$data->id" />
+                                    @endif
                                 </td>
                                 @endif
                             </tr>
@@ -75,4 +72,5 @@
 <!-- .row END -->
 
 @endsection
+
 @include('dashboard.layout.includes.index-script-footer')

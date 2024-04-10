@@ -28,6 +28,7 @@ class UsersSeeder extends Seeder
 
             ],
             [
+                'id' => 2,
                 'name' => 'Contributor',
                 'email' => 'contributor@gmail.com',
                 'password' => bcrypt('contributor@gmail.com'),
@@ -36,6 +37,7 @@ class UsersSeeder extends Seeder
                 'role' => 'contributor',
             ],
             [
+                'id' => 3,
                 'name' => 'Samuel',
                 'email' => 'samuel@gmail.com',
                 'password' => bcrypt('samuel@gmail.com'),

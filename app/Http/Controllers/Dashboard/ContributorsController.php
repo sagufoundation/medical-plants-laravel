@@ -6,22 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Support\Facades\Validator;
-use App\Models\Contributor;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
+
+use App\Models\Contributor;
 
 class ContributorsController extends Controller
 {
-
     /*
-    |--------------------------------------------------------------------------
-    | adventures
-    | index | publish, draft, trash, create, store, show, edit, update, destroy, restore, delete
-    |--------------------------------------------------------------------------
-    */
-
-    // index | publish
-
+    | INDEX
+    | showing table data of published records or "status=publish"
+    */ 
     public function index(Request $request)
     {
         $datas = Contributor::where([
@@ -37,7 +32,10 @@ class ContributorsController extends Controller
         return view('dashboard.contributors.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    // draft
+    /*
+    | DRAFT
+    | showing table with data of drafted records "status=trash"
+    */ 
     public function draft(Request $request)
     {
         $datas = Contributor::where([
@@ -53,7 +51,10 @@ class ContributorsController extends Controller
         return view('dashboard.contributors.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    // trash
+    /*
+    | TRASH
+    | showing table with data of soft deleted records "softDelete=true"
+    */ 
     public function trash()
     {
         //
@@ -61,13 +62,19 @@ class ContributorsController extends Controller
         return view('dashboard.contributors.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    // create
+    /*
+    | CREATE
+    | showing create page with the form and inputs
+    */ 
     public function create()
     {
         return view('dashboard.contributors.create');
     }
 
-    // store
+    /*
+    | STORE
+    | storing data to database 
+    */ 
     public function store(Request $request)
     {
         $validator = Validator::make(
@@ -75,18 +82,12 @@ class ContributorsController extends Controller
             [
                 'full_name' => 'required',
                 'email' => 'required|email|string|unique:contributors,email',
-                // 'address' => 'required',
-                // 'city' => 'required',
-                // 'province' => 'required',
                 'photo' => 'image|mimes:png,jpeg,jpg|max:4096',
 
             ],
             [
                 'full_name.required' => 'This is a reaquired field',
                 'email.required' => 'This is a reaquired field',
-                // 'address.required' => 'This is a reaquired field',
-                // 'city.required' => 'This is a reaquired field',
-                // 'province.required' => 'This is a reaquired field',
                 'photo.mimes' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
@@ -100,20 +101,8 @@ class ContributorsController extends Controller
                 $data->slug = Str::slug($data->full_name);
                 $data->email = $request->email;
                 $data->address = $request->address;
-                // $data->city = $request->city;
-                // $data->province = $request->province;
                 $data->descriptions = $request->descriptions;
                 $data->status = $request->status;
-
-                // if ($request->photo) {
-                //     $pictureName = Str::slug($data->full_name) .'-'. time() .'.' . $request->photo->extension();
-                //     $path = public_path('images/team');
-                //     if (!empty($data->photo) && file_exists($path . '/' . $data->photo)) :
-                //         unlink($path . '/' . $data->photo);
-                //     endif;
-                //     $data->photo = $pictureName;
-                //     $request->photo->move(public_path('images/team'), $pictureName);
-                // }
 
                 // picture creation
                 if (isset($request->photo)) {
@@ -148,15 +137,20 @@ class ContributorsController extends Controller
         }
     }
 
-    // show
-
+    /*
+    | SHOW
+    | showing detail data 
+    */ 
     public function show($id)
     {
         $data = Contributor::where('id', $id)->first();
         return view('dashboard.contributors.show', compact('data'));
     }
 
-    // edit
+    /*
+    | EDIT
+    | showing edit page with the form and inputs
+    */ 
     public function edit($id)
     {
         $data = Contributor::where('id', $id)->first();
@@ -164,8 +158,10 @@ class ContributorsController extends Controller
         return view('dashboard.contributors.edit', compact('data'));
     }
 
-    // update
-
+    /*
+    | UPDATE
+    | updating data 
+    */ 
     public function update(Request $request, $id)
     {
 
@@ -174,17 +170,11 @@ class ContributorsController extends Controller
             [
                 'full_name' => 'required',
                 'email' => 'required|email|string|unique:contributors,email,' .$id,
-                // 'address' => 'required',
-                // 'city' => 'required',
-                // 'province' => 'required',
                 'photo' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
                 'full_name.required' => 'This is a reaquired field',
                 'email.required' => 'This is a reaquired field',
-                // 'address.required' => 'This is a reaquired field',
-                // 'city.required' => 'This is a reaquired field',
-                // 'province.required' => 'This is a reaquired field',
                 'photo.mimes' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
@@ -203,16 +193,6 @@ class ContributorsController extends Controller
                 // $data->province = $request->province;
                 $data->descriptions = $request->descriptions;
                 $data->status = $request->status;
-
-                // if ($request->photo) {
-                //     $pictureName = Str::slug($data->full_name) .'-'. time() .'.' . $request->photo->extension();
-                //     $path = public_path('images/team/');
-                //     if (!empty($data->photo) && file_exists($path . '/' . $data->photo)) :
-                //         unlink($path . '/' . $data->photo);
-                //     endif;
-                //     $data->photo = $pictureName;
-                //     $request->photo->move(public_path('images/team'), $pictureName);
-                // }
 
                 // picture creation
                 if (isset($request->photo)) {
@@ -249,7 +229,10 @@ class ContributorsController extends Controller
         }
     }
 
-    // destroy
+    /*
+    | DESTROY
+    | deleting data softly
+    */ 
     public function destroy($id)
     {
         $data = Contributor::find($id);
@@ -258,16 +241,22 @@ class ContributorsController extends Controller
         return to_route('dashboard.contributors.trash');
     }
 
-    // restore
+    /*
+    | RESTORE
+    | restoring data from soft delete
+    */ 
     public function restore($id)
     {
-        $data = Contributor::onlyTrashed()->where('id', $id);
-        $data->restore();
-        alert()->success('Restored', 'Data has been restored!!')->autoclose(1500);
+        Contributor::withTrashed()->where('id', $id)->restore();
+
+        alert()->success('Data Restored', 'Your data has been successfully restored from the trash. It is now available for use again')->autoclose(3000);
         return redirect()->back();
     }
 
-    // delete
+    /*
+    | DELETE
+    | deleting permanently
+    */ 
     public function delete($id)
     {
         $data = Contributor::onlyTrashed()->findOrFail($id);
@@ -278,7 +267,8 @@ class ContributorsController extends Controller
         }
 
         $data->forceDelete();
-        alert()->success('Deleted', 'The data has been permanently deleted!!')->autoclose(1500);
+
+        alert()->success('Deleted permanently', 'our data has been permanently deleted from the system. This action cannot be undone')->autoclose(3000);
         return redirect()->back();
     }
 }

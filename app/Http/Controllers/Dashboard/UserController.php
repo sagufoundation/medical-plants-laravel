@@ -2,10 +2,6 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-// models
-use App\Models\User;
-
-use App\Models\Roles;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -17,9 +13,16 @@ use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
+// models
+use App\Models\User;
+use App\Models\Roles;
+
 class UserController extends Controller
 {
-    // INDEX
+    /*
+    | INDEX
+    | showing table data of published records or "status=publish"
+    */ 
     public function index(Request $request)
     {
         $datas = User::where([
@@ -40,7 +43,10 @@ class UserController extends Controller
 
     }
 
-    // DRAFT
+    /*
+    | DRAFT
+    | showing table with data of drafted records "status=trash"
+    */ 
     public function draft(Request $request)
     {
         $datas = User::where([
@@ -61,23 +67,30 @@ class UserController extends Controller
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
-    // TRASH
+    /*
+    | TRASH
+    | showing table with data of soft deleted records "softDelete=true"
+    */ 
     public function trash(){
 
         $datas = User::onlyTrashed()->paginate(5);
         return view('dashboard.users.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-
-    // CREATE
+    /*
+    | CREATE
+    | showing create page with the form and inputs
+    */ 
     public function create()
     {
-        $roles  = Role::get();
+        $roles  = Role::all();
         return view('dashboard.users.create',compact('roles'));
     }
 
-
-    // STORE
+    /*
+    | STORE
+    | storing data to database 
+    */ 
     public function store(Request $request)
     {
         $validator = Validator::make(
@@ -111,18 +124,8 @@ class UserController extends Controller
                 $data->slug = Str::slug($data->name);
                 $data->email = $request->email;
                 $data->password = bcrypt($request->password);
+                $data->assignRole($request->roles);
                 $data->status = $request->status;
-
-                // if ($request->picture) {
-                //     $pictureName = Str::slug($data->name) .'-'. time() .'.' . $request->picture->extension();
-                //     $path = public_path('assets-admin/img/users');
-                //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                //         unlink($path . '/' . $data->picture);
-                //     endif;
-                //     $data->picture = 'assets-admin/img/users/' . $pictureName;
-                //     $request->picture->move(public_path('assets-admin/img/users'), $pictureName);
-                // }
-
 
                 // picture creation
                 if (isset($request->picture)) {
@@ -145,29 +148,32 @@ class UserController extends Controller
                     $request->photo->move(public_path('images/users'), $fileName);
                 }
 
-
-
                 $data->save();
 
-                Alert::toast('Created! This data has been created successfully.', 'success');
-                return redirect('dashboard/users/' . $data->id . '/show');
+                alert()->success('Success!', 'Your new entry has been created and added to the system.')->autoclose(3000);
+                return redirect()->route('dashboard.users.show', $data->id);
 
             } catch (\Throwable $th) {
-                dd($th);
-                Alert::toast('Failed! Something is wrong', 'error');
+                alert()->error('Action Failed', 'An error occurred while performing the action. Please try again later or contact support for assistance.')->autoclose(3000);
                 return redirect()->back();
             }
         }
     }
 
-    // SHOW
+    /*
+    | SHOW
+    | showing detail data 
+    */ 
     public function show($id)
     {
         $data = User::find($id);
         return view('dashboard.users.show',compact('data'));
     }
 
-    // EDIT
+    /*
+    | EDIT
+    | showing edit page with the form and inputs
+    */ 
     public function edit($id)
     {
         $data = User::find($id);
@@ -175,7 +181,10 @@ class UserController extends Controller
         return view('dashboard.users.edit',compact('data','roles'));
     }
 
-    // UPDATE
+    /*
+    | UPDATE
+    | updating data 
+    */ 
     public function update(Request $request, $id)
     {
         $validator = Validator::make(
@@ -205,23 +214,13 @@ class UserController extends Controller
                 $data->name = $request->name;
                 $data->slug = Str::slug($data->name);
                 $data->email = $request->email;
-                $data->status = $request->status;
+
                 if ($data->password) {
                     $data->password = Hash::make($request->password);
                 }
-
-
-                // if ($request->picture) {
-                //     $pictureName = Str::slug($data->name) .'-'. time() .'.' . $request->picture->extension();
-                //     $path = public_path('assets-admin/img/users');
-                //     if (!empty($data->picture) && file_exists($path . '/' . $data->picture)) :
-                //         unlink($path . '/' . $data->picture);
-                //     endif;
-                //     $data->picture = 'assets-admin/img/users/' . $pictureName;
-                //     $request->picture->move(public_path('assets-admin/img/users'), $pictureName);
-                // }
-
-
+                
+                $data->assignRole($request->roles);
+                $data->status = $request->status;
 
 
                 // picture creation
@@ -245,14 +244,14 @@ class UserController extends Controller
                     $request->photo->move(public_path('images/users'), $fileName);
                 }
 
-
-
-
                 $data->update();
-                Alert::toast('Update! This data has been update successfully.', 'success');
-                return redirect('dashboard/users/' . $data->id . '/show');
+
+                alert()->success('Data Updated', 'Your data has been successfully updated and saved.')->autoclose(3000);
+                return redirect()->back();
+
             } catch (\Throwable $th) {
-                Alert::toast('Failed', 'error');
+
+                alert()->error('Action Failed', 'An error occurred while performing the action. Please try again later or contact support for assistance.')->autoclose(3000);
                 return redirect()->back();
             }
         }
@@ -260,26 +259,35 @@ class UserController extends Controller
 
     }
 
-    // DESTROY
+    /*
+    | DESTROY
+    | deleting data softly
+    */ 
     public function destroy($id)
     {
         $data = User::findOrFail($id);
-
         $data->save();
         User::find($id)->delete();
-        alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
-        return redirect()->back();
+
+        alert()->success('Moved to Trash', 'Your data has been moved to the trash. It can be recovered if needed')->autoclose(3000);
+        return to_route('dashboard.users.trash');
     }
 
-
-    // RESTORE
+    /*
+    | RESTORE
+    | restoring data from soft delete
+    */ 
     public function restore($id){
         User::withTrashed()->where('id',$id)->restore();
-        alert()->success('Berhasil', 'Sukses!!')->autoclose(1500);
+
+        alert()->success('Data Restored', 'Your data has been successfully restored from the trash. It is now available for use again')->autoclose(3000);
         return redirect()->back();
     }
 
-    // DELETE
+    /*
+    | DELETE
+    | deleting permanently
+    */ 
     public function delete($id){
         $data = User::onlyTrashed()->findOrFail($id);
         $path = public_path('assets-admin/img/users/' . $data->picture);
@@ -289,7 +297,8 @@ class UserController extends Controller
         }
 
         $data->forceDelete();
-        alert()->success('Deleted', 'The data has been permanently deleted!!')->autoclose(1500);
+
+        alert()->success('Deleted permanently', 'our data has been permanently deleted from the system. This action cannot be undone')->autoclose(3000);
         return redirect()->back();
     }
 

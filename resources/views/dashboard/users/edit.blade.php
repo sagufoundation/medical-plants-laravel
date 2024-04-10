@@ -1,4 +1,3 @@
-
 @extends('dashboard.layout.app')
 @section('content')
 @include('dashboard.layout.includes.breadcrumb2')
@@ -15,8 +14,9 @@
                 
                     <!-- row start --> 
                     <div class="row">
-                        <!-- col start -->
-                        <div class="col-lg-6">
+
+                        <!-- .col start -->
+                        <div class="col-lg-8">
 
                             <!-- input item START -->
                             <div class="mb-3">
@@ -67,9 +67,24 @@
                             </div>
                             <!-- input item END -->
 
-                            <!-- input item START -->
                             {{-- munculkan field status dan roles jika bukan admin master --}}
-                            @if(implode('', Auth::user()->roles()->pluck('id')->toArray()) != 1)
+                            @if(implode('', Auth::user()->roles()->pluck('id')->toArray()) != $data->id)
+
+                            <!-- input item START -->
+                            <div class="mb-3">
+                                <label for="roles">Roles <span class="text-danger">*</span></label>
+                                <select name="roles" class="form-control" id="">
+                                    <option value="2" hidden selected></option>
+                                    @foreach ($roles as $role )
+                                        <option value="{{ $role->id }}"
+                                            @if($data->id == $role->id)selected="selected"@endif> {{ $role->display_name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <!-- input item END -->
+
+                            <!-- input item START -->
                             <div class="mb-3">
                                 <label for="description">Status <span class="text-danger">*</span></label>
                                 <select name="status" class="form-control" id="">
@@ -85,35 +100,23 @@
                                 @endif
                             </div>
                             <!-- input item END -->
-
-                            <!-- input item START -->
-                            <div class="mb-3">
-                                <label for="roles">Roles <span class="text-danger">*</span></label>
-                                <select name="roles" class="form-control" id="">
-                                    @foreach ($roles as $role )
-                                        <option value="{{ $role->id }}"
-                                            @if($data->id == $role->id)selected="selected"@endif >
-                                            {{ $role->display_name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <!-- input item END -->
+                            
                             @endif
 
                         </div>
-                        <!-- col end -->
+                        <!-- .col end -->
                         
-                        <!-- col start -->
-                        <div class="col-lg-6">
+                        <!-- .col start -->
+                        <div class="col-lg-4">
+
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="gambar" class="form-label d-block">Image</label>
                                 <div class="mb-2">
                                     @if (!$data->picture)
-                                    <img src="{{ asset('images/00.png') }}" alt="image user" id="preview-gambar" class="img-thumbnail img-fluid">
+                                    <img src="{{ asset('images/00.png') }}" alt="image user" id="preview-gambar" class="img-thumbnail img-fluid w-100">
                                     @else
-                                    <img src="{{ asset('images/users/' . $data->picture) }}" alt="image user" id="preview-gambar" class="img-thumbnail img-fluid">
+                                    <img src="{{ asset('images/users/' . $data->picture) }}" alt="image user" id="preview-gambar" class="img-thumbnail img-fluid w-100">
                                     @endif
                                 </div>
 
@@ -122,7 +125,6 @@
                                     <small class="text-muted mt-2 d-block">Select a new image from your computer</small>
                                     <label class="custom-file-label" for="customFile">Select image</label>
                                 </div>
-                                <!-- input item END -->
 
                                 @if ($errors->has('picture'))
                                 <span class="text-danger" role="alert">
@@ -131,10 +133,12 @@
                                 @endif
                             </div>
                             <!-- input item END -->
+
                         </div>
-                        <!-- col end -->
+                        <!-- .col end -->
+
                     </div>
-                    <!-- row end --> 
+                    <!-- .row end --> 
 
                     <!-- row start -->
                     <div class="row">
@@ -143,7 +147,7 @@
                             <x-close-button/>
                         </div>
                     </div> 
-                    <!-- row end --> 
+                    <!-- .row end --> 
 
                 </form>
 

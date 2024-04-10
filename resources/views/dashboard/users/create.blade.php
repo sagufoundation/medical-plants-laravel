@@ -1,4 +1,3 @@
-
 @extends('dashboard.layout.app')
 @section('content')
 @include('dashboard.layout.includes.breadcrumb2')
@@ -15,8 +14,8 @@
                     <!-- row start -->  
                     <div class="row">
 
-                        <!-- col start -->  
-                        <div class="col-lg-6">
+                        <!-- .col start -->  
+                        <div class="col-lg-8">
 
                             <!-- input item START -->
                             <div class="mb-3">
@@ -70,9 +69,8 @@
                             <div class="mb-3">
                                 <label for="description">Status</label>
                                 <select name="status" class="form-control" id="">
-                                    <option value="Draft" hidden>Select</option>
+                                    <option value="Draft" selected>Draft</option>
                                     <option value="Publish">Publish</option>
-                                    <option value="Draft">Draft</option>
                                 </select>
                                 @if ($errors->has('status'))
                                 <span class="text-danger" role="alert">
@@ -86,22 +84,24 @@
                             <div class="mb-3">
                                 <label for="roles">Roles <span class="text-danger">*</span></label>
                                 <select name="roles" class="form-control" id="">
+                                    <option value="2" hidden selected></option>
                                     @foreach ($roles as $role )
-                                    <option value="{{ $role->id }}" selected>{{ $role->display_name }}</option>
+                                        <option value="{{ $role->id }}" > {{ $role->display_name }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>
                             <!-- input item END -->
                         </div>
-                        <!-- col end -->
+                        <!-- .col end -->
 
-                        <!-- col start -->
-                        <div class="col-lg-6">
+                        <!-- .col start -->
+                        <div class="col-lg-4">
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="gambar" class="form-label d-block">Image</label>
                                 <div class="mb-2">
-                                    <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
+                                    <img src="{{ asset('images/00.png') }}" alt="image user" id="preview-gambar" class="img-thumbnail img-fluid w-100">
                                 </div>
 
                                 <div class="custom-file">
@@ -119,10 +119,10 @@
                             </div>
                             <!-- input item END -->
                         </div>
-                        <!-- col end -->
+                        <!-- .col end -->
 
                     </div>
-                    <!-- row end -->
+                    <!-- .row end -->
                     
                     <!-- row start -->
                     <div class="row">
@@ -131,7 +131,7 @@
                             <x-close-button/>
                         </div>
                     </div> 
-                    <!-- row end --> 
+                    <!-- .row end --> 
 
                 </form>
 
@@ -145,6 +145,7 @@
 <!-- .row END -->
 
 @endsection
+
 @push('script-footer')
 <script type="text/javascript">
     $(document).ready(function (e) {
@@ -155,7 +156,6 @@
                 }
                 reader.readAsDataURL(this.files[0]);
         });
-
     });
 </script>
 @endpush

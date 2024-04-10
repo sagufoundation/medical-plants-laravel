@@ -1,8 +1,5 @@
-
 @extends('dashboard.layout.app')
-
 @section('content')
-
 @include('dashboard.layout.includes.breadcrumb2')
 
 <!-- .row START -->
@@ -14,13 +11,16 @@
                 <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
+                    <!-- row start -->    
                     <div class="row">
-                        <div class="col-lg-6">
+                        
+                        <!-- .col start -->
+                        <div class="col-lg-8">
 
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="full_name">Full Name <span class="text-danger">*</span></label>
-                                <input type="text" id="full_name" name="full_name" class="form-control rounded-0" placeholder="write full name here" value="{{ old('full_name') }}">
+                                <input type="text" id="full_name" name="full_name" class="form-control rounded-0" value="{{ old('full_name') }}">
                                 @if ($errors->has('full_name'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('full_name') }}</small>
@@ -28,10 +28,11 @@
                                 @endif
                             </div>
                             <!-- input item END -->
+
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="email">Email <span class="text-danger">*</span></label>
-                                <input type="email" id="email" name="email" class="form-control rounded-0" placeholder="write email here" value="{{ old('email') }}">
+                                <input type="email" id="email" name="email" class="form-control rounded-0" value="{{ old('email') }}">
                                 @if ($errors->has('email'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('email') }}</small>
@@ -39,32 +40,11 @@
                                 @endif
                             </div>
                             <!-- input item END -->
-                            {{-- <!-- input item START -->
-                            <div class="mb-3">
-                                <label for="city">City <span class="text-danger">*</span></label>
-                                <input type="text" id="city" name="city" class="form-control rounded-0" placeholder="write city here">
-                                @if ($errors->has('city'))
-                                <span class="text-danger" role="alert">
-                                        <small>{{ $errors->first('city') }}</small>
-                                    </span>
-                                @endif
-                            </div>
-                            <!-- input item END -->
-                            <!-- input item START -->
-                            <div class="mb-3">
-                                <label for="province">Province <span class="text-danger">*</span></label>
-                                <input type="text" id="province" name="province" class="form-control rounded-0" placeholder="write province here">
-                                @if ($errors->has('province'))
-                                <span class="text-danger" role="alert">
-                                        <small>{{ $errors->first('province') }}</small>
-                                    </span>
-                                @endif
-                            </div>
-                            <!-- input item END --> --}}
+                            
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="address">Address</label>
-                                <textarea id="address" name="address" rows="2" class="form-control rounded-0" placeholder="write full address"></textarea>
+                                <textarea id="address" name="address" rows="2" class="form-control rounded-0"></textarea>
                                 @if ($errors->has('address'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('address') }}</small>
@@ -76,8 +56,7 @@
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="description">Description</label>
-                                <textarea id="descriptions" name="descriptions" rows="3" class="form-control rounded-0" placeholder="describe the contributor"></textarea>
-
+                                <textarea id="descriptions" name="descriptions" rows="3" class="form-control rounded-0"></textarea>
                                 @if ($errors->has('descriptions'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('descriptions') }}</small>
@@ -87,13 +66,13 @@
                             </div>
                             <!-- input item END -->
 
+                            <!-- input item START -->
                             <div class="mb-3">
                                 <label for="status">Status </label>
                                 <select name="status" class="form-control" id="">
-                                    <option value="Publish">Publish</option>
                                     <option value="Draft" selected>Draft</option>
+                                    <option value="Publish">Publish</option>
                                 </select>
-
                                 @if ($errors->has('status'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('status') }}</small>
@@ -101,14 +80,19 @@
                                 @endif
 
                             </div>
+                            <!-- input item END -->
+
                         </div>
-                        <div class="col-lg-6">
+                        <!-- .col end -->
+
+                        <!-- .col start -->
+                        <div class="col-lg-4">
 
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="photo" class="form-label d-block">Photo</label>
                                 <div class="mb-2">
-                                    <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid">
+                                    <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail img-fluid w-100">
                                 </div>
 
                                 <div class="custom-file">
@@ -126,19 +110,20 @@
                             </div>
                             <!-- input item END -->
 
-                            <!-- input item START -->
-
-                            <!-- input item END -->
                         </div>
+                        <!-- .col end -->
+
                     </div>
-
-                    <button type="submit" class="btn btn-primary rounded-0">
-                        <i class="fa-solid fa-plus-square"></i> Submit
-                    </button>
-
-                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'') }}" class="btn btn-outline-dark rounded-0 border-0">
-                        <i class="fa-solid fa-times-square"></i> Cancle
-                    </a>
+                    <!-- .row end -->
+                    
+                    <!-- row start -->
+                    <div class="row">
+                        <div class="col">
+                            <x-submit-button />
+                            <x-close-button/>
+                        </div>
+                    </div> 
+                    <!-- .row end --> 
 
                 </form>
 
@@ -155,8 +140,6 @@
 
 @push('script-footer')
 <script type="text/javascript">
-
-
     $(document).ready(function (e) {
         $('#gambar').change(function(){
                 let reader = new FileReader();
@@ -165,7 +148,6 @@
                 }
                 reader.readAsDataURL(this.files[0]);
         });
-
     });
 </script>
 @endpush
