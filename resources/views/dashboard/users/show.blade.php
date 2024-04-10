@@ -61,8 +61,8 @@
                 <div class="row">
                     <!-- col start -->
                     <div class="col d-flex">
-                        <x-close-button/>
                         <x-edit-button :id="$data->id" />                           
+                        <x-close-button/>
                         <x-delete-button :id="$data->id" />
                     </div>
                     <!-- col start -->

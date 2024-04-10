@@ -23,7 +23,7 @@
                                 <th>Email</th>
                                 <th>Roles</th>
                                 <th>Status</th>
-                                <th>Option</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,7 +47,7 @@
                                     <x-delete-permanent-button :id="$data->id" />
                                 </td>
                                 @else
-                                <td class="d-flex">
+                                <td class="d-flex justify-content-end">
                                     <x-show-button :id="$data->id" />
                                     <x-edit-button :id="$data->id" />
                                     <x-delete-button :id="$data->id" />
@@ -56,7 +56,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="7"> no data</td>
+                                <td colspan="7"> empty</td>
                             </tr>
                             @endforelse
                         </tbody>

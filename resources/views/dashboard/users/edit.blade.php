@@ -21,7 +21,7 @@
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="name">Name <span class="text-danger">*</span></label>
-                                <input type="text" id="name" name="name" value="{{ old('email',$data->name) }}" class="form-control rounded-0" placeholder="">
+                                <input type="text" id="name" name="name" value="{{ old('email',$data->name) }}" class="form-control rounded-0">
                                 <input type="hidden" id="job_title" name="job_title" class="form-control rounded-0" value="value="{{ old('email',$data->job_title) }}">
                                 @if ($errors->has('name'))
                                 <span class="text-danger" role="alert">
@@ -34,7 +34,7 @@
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="email">Email <span class="text-danger">*</span></label>
-                                <input type="email" id="email" name="email" value="{{ old('email', $data->email) }}" class="form-control rounded-0" placeholder="">
+                                <input type="email" id="email" name="email" value="{{ old('email', $data->email) }}" class="form-control rounded-0">
                                 @if ($errors->has('email'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('email') }}</small>
@@ -45,8 +45,8 @@
 
                             <!-- input item START -->
                             <div class="mb-3">
-                                <label for="passwird">Password </label>
-                                <input type="password" id="password" name="password" class="form-control rounded-0" placeholder="">
+                                <label for="passwird">Password <span class="text-danger">*</span> </label>
+                                <input type="password" id="password" name="password" class="form-control rounded-0">
                                 @if ($errors->has('password'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('password') }}</small>
@@ -57,8 +57,8 @@
 
                             <!-- input item START -->
                             <div class="mb-3">
-                                <label for="password_confirmation">Confirmation Password </label>
-                                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control rounded-0" placeholder="">
+                                <label for="password_confirmation">Confirmation Password <span class="text-danger">*</span> </label>
+                                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control rounded-0">
                                 @if ($errors->has('password_confirmation'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('password_confirmation') }}</small>
@@ -91,10 +91,9 @@
                                 <label for="roles">Roles <span class="text-danger">*</span></label>
                                 <select name="roles" class="form-control" id="">
                                     @foreach ($roles as $role )
-                                            {{-- <option value="{{ $role->id }}" selected>{{ $role->display_name }}</option> --}}
-                                            <option value="{{ $role->id }}"
-                                                @if($data->id == $role->id)selected="selected"@endif >
-                                                {{ $role->display_name }}
+                                        <option value="{{ $role->id }}"
+                                            @if($data->id == $role->id)selected="selected"@endif >
+                                            {{ $role->display_name }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -104,7 +103,8 @@
 
                         </div>
                         <!-- col end -->
-                        <!-- col end -->
+                        
+                        <!-- col start -->
                         <div class="col-lg-6">
                             <!-- input item START -->
                             <div class="mb-3">

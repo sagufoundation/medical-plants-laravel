@@ -86,7 +86,7 @@ class UserController extends Controller
             $request->all(),
             [
                 'name'           => 'required',
-                'status'         => 'required',
+                // 'status'         => 'required',
                 'email'          => 'required|email|unique:users,email',
                 'password'       => 'required|confirmed|min:8',
                 'peran'          => 'required',
@@ -96,7 +96,7 @@ class UserController extends Controller
             ],[
                 'slug.unique'                  => 'Data sudah ada!',
                 'name.required'                => 'Nama  tidak boleh kosong!',
-                'status.required'              => 'Status  tidak boleh kosong!',
+                // 'status.required'              => 'Status  tidak boleh kosong!',
                 'peran.required'               => 'Peran  tidak boleh kosong!',
                 'email.required'               => 'Email  tidak boleh kosong!',
                 'email.unique'                 => 'Email  sudah digunakan,Silakan gunakan email yang lain!',
@@ -169,7 +169,7 @@ class UserController extends Controller
             $request->all(),
             [
                 'name' => 'required',
-                'status' => 'required',
+                // 'status' => 'required',
                 'email' => 'required|email|unique:users,email,' . $id,
                 'password' => 'confirmed',
                 'peran'     => 'required',
@@ -178,7 +178,7 @@ class UserController extends Controller
             ],[
 
                 'name.required'             => 'Nama  tidak boleh kosong!',
-                'status.required'           => 'Status  tidak boleh kosong!',
+                // 'status.required'           => 'Status  tidak boleh kosong!',
                 'peran.required'            => 'Peran  tidak boleh kosong!',
                 'email.required'            => 'Email  tidak boleh kosong!',
                 'email.unique'              => 'Email  sudah digunakan,Silakan gunakan email yang lain!',
@@ -200,7 +200,6 @@ class UserController extends Controller
                 $account->slug = Str::slug($request->name).'-'.time();
                 if ($request->password) {
                     $account->password = Hash::make($request->password);
-
                 }
                 if ($request->picture) {
 

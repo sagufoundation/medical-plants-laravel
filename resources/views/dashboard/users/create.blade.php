@@ -21,7 +21,7 @@
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="name">Name <span class="text-danger">*</span></label>
-                                <input type="text" id="name" name="name" class="form-control rounded-0" placeholder="user full name" value="{{ old('name') }}">
+                                <input type="text" id="name" name="name" class="form-control rounded-0" value="{{ old('name') }}">
                                 @if ($errors->has('name'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('name') }}</small>
@@ -33,7 +33,7 @@
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="email">Email <span class="text-danger">*</span></label>
-                                <input type="email" id="email" name="email" class="form-control rounded-0" placeholder="write email here" value="{{ old('email') }}">
+                                <input type="email" id="email" name="email" class="form-control rounded-0" value="{{ old('email') }}">
                                 @if ($errors->has('email'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('email') }}</small>
@@ -45,7 +45,7 @@
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="password">Password <span class="text-danger">*</span></label>
-                                <input type="password" id="password" name="password" class="form-control rounded-0" placeholder="write password here">
+                                <input type="password" id="password" name="password" class="form-control rounded-0">
                                 @if ($errors->has('password'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('password') }}</small>
@@ -57,7 +57,7 @@
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="password_confirmation">Confirmation Password <span class="text-danger">*</span></label>
-                                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control rounded-0" placeholder="write confirmation password  here">
+                                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control rounded-0">
                                 @if ($errors->has('password_confirmation'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('password_confirmation') }}</small>
@@ -68,7 +68,7 @@
 
                             <!-- input item START -->
                             <div class="mb-3">
-                                <label for="description">Status <span class="text-danger">*</span></label>
+                                <label for="description">Status</label>
                                 <select name="status" class="form-control" id="">
                                     <option value="Draft" hidden>Select</option>
                                     <option value="Publish">Publish</option>
