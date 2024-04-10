@@ -12,16 +12,10 @@ use Illuminate\Support\Facades\Validator;
 
 class RegencyController extends Controller
 {
-
     /*
-    |--------------------------------------------------------------------------
-    | adventures
-    | index | publish, draft, trash, create, store, show, edit, update, destroy, restore, delete
-    |--------------------------------------------------------------------------
-    */
-
-    // index | publish
-
+    | INDEX
+    | showing table data of published records or "status=publish"
+    */ 
     public function index(Request $request)
     {
         $datas = Regency::where([
@@ -37,7 +31,10 @@ class RegencyController extends Controller
         return view('dashboard.regencies.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    // draft
+    /*
+    | DRAFT
+    | showing table with data of drafted records "status=trash"
+    */ 
     public function draft(Request $request)
     {
         $datas = Regency::where([
@@ -53,7 +50,10 @@ class RegencyController extends Controller
         return view('dashboard.regencies.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    // trash
+    /*
+    | TRASH
+    | showing table with data of soft deleted records "softDelete=true"
+    */ 
     public function trash()
     {
         //
@@ -61,13 +61,19 @@ class RegencyController extends Controller
         return view('dashboard.regencies.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    // create
+    /*
+    | CREATE
+    | showing create page with the form and inputs
+    */ 
     public function create()
     {
         return view('dashboard.regencies.create');
     }
 
-    // store
+    /*
+    | STORE
+    | storing data to database 
+    */ 
     public function store(Request $request)
     {
 
@@ -118,15 +124,20 @@ class RegencyController extends Controller
         }
     }
 
-    // show
-
+    /*
+    | SHOW
+    | showing detail data 
+    */ 
     public function show($id)
     {
         $data = Regency::where('id', $id)->first();
         return view('dashboard.regencies.show', compact('data'));
     }
 
-    // edit
+    /*
+    | EDIT
+    | showing edit page with the form and inputs
+    */ 
     public function edit($id)
     {
         $data = Regency::where('id', $id)->first();
@@ -134,8 +145,10 @@ class RegencyController extends Controller
         return view('dashboard.regencies.edit', compact('data'));
     }
 
-    // update
-
+    /*
+    | UPDATE
+    | updating data 
+    */ 
     public function update(Request $request, $id)
     {
 
@@ -187,7 +200,10 @@ class RegencyController extends Controller
         }
     }
 
-    // destroy
+    /*
+    | DESTROY
+    | deleting data softly
+    */ 
     public function destroy($id)
     {
         $data = Regency::find($id);
@@ -196,7 +212,10 @@ class RegencyController extends Controller
         return to_route('dashboard.regencies.trash');
     }
 
-    // restore
+    /*
+    | RESTORE
+    | restoring data from soft delete
+    */ 
     public function restore($id)
     {
         $data = Regency::onlyTrashed()->where('id', $id);
@@ -205,12 +224,22 @@ class RegencyController extends Controller
         return redirect()->back();
     }
 
-    // delete
+    /*
+    | DELETE
+    | deleting permanently
+    */ 
     public function delete($id)
     {
         $data = Regency::onlyTrashed()->findOrFail($id);
+        $path = public_path('images/regencies/' . $data->image);
+
+        if (file_exists($path)) {
+            File::delete($path);
+        }
+
         $data->forceDelete();
-        alert()->success('Deleted', 'The data has been permanently deleted!!')->autoclose(1500);
+
+        alert()->success('Deleted permanently', 'our data has been permanently deleted from the system. This action cannot be undone')->autoclose(3000);
         return redirect()->back();
     }
 }

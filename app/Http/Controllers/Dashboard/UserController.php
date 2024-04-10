@@ -115,7 +115,7 @@ class UserController extends Controller
                 if (isset($request->picture)) {
 
                     // create file name
-                    $fileName = Str::slug($data->full_name) .'-'. time() .'.' . $request->picture->extension();
+                    $fileName = Str::slug($data->name) .'-'. time() .'.' . $request->picture->extension();
 
                     // create file path
                     $path = public_path('images/users/' . $data->picture);
@@ -126,10 +126,10 @@ class UserController extends Controller
                     }
 
                     // adding file name into database variable
-                    $data->photo = $fileName;
+                    $data->picture = $fileName;
 
                     // move file into folder path with the file name
-                    $request->photo->move(public_path('images/users'), $fileName);
+                    $request->picture->move(public_path('images/users'), $fileName);
                 }
 
                 $data->save();
@@ -203,7 +203,7 @@ class UserController extends Controller
                 if (isset($request->picture)) {
 
                     // create file name
-                    $fileName = Str::slug($data->full_name) .'-'. time() .'.' . $request->picture->extension();
+                    $fileName = Str::slug($data->name) .'-'. time() .'.' . $request->picture->extension();
 
                     // create file path
                     $path = public_path('images/users/' . $data->picture);
@@ -214,10 +214,10 @@ class UserController extends Controller
                     }
 
                     // adding file name into database variable
-                    $data->photo = $fileName;
+                    $data->picture = $fileName;
 
                     // move file into folder path with the file name
-                    $request->photo->move(public_path('images/users'), $fileName);
+                    $request->picture->move(public_path('images/users'), $fileName);
                 }
 
                 $data->update();
@@ -264,7 +264,7 @@ class UserController extends Controller
     */ 
     public function delete($id){
         $data = User::onlyTrashed()->findOrFail($id);
-        $path = public_path('assets-admin/img/users/' . $data->picture);
+        $path = public_path('images/users/' . $data->picture);
 
         if (file_exists($path)) {
             File::delete($path);
