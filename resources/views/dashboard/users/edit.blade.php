@@ -20,7 +20,7 @@
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="name">Name <span class="text-danger">*</span></label>
-                            <input type="text" id="name" name="name" value="{{ old('email',$data->name) }}" class="form-control rounded-0" placeholder="write username here">
+                            <input type="text" id="name" name="name" value="{{ old('email',$data->name) }}" class="form-control rounded-0" placeholder="">
                             <input type="hidden" id="job_title" name="job_title" class="form-control rounded-0" value="value="{{ old('email',$data->job_title) }}">
                             @if ($errors->has('name'))
                             <span class="text-danger" role="alert">
@@ -31,11 +31,9 @@
                         </div>
                         <!-- input item END -->
 
-
-
                         <div class="mb-3">
                             <label for="email">Email <span class="text-danger">*</span></label>
-                            <input type="email" id="email" name="email" value="{{ old('email', $data->email) }}" class="form-control rounded-0" placeholder="write email here">
+                            <input type="email" id="email" name="email" value="{{ old('email', $data->email) }}" class="form-control rounded-0" placeholder="">
                             @if ($errors->has('email'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('email') }}</small>
@@ -45,7 +43,7 @@
 
                         <div class="mb-3">
                             <label for="passwird">Password </label>
-                            <input type="password" id="password" name="password" class="form-control rounded-0" placeholder="write password here">
+                            <input type="password" id="password" name="password" class="form-control rounded-0" placeholder="">
                             @if ($errors->has('password'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('password') }}</small>
@@ -55,7 +53,7 @@
 
                         <div class="mb-3">
                             <label for="password_confirmation">Confirmation Password </label>
-                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control rounded-0" placeholder="write confirmation password  here">
+                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control rounded-0" placeholder="">
                             @if ($errors->has('password_confirmation'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('password_confirmation') }}</small>
@@ -63,11 +61,11 @@
                             @endif
                         </div>
 
-
+                        {{-- munculkan field status dan roles jika bukan admin master --}}
+                        @if(implode('', Auth::user()->roles()->pluck('id')->toArray()) != 1)
                         <div class="mb-3">
                             <label for="description">Status <span class="text-danger">*</span></label>
                             <select name="status" class="form-control" id="">
-                                <option value="" hidden>Select</option>
                                 <option value="" hidden>Select</option>
                                 <option value="Publish" @if(old('status', $data->status) == 'Publish') Selected @endif>Publish</option>
                                 <option value="Draft" @if(old('status', $data->status) ==   'Draft' ) Selected @endif>Draft</option>
@@ -79,27 +77,25 @@
                                 </span>
                             @endif
                         </div>
+                        <!-- input item END -->
 
                         <div class="mb-3">
                             <label for="roles">Roles <span class="text-danger">*</span></label>
                             <select name="roles" class="form-control" id="">
                                 @foreach ($roles as $role )
-
                                         {{-- <option value="{{ $role->id }}" selected>{{ $role->display_name }}</option> --}}
                                         <option value="{{ $role->id }}"
                                             @if($data->id == $role->id)selected="selected"@endif >
                                             {{ $role->display_name }}
                                        </option>
                                 @endforeach
-
-
-
                             </select>
                         </div>
+                        <!-- input item END -->
+                        @endif
 
                     </div>
                     <div class="col-lg-6">
-
                         <!-- input item START -->
                         <div class="mb-3">
                             <label for="gambar" class="form-label d-block">Image</label>
@@ -116,18 +112,14 @@
                                 <small class="text-muted mt-2 d-block">Select a new image from your computer</small>
                                 <label class="custom-file-label" for="customFile">Select image</label>
                             </div>
+                            <!-- input item END -->
 
                             @if ($errors->has('picture'))
                             <span class="text-danger" role="alert">
                                     <small>{{ $errors->first('picture') }}</small>
                                 </span>
                             @endif
-
                         </div>
-                        <!-- input item END -->
-
-                        <!-- input item START -->
-
                         <!-- input item END -->
                     </div>
                 </div>

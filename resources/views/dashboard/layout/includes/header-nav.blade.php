@@ -14,9 +14,9 @@
                         <li class="dropdown notification-list topbar-dropdown">
                             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 @if (!Auth::user()->picture)
-                                <img src="{{ asset('images/users/00.jpg') }}" alt="images" class="rounded-circle">
+                                <img src="{{ asset('images/users/00.jpg') }}" alt="image user" class="rounded-circle">
                                 @else
-                                <img src="{{ asset(Auth::user()->picture) }}" alt="images" title="{{ Auth::user()->name }}" class="rounded-circle">
+                                <img src="{{ asset('images/users/'.Auth::user()->picture) }}" alt="image user" title="{{ Auth::user()->name }}" class="rounded-circle">
                                 @endif
                                 <span class="pro-user-name ml-1">
                                     {{ Auth::user()->name }} <i class="mdi mdi-chevron-down"></i>
@@ -24,11 +24,11 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
-                                {{-- <a href="{{ url('dashboard/user/profile') }}" class="dropdown-item notify-item">
+                                <a href="{{ route('dashboard.users.show', Auth::user()->id) }}" class="dropdown-item notify-item">
                                     <i class="fe-user"></i>
                                     <span>Profile</span>
                                 </a>
-                                <div class="dropdown-divider"></div> --}}
+                                <div class="dropdown-divider"></div>
 
                                 <a href="#" class="dropdown-item notify-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fe-log-out"></i>
