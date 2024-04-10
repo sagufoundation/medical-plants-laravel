@@ -1,3 +1,3 @@
-<button type="submit" class="btn btn-primary rounded-0">
+<button type="submit" class="btn btn-success rounded-0">
     <i class="fa-solid fa-paper-plane"></i> Submit
 </button>

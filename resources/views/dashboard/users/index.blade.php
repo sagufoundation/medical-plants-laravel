@@ -47,7 +47,7 @@
                                     <x-delete-permanent-button :id="$data->id" />
                                 </td>
                                 @else
-                                <td class="d-flex justify-content-end">
+                                <td class="d-flex justify-content-end gap-2">
                                     <x-show-button :id="$data->id" />
                                     <x-edit-button :id="$data->id" />
                                     <x-delete-button :id="$data->id" />
