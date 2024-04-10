@@ -28,7 +28,7 @@
                         </thead>
                         <tbody>
 
-                            @foreach ($datas as $data)
+                            @forelse ($datas as $data)
                             <tr>
                                 <td>{{ ++$i }}</td>
                                 <td width="100px">
@@ -38,58 +38,28 @@
                                     <img src="{{ asset('images/users/' . $data->picture) }}" alt="image user" width="100%" class="border shadow">
                                     @endif
                                 </td>
-                                <td>{{ $data->name ?? '' }}</td>
-                                <td>{{ $data->email  }}
-                                    <td> {{ implode("",$data->roles()->pluck('display_name')->toArray()) }}</td>
-
-                                </td>
-                                <td>
-                                    @if ($data->status === "Publish")
-                                        Active
-                                    @else
-                                      Inactive
-                                    @endif
-
-                                </td>
+                                <td>{{ $data->name ?? '' }} </td>
+                                <td>{{ $data->email  }} </td>
+                                <td>{{ implode("",$data->roles()->pluck('display_name')->toArray()) }}</td>
+                                <td>@if ($data->status === "Publish") Active @else @endif </td>
                                 @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">
-
-                                    <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.restore', $data->id) }}" method="POST">
-                                    @csrf
-                                    <button type="submit" class="btn btn-sm btn-outline-success rounded-0 mx-1">
-                                        <i class="fa-solid fa-reply"></i> Restore
-                                    </button>
-                                    </form>
-
-                                    <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.delete', $data->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-outline-danger rounded-0 mx-1 show_confirm">
-                                        <i class="fa-solid fa-times-square" data-toggle="tooltip" title='Delete'></i> Delete Permanently
-                                    </button>
-                                    </form>
-
+                                    <x-restore-button :id="$data->id" />
+                                    <x-delete-permanent-button :id="$data->id" />
                                 </td>
                                 @else
                                 <td class="d-flex">
-                                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.show', $data->id) }}" class="btn btn-sm btn-dark rounded-0 mx-1">
-                                        <i class="fa-solid fa-eye"></i>
-                                    </a>
-                                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
-                                        <i class="fa-solid fa-edit"></i>
-                                    </a>
-
-                                    <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.destroy', $data->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-light rounded-0 mx-1">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                    </form>
+                                    <x-show-button :id="$data->id" />
+                                    <x-edit-button :id="$data->id" />
+                                    <x-delete-button :id="$data->id" />
                                 </td>
                                 @endif
                             </tr>
-                            @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="7"> no data</td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
 

@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class SubmitButton extends Component
+class CloseButton extends Component
 {
     public function __construct()
     {
@@ -13,6 +13,6 @@ class SubmitButton extends Component
     
     public function render()
     {
-        return view('components.submit-button');
+        return view('components.close-button');
     }
 }

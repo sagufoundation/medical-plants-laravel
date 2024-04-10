@@ -2,10 +2,7 @@
 
 <div class="row mb-2">
     <div class="col-12 mb-3">
-        <a href="{{ url(Request::segment(1) . '/' . Request::segment(2) .'/create') }}"
-            class="btn btn-lg btn-primary rounded-0">
-            <i class="fa-solid fa-plus"></i> Create
-        </a>
+        <x-create-button />
     </div>
 </div>
 

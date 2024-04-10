@@ -128,7 +128,7 @@
                     <div class="row">
                         <div class="col">
                             <x-submit-button />
-                            <x-cancle-button />
+                            <x-close-button/>
                         </div>
                     </div> 
                     <!-- row end --> 

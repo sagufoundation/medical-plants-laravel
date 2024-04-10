@@ -60,9 +60,6 @@
                                 </td>
                                 @else
                                 <td class="d-flex">
-                                    {{-- <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.show', $data->id) }}" class="btn btn-sm btn-dark rounded-0 mx-1">
-                                        <i class="fa-solid fa-eye"></i>
-                                    </a> --}}
                                     <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
                                         <i class="fa-solid fa-edit"></i>
                                     </a>
