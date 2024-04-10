@@ -25,7 +25,7 @@
                         <tbody>
                             @forelse ($datas as $data)
                             <tr>
-                                <td>{{ ++$i }}</td>
+                                <td width="1">{{ ++$i }}</td>
                                 <td width="100px">
                                     @if (!$data->picture)
                                     <img src="{{ asset('images/00.png') }}" alt="image user" width="100%" class="border shadow">
@@ -61,6 +61,10 @@
 
                 </div>
                 <!-- .table-responsive END -->
+
+                <div class="d-flex justify-content-center">
+                    {{ $datas->links() }}
+                </div>
 
             </div>
             <!-- .card-body END -->

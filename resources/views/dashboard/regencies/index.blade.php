@@ -1,8 +1,5 @@
-
 @extends('dashboard.layout.app')
-
 @section('content')
-
 @include('dashboard.layout.includes.breadcrumb2')
 
 <!-- .row START -->
@@ -21,12 +18,12 @@
                                 <th>Image/Icon</th>
                                 <th>Name</th>
                                 <th>Coordinates</th>
-                                <th>Option</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            @foreach ($datas as $data)
+                            @forelse ($datas as $data)
                             <tr>
                                 <td width="1">{{ ++$i }}</td>
 
@@ -41,40 +38,22 @@
                                 <td>{{ $data->coordinates ?? '' }}</td>
                                 @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">
-
-                                    <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.restore', $data->id) }}" method="POST">
-                                    @csrf
-                                    <button type="submit" class="btn btn-sm btn-outline-success rounded-0 mx-1">
-                                        <i class="fa-solid fa-reply"></i> Restore
-                                    </button>
-                                    </form>
-
-                                    <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.delete', $data->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-outline-danger rounded-0 mx-1 show_confirm">
-                                        <i class="fa-solid fa-times-square" data-toggle="tooltip" title='Delete'></i> Delete Permanently
-                                    </button>
-                                    </form>
-
+                                    <x-restore-button :id="$data->id" />
+                                    <x-delete-permanent-button :id="$data->id" />
                                 </td>
                                 @else
-                                <td class="d-flex">
-                                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
-                                        <i class="fa-solid fa-edit"></i>
-                                    </a>
-
-                                    <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.destroy', $data->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-light rounded-0 mx-1">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
-                                    </form>
+                                <td class="d-flex justify-content-end gap-2">
+                                    <x-show-button :id="$data->id" />
+                                    <x-edit-button :id="$data->id" />
+                                    <x-delete-button :id="$data->id" />
                                 </td>
                                 @endif
                             </tr>
-                            @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="7"> empty</td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
 

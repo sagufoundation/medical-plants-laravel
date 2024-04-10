@@ -69,8 +69,9 @@
                             <div class="mb-3">
                                 <label for="description">Status</label>
                                 <select name="status" class="form-control" id="">
-                                    <option value="Draft" selected>Draft</option>
-                                    <option value="Publish">Publish</option>
+                                    <option value="Draft" value="" hidden></option>
+                                    <option value="Publish" @if(old('status') == 'Publish') selected @endif>Publish</option>
+                                    <option value="Draft" @if(old('status') == 'Draft') selected @endif>Draft</option>
                                 </select>
                                 @if ($errors->has('status'))
                                 <span class="text-danger" role="alert">

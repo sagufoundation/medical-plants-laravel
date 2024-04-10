@@ -1,8 +1,5 @@
-
 @extends('dashboard.layout.app')
-
 @section('content')
-
 @include('dashboard.layout.includes.breadcrumb2')
 
 <!-- .row START -->
@@ -14,8 +11,11 @@
                 <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
+                    <!-- row start -->
                     <div class="row">
-                        <div class="col-lg-6">
+
+                        <!-- .col start -->
+                        <div class="col-lg-8">
 
                             <!-- input item START -->
                             <div class="mb-3">
@@ -25,7 +25,6 @@
                                     id="name" 
                                     name="name" 
                                     class="form-control rounded-0" 
-                                    placeholder="write name of regency here"
                                     value="{{ old('name') ?? '' }}"
                                 >
                                 @if ($errors->has('name'))
@@ -72,13 +71,37 @@
                                     </span>
                                 @endif
                             </div>
-                            <!-- input item END -->                            
+                            <!-- input item END -->   
+
+                            <!-- input item START -->
+                            <div class="mb-3">
+                                <label for="description">Status </label>
+                                <select name="status" class="form-control" id="">
+                                    <option value="Draft" value="" hidden></option>
+                                    <option value="Publish" @if(old('status') == 'Publish') selected @endif>Publish</option>
+                                    <option value="Draft" @if(old('status') == 'Draft') selected @endif>Draft</option>
+                                </select>
+
+                                @if ($errors->has('status'))
+                                <span class="text-danger" role="alert">
+                                        <small>{{ $errors->first('status') }}</small>
+                                    </span>
+                                @endif
+
+                            </div>
+                            <!-- input item END -->
+
+                        </div>
+                        <!-- .col end -->
+
+                        <!-- .col start -->
+                        <div class="col-lg-4">                         
 
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="image" class="form-label d-block">Image / Logo</label>
                                 <div class="mb-2">
-                                    <img src="{{ asset('images/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail w-50">
+                                    <img src="{{ asset('images/regencies/00.png') }}" alt="Gambar" id="preview-gambar" class="img-thumbnail w-100">
                                 </div>
 
                                 <div class="custom-file">
@@ -100,35 +123,20 @@
                             </div>
                             <!-- input item END -->
 
-                            <!-- input item START -->
-                            <div class="mb-3">
-                                <label for="description">Status </label>
-                                <select name="status" class="form-control" id="">
-                                    <option value="Draft" value="" hidden>Select</option>
-                                    <option value="Publish" @if(old('status') == 'Publish') selected @endif>Publish</option>
-                                    <option value="Draft" @if(old('status') == 'Draft') selected @endif>Draft</option>
-                                </select>
-
-                                @if ($errors->has('status'))
-                                <span class="text-danger" role="alert">
-                                        <small>{{ $errors->first('status') }}</small>
-                                    </span>
-                                @endif
-
-                            </div>
-                            <!-- input item END -->
-
                         </div>
+                        <!-- .col end -->
 
                     </div>
+                    <!-- .row end --> 
 
-                    <button type="submit" class="btn btn-primary rounded-0">
-                        <i class="fa-solid fa-plus-square"></i> Submit
-                    </button>
-
-                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'') }}" class="btn btn-outline-dark rounded-0 border-0">
-                        <i class="fa-solid fa-times-square"></i> Cancle
-                    </a>
+                    <!-- row start -->
+                    <div class="row">
+                        <div class="col">
+                            <x-submit-button />
+                            <x-close-button/>
+                        </div>
+                    </div> 
+                    <!-- .row end --> 
 
                 </form>
 

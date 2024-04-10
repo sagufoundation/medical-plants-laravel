@@ -8,6 +8,7 @@
         <div class="card">
             <div class="card-body">
 
+                <!-- row start -->
                 <div class="row">
                     
                     <!-- .col start -->
@@ -36,35 +37,27 @@
                     <!-- .col start -->
                     <div class="col-lg-4">
                         @if (empty($data->photo))
-                        <img src="{{ asset('images/00.png') }}" alt="Image" class="border shadow w-100">
+                        <img src="{{ asset('images/00.png') }}" alt="image contributor" class="border shadow w-100">
                         @else
-                        <img src="{{ asset('images/team/'.$data->photo) }}" alt="Image" class="border shadow w-100">
+                        <img src="{{ asset('images/team/'.$data->photo) }}" alt="image contributor" class="border shadow w-100">
                         @endif
                     </div>
                     <!-- .col end -->
 
                 </div>
+                <!-- .row end -->
 
+                <!-- row start -->
                 <div class="row">
-                    <div class="col">
-                        <div class="d-flex">
-                            <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
-                                <i class="fa-solid fa-reply"></i>
-                            </a>
-                            <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
-                                <i class="fa-solid fa-edit"></i>
-                            </a>
-
-                            <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.destroy', $data->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-light rounded-0 mx-1">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                            </form>
-                        </div>
+                    <!-- .col start -->
+                    <div class="col d-flex">
+                        <x-edit-button :id="$data->id" />                           
+                        <x-delete-button :id="$data->id" />
+                        <x-close-button/>
                     </div>
+                    <!-- .col start -->
                 </div>
+                <!-- .row end -->
 
             </div>
             <!-- .card-body END -->

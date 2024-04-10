@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Route;
             Route::post('regencies','store')->name('dashboard.regencies.store');
 
             // show
-            // Route::get('regencies/{id}/show','show')->name('dashboard.regencies.show');
+            Route::get('regencies/{id}/show','show')->name('dashboard.regencies.show');
 
             // edit
             Route::get('regencies/{id}/edit','edit')->name('dashboard.regencies.edit');

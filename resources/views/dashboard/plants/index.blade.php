@@ -29,7 +29,7 @@
 
                             @foreach ($datas as $data)
                             <tr>
-                                <td>{{ ++$i }}</td>
+                                <td width="1">{{ ++$i }}</td>
                                 <td width="150px">
                                     @if ($data->image_cover)
                                     <img src="{{ asset('images/plants/'.$data->id.'/'. $data->image_cover) }}" width="100%" class="border shadow">
