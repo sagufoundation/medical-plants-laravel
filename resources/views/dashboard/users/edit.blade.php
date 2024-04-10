@@ -22,7 +22,7 @@
                             <div class="mb-3">
                                 <label for="name">Name <span class="text-danger">*</span></label>
                                 <input type="text" id="name" name="name" value="{{ old('email',$data->name) }}" class="form-control rounded-0">
-                                <input type="hidden" id="job_title" name="job_title" class="form-control rounded-0" value="value="{{ old('email',$data->job_title) }}">
+                                <input type="hidden" id="job_title" name="job_title" class="form-control rounded-0" value="value="{{ old('name', $data->name) }}">
                                 @if ($errors->has('name'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('name') }}</small>
@@ -34,7 +34,7 @@
                             <!-- input item START -->
                             <div class="mb-3">
                                 <label for="email">Email <span class="text-danger">*</span></label>
-                                <input type="email" id="email" name="email" value="{{ old('email', $data->email) }}" class="form-control rounded-0">
+                                <input type="text" id="email" name="email" value="{{ old('email', $data->email) }}" class="form-control rounded-0">
                                 @if ($errors->has('email'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('email') }}</small>

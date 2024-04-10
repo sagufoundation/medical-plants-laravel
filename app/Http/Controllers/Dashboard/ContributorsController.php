@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Dashboard;
-
 use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -27,7 +27,7 @@ class ContributorsController extends Controller
                         ->get();
                 }
             }]
-        ])->where('status', 'Publish')->latest('id')->paginate(5);
+        ])->where('status', 'Publish')->latest('id')->paginate(10);
 
         return view('dashboard.contributors.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -42,11 +42,12 @@ class ContributorsController extends Controller
             ['full_name', '!=', Null],
             [function ($query) use ($request) {
                 if (($s = $request->s)) {
-                    $query->orWhere('full_name', 'LIKE', '%' . $s . '%')
+                    $query
+                        ->orWhere('full_name', 'LIKE', '%' . $s . '%')
                         ->get();
                 }
             }]
-        ])->where('status', 'Draft')->latest('id')->paginate(5);
+        ])->where('status', 'Draft')->latest('id')->paginate(10);
 
         return view('dashboard.contributors.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -57,8 +58,7 @@ class ContributorsController extends Controller
     */ 
     public function trash()
     {
-        //
-        $datas = Contributor::onlyTrashed()->paginate(5);
+        $datas = Contributor::onlyTrashed()->paginate(10);
         return view('dashboard.contributors.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -84,11 +84,6 @@ class ContributorsController extends Controller
                 'email' => 'required|email|string|unique:contributors,email',
                 'photo' => 'image|mimes:png,jpeg,jpg|max:4096',
 
-            ],
-            [
-                'full_name.required' => 'This is a reaquired field',
-                'email.required' => 'This is a reaquired field',
-                'photo.mimes' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
 
@@ -110,7 +105,7 @@ class ContributorsController extends Controller
                     // create file name
                     $fileName = Str::slug($data->full_name) .'-'. time() .'.' . $request->photo->extension();
 
-                    // crate file path
+                    // create file path
                     $path = public_path('images/team/' . $data->photo);
 
                     // delete file if exist
@@ -127,11 +122,11 @@ class ContributorsController extends Controller
 
                 $data->save();
 
-                Alert::toast('Created! This data has been created successfully.', 'success');
+                alert()->success('Success!', 'Your new entry has been created and added to the system.')->autoclose(3000);
                 return to_route('dashboard.contributors.show', $data->id);
 
             } catch (\Throwable $th) {
-                Alert::toast('Failed! Something is wrong', 'error');
+                alert()->error('Action Failed', 'An error occurred while performing the action. Please try again later or contact support for assistance.')->autoclose(3000);
                 return redirect()->back();
             }
         }
@@ -143,7 +138,7 @@ class ContributorsController extends Controller
     */ 
     public function show($id)
     {
-        $data = Contributor::where('id', $id)->first();
+        $data = Contributor::find($id);
         return view('dashboard.contributors.show', compact('data'));
     }
 
@@ -153,8 +148,7 @@ class ContributorsController extends Controller
     */ 
     public function edit($id)
     {
-        $data = Contributor::where('id', $id)->first();
-
+        $data = Contributor::find($id);
         return view('dashboard.contributors.edit', compact('data'));
     }
 
@@ -171,11 +165,6 @@ class ContributorsController extends Controller
                 'full_name' => 'required',
                 'email' => 'required|email|string|unique:contributors,email,' .$id,
                 'photo' => 'image|mimes:png,jpeg,jpg|max:4096',
-            ],
-            [
-                'full_name.required' => 'This is a reaquired field',
-                'email.required' => 'This is a reaquired field',
-                'photo.mimes' => 'Type of this file must be PNG, JPG, JPEG',
             ]
         );
 
@@ -189,8 +178,6 @@ class ContributorsController extends Controller
                 $data->slug = Str::slug($data->full_name);
                 $data->email = $request->email;
                 $data->address = $request->address;
-                // $data->city = $request->city;
-                // $data->province = $request->province;
                 $data->descriptions = $request->descriptions;
                 $data->status = $request->status;
 
@@ -200,10 +187,8 @@ class ContributorsController extends Controller
                     // create file name
                     $fileName = Str::slug($data->full_name) .'-'. time() .'.' . $request->photo->extension();
 
-                    // crate file path
+                    // create file path
                     $path = public_path('images/team/' . $data->photo);
-
-                    // dd($path);
 
                     // delete file if exist
                     if (file_exists($path)) {
@@ -219,11 +204,11 @@ class ContributorsController extends Controller
 
                 $data->update();
 
-                Alert::toast('Updated! This data has been updated successfully.', 'success');
+                alert()->success('Data Updated', 'Your data has been successfully updated and saved.')->autoclose(3000);
                 return redirect()->back();
 
             } catch (\Throwable $th) {
-                Alert::toast('Failed! Something is wrong', 'error');
+                alert()->error('Action Failed', 'An error occurred while performing the action. Please try again later or contact support for assistance.')->autoclose(3000);
                 return redirect()->back();
             }
         }
@@ -235,9 +220,10 @@ class ContributorsController extends Controller
     */ 
     public function destroy($id)
     {
-        $data = Contributor::find($id);
+        $data = Contributor::findOrFail($id);
         $data->delete();
-        alert()->success('Trashed', 'Data has been moved to trash!!')->autoclose(1500);
+
+        alert()->success('Moved to Trash', 'Your data has been moved to the trash. It can be recovered if needed')->autoclose(3000);
         return to_route('dashboard.contributors.trash');
     }
 

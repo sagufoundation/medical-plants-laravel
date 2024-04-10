@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Dashboard;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
@@ -36,10 +36,7 @@ class UserController extends Controller
             }]
         ])->where('status','Publish')->latest()->paginate(10);
 
-        $jumlahtrash = User::onlyTrashed()->count();
-        $jumlahdraft = User::where('status', 'Draft')->count();
-        $datapublish = User::where('status', 'Publish')->count();
-        return view('dashboard.users.index',compact('datas','jumlahtrash','jumlahdraft','datapublish'))->with('i', ($request->input('page', 1) - 1) * 5);
+        return view('dashboard.users.index',compact('datas'))->with('i', ($request->input('page', 1) - 1) * 5);
 
     }
 
@@ -53,18 +50,15 @@ class UserController extends Controller
             ['name', '!=', Null],
             [function ($query) use ($request) {
                 if (($s = $request->s)) {
-                    $query->orWhere('name', 'LIKE', '%' . $s . '%')
+                    $query
+                        ->orWhere('name', 'LIKE', '%' . $s . '%')
                         ->orWhere('email', 'LIKE', '%' . $s . '%')
                         ->get();
                 }
             }]
         ])->where('status','Draft')->latest()->paginate(10);
 
-        $jumlahtrash = User::onlyTrashed()->count();
-        $jumlahdraft = User::where('status', 'Draft')->count();
-        $datapublish = User::where('status', 'Publish')->count();
-        return view('dashboard.users.index',compact('datas','jumlahtrash','jumlahdraft','datapublish'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        return view('dashboard.users.index',compact('datas'))->with('i', ($request->input('page', 1) - 1) * 5);
     }
 
     /*
@@ -73,7 +67,7 @@ class UserController extends Controller
     */ 
     public function trash(){
 
-        $datas = User::onlyTrashed()->paginate(5);
+        $datas = User::onlyTrashed()->paginate(10);
         return view('dashboard.users.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -96,21 +90,11 @@ class UserController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name'              => 'required',
-                'email'             => 'required|email|unique:users,email',
-                'password'          => 'required|confirmed|min:8',
-                'status'            => 'required',
-                'picture'        => 'image|mimes:jpeg,png,jpg|max:4096',
-            ],
-            [
-                'name.required'     => 'This is a reaquired field',
-                'email.required'    => 'This is a reaquired field',
-                'email.email'       => 'Email address does not match the format',
-                'email.unique'      => 'Email address already in use',
-                'password.required' => 'This is a reaquired field',
-                'picture.mimes'     => 'Type of this file must be PNG, JPG, JPEG',
-
-                'status.required'   => 'This is a reaquired field',
+                'name' => 'required',
+                'email' => 'required|email|unique:users,email',
+                'password' => 'required|confirmed|min:8',
+                'status' => 'required',
+                'picture' => 'image|mimes:jpeg,png,jpg|max:4096',
             ]
         );
 
@@ -133,7 +117,7 @@ class UserController extends Controller
                     // create file name
                     $fileName = Str::slug($data->full_name) .'-'. time() .'.' . $request->picture->extension();
 
-                    // crate file path
+                    // create file path
                     $path = public_path('images/users/' . $data->picture);
 
                     // delete file if exist
@@ -151,7 +135,7 @@ class UserController extends Controller
                 $data->save();
 
                 alert()->success('Success!', 'Your new entry has been created and added to the system.')->autoclose(3000);
-                return redirect()->route('dashboard.users.show', $data->id);
+                return to_route('dashboard.users.show', $data->id);
 
             } catch (\Throwable $th) {
                 alert()->error('Action Failed', 'An error occurred while performing the action. Please try again later or contact support for assistance.')->autoclose(3000);
@@ -167,7 +151,7 @@ class UserController extends Controller
     public function show($id)
     {
         $data = User::find($id);
-        return view('dashboard.users.show',compact('data'));
+        return view('dashboard.users.show', compact('data'));
     }
 
     /*
@@ -178,7 +162,7 @@ class UserController extends Controller
     {
         $data = User::find($id);
         $roles = Role::all();
-        return view('dashboard.users.edit',compact('data','roles'));
+        return view('dashboard.users.edit', compact('data','roles'));
     }
 
     /*
@@ -195,14 +179,6 @@ class UserController extends Controller
                 'email' => 'required|email|unique:users,email,'.$id,
                 'password' => 'confirmed',
                 'picture' => 'image|mimes:jpeg,png,jpg|max:4096',
-            ],[
-
-                'name.required'     => 'This is a reaquired field',
-                'email.required'    => 'This is a reaquired field',
-                'email.email'       => 'Email address does not match the format',
-                'email.unique'      => 'Email address already in use',
-                'password.required' => 'This is a reaquired field',
-                'status.required'   => 'This is a reaquired field',
             ]
         );
 
@@ -229,7 +205,7 @@ class UserController extends Controller
                     // create file name
                     $fileName = Str::slug($data->full_name) .'-'. time() .'.' . $request->picture->extension();
 
-                    // crate file path
+                    // create file path
                     $path = public_path('images/users/' . $data->picture);
 
                     // delete file if exist
@@ -250,7 +226,6 @@ class UserController extends Controller
                 return redirect()->back();
 
             } catch (\Throwable $th) {
-
                 alert()->error('Action Failed', 'An error occurred while performing the action. Please try again later or contact support for assistance.')->autoclose(3000);
                 return redirect()->back();
             }
@@ -266,8 +241,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         $data = User::findOrFail($id);
-        $data->save();
-        User::find($id)->delete();
+        $data->delete();
 
         alert()->success('Moved to Trash', 'Your data has been moved to the trash. It can be recovered if needed')->autoclose(3000);
         return to_route('dashboard.users.trash');
