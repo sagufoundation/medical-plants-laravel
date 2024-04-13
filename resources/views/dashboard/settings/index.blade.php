@@ -61,19 +61,19 @@
 
                                                 <ul class="list-group mb-3">
                                                     <li class="list-group-item rounded-0">
-                                                        <b class="d-block">Instagram</b> <a href="{!! $data->instagram !!}" target="_blank">{!! $data->instagram !!}</a>
+                                                        <b class="d-block"><i class="fa-brands fa-instagram"></i> Instagram</b> <a href="{!! $data->instagram !!}" target="_blank">{!! $data->instagram !!}</a>
                                                     </li>
                                                     <li class="list-group-item rounded-0">
-                                                        <b class="d-block">Facebook</b> {!! $data->facebook ?? '' !!}
+                                                        <b class="d-block"><i class="fa-brands fa-linkedin"></i> Linkedin</b> {!! $data->linkedin ?? '' !!}
                                                     </li>
                                                     <li class="list-group-item rounded-0">
-                                                        <b class="d-block">Twitter</b> {!! $data->twitter ?? '' !!}
+                                                        <b class="d-block"><i class="fa-brands fa-facebook"></i> Facebook</b> {!! $data->facebook ?? '' !!}
                                                     </li>
                                                     <li class="list-group-item rounded-0">
-                                                        <b class="d-block">Linkedin</b> {!! $data->linkedin ?? '' !!}
+                                                        <b class="d-block"><i class="fa-brands fa-x-twitter"></i> Twitter</b> {!! $data->twitter ?? '' !!}
                                                     </li>
                                                     <li class="list-group-item rounded-0">
-                                                        <b class="d-block">Youtube</b> {!! $data->youtube ?? '' !!}
+                                                        <b class="d-block"><i class="fa-brands fa-youtube"></i> Youtube</b> {!! $data->youtube ?? '' !!}
                                                     </li>
                                                 </ul>
 

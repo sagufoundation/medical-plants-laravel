@@ -13,31 +13,46 @@
                   </p>
 
                   <div class="row mt-3">
-                      <div class="col-1">
-                          <a href="{{ url('https://facebook.com') }}" target="_blank" class="text-decoration-none text-secondary">
-                              <i class="fa-brands fa-facebook"></i>
-                          </a>
-                      </div>
-                      <div class="col-1">
-                          <a href="{{ url('https://instagram.com') }}" target="_blank" class="text-decoration-none text-secondary">
-                              <i class="fa-brands fa-instagram"></i>
-                          </a>
-                      </div>
-                      <div class="col-1">
-                          <a href="{{ url('https://twitter.com') }}" target="_blank" class="text-decoration-none text-secondary">
-                              <i class="fa-brands fa-twitter"></i>
-                          </a>
-                      </div>
-                      <div class="col-1">
-                          <a href="{{ url('https://linkedin.com') }}" target="_blank" class="text-decoration-none text-secondary">
-                              <i class="fa-brands fa-linkedin"></i>
-                          </a>
-                      </div>
-                      <div class="col-1">
-                          <a href="{{ url('https://youtube.com') }}" target="_blank" class="text-decoration-none text-secondary">
-                              <i class="fa-brands fa-youtube"></i>
-                          </a>
-                      </div>
+
+                        @if($settings->instagram) 
+                        <div class="col-1">
+                            <a href="{{ $settings->instagram }}" target="_blank" class="text-decoration-none text-secondary">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>                        
+                        @endif
+
+                        @if($settings->linkedin) 
+                        <div class="col-1">
+                            <a href="{{ $settings->linkedin }}" target="_blank" class="text-decoration-none text-secondary">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                        </div>                        
+                        @endif
+
+                        @if($settings->facebook) 
+                        <div class="col-1">
+                            <a href="{{ $settings->facebook }}" target="_blank" class="text-decoration-none text-secondary">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                        </div>                        
+                        @endif
+
+                        @if($settings->twitter) 
+                        <div class="col-1">
+                            <a href="{{ $settings->twitter }}" target="_blank" class="text-decoration-none text-secondary">
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                        </div>                        
+                        @endif
+
+                        @if($settings->youtube) 
+                        <div class="col-1">
+                            <a href="{{ $settings->youtube }}" target="_blank" class="text-decoration-none text-secondary">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                        </div>                        
+                        @endif
                   </div>
             </div>
             <div class="col-xl-2 mt-4">

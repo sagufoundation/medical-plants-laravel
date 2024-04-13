@@ -76,23 +76,23 @@
 
                                                     <ul class="list-group mb-3">
                                                         <li class="list-group-item rounded-0">
-                                                            <b class="d-block">Instagram</b>
+                                                            <b class="d-block"><i class="fa-brands fa-instagram"></i> Instagram</b>
                                                             <input type="text" value="{!! $data->instagram ?? '' !!}" name="instagram" class="form-control rounded-0 mb-1">
                                                         </li>
                                                         <li class="list-group-item rounded-0">
-                                                            <b class="d-block">Facebook</b>
-                                                            <input type="text" value="{!! $data->facebook ?? '' !!}" name="facebook" class="form-control rounded-0 mb-1">
-                                                        </li>
-                                                        <li class="list-group-item rounded-0">
-                                                            <b class="d-block">Twitter</b>
-                                                            <input type="text" value="{!! $data->twitter ?? '' !!}" name="twitter" class="form-control rounded-0 mb-1">
-                                                        </li>
-                                                        <li class="list-group-item rounded-0">
-                                                            <b class="d-block">Linkedin</b>
+                                                            <b class="d-block"><i class="fa-brands fa-linkedin"></i> Linkedin</b>
                                                             <input type="text" value="{!! $data->linkedin ?? '' !!}" name="linkedin" class="form-control rounded-0 mb-1">
                                                         </li>
                                                         <li class="list-group-item rounded-0">
-                                                            <b class="d-block">Youtube</b>
+                                                            <b class="d-block"><i class="fa-brands fa-facebook"></i> Facebook</b>
+                                                            <input type="text" value="{!! $data->facebook ?? '' !!}" name="facebook" class="form-control rounded-0 mb-1">
+                                                        </li>
+                                                        <li class="list-group-item rounded-0">
+                                                            <b class="d-block"><i class="fa-brands fa-x-twitter"></i> Twitter</b>
+                                                            <input type="text" value="{!! $data->twitter ?? '' !!}" name="twitter" class="form-control rounded-0 mb-1">
+                                                        </li>
+                                                        <li class="list-group-item rounded-0">
+                                                            <b class="d-block"><i class="fa-brands fa-youtube"></i> Youtube</b>
                                                             <input type="text" value="{!! $data->youtube ?? '' !!}" name="youtube" class="form-control rounded-0 mb-1">
                                                         </li>
                                                     </ul>

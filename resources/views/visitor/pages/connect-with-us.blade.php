@@ -57,7 +57,7 @@
                 <i class="fa-solid fa-phone me-2"></i>+62 821 991 66540
               </a>
               or
-              <a href="https://wa.link/jqof4f" target="_blank" class="btn btn-success">Chat via Whatsapp</a>
+              <a href="https://wa.link/jqof4f" target="_blank" class="btn btn-success"><i class="fa-brands fa-whatsapp"></i> Chat via Whatsapp</a>
             </div>
 
 
