@@ -61,19 +61,24 @@
 
                                                 <ul class="list-group mb-3">
                                                     <li class="list-group-item rounded-0">
-                                                        <b class="d-block"><i class="fa-brands fa-instagram"></i> Instagram</b> <a href="{!! $data->instagram !!}" target="_blank">{!! $data->instagram !!}</a>
+                                                        <b class="d-block"><i class="fa-brands fa-instagram"></i> Instagram</b> 
+                                                        @if($data->instagram) <a href="{!! $data->instagram !!}" target="_blank">{!! $data->instagram !!}</a> @else <i>null</i> @endif
                                                     </li>
                                                     <li class="list-group-item rounded-0">
-                                                        <b class="d-block"><i class="fa-brands fa-linkedin"></i> Linkedin</b> {!! $data->linkedin ?? '' !!}
+                                                        <b class="d-block"><i class="fa-brands fa-linkedin"></i> Linkedin</b> 
+                                                        @if($data->linkedin) <a href="{!! $data->linkedin !!}" target="_blank">{!! $data->linkedin !!}</a> @else <i>null</i> @endif
                                                     </li>
                                                     <li class="list-group-item rounded-0">
-                                                        <b class="d-block"><i class="fa-brands fa-facebook"></i> Facebook</b> {!! $data->facebook ?? '' !!}
+                                                        <b class="d-block"><i class="fa-brands fa-facebook"></i> Facebook</b> 
+                                                        @if($data->facebook) <a href="{!! $data->facebook !!}" target="_blank">{!! $data->facebook !!}</a> @else <i>null</i> @endif
                                                     </li>
                                                     <li class="list-group-item rounded-0">
-                                                        <b class="d-block"><i class="fa-brands fa-x-twitter"></i> Twitter</b> {!! $data->twitter ?? '' !!}
+                                                        <b class="d-block"><i class="fa-brands fa-x-twitter"></i> Twitter</b> 
+                                                        @if($data->twitter) <a href="{!! $data->twitter !!}" target="_blank">{!! $data->twitter !!}</a> @else <i>null</i> @endif
                                                     </li>
                                                     <li class="list-group-item rounded-0">
-                                                        <b class="d-block"><i class="fa-brands fa-youtube"></i> Youtube</b> {!! $data->youtube ?? '' !!}
+                                                        <b class="d-block"><i class="fa-brands fa-youtube"></i> Youtube</b> 
+                                                        @if($data->youtube) <a href="{!! $data->youtube !!}" target="_blank">{!! $data->youtube !!}</a> @else <i>null</i> @endif
                                                     </li>
                                                 </ul>
 
