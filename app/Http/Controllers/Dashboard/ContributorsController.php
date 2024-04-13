@@ -5,9 +5,9 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 use App\Models\Contributor;
 
@@ -56,9 +56,18 @@ class ContributorsController extends Controller
     | TRASH
     | showing table with data of soft deleted records "softDelete=true"
     */ 
-    public function trash()
+    public function trash(Request $request)
     {
-        $datas = Contributor::onlyTrashed()->paginate(10);
+        $datas = Contributor::where([
+            ['full_name', '!=', Null],
+            [function ($query) use ($request) {
+                if (($s = $request->s)) {
+                    $query
+                        ->orWhere('full_name', 'LIKE', '%' . $s . '%')
+                        ->get();
+                }
+            }]
+        ])->onlyTrashed()->paginate(10);
         return view('dashboard.contributors.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 

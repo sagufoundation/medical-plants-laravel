@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Regency;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RegencyController extends Controller
 {
@@ -54,10 +54,18 @@ class RegencyController extends Controller
     | TRASH
     | showing table with data of soft deleted records "softDelete=true"
     */ 
-    public function trash()
+    public function trash(Request $request)
     {
         //
-        $datas = Regency::onlyTrashed()->paginate(5);
+        $datas = Regency::where([
+            ['name', '!=', Null],
+            [function ($query) use ($request) {
+                if (($s = $request->s)) {
+                    $query->orWhere('name', 'LIKE', '%' . $s . '%')
+                        ->get();
+                }
+            }]
+        ])->onlyTrashed()->paginate(5);
         return view('dashboard.regencies.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -215,8 +223,7 @@ class RegencyController extends Controller
     */ 
     public function destroy($id)
     {
-        $data = Regency::findOrFail($id);
-        $data->delete();
+        Regency::findOrFail($id)->delete();
 
         alert()->success('Moved to Trash', 'Your data has been moved to the trash. It can be recovered if needed')->autoclose(3000);
         return to_route('dashboard.regencies.trash');

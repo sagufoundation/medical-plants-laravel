@@ -22,16 +22,11 @@ return new class extends Migration
             $table->text('site_description')->nullable();
             $table->text('welcome_text')->nullable();
             $table->text('copyright')->nullable();
+            $table->text('meta_tags')->nullable();
 
             $table->string('logo')->nullable();
             $table->string('logo_loader')->nullable();
             $table->string('favicon')->nullable();
-
-            // Contact
-            $table->string('email_address')->nullable();
-            $table->string('telp')->nullable();
-            $table->string('office_address')->nullable();
-            $table->text('google_map_address')->nullable();
 
             // Social Media
             $table->string('instagram')->nullable();
@@ -40,6 +35,12 @@ return new class extends Migration
             $table->string('tiktok')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('youtube')->nullable();
+
+            // Contact
+            $table->string('email_address')->nullable();
+            $table->string('telp')->nullable();
+            $table->string('office_address')->nullable();
+            $table->text('google_map_embed')->nullable();
 
             // Dates
             $table->timestamps();

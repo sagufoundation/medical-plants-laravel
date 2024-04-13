@@ -1,34 +1,27 @@
 <?php
 
 namespace App\Http\Controllers\Dashboard;
+use App\Http\Controllers\Controller;
 
 use App\Models\Plant;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Contributor;
 use App\Models\Location;
 use App\Models\Regency;
 use App\Models\Province;
 use App\Models\Tribes;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PlantsController extends Controller
 {
-    // use File;
-
     /*
-    |--------------------------------------------------------------------------
-    | adventures
-    | index | publish, draft, trash, create, store, show, edit, update, destroy, restore, delete
-    |--------------------------------------------------------------------------
+    | INDEX
+    | showing table data of published records or "status=publish"
     */
-
-    // index | publish
-
     public function index(Request $request)
     {
         $datas = Plant::where([
@@ -45,7 +38,10 @@ class PlantsController extends Controller
         return view('dashboard.plants.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    // draft
+    /*
+    | DRAFT
+    | showing table with data of drafted records "status=trash"
+    */ 
     public function draft(Request $request)
     {
         $datas = Plant::where([
@@ -62,15 +58,30 @@ class PlantsController extends Controller
         return view('dashboard.plants.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    // trash
-    public function trash()
+    /*
+    | TRASH
+    | showing table with data of soft deleted records "softDelete=true"
+    */ 
+    public function trash(Request $request)
     {
         //
-        $datas = Plant::onlyTrashed()->paginate(5);
+        $datas = Plant::where([
+            ['local_name', '!=', Null],
+            [function ($query) use ($request) {
+                if (($s = $request->s)) {
+                    $query->orWhere('local_name', 'LIKE', '%' . $s . '%')
+                        // ->orWhere('deskripsi', 'LIKE', '%' . $s . '%')
+                        ->get();
+                }
+            }]
+        ])->onlyTrashed()->paginate(5);
         return view('dashboard.plants.index', compact('datas'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    // create
+    /*
+    | CREATE
+    | showing create page with the form and inputs
+    */ 
     public function create()
     {
         $countributors = Contributor::where('status','Publish')->get();
@@ -82,7 +93,10 @@ class PlantsController extends Controller
         return view('dashboard.plants.create',compact('countributors','locations','provinces','regencies','tribes'));
     }
 
-    // store
+    /*
+    | STORE
+    | storing data to database 
+    */ 
     public function store(Request $request)
     {
         $validator = Validator::make(
@@ -151,18 +165,23 @@ class PlantsController extends Controller
         }
     }
 
-    // show
-
+    /*
+    | SHOW
+    | showing detail data 
+    */ 
     public function show($id)
     {
-        $data = Plant::where('id', $id)->first();
+        $data = Plant::find($id);
         return view('dashboard.plants.show', compact('data'));
     }
 
-    // edit
+    /*
+    | EDIT
+    | showing edit page with the form and inputs
+    */ 
     public function edit($id)
     {
-        $data = Plant::where('id', $id)->first();
+        $data = Plant::find($id);
         $countributors = Contributor::where('status','Publish')->get();
         $locations = Location::where('status','Publish')->get();
         $provinces = Province::where('status','Publish')->get();
@@ -172,8 +191,10 @@ class PlantsController extends Controller
         return view('dashboard.plants.edit', compact('countributors','locations','provinces','data','regencies','tribes'));
     }
 
-    // update
-
+    /*
+    | UPDATE
+    | updating data 
+    */ 
     public function update(Request $request, $id)
     {
 
@@ -271,13 +292,7 @@ class PlantsController extends Controller
         }
     }
 
-    // edit "image_cover"
-    public function edit_image($id)
-    {        
-        $data = Plant::where('id', $id)->first();
-        return view('dashboard.plants.images.edit', compact('data'));
-    }
-
+    // updating images
     public function update_images(Request $request, $id) 
     {
 
@@ -365,18 +380,17 @@ class PlantsController extends Controller
 
                 $data->update();
 
-                Alert::toast('Updated! This data has been updated successfully.', 'success');
-                // return redirect()->route('dashboard.plants.edit', $data->id);
+                alert()->success('Data Updated', 'Your data has been successfully updated and saved.')->autoclose(3000);
                 return redirect()->back();
 
             } catch (\Throwable $th) {
-                Alert::toast('Failed! Something is wrong', 'error');
+                alert()->error('Action Failed', 'An error occurred while performing the action. Please try again later or contact support for assistance.')->autoclose(3000);
                 return redirect()->back();
             }
         }
     }
     
-    // remove image
+    // removing images
     public function delete_images(Request $request, $id) 
     {
 
@@ -417,37 +431,45 @@ class PlantsController extends Controller
 
                 $data->update();
 
-                Alert::toast('Updated! This data has been updated successfully.', 'success');
+                alert()->success('Deleted permanently', 'our data has been permanently deleted from the system. This action cannot be undone')->autoclose(3000);
                 return redirect()->back();
 
             } catch (\Throwable $th) {
-                Alert::toast('Failed! Something is wrong', 'error');
+                alert()->error('Action Failed', 'An error occurred while performing the action. Please try again later or contact support for assistance.')->autoclose(3000);
                 return redirect()->back();
             }
         }
 
     }
 
-
-    // destroy
+    /*
+    | DESTROY
+    | deleting data softly
+    */ 
     public function destroy($id)
     {
-        $data = Plant::find($id);
-        $data->delete();
-        alert()->success('Trashed', 'Data has been moved to trash!!')->autoclose(1500);
+        Plant::findOrFail($id)->delete();
+
+        alert()->success('Moved to Trash', 'Your data has been moved to the trash. It can be recovered if needed')->autoclose(3000);
         return to_route('dashboard.plants.trash');
     }
 
-    // restore
+    /*
+    | RESTORE
+    | restoring data from soft delete
+    */ 
     public function restore($id)
     {
-        $data = Plant::onlyTrashed()->where('id', $id);
-        $data->restore();
-        alert()->success('Restored', 'Data has been restored!!')->autoclose(1500);
+        Plant::withTrashed()->where('id',$id)->restore();
+
+        alert()->success('Data Restored', 'Your data has been successfully restored from the trash. It is now available for use again')->autoclose(3000);
         return redirect()->back();
     }
 
-    // delete
+    /*
+    | DELETE
+    | deleting permanently
+    */ 
     public function delete($id)
     {
         $data = Plant::onlyTrashed()->findOrFail($id);
@@ -469,7 +491,8 @@ class PlantsController extends Controller
         if (file_exists($image_keseluruhan)) { File::delete($image_keseluruhan); }
 
         $data->forceDelete();
-        alert()->success('Deleted', 'The data has been permanently deleted!!')->autoclose(1500);
+
+        alert()->success('Deleted permanently', 'our data has been permanently deleted from the system. This action cannot be undone')->autoclose(3000);
         return redirect()->back();
     }
 }

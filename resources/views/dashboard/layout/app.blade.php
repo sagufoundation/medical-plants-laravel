@@ -8,19 +8,6 @@
     <!-- META TAGS -->
     {!! $settings->meta_tags ?? '' !!}
 
-    <!-- HTML METAS -->
-    <meta property="og:locale" content="id_ID" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="{{ $settings->site_title }}" />
-    <meta property="og:description" content="{{ $settings->meta_description }}" />
-    <meta property="og:site_name" content="{{ $settings->site_title }}" />
-    <meta property="og:image" content="{{ asset($settings->logo) }}" />
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
-    <!-- FAVICON -->
-    <link rel="icon" href="{{ asset($settings->logo) }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset($settings->favicon) }}">
-
     <!-- CSRF TOKEN -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 

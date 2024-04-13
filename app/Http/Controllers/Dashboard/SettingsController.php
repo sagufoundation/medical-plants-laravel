@@ -41,47 +41,43 @@ class SettingsController extends Controller
             return redirect()->back()->withInput($request->all())->withErrors($validator);
         } else {
             try {
-                $random = Str::random(15);
-                $Settings = Settings::first();
+                
+                $data = Settings::find(1);
+
+                // $data = Settings::first();
 
                 // site informations
-                $Settings->site_title = $request->site_title;
-                $Settings->site_address = $request->site_address;
-                $Settings->copyright = $request->copyright;
+                $data->site_title = $request->site_title;
+                // $data->site_address = $request->site_address;
+                $data->copyright = $request->copyright;
 
-                // meta tags
-                $Settings->meta_tags = $request->meta_tags;
+                // // meta tags
+                $data->meta_tags = $request->meta_tags;
 
-                // social media
-                $Settings->instagram = $request->instagram;
-                $Settings->facebook = $request->facebook;
-                $Settings->twitter = $request->twitter;
-                $Settings->linkedin = $request->linkedin;
-                $Settings->youtube = $request->youtube;
+                // // social media
+                $data->instagram = $request->instagram;
+                $data->facebook = $request->facebook;
+                $data->twitter = $request->twitter;
+                $data->linkedin = $request->linkedin;
+                $data->youtube = $request->youtube;
 
-                // contact
-                $Settings->office_address = $request->office_address;
-                $Settings->email_address = $request->email_address;
-                $Settings->telephone = $request->telephone;
-                $Settings->google_map_embed = $request->google_map_embed;
+                // // contact
+                $data->email_address = $request->email_address;
+                $data->telp = $request->telp;
+                $data->office_address = $request->office_address;
+                $data->google_map_embed = $request->google_map_embed;
 
                 
 
-                $Settings->update();
+                $data->update();
 
-                Alert::toast('Settings has been updated successfully', 'success');
-
-                if(!empty($request->inputGroup)) {
-                    return redirect('dashboard/Settings/' . $request->inputGroup);
-                } else {
-                    return redirect()->route('dashboard.settings');
-                }
+                alert()->success('Data Updated', 'Your data has been successfully updated and saved.')->autoclose(3000);
+                return to_route('dashboard.settings');
 
 
             } catch (\Throwable $th) {
-
-                dd($th);
-                Alert::toast('Failed', 'error');
+                dd($validator);
+                alert()->error('Action Failed', 'An error occurred while performing the action. Please try again later or contact support for assistance.')->autoclose(3000);
                 return redirect()->back();
 
             }
