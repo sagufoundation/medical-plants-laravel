@@ -17,9 +17,6 @@
                                                     <li class="list-group-item rounded-0">
                                                         <b class="d-block">Site Title</b> {!! $data->site_title ?? '' !!}
                                                     </li>
-                                                    {{-- <li class="list-group-item rounded-0">
-                                                        <b class="d-block">Site Address</b> {!! $data->site_address ?? '' !!}
-                                                    </li> --}}
                                                     <li class="list-group-item rounded-0">
                                                         <b class="d-block">Copyright</b> {!! $data->copyright ?? '' !!}
                                                     </li>
@@ -55,7 +52,8 @@
                                                     <li class="list-group-item rounded-0">
                                                         <b class="d-block">Google Map</b> {!! $data->google_map_embed ?? '' !!}
                                                     </li>
-                                                </ul>
+                                                </ul> 
+
 
                                                 <h5><i class="fa-solid fa-circle-nodes"></i> Social Media Links</h5>
 

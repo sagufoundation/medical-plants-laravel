@@ -45,22 +45,25 @@
         </div> --}}
         <div class="col-lg-6 mx-auto">
             <p style="text-align: justify">To connect with us and contribute to the Database of Traditional Medicinal Plants in Papua, please visit our website and fill out the contact form. Our team will review your message and provide guidance on how to submit your information. We welcome contributions from local community members as well as experts in the fields of phytochemistry, ethnobotany, and taxonomy. Thank you for your interest in our project! </p>
-
+            @if($settings->email_address)
             <div class="mb-3">
               <a href="mailto:trumbewas@gmail.com" class="btn btn-light">
-                <i class="fa-solid fa-envelope me-2"></i>trumbewas@gmail.com
+                <i class="fa-solid fa-envelope me-2"></i> {!! $settings->email_address ?? '' !!}
               </a>
             </div>
+            @endif
 
             <div class="mb-3">
-              <a href="call:trumbewas@gmail.com" class="btn btn-light">
-                <i class="fa-solid fa-phone me-2"></i>+62 821 991 66540
-              </a>
-              or
+
+              @if($settings->telp)
+                <a href="call:{!! $settings->telp !!}" class="btn btn-light">
+                  <i class="fa-solid fa-phone me-2"></i>{!! $settings->telp !!}
+                </a>
+               or
+
+              @endif
               <a href="https://wa.link/jqof4f" target="_blank" class="btn btn-success"><i class="fa-brands fa-whatsapp"></i> Chat via Whatsapp</a>
             </div>
-
-
 
         </div>
       </div>
