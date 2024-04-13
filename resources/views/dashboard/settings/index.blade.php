@@ -47,7 +47,7 @@
                                                         <b class="d-block">Email Address</b> {!! $data->email_address ?? '' !!}
                                                     </li>
                                                     <li class="list-group-item rounded-0">
-                                                        <b class="d-block">Telephone</b> {!! $data->telephone ?? '' !!}
+                                                        <b class="d-block">Telp</b> {!! $data->telp ?? '' !!}
                                                     </li>
                                                     <li class="list-group-item rounded-0">
                                                         <b class="d-block">Google Map</b> {!! $data->google_map_embed ?? '' !!}

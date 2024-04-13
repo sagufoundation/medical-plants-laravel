@@ -63,8 +63,8 @@
                                                             <input type="text" value="{!! $data->email_address ?? '' !!}" name="email_address" class="form-control rounded-0 mb-1">
                                                         </li>
                                                         <li class="list-group-item rounded-0">
-                                                            <b class="d-block">Telephone</b>
-                                                            <input type="text" value="{!! $data->telephone ?? '' !!}" name="telephone" class="form-control rounded-0 mb-1">
+                                                            <b class="d-block">Telp</b>
+                                                            <input type="text" value="{!! $data->telp ?? '' !!}" name="telp" class="form-control rounded-0 mb-1">
                                                         </li>
                                                         <li class="list-group-item rounded-0">
                                                             <b class="d-block">Google Map</b>
