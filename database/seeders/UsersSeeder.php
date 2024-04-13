@@ -19,7 +19,7 @@ class UsersSeeder extends Seeder
         $users = collect([
             [
                 'id' => 1,
-                'name' => 'Admin',
+                'name' => 'Admin Master',
                 'email' => 'admin@gmail.com',
                 'password' => bcrypt('admin@gmail.com'),
                 'picture' => '00.png',

@@ -19,11 +19,18 @@
                                 <img src="{{ asset('images/users/'.Auth::user()->picture) }}" alt="image user" title="{{ Auth::user()->name }}" class="rounded-circle">
                                 @endif
                                 <span class="pro-user-name ml-1">
-                                    {{ Auth::user()->name }} <i class="mdi mdi-chevron-down"></i>
+                                    <span>
+                                        {{-- {{ Auth::user()->name }}  --}}
+                                        {{ implode("",Auth::user()->roles()->pluck('display_name')->toArray()) }}  
+                                    </span> <i class="mdi mdi-chevron-down"></i>
                                 </span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
+                                <div class="dropdown-header noti-title">
+                                    <small>Welcome !</small>
+                                    <h6 class="text-overflow m-0">{{ Auth::user()->name }}</h6>
+                                </div>
                                 <a href="{{ route('dashboard.users.show', Auth::user()->id) }}" class="dropdown-item notify-item">
                                     <i class="fe-user"></i>
                                     <span>Profile</span>

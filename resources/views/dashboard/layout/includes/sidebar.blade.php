@@ -39,9 +39,9 @@
 
                                 <li class="@if(Request::segment(2) == 'plants') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/plants') }}">
-                                        <i class="fa-solid fa-tags"></i>
+                                        <i class="fa-solid fa-leaf"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ $plants_total ?? '' }}
+                                            {{ $plants_total ?? '0' }}
                                         </span>
                                         <span> Plants</span>
                                     </a>
@@ -52,9 +52,9 @@
 
                                 <li class="@if(Request::segment(2) == 'regencies') menuitem-active @endif">
                                     <a href="{{ url(Request::segment(1).'/regencies') }}">
-                                        <i class="fa-solid fa-tags"></i>
+                                        <i class="fa-solid fa-map"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ $provinces_total ?? '' }}
+                                            {{ $regencies_total ?? '0' }}
                                         </span>
                                         <span> Regencies</span>
                                     </a>
@@ -76,7 +76,7 @@
                                     <a href="{{ url(Request::segment(1).'/contributors') }}">
                                         <i class="fa-solid fa-users"></i>
                                         <span class="badge badge-success badge-pill float-right">
-                                            {{ $contributors_total ?? '' }}
+                                            {{ $contributors_total ?? '0' }}
                                         </span>
                                         <span> Contributors</span>
                                     </a>
