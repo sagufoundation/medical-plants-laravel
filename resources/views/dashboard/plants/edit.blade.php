@@ -109,7 +109,7 @@
                             <div class="mb-3">
                                 <label for="villages">Villages</label>
 
-                                <textarea id="villages" name="villages" rows="1" class="ckeditor form-control rounded-0" placeholder="you can write more than one village"> {{ $data->village ?? old('villages') }} </textarea>
+                                <textarea id="villages" name="villages" rows="1" class="ckeditor form-control rounded-0" placeholder="you can write more than one village"> {{ $data->villages ?? old('villages') }} </textarea>
                                 @if ($errors->has('villages'))
                                 <span class="text-danger" role="alert">
                                         <small>{{ $errors->first('villages') }}</small>
@@ -118,6 +118,7 @@
                             </div>
                             <!-- input item END -->
 
+                            <!-- input item START -->
                             <div class="mb-3">
                                 <label for="id_regency">Regency {{sizeof($regencies)<1?'(Data regencies not yet available)':''}}</label>
                                 <select name="id_regency" class="form-control" id="id_regency">
@@ -134,6 +135,7 @@
                             </div>
                             <!-- input item END -->
 
+                            <!-- input item START -->
                             <div class="mb-3">
                                 <label for="id_contributor">Contributor </label>
                                 <select name="id_contributor" class="form-control" id="id_contributor">
@@ -152,6 +154,7 @@
                             </div>
                             <!-- input item END -->
                             
+                            <!-- input item START -->
                             <div class="mb-3">
                                 <label for="description">Status </label>
                                 <select name="status" class="form-control" id="">
@@ -272,14 +275,17 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary rounded-0">
-                        <i class="fa-solid fa-save"></i> Save
-                    </button>
+                    <!-- row start -->
+                    <div class="row">
+                        <div class="col">
+                            <x-submit-button />
+                            <x-close-button/>
+                        </div>
+                    </div> 
+                    <!-- .row end -->
 
-                    <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'') }}" class="btn btn-outline-dark rounded-0 border-0">
-                        <i class="fa-solid fa-times-square"></i> Cancle
-                    </a>
                 </form>
+                
             </div>
             <!-- .card-body END -->
         </div>

@@ -17,17 +17,17 @@
                     <!-- .col start -->
                     <div class="col-lg-8">
 
-                        <div class="p-2 px-3 border-bottom">
+                        <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Name </b> {!! $data->name ?? '' !!}
                         </div>
 
-                        <div class="p-2 px-3 border-bottom">
+                        <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Coordinates </b> {!! $data->coordinates ?? '' !!}
                         </div>
-                        <div class="p-2 px-3 border-bottom">
+                        <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Description </b> {!! $data->description ?? '' !!}
                         </div>
-                        <div class="p-2 px-3 border-bottom">
+                        <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Status </b> {!! $data->status ?? '' !!}
                         </div>
 

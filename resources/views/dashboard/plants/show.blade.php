@@ -14,66 +14,77 @@
                 <div class="row">
                     <div class="col-lg-6">
                         
+                        <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Plant name in local language</b>
                             <p class="h4">{!! $data->local_name ?? '' !!}</p>
                         </div>
                         <!-- item group END -->
                         
+                        <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Plant name in Bahasa Indonesia</b>
                             <p class="h4">{!! $data->indonesian_name ?? '' !!}</p>
                         </div>
                         <!-- item group END -->
                         
+                        <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Plant name in Latin</b>
                             <p class="h4">{!! $data->latin_name ?? '' !!}</p>
                         </div>
                         <!-- item group END -->
                         
+                        <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Taxonomists</b>
                             <p class="h4">{!! $data->taxonomists ?? '' !!}</p>
                         </div>
                         <!-- item group END -->
                         
+                        <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Treatments</b>
                             <p class="h4">{!! $data->treatments ?? '' !!}</p>
                         </div>
                         <!-- item group END -->
                         
+                        <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Traditional Usage</b>
                             <p class="h4">{!! $data->traditional_usage ?? '' !!}</p>
                         </div>
                         <!-- item group END -->
                         
+                        <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Known Phytochemical Consituents</b>
                             <p class="h4">{!! $data->known_phytochemical_consituents ?? '' !!}</p>
                         </div>
                         <!-- item group END -->
                         
+                        <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Villages</b>
                             <p class="h4">{!! $data->villages ?? '' !!}</p>
                         </div>
                         <!-- item group END -->
                         
+                        <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Regency <top class="text-danger">*</top></b>
                             <p class="h4">{!! $data->regency->name ?? '<small class="text-danger">This is a required field</small>' !!}</p>
                         </div>
                         <!-- item group END -->
                         
+                        <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Contributor <top class="text-danger">*</top></b>
                             <p class="h4">{!! $data->contributor->full_name ?? '<small class="text-danger">This is a required field</small>' !!}</p>
                         </div>
                         <!-- item group END -->
                         
+                        <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Status</b>
                             <p class="h4">{!! $data->status ?? '' !!}</p>
@@ -185,35 +196,17 @@
                     </div>
                 </div>
 
-                <div class="row mt-3">
-
-                    <div class="col-12">
-
-                        <div class="d-flex">
-                            <a href="{{ route(Request::segment(1).'.'.Request::segment(2)) }}" class="btn btn-sm btn-light rounded-0 mx-1">
-                                <i class="fa-solid fa-reply"></i>
-                            </a>
-                            <a href="{{ route(Request::segment(1).'.'.Request::segment(2).'.edit', $data->id) }}" class="btn btn-sm btn-light rounded-0 mx-1">
-                                <i class="fa-solid fa-edit"></i>
-                            </a>
-
-                            <form action="{{ route(Request::segment(1).'.'.Request::segment(2).'.destroy', $data->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-light rounded-0 mx-1">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-                            </form>
-
-                            @if($data->status == 'Publish')
-                            <a href="{{ url('plants/' . $data->slug . '/detail') }}" class="btn btn-sm btn-dark rounded-0 mx-1" target="_blank">
-                                <i class="fa-solid fa-eye"></i> Public View
-                            </a>
-                            @endif
-                        </div>
-
+                <!-- row start -->
+                <div class="row">
+                    <!-- .col start -->
+                    <div class="col d-flex">
+                        <x-edit-button :id="$data->id" />                           
+                        <x-delete-button :id="$data->id" />
+                        <x-close-button/>
                     </div>
+                    <!-- .col start -->
                 </div>
+                <!-- .row end -->
 
             </div>
             <!-- .card-body END -->

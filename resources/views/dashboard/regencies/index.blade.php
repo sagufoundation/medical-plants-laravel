@@ -36,6 +36,7 @@
                                 </td>
                                 <td>{{ $data->name ?? '' }}</td>
                                 <td>{{ $data->coordinates ?? '' }}</td>
+
                                 @if (Request::segment(3) == 'trash')
                                 <td class="d-flex">
                                     <x-restore-button :id="$data->id" />
@@ -48,6 +49,7 @@
                                     <x-delete-button :id="$data->id" />
                                 </td>
                                 @endif
+                                
                             </tr>
                             @empty
                             <tr>
@@ -74,5 +76,4 @@
 <!-- .row END -->
 
 @endsection
-
 @include('dashboard.layout.includes.index-script-footer')
