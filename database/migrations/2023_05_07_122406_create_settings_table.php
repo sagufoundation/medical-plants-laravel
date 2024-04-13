@@ -25,6 +25,7 @@ return new class extends Migration
             $table->text('meta_tags')->nullable();
 
             $table->string('logo')->nullable();
+            $table->string('logo_lg')->nullable();
             $table->string('logo_loader')->nullable();
             $table->string('favicon')->nullable();
 

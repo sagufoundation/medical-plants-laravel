@@ -27,6 +27,7 @@ class SettingsSeeder extends Seeder
             'welcome_text'  => 'Welcome to the Database of Traditional Medicinal Plants in Papua, a comprehensive and easily accessible resource for researchers, healthcare practitioners, and anyone interested in traditional medicine, aiming to promote the importance of preserving traditional medicinal knowledge and exploring it for global medicinal research.',
 
             'logo'              => 'assets/img/logo.png',
+            'logo_lg'              => 'assets/img/logo-lg.png',
             'logo_loader'       => 'assets/img/loader.png',
             'favicon'           => 'assets/img/favicon.png',
             'meta_tags'     => '<meta property="og:locale" content="id_ID" />

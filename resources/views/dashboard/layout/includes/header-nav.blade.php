@@ -51,7 +51,7 @@
                                 <img src="{{ asset($settings->logo) }}" alt="images logo sm dark" height="38">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ asset($settings->logo) }}" alt="images logo lg dark" height="38">
+                                <img src="{{ asset($settings->logo_lg) }}" alt="images logo lg dark" height="38">
                             </span>
                         </a>
 
@@ -60,7 +60,7 @@
                                 <img src="{{ asset($settings->logo) }}" alt="images logo sm light" height="38">
                             </span>
                             <span class="logo-lg">
-                                    <img src="{{ asset($settings->logo) }}" alt="images logo lg light" height="38">
+                                    <img src="{{ asset($settings->logo_lg) }}" alt="images logo lg light" height="38">
                             </span>
                         </a>
                     </div>
