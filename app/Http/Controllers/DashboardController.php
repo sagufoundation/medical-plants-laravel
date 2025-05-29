@@ -14,7 +14,7 @@ class DashboardController extends Controller
     {
         if(Auth::user()->hasRole('admin')){
             $histories = \App\Models\LoginHistory::with('user')
-                        ->where('user_id', auth()->id())
+                        // ->where('user_id', auth()->id())
                         ->latest()
                         ->take(10)
                         ->get();

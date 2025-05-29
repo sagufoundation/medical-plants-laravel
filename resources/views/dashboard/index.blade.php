@@ -21,6 +21,7 @@
 
 <x-total-info />
 
+@if (Auth::user()->hasRole('admin'))
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -68,6 +69,9 @@
         </div> <!-- end card-->
     </div> <!-- end col-->
 </div> <!-- row end -->
+    
+    
+@endif
 
 <script src="{{ asset('assets/js/grafik.js')}}"></script>
 
