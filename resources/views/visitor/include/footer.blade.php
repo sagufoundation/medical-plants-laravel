@@ -71,8 +71,6 @@
                   <p class="fw-bolder text-success">PRIVACY & POLICY</p>
                   <p> <a href="{{ url('/privacy') }}" class="text-decoration-none mb-3 @if(Request::segment(1) == 'privacy') link-success fw-bold @else text-secondary @endif">Privacy Policy</a> </p>
                   <p> <a href="{{ url('/terms') }}" class="text-decoration-none mb-3 @if(Request::segment(1) == 'terms') link-success fw-bold @else text-secondary @endif">Terms & Conditions</a> </p>
-                  <hr class="border border-black opacity-75">
-                  <div id="google_translate_element"></div>
             </div>
           </div>
           <div class="row text-secondary mt-4 pb-5 d-flex justify-content-between">

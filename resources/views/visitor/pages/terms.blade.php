@@ -18,7 +18,7 @@
         <div class="col-lg-8 mx-auto p-5 border" style="text-align: justify">
             
 
-            <p class="h2">Website Use</p>
+            <p class="h2 text-success">Website Use</p>
                 
             <p>1. You must be at least 13 years old to use our website. If you are under 13, please do not use our website or submit any information.</p>
             
@@ -26,7 +26,7 @@
             
             <p>3. We reserve the right to modify, suspend, or terminate the website or any part of it without notice.</p>
             
-            <p class="h2">Contributions</p>
+            <p class="h2 text-success">Contributions</p>
             
             <p>1. When you submit traditional plant information via email, you agree to provide accurate and authentic information.</p>
             
@@ -34,15 +34,15 @@
             
             <p>3. You consent to the attribution of your contributions to your name.</p>
             
-            <p class="h2">Privacy</p>
+            <p class="h2 text-success">Privacy</p>
             
             <p>1. Your use of the website is subject to our Privacy Policy, which outlines how we collect, use, and protect your personal information.</p>
             
-            <p class="h2">Content Ownership</p>
+            <p class="h2 text-success">Content Ownership</p>
             
             <p>All content on this website, including text, images, and graphics, is owned by us or our licensors and is protected by copyright and other intellectual property laws.</p>
             
-            <p class="h2">User Conduct</p>
+            <p class="h2 text-success">User Conduct</p>
             
             <p>You agree not to:</p>
             
@@ -51,21 +51,21 @@
             &nbsp; &nbsp;- Submit or transmit any content that is harmful, offensive, or violates the rights of others.<br />
             &nbsp; &nbsp;- Attempt to gain unauthorized access to the website or its systems.</p>
             
-            <p class="h2">Disclaimer</p>
+            <p class="h2 text-success">Disclaimer</p>
             
             <p>1. The information provided on this website is for informational purposes only. We do not endorse the accuracy, safety, or efficacy of any traditional plant information contributed by users.</p>
             
             <p>2. You should always consult with a qualified healthcare professional before using any traditional plant for medicinal purposes.</p>
             
-            <p class="h2">Limitation of Liability</p>
+            <p class="h2 text-success">Limitation of Liability</p>
             
             <p>We are not liable for any damages or losses incurred as a result of your use of our website or reliance on information provided by other users.</p>
             
-            <p class="h2">Changes to Terms</p>
+            <p class="h2 text-success">Changes to Terms</p>
             
             <p>We reserve the right to update or modify these Terms and Conditions at any time without prior notice. Continued use of the website after such changes constitutes your acceptance of the updated terms.</p>
             
-            <p class="h2">Contact Us</p>
+            <p class="h2 text-success">Contact Us</p>
             
             <p>If you have any questions or concerns about these Terms and Conditions, please contact us at [Insert Contact Information].</p>
             
