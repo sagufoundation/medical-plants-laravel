@@ -25,10 +25,10 @@ class PlantsController extends Controller
     public function index(Request $request)
     {
         $datas = Plant::where([
-            ['local_name', '!=', Null],
+            ['latin_name', '!=', Null],
             [function ($query) use ($request) {
                 if (($s = $request->s)) {
-                    $query->orWhere('local_name', 'LIKE', '%' . $s . '%')
+                    $query->orWhere('latin_name', 'LIKE', '%' . $s . '%')
                         // ->orWhere('deskripsi', 'LIKE', '%' . $s . '%')
                         ->get();
                 }
@@ -45,10 +45,10 @@ class PlantsController extends Controller
     public function draft(Request $request)
     {
         $datas = Plant::where([
-            ['local_name', '!=', Null],
+            ['latin_name', '!=', Null],
             [function ($query) use ($request) {
                 if (($s = $request->s)) {
-                    $query->orWhere('local_name', 'LIKE', '%' . $s . '%')
+                    $query->orWhere('latin_name', 'LIKE', '%' . $s . '%')
                         // ->orWhere('deskripsi', 'LIKE', '%' . $s . '%')
                         ->get();
                 }
@@ -66,10 +66,10 @@ class PlantsController extends Controller
     {
         //
         $datas = Plant::where([
-            ['local_name', '!=', Null],
+            ['latin_name', '!=', Null],
             [function ($query) use ($request) {
                 if (($s = $request->s)) {
-                    $query->orWhere('local_name', 'LIKE', '%' . $s . '%')
+                    $query->orWhere('latin_name', 'LIKE', '%' . $s . '%')
                         // ->orWhere('deskripsi', 'LIKE', '%' . $s . '%')
                         ->get();
                 }

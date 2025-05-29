@@ -20,6 +20,18 @@
                             </label>
                           </div>
                           <div class="form-check">
+                            <input class="form-check-input" type="radio" name="parameter"  value="english_name" id="english_name" @if(request()->parameter != null AND request()->parameter === 'english_name') checked @endif role="button">
+                            <label class="form-check-label" for="english_name" role="button">
+                              English Name
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="parameter"  value="indonesian_name" id="indonesian_name" @if(request()->parameter != null AND request()->parameter === 'indonesian_name') checked @endif role="button">
+                            <label class="form-check-label" for="indonesian_name" role="button">
+                              Indonesian Name
+                            </label>
+                          </div>
+                          <div class="form-check">
                             <input class="form-check-input" type="radio" name="parameter"  value="local_name" id="local_name" @if(request()->parameter != null AND request()->parameter === 'local_name') checked @endif role="button">
                             <label class="form-check-label" for="local_name" role="button">
                               Local Name

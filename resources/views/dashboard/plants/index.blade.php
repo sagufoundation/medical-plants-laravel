@@ -10,13 +10,16 @@
 
                 @include('dashboard.layout.includes.index-top-section')
 
-                <div class="table-responsive">
+                <div class="table-responsive table-striped table-hover">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Plant's Picture</th>
                                 <th  scope="col">Latin Name</th>
+                                <th  scope="col">English Name</th>
+                                <th  scope="col">Indonesian Name</th>
+                                <th  scope="col">Local Name</th>
                                 <th  scope="col">Contributor</th>
                                 <th  scope="col">Regency</th>
                                 <th scope="col" class="text-center"></th>
@@ -35,6 +38,9 @@
                                     @endif
                                 </td>
                                 <td>{!! $data->latin_name ?? '' !!}</td>
+                                <td>{!! $data->english_name ?? '' !!}</td>
+                                <td>{!! $data->indonesian_name ?? '' !!}</td>
+                                <td>{!! $data->local_name ?? '' !!}</td>
                                 <td>{!! $data->contributor->full_name ?? '' !!} </td>
                                 <td>{!! $data->regency->name ?? '' !!} </td>
 
