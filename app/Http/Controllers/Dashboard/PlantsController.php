@@ -99,10 +99,11 @@ class PlantsController extends Controller
     */ 
     public function store(Request $request)
     {
+        
         $validator = Validator::make(
             $request->all(),
             [
-                'local_name' => 'required',
+                'latin_name' => 'required',
                 // 'indonesian_name' => 'required',
                 // 'latin_name' => 'required',
                 // 'taxonomists' => 'required',
@@ -117,7 +118,7 @@ class PlantsController extends Controller
                 // 'cover_picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
-                'local_name.required' => 'This is a reaquired field',
+                'latin_name.required' => 'This is a reaquired field',
                 // 'indonesian_name.required' => 'This is a reaquired field',
                 // 'latin_name.required' => 'This is a reaquired field',
                 // 'taxonomists.required' => 'This is a reaquired field',
@@ -141,6 +142,7 @@ class PlantsController extends Controller
                 $data->local_name = $request->local_name;
                 $data->slug = Str::slug($data->local_name);
                 $data->indonesian_name = $request->indonesian_name;
+                $data->english_name = $request->english_name;
                 $data->latin_name = $request->latin_name;
                 $data->taxonomists = $request->taxonomists;
                 $data->treatments = $request->treatments;
@@ -201,7 +203,7 @@ class PlantsController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'local_name' => 'required',
+                'latin_name' => 'required',
                 // 'indonesian_name' => 'required',
                 // 'latin_name' => 'required',
                 // 'taxonomists' => 'required',
@@ -216,7 +218,7 @@ class PlantsController extends Controller
                 // 'cover_picture' => 'image|mimes:png,jpeg,jpg|max:4096',
             ],
             [
-                'local_name.required' => 'This is a reaquired field',
+                'latin_name.required' => 'This is a reaquired field',
                 // 'indonesian_name.required' => 'This is a reaquired field',
                 // 'latin_name.required' => 'This is a reaquired field',
                 // 'taxonomists.required' => 'This is a reaquired field',
@@ -241,6 +243,7 @@ class PlantsController extends Controller
                 $data->local_name = $request->local_name;
                 $data->slug = Str::slug($data->local_name);
                 $data->indonesian_name = $request->indonesian_name;
+                $data->english_name = $request->english_name;
                 $data->latin_name = $request->latin_name;
                 $data->taxonomists = $request->taxonomists;
                 $data->treatments = $request->treatments;

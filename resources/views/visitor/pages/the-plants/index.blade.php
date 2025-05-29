@@ -46,7 +46,7 @@
             @forelse ($datas as $data )
             <div class="col-lg-3 mb-4">
                 <div class="card">
-                    <a href="{{ route('visitor.plants.detail',$data->slug ?? '') }}">
+                    <a href="{{ route('visitor.plants.detail',$data->id ?? '') }}">
                       @if (!$data->image_cover)
                       <img src="{{ asset('images/plants/image-single.jpg') }}" alt="Image" class="card-img-top">
                       @else
@@ -56,13 +56,16 @@
 
                   <div class="card-body">
                     <h3>
-                      <a href="{{ route('visitor.plants.detail',$data->slug ?? '') }}" class="fw-bold text-decoration-none link-success">
+                      <a href="{{ route('visitor.plants.detail',$data->id ?? '') }}" class="fw-bold text-decoration-none link-success">
                             {!! $data->latin_name !!} 
                       </a>
                     </h3>
-                    <p>
-                      {!! $data->local_name !!}
-                    </p>
+                    <div class="plant-info">
+                      <span class="d-flex">English Name: <span class="plant-info-space">{!! $data->english_name ?? '<span class="text-muted">Not yet provided</span>' !!}</span></span>
+                      <span class="d-flex">Indonesian Name: <span class="plant-info-space"> {!! $data->indonesian_name ?? '<span class="text-muted">Not yet provided</span>' !!}</span></span>
+                      <span class="d-flex">Local Name: <span class="plant-info-space"> {!! $data->local_name ?? '<span class="text-muted">Not yet provided</span>' !!}</span></span>
+
+                    </div>
                     <div class="my-3 d-flex gap-3">
                       @if (Request::segment(2) == 'regency')
                       <div class="text-decoration-none link-secondary">

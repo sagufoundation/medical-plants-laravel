@@ -78,6 +78,16 @@
     display: none !important;
   }
 
+  .plant-info p {
+    padding: 0;
+    margin: 0;
+  }
+
+  .plant-info-space {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
 
 
     </style>

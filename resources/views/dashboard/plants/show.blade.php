@@ -16,20 +16,6 @@
                         
                         <!-- item group START -->
                         <div class="p-2 border-bottom">
-                            <b class="d-block mb-2">Plant name in local language</b>
-                            <p class="h4">{!! $data->local_name ?? '' !!}</p>
-                        </div>
-                        <!-- item group END -->
-                        
-                        <!-- item group START -->
-                        <div class="p-2 border-bottom">
-                            <b class="d-block mb-2">Plant name in Bahasa Indonesia</b>
-                            <p class="h4">{!! $data->indonesian_name ?? '' !!}</p>
-                        </div>
-                        <!-- item group END -->
-                        
-                        <!-- item group START -->
-                        <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Plant name in Latin</b>
                             <p class="h4">{!! $data->latin_name ?? '' !!}</p>
                         </div>
@@ -37,57 +23,78 @@
                         
                         <!-- item group START -->
                         <div class="p-2 border-bottom">
+                            <b class="d-block mb-2">Plant name in local language</b>
+                            <p class="">{!! $data->local_name ?? 'Not yet provided' !!}</p>
+                        </div>
+                        <!-- item group END -->
+                        
+                        <!-- item group START -->
+                        <div class="p-2 border-bottom">
+                            <b class="d-block mb-2">Plant name in Bahasa Indonesia</b>
+                            <p class="">{!! $data->indonesian_name ?? 'Not yet provided' !!}</p>
+                        </div>
+                        <!-- item group END -->
+                        
+                        <!-- item group START -->
+                        <div class="p-2 border-bottom">
+                            <b class="d-block mb-2">Plant name in English</b>
+                            <p class="">{!! $data->english_name ?? 'Not yet provided' !!}</p>
+                        </div>
+                        <!-- item group END -->
+                        
+                        <!-- item group START -->
+                        <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Taxonomists</b>
-                            <p class="h4">{!! $data->taxonomists ?? '' !!}</p>
+                            <p class="">{!! $data->taxonomists ?? 'Not yet provided' !!}</p>
                         </div>
                         <!-- item group END -->
                         
                         <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Treatments</b>
-                            <p class="h4">{!! $data->treatments ?? '' !!}</p>
+                            <p class="">{!! $data->treatments ?? 'Not yet provided' !!}</p>
                         </div>
                         <!-- item group END -->
                         
                         <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Traditional Usage</b>
-                            <p class="h4">{!! $data->traditional_usage ?? '' !!}</p>
+                            <p class="">{!! $data->traditional_usage ?? 'Not yet provided' !!}</p>
                         </div>
                         <!-- item group END -->
                         
                         <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Known Phytochemical Consituents</b>
-                            <p class="h4">{!! $data->known_phytochemical_consituents ?? '' !!}</p>
+                            <p class="">{!! $data->known_phytochemical_consituents ?? 'Not yet provided' !!}</p>
                         </div>
                         <!-- item group END -->
                         
                         <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Villages</b>
-                            <p class="h4">{!! $data->villages ?? '' !!}</p>
+                            <p class="">{!! $data->villages ?? 'Not yet provided' !!}</p>
                         </div>
                         <!-- item group END -->
                         
                         <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Regency <top class="text-danger">*</top></b>
-                            <p class="h4">{!! $data->regency->name ?? '<small class="text-danger">This is a required field</small>' !!}</p>
+                            <p class="">{!! $data->regency->name ?? 'Not yet provided' !!}</p>
                         </div>
                         <!-- item group END -->
                         
                         <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Contributor <top class="text-danger">*</top></b>
-                            <p class="h4">{!! $data->contributor->full_name ?? '<small class="text-danger">This is a required field</small>' !!}</p>
+                            <p class="">{!! $data->contributor->full_name ?? 'Not yet provided' !!}</p>
                         </div>
                         <!-- item group END -->
                         
                         <!-- item group START -->
                         <div class="p-2 border-bottom">
                             <b class="d-block mb-2">Status</b>
-                            <p class="h4">{!! $data->status ?? '' !!}</p>
+                            <p class="">{!! $data->status ?? 'Not yet provided' !!}</p>
                         </div>
                         <!-- item group END -->
 

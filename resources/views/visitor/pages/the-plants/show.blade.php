@@ -23,51 +23,57 @@
                         <div class="col-md-6">
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Plant name in Latin </span>
-                                <div class="fs-5">
-                                    {!! $data->latin_name ?? '' !!}
+                                <div class="fs-6">
+                                    {!! $data->latin_name ?? '<span class="text-muted">Not yet provided</span>' !!}
                                 </div>
                             </div>
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Plant name in Bahasa Indonesia </span>
-                                <div class="fs-5">
-                                    {!! $data->indonesian_name ?? '' !!}
+                                <div class="fs-6">
+                                    {!! $data->indonesian_name ?? '<span class="text-muted">Not yet provided</span>' !!}
+                                </div>
+                            </div>
+                            <div class="p-2 px-3 border-bottom">
+                                <span class="d-block mb-2 text-secondary">Plant name in English </span>
+                                <div class="fs-6">
+                                    {!! $data->english_name ?? '<span class="text-muted">Not yet provided</span>' !!}
                                 </div>
                             </div>
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Plant name in local language </span>
-                                <div class="fs-5">
-                                    {!! $data->local_name ?? '' !!}
+                                <div class="fs-6">
+                                    {!! $data->local_name ?? '<span class="text-muted">Not yet provided</span>' !!}
                                 </div>
                             </div>
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Taxonomists </span>
-                                <div class="fs-5">
-                                    {!! $data->taxonomists ?? '' !!}
+                                <div class="fs-6">
+                                    {!! $data->taxonomists ?? '<span class="text-muted">Not yet provided</span>' !!}
                                 </div>
                             </div>
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Treatments </span>
-                                <div class="fs-5">
-                                    {!! $data->treatments ?? '' !!}
+                                <div class="fs-6">
+                                    {!! $data->treatments ?? '<span class="text-muted">Not yet provided</span>' !!}
                                 </div>
                             </div>
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Traditional usage </span>
-                                <div class="fs-5">
-                                    {!! $data->traditional_usage ?? '' !!}
+                                <div class="fs-6">
+                                    {!! $data->traditional_usage ?? '<span class="text-muted">Not yet provided</span>' !!}
                                 </div>
                             </div>
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Known Phytochemical Consituents </span>
-                                <div class="fs-5">
-                                    {!! $data->known_phytochemical_consituents ?? '' !!}
+                                <div class="fs-6">
+                                    {!! $data->known_phytochemical_consituents ?? '<span class="text-muted">Not yet provided</span>' !!}
                                 </div>
                             </div>
                             <div class="p-2 px-3 border-bottom">
                                 <span class="d-block mb-2 text-secondary">Contributor </span>
                                 <a href="{{ url('contributor', $data->contributor->slug ?? '') }}" class="text-decoration-none link-dark">
-                                    <span class="fs-5">
-                                        <i class="fa-solid fa-user"></i>  {!! $data->contributor->full_name ?? '' !!}
+                                    <span class="fs-6">
+                                        <i class="fa-solid fa-user"></i>  {!! $data->contributor->full_name ?? '<span class="text-muted">Not yet provided</span>' !!}
                                     </span>
                                 </a>
                             </div>
@@ -76,7 +82,7 @@
                                 <a href="{{ url('plants/regency', $data->regency->slug ?? '') }}" class="text-decoration-none link-dark">
 
                                     <span class="fs-6">
-                                        <i class="fa-solid fa-map-marker"></i>  {!! $data->regency->name ?? '' !!}
+                                        <i class="fa-solid fa-map-marker"></i>  {!! $data->regency->name ?? '<span class="text-muted">Not yet provided</span>' !!}
                                     </span>
                                 </a>
                             </div>
@@ -89,6 +95,13 @@
                                     <img src="{{ asset('images/plants/'. $data->id .'/'. $data->image_cover ?? '') }}" alt="Image" class="w-100">
                                 </div>
                             </div>
+                            @else
+                            <div class="row">
+                                <div class="col-lg-12 mx-auto mb-3">
+                                    <img src="{{ asset('images/plants/image-gallery.jpg') }}" alt="Image" class="card-img-top">
+                                </div>
+                            </div>
+
                             @endif
 
                             <div class="row">

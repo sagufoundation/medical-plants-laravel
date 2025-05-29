@@ -25,7 +25,7 @@ Route::controller(VisitorController::class)->group(function(){
 
     // PLANTS PAGES
     Route::get('/plants','plants')->name('visitor.plants');
-    Route::get('/plants/{slug}/detail','plantsDetail')->name('visitor.plants.detail');
+    Route::get('/plants/{id}/detail','plantsDetail')->name('visitor.plants.detail');
     // Route::get('/the-plants-simulation','thePlantsSimulation')->name('visitor.the-plants-simulation');
     
     // PLANTS BY REGENCY

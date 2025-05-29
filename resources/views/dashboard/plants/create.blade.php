@@ -17,6 +17,19 @@
 
                             <!-- input item START -->
                             <div class="mb-3">
+                                <label for="latin_name">Plant name in Latin</label>
+
+                                <textarea id="latin_name" name="latin_name" rows="1" class="ckeditor form-control rounded-0">{{ old('latin_name') ?? '' }}</textarea>
+                                @if ($errors->has('latin_name'))
+                                <span class="text-danger" role="alert">
+                                        <small>{{ $errors->first('latin_name') }}</small>
+                                    </span>
+                                @endif
+                            </div>
+                            <!-- input item END -->
+
+                            <!-- input item START -->
+                            <div class="mb-3">
                                 <label for="local_name">Plant name in local language <span class="text-danger">*</span></label>
 
                                 <textarea id="local_name" name="local_name" rows="1" class="ckeditor form-control rounded-0">{{ old('local_name') ?? '' }}</textarea>
@@ -43,12 +56,12 @@
 
                             <!-- input item START -->
                             <div class="mb-3">
-                                <label for="latin_name">Plant name in Latin</label>
+                                <label for="english_name">Plant name in English</label>
 
-                                <textarea id="latin_name" name="latin_name" rows="1" class="ckeditor form-control rounded-0">{{ old('latin_name') ?? '' }}</textarea>
-                                @if ($errors->has('latin_name'))
+                                <textarea id="english_name" name="english_name" rows="1" class="ckeditor form-control rounded-0">{{ old('english_name') ?? '' }}</textarea>
+                                @if ($errors->has('english_name'))
                                 <span class="text-danger" role="alert">
-                                        <small>{{ $errors->first('latin_name') }}</small>
+                                        <small>{{ $errors->first('english_name') }}</small>
                                     </span>
                                 @endif
                             </div>

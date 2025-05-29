@@ -34,8 +34,9 @@ return new class extends Migration
             $table->string('image_batang')->nullable();
             $table->string('image_keseluruhan')->nullable();
 
-            $table->string('local_name');
+            $table->string('local_name')->nullable();
             $table->string('indonesian_name')->nullable();
+            $table->string('english_name')->nullable();
             $table->string('latin_name')->nullable();
             $table->string('taxonomists')->nullable();
 

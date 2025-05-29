@@ -47,9 +47,9 @@ class VisitorController extends Controller
     public function plants(Request $request)
     {
 
-        $parameter = $request->parameter ?? 'local_name';
+        $parameter = $request->parameter ?? 'latin_name';
         $datas = Plant::where([
-            ['local_name', '!=', Null],
+            ['latin_name', '!=', Null],
             [function ($query) use ($request, $parameter) {
                 if (($s = $request->s)) {
                     $query->orWhere($parameter, 'LIKE', '%' . $s . '%')
@@ -97,7 +97,7 @@ class VisitorController extends Controller
 
     // PLANT DETAIL
     public function plantsDetail($id) {
-        $data = Plant::where('slug', $id)->first();
+        $data = Plant::where('id', $id)->first();
         if($data) {
             return view('visitor.pages.the-plants.show', compact('data'));
         } else {

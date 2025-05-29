@@ -34,11 +34,11 @@
                                 <p class="card-text">Classify and name traditional medicinal plants using their expertise in taxonomy. </p>
                                 <p class="card-text"><small class="text-body-secondary">Taxonomist</small></p>
 
-                                <p class="card-text">
+                                {{-- <p class="card-text">
                                     <a href="#" target="_blank" class="text-decoration-none link-secondary">
                                         <i class="fab fa-linkedin"></i> LinkedIn
                                     </a>
-                                </p>
+                                </p> --}}
                             </div>
                         </div>
                     </div>
@@ -59,11 +59,11 @@
                                 <p class="card-text">Classify and name traditional medicinal plants using their expertise in taxonomy. </p>
                                 <p class="card-text"><small class="text-body-secondary">Taxonomist</small></p>
 
-                                <p class="card-text">
+                                {{-- <p class="card-text">
                                     <a href="#" target="_blank" class="text-decoration-none link-secondary">
                                         <i class="fab fa-linkedin"></i> LinkedIn
                                     </a>
-                                </p>
+                                </p> --}}
                             </div>
                         </div>
                     </div>
@@ -199,11 +199,11 @@
                                     Handles the digital input of traditional plant data onto the platform, ensures that all information complies with the required format and standards, and processes images by cropping and adjusting.
                                 </p>
                                 <p class="card-text"><small class="text-body-secondary">Administrator</small></p>
-                                <p class="card-text">
+                                {{-- <p class="card-text">
                                     <a href="#" target="_blank" class="text-decoration-none link-secondary">
                                         <i class="fab fa-linkedin"></i> LinkedIn
                                     </a>
-                                </p>
+                                </p> --}}
                             </div>
                         </div>
                     </div>
