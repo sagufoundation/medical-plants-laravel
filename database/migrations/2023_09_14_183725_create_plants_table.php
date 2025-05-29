@@ -47,6 +47,9 @@ return new class extends Migration
 
             $table->enum('status',['Publish','Draft'])->default('Draft')->nullable();
 
+            // plant details
+            $table->text('description')->nullable();
+
             $table->softDeletes();
             $table->timestamps();
 

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
@@ -38,7 +39,51 @@
         .font-satu{
             font-family: 'Passion One';
         }
-      </style>
+      
+      @media (min-width: 992px) {
+        .navbar .dropdown:hover .dropdown-menu {
+          display: block;
+          margin-top: 0;
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+
+
+    
+      
+
+      /* Hilangkan toolbar abu-abu di atas */
+  .goog-te-banner-frame.skiptranslate {
+    display: none !important;
+  }
+
+  body {
+    top: 0px !important;
+  }
+
+  /* Hilangkan bubble tooltip */
+  #goog-gt-tt, .goog-te-balloon-frame {
+    display: none !important;
+  }
+
+  /* Hilangkan highlight */
+  .goog-text-highlight {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Hilangkan frame tambahan jika muncul */
+  iframe.VIpgJd-ZVi9od-ORHb-OEVmcd {
+    display: none !important;
+  }
+
+
+
+    </style>
+
+
+
 
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -49,4 +94,4 @@
       crossorigin=""></script>
 
 </head>
-<body class="">
+<body class="app">

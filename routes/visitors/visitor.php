@@ -52,6 +52,22 @@ Route::get('what-we-do/research', function() {
 
 /*
 |--------------------------------------------------------------------------
+| SUPPORT US
+|--------------------------------------------------------------------------
+|
+*/
+// support us > donate
+Route::get('internship', function() {
+    return view('visitor.pages.internship');
+});
+
+// support us > donation
+Route::get('donation', function() {
+    return view('visitor.pages.donation');
+});
+
+/*
+|--------------------------------------------------------------------------
 | OTHER
 |--------------------------------------------------------------------------
 |

@@ -22,9 +22,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="p-2 px-3 border-bottom">
-                                <span class="d-block mb-2 text-secondary">Plant name in Local Language </span>
+                                <span class="d-block mb-2 text-secondary">Plant name in Latin </span>
                                 <div class="fs-5">
-                                    {!! $data->local_name ?? '' !!}
+                                    {!! $data->latin_name ?? '' !!}
                                 </div>
                             </div>
                             <div class="p-2 px-3 border-bottom">
@@ -37,12 +37,6 @@
                                 <span class="d-block mb-2 text-secondary">Plant name in local language </span>
                                 <div class="fs-5">
                                     {!! $data->local_name ?? '' !!}
-                                </div>
-                            </div>
-                            <div class="p-2 px-3 border-bottom">
-                                <span class="d-block mb-2 text-secondary">Plant name in Latin </span>
-                                <div class="fs-5">
-                                    {!! $data->latin_name ?? '' !!}
                                 </div>
                             </div>
                             <div class="p-2 px-3 border-bottom">

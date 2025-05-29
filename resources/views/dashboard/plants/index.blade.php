@@ -16,7 +16,7 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Plant's Picture</th>
-                                <th  scope="col">Local Name</th>
+                                <th  scope="col">Latin Name</th>
                                 <th  scope="col">Contributor</th>
                                 <th  scope="col">Regency</th>
                                 <th scope="col" class="text-center"></th>
@@ -34,7 +34,7 @@
                                         <img src="{{ asset('images/plants/00-single.jpg') }}" alt="plant image" width="100%" class="border shadow">
                                     @endif
                                 </td>
-                                <td>{!! $data->local_name ?? '' !!}</td>
+                                <td>{!! $data->latin_name ?? '' !!}</td>
                                 <td>{!! $data->contributor->full_name ?? '' !!} </td>
                                 <td>{!! $data->regency->name ?? '' !!} </td>
 

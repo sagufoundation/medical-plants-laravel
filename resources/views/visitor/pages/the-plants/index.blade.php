@@ -57,11 +57,11 @@
                   <div class="card-body">
                     <h3>
                       <a href="{{ route('visitor.plants.detail',$data->slug ?? '') }}" class="fw-bold text-decoration-none link-success">
-                            {!! $data->local_name !!}
+                            {!! $data->latin_name !!} 
                       </a>
                     </h3>
                     <p>
-                      {!! $data->latin_name !!}
+                      {!! $data->local_name !!}
                     </p>
                     <div class="my-3 d-flex gap-3">
                       @if (Request::segment(2) == 'regency')
