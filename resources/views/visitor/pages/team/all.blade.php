@@ -168,55 +168,10 @@
 </section>
 
 
-{{-- PHYTOCHEMISTRY TEAM --}}
-
-<section id="operator-team">
-    <div class="container mt-5 mb-5">
-        <div class="row">
-            <div class="col-lg-6 mx-auto text-center">
-                <h1 class="fw-bolder font-satu text-success">Administrator/Operator Team</h1>
-                <p>
-                    This team is responsible for managing and maintaining the accuracy and quality of plant data on the website platform. Their tasks include uploading data, verifying that all submissions meet minimum standards, organizing plant information, and editing or cropping images for consistency. Administrators ensure that the database remains structured, clean, and accessible for research and educational use.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="container mt-5 mb-5">
-        <div class="row">
-            <div class="col-lg-6 mx-auto">            
-                <div class="card mb-3">
-                    <div class="row g-0">
-                        <div class="col-md-5">
-                            <img src="{{ asset('images/team/team-ronaldo.png') }}" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-md-7">
-                            <div class="card-body">
-                                <h5 class="card-title fw-bold text-success">Ronaldo Mandibondibo</h5>
-                                <p class="card-text">
-                                    Handles the digital input of traditional plant data onto the platform, ensures that all information complies with the required format and standards, and processes images by cropping and adjusting.
-                                </p>
-                                <p class="card-text"><small class="text-body-secondary">Administrator</small></p>
-                                {{-- <p class="card-text">
-                                    <a href="#" target="_blank" class="text-decoration-none link-secondary">
-                                        <i class="fab fa-linkedin"></i> LinkedIn
-                                    </a>
-                                </p> --}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 
 
 {{-- DEVELOPER TEAM --}}
-<section id="the-plants ">
+<section id="web-developer-team">
     <div class="container mt-5 mb-5">
     <div class="row">
         <div class="col-lg-6 mx-auto text-center">
@@ -227,7 +182,7 @@
     </div>
 </section>
 
-<section id="the-plants ">
+<section>
     <div class="container mt-5 mb-5">
         <div class="row">
             <div class="col-lg-6">
@@ -282,5 +237,53 @@
         </div>
     </div>
 </section>
+
+
+
+{{-- ADMINISTRATOR/OPERATOR TEAM --}}
+
+<section id="operator-team">
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-lg-6 mx-auto text-center">
+                <h1 class="fw-bolder font-satu text-success">Administrator/Operator Team</h1>
+                <p>
+                    This team is responsible for managing and maintaining the accuracy and quality of plant data on the website platform. Their tasks include uploading data, verifying that all submissions meet minimum standards, organizing plant information, and editing or cropping images for consistency. Administrators ensure that the database remains structured, clean, and accessible for research and educational use.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">            
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <img src="{{ asset('images/team/team-ronaldo.png') }}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold text-success">Ronaldo Mandibondibo</h5>
+                                <p class="card-text">
+                                    Handles the digital input of traditional plant data onto the platform, ensures that all information complies with the required format and standards, and processes images by cropping and adjusting.
+                                </p>
+                                <p class="card-text"><small class="text-body-secondary">Administrator</small></p>
+                                {{-- <p class="card-text">
+                                    <a href="#" target="_blank" class="text-decoration-none link-secondary">
+                                        <i class="fab fa-linkedin"></i> LinkedIn
+                                    </a>
+                                </p> --}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 @stop
